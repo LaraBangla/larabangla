@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base{
+    body{
+        font-family: 'Anek Bangla', sans-serif;
+    }
+    .bg_footer_1{
+        background-color: #2d2a2a;
+    }
+    .bg_footer_2{
+        background-color: #262525;
+    }
+    .bg_footer_3{
+        background-color: #221c1c;;
+    }
+}
+@layer components {
+    .btn-lg {
+        @apply px-10 py-5 font-semibold ring-2 ring-blue-100 ring-offset-2 ring-offset-blue-100;
+    }
+    .btn-sm {
+        @apply px-5 py-3 font-semibold ring-2 ring-blue-100 ring-offset-2 ring-offset-blue-100;
+    }
+
+
+}
