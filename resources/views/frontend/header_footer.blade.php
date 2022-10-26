@@ -80,7 +80,7 @@
                     </div>
                 </ul>
                 {{-- tutorial menu start --}}
-                <div class=" bg-gray-300 absolute w-screen shadow-xl" x-show="tutorial">
+                <div class="bg-slate-100 absolute w-screen shadow-xl" x-show="tutorial" @click.outside="tutorial=false">
                     <div class="container mx-auto">
                         <div class=" grid grid-cols-12 py-5 gap-6 ">
                             <div class=" col-span-3">
