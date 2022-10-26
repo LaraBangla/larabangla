@@ -203,10 +203,10 @@
                     <!-- footer end -->
 
                     <!-- footer middle -->
-                    <div class="bg_footer_2 leading-7 text-gray-300">
+                    <div class="bg_footer_2 leading-7 text-gray-300 pl-4 md:pl-0">
                         <div class="container mx-auto">
                             <div class=" grid grid-cols-12 py-5 gap-4">
-                                <div class=" col-span-3">
+                                <div class=" col-span-12 md:col-span-3">
                                        <h6 class=" border-b border-gray-700"><span class=" text-2xl">লারা </span><span class=" text-3xl">বাংলা</span></h6>
                                         <ul class="pt-2">
                                             <li><a href="#">হোম</a></li>
@@ -215,7 +215,7 @@
                                             <li><a href="#">লাইভ ওয়্যার</a></li>
                                         </ul>
                                 </div>
-                                <div class=" col-span-3">
+                                <div class=" col-span-12 md:col-span-3">
                                     <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl ">তথ্য </span></h6>
                                      <ul class="pt-2">
                                          <li><a href="#">আমাদের সম্পর্কে</a></li>
@@ -224,7 +224,7 @@
                                          <li><a href="#">ফোরাম</a></li>
                                      </ul>
                              </div>
-                             <div class=" col-span-3">
+                             <div class=" col-span-12 md:col-span-3">
                                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
                                  <ul class="pt-2">
                                      <li><a href="#">একাউন্ট</a></li>
@@ -234,14 +234,14 @@
 
                                  </ul>
                          </div>
-                         <div class=" col-span-3">
+                         <div class=" col-span-12 md:col-span-3">
                             <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">আমাদের সম্পর্কে </span></h6>
                             <p class="pt-3">
                                 জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
                             </p>
                      </div>
 
-                     <div class=" col-span-3 md:pt-8">
+                     <div class=" col-span-12 md:col-span-3 md:pt-8">
                         <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সমর্থন </span></h6>
                          <ul class="pt-2">
                              <li><a href="#">প্রশ্ন</a></li>
@@ -250,7 +250,7 @@
                          </ul>
                  </div>
 
-                 <div class=" col-span-3 md:pt-8">
+                 <div class=" col-span-12 md:col-span-3 md:pt-8">
                     <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">আইনি </span></h6>
                      <ul class="pt-2">
                          <li><a href="#">গোপনীয়তা নীতি</a></li>
@@ -261,7 +261,7 @@
                      </ul>
              </div>
 
-             <div class=" col-span-3 md:pt-8">
+             <div class=" col-span-12 md:col-span-3 md:pt-8">
                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সেবা সমূহ </span></h6>
                  <ul class="pt-2">
                      <li><a href="#">টিউটোরিয়াল</a></li>
@@ -271,7 +271,7 @@
                  </ul>
          </div>
 
-         <div class=" col-span-3 md:pt-8  ">
+         <div class=" col-span-12 md:col-span-3 md:pt-8 pb-5 md:pb-0 ">
             <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">আমাদের অনুসরণ করুন </span></h6>
              <div class="pt-4 flex items-center gap-3 ">
                  <div class=" duration-300 w-10 h-10  bg-blue-800 hover:bg-blue-900 text-white rounded-full text-center">
