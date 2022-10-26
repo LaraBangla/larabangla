@@ -15,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('frontend.index');
-});
+})->name('/');
+
+
+Route::get('/docs', function () {
+    return view('frontend.docs.index');
+})->name('docs');

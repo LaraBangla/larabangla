@@ -26,9 +26,9 @@
                 <a href="#" class="font-bold text-2xl">Lara Bangla</a>
             </div> -->
                 <ul class="flex justify-end py-6 mr-4" x-data="{ user: false }">
-                    <li><a href="#" class="font-bold text-2xl pl-5 text-gray-600">লারা <span class=" text-3xl">বাংলা</span></a></li>
+                    <li><a href="{{ route('/') }}" class="font-bold text-2xl pl-5 text-gray-600">লারা <span class=" text-3xl">বাংলা</span></a></li>
                     <li class=" grow"></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="#"><i class="fa fa-home"></i> হোম</a></li>
+                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="{{ route('/') }}"><i class="fa fa-home"></i> হোম</a></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 " @click="tutorial = ! tutorial" >
                         <a class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a>
 
@@ -148,7 +148,7 @@
         </div>
 
         <div class=" w-screen  ">
-
+            {{-- mobile menu start --}}
             <div class=" absolute top-0 left-0 z-50 w-1/2 md:w-2/12 h-screen bg-gray-100 duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" @click.outside="open=false">
                 <div class="border-b p-5 text-center text-gray-600">
@@ -158,15 +158,21 @@
                         <p class=" font-normal text-right pr-4" style="font-size: 10px;">এবার শিখা হোক বাংলায়</p>
                     </a>
                 </div>
+
                 <div class="pl-4 pb-2">
                     <ul class="pt-6">
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>হোম</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-fan mr-4 "></i></span>সার্ভিস</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>ব্লগ</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>সম্পর্কে</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>লগিন</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="{{ route('/') }}"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>হোম</a></li>
+                        @if (Request::is('/'))
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-fan mr-4 "></i></span>সার্ভিস</a></li>
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>ব্লগ</a></li>
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>সম্পর্কে</a></li>
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>লগিন</a></li>
+                        @else
+
+                        @endif
+
                     </ul>
                 </div>
                 {{-- <div class="pt-5 pl-5">
@@ -187,7 +193,7 @@
                     </ul>
                 </div> --}}
             </div>
-
+            {{-- mobile menu end --}}
             <!-- body section -->
             <div>
 
@@ -208,7 +214,7 @@
                     <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 md:hidden duration-700" :class="open ? 'blur-sm' : ''">
                         <ul class="flex justify-around">
                             <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-book mr-2 "></i></span></a></li>
-                            <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa fa-home mr-2 "></i></span></a></li>
+                            <li class="px-4 py-6 font-bold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2 "></i></span></a></li>
                             <!-- <li class="px-4 py-6 font-bold text-gray-600"></li> -->
                             <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2 "></i></span></a></li>
                         </ul>
