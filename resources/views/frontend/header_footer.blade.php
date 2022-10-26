@@ -160,18 +160,16 @@
                 </div>
                 <div class="pl-4 pb-2">
                     <ul class="pt-6">
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>Home</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>Blog</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-users mr-4 "></i></span>Team</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600">
-                            <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>About</a>
-                        </li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600">
-                            <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>Login</a>
-                        </li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>হোম</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-fan mr-4 "></i></span>সার্ভিস</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>ব্লগ</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>সম্পর্কে</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>লগিন</a></li>
                     </ul>
                 </div>
-                <div class="pt-5 pl-5">
+                {{-- <div class="pt-5 pl-5">
                     <div class=" border-b pb-3">
                         <span class=" font-semibold text-xl text-gray-600">Services</span>
 
@@ -181,13 +179,13 @@
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>Blog</a></li>
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-users mr-4 "></i></span>Team</a></li>
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600">
-                            <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>About</a>
+                            <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>সম্পর্কে</a>
                         </li>
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600">
                             <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>Login</a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
             </div>
 
             <!-- body section -->
