@@ -18,7 +18,7 @@
     if (width > 640) {
     open = false
     }">
-        <div class="bg-gray-200 ">
+        <div class="bg-gray-200 " x-data="{ tutorial: false }" >
 
             <div>
                 <!-- class="container" -->
@@ -29,7 +29,11 @@
                     <li><a href="#" class="font-bold text-2xl pl-5 text-gray-600">লারা <span class=" text-3xl">বাংলা</span></a></li>
                     <li class=" grow"></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="#"><i class="fa fa-home"></i> হোম</a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">টিউটোরিয়াল</a></li>
+                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 " @click="tutorial = ! tutorial" >
+                        <a class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a>
+
+
+                    </li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সার্ভিস</a></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">ব্লগ</a></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সম্পর্কে</a></li>
@@ -75,6 +79,71 @@
                         <i class="fa fa-bars "></i>
                     </div>
                 </ul>
+                {{-- tutorial menu start --}}
+                <div class=" bg-gray-300 absolute w-screen shadow-xl" x-show="tutorial">
+                    <div class="container mx-auto">
+                        <div class=" grid grid-cols-12 py-5 gap-6 ">
+                            <div class=" col-span-3">
+                                   <h6 class=" text-xl font-bold text-gray-700 pb-1 border-b border-gray-500">ডিজাইন</h6>
+                                   <div class="pt-3 leading-9">
+                                    <ul>
+                                        <li class=" hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">HTML টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">CSS টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Bootstrap টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Tailwind CSS টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Materialize CSS টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Java Script টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">jQuery টিউটরিয়াল  </a></li>
+                                        <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Alpine JS টিউটরিয়াল  </a></li>
+                                    </ul>
+                                   </div>
+                            </div>
+                            <div class=" col-span-3">
+                                <h6 class=" text-xl font-bold text-gray-700 pb-1 border-b border-gray-500">প্রোগ্রামিং</h6>
+                                <div class="pt-3 leading-9">
+                                 <ul>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">C টিউটরিয়াল  </a></li>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">C++ টিউটরিয়াল  </a></li>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">C# টিউটরিয়াল  </a></li>
+                                     <li class=" hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">PHP টিউটরিয়াল  </a></li>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Python টিউটরিয়াল  </a></li>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Java টিউটরিয়াল  </a></li>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Kotlin টিউটরিয়াল  </a></li>
+                                     <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Type Script টিউটরিয়াল  </a></li>
+
+                                 </ul>
+                                </div>
+                         </div>
+
+                         <div class=" col-span-3">
+                            <h6 class=" text-xl font-bold text-gray-700 pb-1 border-b border-gray-500">ফ্রেমওয়ার্ক</h6>
+                            <div class="pt-3 leading-9">
+                             <ul>
+                                 <li class=" hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Laravel টিউটরিয়াল  </a></li>
+                                 <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Django টিউটরিয়াল  </a></li>
+                                 <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Vue JS টিউটরিয়াল  </a></li>
+                                 <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">React টিউটরিয়াল  </a></li>
+                             </ul>
+                            </div>
+                     </div>
+
+                     <div class=" col-span-3">
+                        <h6 class=" text-xl font-bold text-gray-700 pb-1 border-b border-gray-500">অন্যান্য</h6>
+                        <div class="pt-3 leading-9">
+                         <ul>
+                             <li class=" hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Git টিউটরিয়াল  </a></li>
+                             <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">MySQL টিউটরিয়াল  </a></li>
+                             <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">MongoDB টিউটরিয়াল  </a></li>
+                             <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">AWS Cloud টিউটরিয়াল  </a></li>
+                             <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">AI টিউটরিয়াল  </a></li>
+                             <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Machine Learning টিউটরিয়াল  </a></li>
+                         </ul>
+                        </div>
+                 </div>
+                        </div>
+                    </div>
+                </div>
+                 {{-- tutorial menu end --}}
             </div>
         </div>
 
