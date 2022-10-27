@@ -337,7 +337,7 @@
              <div class=" col-span-12 md:col-span-3 md:pt-8">
                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সেবা সমূহ </span></h6>
                  <ul class="pt-2">
-                     <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span class=" text-xs bg-yellow-600 text-black rounded-full px-2">রেজিস্ট্রেশন করুন</span></a></li>
+                     <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span class="text-xs bg-yellow-600 text-black rounded-full px-2">রেজিস্ট্রেশন করুন</span></a></li>
                      <li><a href="#"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
                      <li><a href="#"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
                      <li><a href="#"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
