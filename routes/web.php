@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,9 @@ $converter = new GithubFlavoredMarkdownConverter([
     'allow_unsafe_links' => false,
 ]);
 
-    $md = storage_path() . '/docs.md';
-    $data = $converter->convert($md);
+   // $md = storage_path() . '/docs.md';
+//    $md =  Storage::disk('docs');
+    $data = $converter->convert('# Bismillah');
 
 
 

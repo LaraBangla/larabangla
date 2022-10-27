@@ -155,7 +155,7 @@
                     <a href="#" class=" font-bold ">
                         <!-- <img class="block mx-auto pt-5" src="src/img/logo.png" width="70" alt=""> -->
                         <span class=""><span class=" text-2xl">লারা</span>&nbsp;&nbsp;<span class=" text-3xl">বাংলা</span></span>
-                        <p class=" font-normal text-right pr-4" style="font-size: 10px;">এবার শিখা হোক বাংলায়</p>
+                        <p class=" font-normal text-right pr-4 text-xs" >এবার শিখা হোক বাংলায়</p>
                     </a>
                 </div>
 
@@ -282,28 +282,28 @@
                                 <div class=" col-span-12 md:col-span-3">
                                        <h6 class=" border-b border-gray-700"><span class=" text-2xl">লারা </span><span class=" text-3xl">বাংলা</span></h6>
                                         <ul class="pt-2">
-                                            <li><a href="#">হোম</a></li>
-                                            <li><a href="#">লারাভেল</a></li>
-                                            <li><a href="#">স্প্লেড</a></li>
-                                            <li><a href="#">লাইভ ওয়্যার</a></li>
+                                            <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;হোম</a></li>
+                                            <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
+                                            <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
+                                            <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
                                         </ul>
                                 </div>
                                 <div class=" col-span-12 md:col-span-3">
                                     <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl ">তথ্য </span></h6>
                                      <ul class="pt-2">
-                                         <li><a href="#">আমাদের সম্পর্কে</a></li>
-                                         <li><a href="#">যোগাযোগ করুন</a></li>
-                                         <li><a href="#">ব্লগ</a></li>
-                                         <li><a href="#">ফোরাম</a></li>
+                                         <li><a href="#"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
+                                         <li><a href="#"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
+                                         <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
+                                         <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
                                      </ul>
                              </div>
                              <div class=" col-span-12 md:col-span-3">
                                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
                                  <ul class="pt-2">
-                                     <li><a href="#">একাউন্ট</a></li>
-                                     <li><a href="#">টিউটোরিয়াল</a></li>
-                                     <li><a href="#">কমিউনিটি</a></li>
-                                     <li><a href="#">সেটিংস</a></li>
+                                     <li><a href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
+                                     <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
+                                     <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
+                                     <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
 
                                  </ul>
                          </div>
@@ -317,19 +317,19 @@
                      <div class=" col-span-12 md:col-span-3 md:pt-8">
                         <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সমর্থন </span></h6>
                          <ul class="pt-2">
-                             <li><a href="#">প্রশ্ন</a></li>
-                             <li><a href="#">সাহায্য</a></li>
-                             <li><a href="#">সাইটম্যাপ</a></li>
+                             <li><a href="#"><i class="fa-solid fa-circle-question"></i>&nbsp;&nbsp;প্রশ্ন</a></li>
+                             <li><a href="#"><i class="fa-solid fa-handshake-angle"></i>&nbsp;&nbsp;সাহায্য</a></li>
+                             <li><a href="#"><i class="fa-solid fa-sitemap"></i>&nbsp;&nbsp;সাইটম্যাপ</a></li>
                          </ul>
                  </div>
 
                  <div class=" col-span-12 md:col-span-3 md:pt-8">
                     <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">আইনি </span></h6>
                      <ul class="pt-2">
-                         <li><a href="#">গোপনীয়তা নীতি</a></li>
-                         <li><a href="#">শর্তাবলী</a></li>
-                         <li><a href="#">ব্যবহারের শর্তাবলী</a></li>
-                         <li><a href="#">কপিরাইট</a></li>
+                         <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;গোপনীয়তা নীতি</a></li>
+                         <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;শর্তাবলী</a></li>
+                         <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;ব্যবহারের শর্তাবলী</a></li>
+                         <li><a href="#"><i class="fa-solid fa-copyright"></i>&nbsp;&nbsp;কপিরাইট</a></li>
 
                      </ul>
              </div>
@@ -337,10 +337,10 @@
              <div class=" col-span-12 md:col-span-3 md:pt-8">
                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সেবা সমূহ </span></h6>
                  <ul class="pt-2">
-                     <li><a href="#">টিউটোরিয়াল</a></li>
-                     <li><a href="#">ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
-                     <li><a href="#">অ্যাপস ডেভেলপমেন্ট</a></li>
-                     <li><a href="#">সফটওয়্যার ডেভেলপমেন্ট</a></li>
+                     <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span class=" text-xs bg-yellow-600 text-black rounded-full px-2">রেজিস্ট্রেশন করুন</span></a></li>
+                     <li><a href="#"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
+                     <li><a href="#"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
+                     <li><a href="#"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
                  </ul>
          </div>
 
