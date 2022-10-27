@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use League\CommonMark\GithubFlavoredMarkdownConverter;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,5 +19,18 @@ Route::get('/', function () {
 
 
 Route::get('/docs', function () {
-    return view('frontend.docs.index');
+
+
+$converter = new GithubFlavoredMarkdownConverter([
+    'html_input' => 'strip',
+    'allow_unsafe_links' => false,
+]);
+
+    $md = storage_path() . '/docs.md';
+    $data = $converter->convert($md);
+
+
+
+// <h1>Hello World!</h1>
+    return view('frontend.docs.index',compact('data'));
 })->name('docs');
