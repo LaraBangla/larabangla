@@ -26,7 +26,7 @@ $converter = new GithubFlavoredMarkdownConverter([
     'allow_unsafe_links' => false,
 ]);
 
-    $md = storage_path() . '/docs.md';
+    $md = file_get_contents( storage_path('/docs.md'));
     $data = $converter->convert($md);
 
 

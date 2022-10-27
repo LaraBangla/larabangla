@@ -10,22 +10,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/prism.css')}}">
     <title>লারা বাংলা</title>
 </head>
 
 <body class=" bg-gray-50">
-    <div x-data="{ open: false }" @resize.window="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    <div
+    @if (Request::is('docs'))
+    x-data="{ open: true }"
+    @else
+    x-data="{ open: false }"
+    @endif
+    @resize.window="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     if (width > 640) {
     open = false
     }">
-        <div class="bg-gray-200 " x-data="{ tutorial: false }" >
+        <div class="bg-gray-200 shadow-xl" x-data="{ tutorial: false }" >
 
             <div>
                 <!-- class="container" -->
                 <!-- <div class="float-left pt-5 sm:pt-7 pl-3">
                 <a href="#" class="font-bold text-2xl">Lara Bangla</a>
             </div> -->
-                <ul class="flex justify-end py-6 mr-4" x-data="{ user: false }">
+                <ul class="flex justify-end py-6 mr-4 " x-data="{ user: false }">
                     <li><a href="{{ route('/') }}" class="font-bold text-2xl pl-5 text-gray-600">লারা <span class=" text-3xl">বাংলা</span></a></li>
                     <li class=" grow"></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="{{ route('/') }}"><i class="fa fa-home"></i> হোম</a></li>
@@ -147,10 +154,33 @@
             </div>
         </div>
 
-        <div class=" w-screen  ">
+        <div class=" w-screen
+        @if (Request::is('docs'))
+        md:flex
+        @endif
+        ">
             {{-- mobile menu start --}}
-            <div class=" absolute top-0 left-0 z-50 w-1/2 md:w-2/12 h-screen bg-gray-100 duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
-                x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" @click.outside="open=false">
+            <div class="
+            @if (!Request::is('docs'))
+            absolute top-0 left-0
+            @else
+            absolute md:static top-0 left-0
+            @endif
+
+
+            z-50 w-1/2 md:w-2/12 h-screen
+            @if (!Request::is('docs'))
+            bg-gray-100
+            @else
+            bg-gray-300
+            @endif
+            duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
+                x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+                @if (!Request::is('docs'))
+                @click.outside="open=false"
+                @endif
+                >
+            @if (!Request::is('docs'))
                 <div class="border-b p-5 text-center text-gray-600">
                     <a href="#" class=" font-bold ">
                         <!-- <img class="block mx-auto pt-5" src="src/img/logo.png" width="70" alt=""> -->
@@ -158,6 +188,7 @@
                         <p class=" font-normal text-right pr-4" style="font-size: 10px;">এবার শিখা হোক বাংলায়</p>
                     </a>
                 </div>
+            @endif
 
                 <div class="pl-4 pb-2">
                     <ul class="pt-6">
@@ -220,6 +251,11 @@
                         </ul>
                     </div>
                 </div>
+
+
+
+            </div>
+        </div>
 
                 <!-- footer start -->
                 <footer class=" pt-12 duration-700 " :class="open ? 'blur-sm' : ''">
@@ -388,11 +424,9 @@
 
                 </footer>
                 <!-- footer end -->
-
-
-            </div>
-        </div>
     </div>
+
+    <script src="{{asset('js/prism.js')}}"></script>
 </body>
 
 </html>
