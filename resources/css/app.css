@@ -74,6 +74,9 @@
         margin-left: 20px;
         margin-bottom: 7px;
     }
+    .text-xs{
+        font-size: 10px;
+    }
 }
 
 @layer components {

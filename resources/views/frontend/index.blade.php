@@ -40,8 +40,6 @@
                    </div>
                 @endfor
 
-
-
             </div>
         </section>
         <!-- home content section end -->

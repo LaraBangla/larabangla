@@ -36,11 +36,7 @@
                     <li><a href="{{ route('/') }}" class="font-bold text-2xl pl-5 text-gray-600">লারা <span class=" text-3xl">বাংলা</span></a></li>
                     <li class=" grow"></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="{{ route('/') }}"><i class="fa fa-home"></i> হোম</a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 " @click="tutorial = ! tutorial" >
-                        <a class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a>
-
-
-                    </li>
+                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 " @click="tutorial = ! tutorial" ><a class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সার্ভিস</a></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">ব্লগ</a></li>
                     <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সম্পর্কে</a></li>
@@ -79,9 +75,6 @@
                             </ul>
                         </div>
                     </li>
-
-
-
                     <div class=" md:hidden text-4xl text-gray-600 float-left" @click="open = ! open">
                         <i class="fa fa-bars "></i>
                     </div>
@@ -121,7 +114,6 @@
                                  </ul>
                                 </div>
                          </div>
-
                          <div class=" col-span-3">
                             <h6 class=" text-xl font-bold text-gray-700 pb-1 border-b border-gray-500">ফ্রেমওয়ার্ক</h6>
                             <div class="pt-3 leading-9">
@@ -133,7 +125,6 @@
                              </ul>
                             </div>
                      </div>
-
                      <div class=" col-span-3">
                         <h6 class=" text-xl font-bold text-gray-700 pb-1 border-b border-gray-500">অন্যান্য</h6>
                         <div class="pt-3 leading-9">
@@ -146,7 +137,7 @@
                              <li class="  hover:bg-gray-200 hover:rounded-sm hover:shadow-md hover:pl-3 duration-300"><a href="#">Machine Learning টিউটরিয়াল  </a></li>
                          </ul>
                         </div>
-                 </div>
+                    </div>
                         </div>
                     </div>
                 </div>
@@ -185,7 +176,7 @@
                     <a href="#" class=" font-bold ">
                         <!-- <img class="block mx-auto pt-5" src="src/img/logo.png" width="70" alt=""> -->
                         <span class=""><span class=" text-2xl">লারা</span>&nbsp;&nbsp;<span class=" text-3xl">বাংলা</span></span>
-                        <p class=" font-normal text-right pr-4" style="font-size: 10px;">এবার শিখা হোক বাংলায়</p>
+                        <p class=" font-normal text-right pr-4 text-xs" >এবার শিখা হোক বাংলায়</p>
                     </a>
                 </div>
             @endif
@@ -239,8 +230,6 @@
                             <a class="text-center" href="#"><i class="fa-solid fa-plus"></i></a>
                         </div>
                     </div>
-
-
 
                     <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 md:hidden duration-700" :class="open ? 'blur-sm' : ''">
                         <ul class="flex justify-around">
@@ -318,28 +307,28 @@
                                 <div class=" col-span-12 md:col-span-3">
                                        <h6 class=" border-b border-gray-700"><span class=" text-2xl">লারা </span><span class=" text-3xl">বাংলা</span></h6>
                                         <ul class="pt-2">
-                                            <li><a href="#">হোম</a></li>
-                                            <li><a href="#">লারাভেল</a></li>
-                                            <li><a href="#">স্প্লেড</a></li>
-                                            <li><a href="#">লাইভ ওয়্যার</a></li>
+                                            <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;হোম</a></li>
+                                            <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
+                                            <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
+                                            <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
                                         </ul>
                                 </div>
                                 <div class=" col-span-12 md:col-span-3">
                                     <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl ">তথ্য </span></h6>
                                      <ul class="pt-2">
-                                         <li><a href="#">আমাদের সম্পর্কে</a></li>
-                                         <li><a href="#">যোগাযোগ করুন</a></li>
-                                         <li><a href="#">ব্লগ</a></li>
-                                         <li><a href="#">ফোরাম</a></li>
+                                         <li><a href="#"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
+                                         <li><a href="#"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
+                                         <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
+                                         <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
                                      </ul>
                              </div>
                              <div class=" col-span-12 md:col-span-3">
                                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
                                  <ul class="pt-2">
-                                     <li><a href="#">একাউন্ট</a></li>
-                                     <li><a href="#">টিউটোরিয়াল</a></li>
-                                     <li><a href="#">কমিউনিটি</a></li>
-                                     <li><a href="#">সেটিংস</a></li>
+                                     <li><a href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
+                                     <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
+                                     <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
+                                     <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
 
                                  </ul>
                          </div>
@@ -353,19 +342,19 @@
                      <div class=" col-span-12 md:col-span-3 md:pt-8">
                         <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সমর্থন </span></h6>
                          <ul class="pt-2">
-                             <li><a href="#">প্রশ্ন</a></li>
-                             <li><a href="#">সাহায্য</a></li>
-                             <li><a href="#">সাইটম্যাপ</a></li>
+                             <li><a href="#"><i class="fa-solid fa-circle-question"></i>&nbsp;&nbsp;প্রশ্ন</a></li>
+                             <li><a href="#"><i class="fa-solid fa-handshake-angle"></i>&nbsp;&nbsp;সাহায্য</a></li>
+                             <li><a href="#"><i class="fa-solid fa-sitemap"></i>&nbsp;&nbsp;সাইটম্যাপ</a></li>
                          </ul>
                  </div>
 
                  <div class=" col-span-12 md:col-span-3 md:pt-8">
                     <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">আইনি </span></h6>
                      <ul class="pt-2">
-                         <li><a href="#">গোপনীয়তা নীতি</a></li>
-                         <li><a href="#">শর্তাবলী</a></li>
-                         <li><a href="#">ব্যবহারের শর্তাবলী</a></li>
-                         <li><a href="#">কপিরাইট</a></li>
+                         <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;গোপনীয়তা নীতি</a></li>
+                         <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;শর্তাবলী</a></li>
+                         <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;ব্যবহারের শর্তাবলী</a></li>
+                         <li><a href="#"><i class="fa-solid fa-copyright"></i>&nbsp;&nbsp;কপিরাইট</a></li>
 
                      </ul>
              </div>
@@ -373,10 +362,10 @@
              <div class=" col-span-12 md:col-span-3 md:pt-8">
                 <h6 class=" border-b  border-gray-700 pb-1"><span class=" text-2xl">সেবা সমূহ </span></h6>
                  <ul class="pt-2">
-                     <li><a href="#">টিউটোরিয়াল</a></li>
-                     <li><a href="#">ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
-                     <li><a href="#">অ্যাপস ডেভেলপমেন্ট</a></li>
-                     <li><a href="#">সফটওয়্যার ডেভেলপমেন্ট</a></li>
+                     <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span class="text-xs bg-yellow-600 text-black rounded-full px-2">রেজিস্ট্রেশন করুন</span></a></li>
+                     <li><a href="#"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
+                     <li><a href="#"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
+                     <li><a href="#"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
                  </ul>
          </div>
 
@@ -413,7 +402,6 @@
                         </div>
                     </div>
                     <!-- footer middle end-->
-
                         <!-- footer bottom -->
                         <div class=" bg_footer_3 py-4 text-gray-300">
                             <div class="container mx-auto text-center ">
@@ -421,7 +409,6 @@
                             </div>
                         </div>
                         <!-- footer bottom end-->
-
                 </footer>
                 <!-- footer end -->
     </div>
