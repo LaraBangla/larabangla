@@ -20,26 +20,11 @@
          <!-- home content section -->
          <section class="lg:px-6 md:px-10 mt-20 mb-20 md:mb-0 duration-700" :class="open ? 'blur-sm' : ''">
             <div class="grid grid-cols-12 gap-3 md:gap-10  p-3">
-                <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                 <a href="#">
-                    <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                        <div class=" h-32 md:h-40">
-                            <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
 
-                        </div>
-                        <div class="pt-4">
-                            <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                            <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                            </div>
-                        </div>
-                    </div>
-                 </a>
-                </div>
-
+                @for ($i = 1; $i<=8; $i++)
                 <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
                     <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
+                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-stone-500">
                            <div class=" h-32 md:h-40">
                                <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
 
@@ -53,102 +38,10 @@
                        </div>
                     </a>
                    </div>
-                   <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                    <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                           <div class=" h-32 md:h-40">
-                               <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
+                @endfor
 
-                           </div>
-                           <div class="pt-4">
-                               <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                               <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                   <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                               </div>
-                           </div>
-                       </div>
-                    </a>
-                   </div>
-                   <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                    <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                           <div class=" h-32 md:h-40">
-                               <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
 
-                           </div>
-                           <div class="pt-4">
-                               <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                               <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                   <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                               </div>
-                           </div>
-                       </div>
-                    </a>
-                   </div>
-                   <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                    <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                           <div class=" h-32 md:h-40">
-                               <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
 
-                           </div>
-                           <div class="pt-4">
-                               <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                               <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                   <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                               </div>
-                           </div>
-                       </div>
-                    </a>
-                   </div>
-                   <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                    <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                           <div class=" h-32 md:h-40">
-                               <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
-
-                           </div>
-                           <div class="pt-4">
-                               <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                               <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                   <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                               </div>
-                           </div>
-                       </div>
-                    </a>
-                   </div>
-                   <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                    <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                           <div class=" h-32 md:h-40">
-                               <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
-
-                           </div>
-                           <div class="pt-4">
-                               <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                               <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                   <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                               </div>
-                           </div>
-                       </div>
-                    </a>
-                   </div>
-                   <div class=" col-span-6 mt-3 md:mt-0 md:col-span-6 lg:col-span-3 ">
-                    <a href="#">
-                       <div class="block md:flex bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:border-l-8 md:border-green-500">
-                           <div class=" h-32 md:h-40">
-                               <img src="{{ asset('assets/img/laravel.png') }}" alt="Technology" class=" pr-0 md:pr-5 w-full  h-32 md:h-40">
-
-                           </div>
-                           <div class="pt-4">
-                               <h5 class=" font-black text-2xl pl-2 md:pl-0">লারাভেল</h5>
-                               <div class="mt-2 md:mt-4 pb-3 md:pb-0 font-medium md:font-medium text-md md:text-2xl pl-2 md:pl-0">
-                                   <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                               </div>
-                           </div>
-                       </div>
-                    </a>
-                   </div>
             </div>
         </section>
         <!-- home content section end -->
