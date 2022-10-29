@@ -11,20 +11,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/prism.css')}}">
+
     <title>লারা বাংলা</title>
 </head>
 
 <body class=" bg-gray-50">
     <div
     @if (Request::is('docs'))
-    x-data="{ open: true }"
+        x-data="{open = true;}"
     @else
     x-data="{ open: false }"
     @endif
-    @resize.window="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if (width > 640) {
+    @if (!Request::is('docs'))
+    @resize.window="if (screen.width > 640) {
     open = false
-    }">
+    }"
+    @endif>
         <div class="bg-gray-200 shadow-xl" x-data="{ tutorial: false }" >
 
             <div>
@@ -35,12 +37,12 @@
                 <ul class="flex justify-end py-6 mr-4 " x-data="{ user: false }">
                     <li><a href="{{ route('/') }}" class="font-bold text-2xl pl-5 text-gray-600">লারা <span class=" text-3xl">বাংলা</span></a></li>
                     <li class=" grow"></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="{{ route('/') }}"><i class="fa fa-home"></i> হোম</a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 " @click="tutorial = ! tutorial" ><a class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সার্ভিস</a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">ব্লগ</a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সম্পর্কে</a></li>
-                    <li class="hidden md:block px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">যোগাযোগ</a></li>
+                    <li class="hidden md:block px-2 lg:px-5 py-3 mx-1 duration-500 text-gray-600 bg-gray-300"><a class="font-bold" href="{{ route('/') }}"><i class="fa fa-home"></i> হোম</a></li>
+                    <li class="hidden md:block px-2 lg:px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 " @click="tutorial = ! tutorial" ><a class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
+                    <li class="hidden md:block px-2 lg:px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সার্ভিস</a></li>
+                    <li class="hidden md:block px-2 lg:px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">ব্লগ</a></li>
+                    <li class="hidden md:block px-2 lg:px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">সম্পর্কে</a></li>
+                    <li class="hidden md:block px-2 lg:px-5 py-3 mx-1 duration-500 text-gray-600 hover:bg-gray-300 "><a class="font-bold" href="#">যোগাযোগ</a></li>
                     <li class="hidden md:block px-3 py-3 mx-1 duration-500 text-gray-600 " @click="user = ! user" @click.outside="user=false"><a class="font-bold"><i class="fa-solid fa-user"></i></a>
                         <div class=" bg-slate-50 rounded mt-2 absolute right-2 border" x-show="user">
                             <ul class="py-5">
@@ -80,7 +82,7 @@
                     </div>
                 </ul>
                 {{-- tutorial menu start --}}
-                <div class="bg-slate-100 absolute w-screen shadow-xl" x-show="tutorial" @click.outside="tutorial=false">
+                <div class="bg-slate-100 absolute w-screen shadow-xl z-20" x-show="tutorial" @click.outside="tutorial=false">
                     <div class="container mx-auto">
                         <div class=" grid grid-cols-12 py-5 gap-6 ">
                             <div class=" col-span-3">
@@ -159,7 +161,7 @@
             @endif
 
 
-            z-50 w-1/2 md:w-2/12 h-screen
+            z-10 w-1/2 md:w-2/12 h-screen
             @if (!Request::is('docs'))
             bg-gray-100
             @else
@@ -167,10 +169,7 @@
             @endif
             duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
-                @if (!Request::is('docs'))
-                @click.outside="open=false"
-                @endif
-                >
+                @click.outside="open=false">
             @if (!Request::is('docs'))
                 <div class="border-b p-5 text-center text-gray-600">
                     <a href="#" class=" font-bold ">
@@ -225,13 +224,19 @@
 
                 <!-- bottom bar -->
                 <div>
-                    <div class="w-20 h-20 bg-gray-50  z-10  rounded-full fixed  bottom-28 right-3 -ml-9 border border-gray-100 shadow-lg duration-700 " :class="open ? 'blur-sm' : ''">
+                    <div class="w-20 h-20 bg-gray-50  z-10  rounded-full fixed  bottom-28 right-3 -ml-9 border border-gray-100 shadow-lg duration-700 "
+                    @if (!Request::is('docs'))
+                    :class="open ? 'blur-sm' : ''"
+                    @endif>
                         <div class="text-center mt-6 text-gray-600 font-black text-2xl">
                             <a class="text-center" href="#"><i class="fa-solid fa-plus"></i></a>
                         </div>
                     </div>
 
-                    <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 md:hidden duration-700" :class="open ? 'blur-sm' : ''">
+                    <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 md:hidden duration-700"
+                    @if (!Request::is('docs'))
+                    :class="open ? 'blur-sm' : ''"
+                    @endif>
                         <ul class="flex justify-around">
                             <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-book mr-2 "></i></span></a></li>
                             <li class="px-4 py-6 font-bold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2 "></i></span></a></li>
@@ -247,7 +252,11 @@
         </div>
 
                 <!-- footer start -->
-                <footer class=" pt-12 duration-700 " :class="open ? 'blur-sm' : ''">
+                <footer class=" pt-12 duration-700 "
+                @if (!Request::is('docs'))
+                :class="open ? 'blur-sm' : ''"
+                @endif
+                >
                     <!-- footer top -->
                     <div class="bg_footer_1 text-gray-300 pl-2 md:pl-0">
                         <div class="container mx-auto block md:flex md:justify-evenly py-2">
