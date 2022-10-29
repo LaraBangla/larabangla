@@ -15,21 +15,36 @@
 </head>
 
 <body class=" bg-gray-50">
-
     <div
     @if (Request::is('docs'))
-
-            x-data="{ open: false }"
-
-
+            {{-- default mobile menu is open --}}
+            x-data="{ open: true }"
+            {{-- if mobile menu is less than 767 then hide mobile menu --}}
+            x-if="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (width < 767) {
+            open = false
+            }"
     @else
     x-data="{ open: false }"
     @endif
+
+    {{-- if request route is not docs route then if screen size is bigger than 767 than hide mobile menu --}}
     @if (!Request::is('docs'))
     @resize.window="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-    if (width > 640) {
+    if (width > 767) {
     open = false
     }"
+
+    {{-- if request route is docs then execute --}}
+    @elseif (Request::is('docs'))
+        {{-- if screen size is bigger than 767 then auto show mobile docs menu else hide mobile docs menu --}}
+        @resize.window="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        if (width > 767) {
+        open = true
+        }
+        else{
+            open = false
+        }"
     @endif>
         <div class="bg-gray-200 shadow-xl" x-data="{ tutorial: false }" >
 
