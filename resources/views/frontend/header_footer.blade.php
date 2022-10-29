@@ -11,19 +11,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/prism.css')}}">
-
     <title>লারা বাংলা</title>
 </head>
 
 <body class=" bg-gray-50">
+
     <div
     @if (Request::is('docs'))
-        x-data="{open = true;}"
+
+            x-data="{ open: false }"
+
+
     @else
     x-data="{ open: false }"
     @endif
     @if (!Request::is('docs'))
-    @resize.window="if (screen.width > 640) {
+    @resize.window="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    if (width > 640) {
     open = false
     }"
     @endif>
