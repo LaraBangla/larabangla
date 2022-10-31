@@ -67,13 +67,15 @@
         padding-bottom: 2px;
         color: #3b3737;
     }
-    .docs:first-child ul {
-        list-style: disc
+    .docs ul {
+        list-style: disc;
+        margin-left: 20px;
     }
-    .docs:first-child ul li ul {
+    .docs ul li ul {
         margin-left: 20px;
         margin-bottom: 7px;
     }
+
     .text-xs{
         font-size: 10px;
     }

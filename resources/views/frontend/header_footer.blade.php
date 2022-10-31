@@ -188,7 +188,16 @@
             @endif
             duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
-                @click.outside="open=false">
+                {{-- if the page is not docs page then hide mobile menu on click outside of mobile menu. --}}
+                @if (!Request::is('docs'))
+                    @click.outside="open=false"
+                @else
+                    {{-- if it is docs page then, if the page size is less than 767 then hide mobile menu on click outside of mobile menu --}}
+                    @click.outside="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    if (width < 767) {
+                    open = false
+                    }"
+                @endif>
             @if (!Request::is('docs'))
                 <div class="border-b p-5 text-center text-gray-600">
                     <a href="#" class=" font-bold ">
@@ -257,7 +266,7 @@
                     :class="open ? 'blur-sm' : ''"
                     @endif>
                         <ul class="flex justify-around">
-                            <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-book mr-2 "></i></span></a></li>
+                            <li class="px-4 py-6 font-bold text-gray-600"><a href="{{ route('docs') }}"><span class="text-xl"><i class="fa-solid fa-book mr-2 "></i></span></a></li>
                             <li class="px-4 py-6 font-bold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2 "></i></span></a></li>
                             <!-- <li class="px-4 py-6 font-bold text-gray-600"></li> -->
                             <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2 "></i></span></a></li>

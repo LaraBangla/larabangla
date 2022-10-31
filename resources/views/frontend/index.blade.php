@@ -9,7 +9,7 @@
                 <h2 class=" pb-10 text-center font-black text-4xl md:text-6xl lg:text-7xl sm:text-4xl pt-6 text-gray-500">এবার শিখা হোক বাংলায়</h2>
                 <h3 class="text-center font-semibold text-xl text-gray-500 px-5">সাধারণ, অতি সাধারণ। সাধারণ, অতি সাধারণ। সাধারণ, অতি সাধারণ</h3>
                 <div class="flex justify-center mt-14">
-                    <div class="m-2"><a href="#" class="btn-lg rounded-full bg-gray-500 text-white hover:bg-gray-600  hover:ring-blue-200">লারাভেল ডক</a></div>
+                    <div class="m-2"><a href="{{ route('docs') }}" class="btn-lg rounded-full bg-gray-500 text-white hover:bg-gray-600  hover:ring-blue-200">লারাভেল ডক</a></div>
                     <div class="m-2"><a href="#" class="btn-lg rounded-full px-16 bg-gray-500 text-white hover:bg-gray-600  hover:ring-blue-200">ব্লগ</a></div>
 
                 </div>
