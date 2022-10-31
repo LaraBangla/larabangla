@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
+    <!-- Alpine collapse Plugins -->
+    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -250,14 +252,56 @@
                     @yield('content')
                 </section>
 
+                {{-- right side fixed menu --}}
+                    <div class=" hidden md:block  z-10 fixed  top-56 right-3 -ml-9  duration-700 ">
+                        <ul>
+                            <li class="w-10 h-10 text-center border border-gray-100 mt-2 pt-2 bg-white"><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li class="w-10 h-10 text-center border border-gray-100 mt-2 pt-2 bg-white"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                            <li class="w-10 h-10 text-center border border-gray-100 mt-2 pt-2 bg-white"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li class="w-10 h-10 text-center border border-gray-100 mt-2 pt-2 bg-white"><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                {{-- right side fixed menu end--}}
+
                 <!-- bottom bar -->
-                <div>
+                <div x-data="{ expanded: false }">
+                    {{-- items --}}
+                    <div class="  z-10 fixed  bottom-52 right-3 -ml-9  " x-show="expanded "  x-collapse @click.outside="expanded =false">
+                        <ul class=" text-gray-600">
+                            <li class="w-32 h-14 mt-3 pt-3  border rounded-t-lg border-gray-200 bg-gray-50 "><a href="#">
+                                <div class="pl-3">
+                                    <span class=" text-2xl"><i class="fa-solid fa-newspaper"></i></span>
+                                    <span class="ml-2">News</span></a>
+                                </div>
+                            </li>
+                            <li class="w-32 h-14 mt-3 pt-3  border rounded-t-lg border-gray-200 bg-gray-50"><a href="#">
+                                <div class="pl-3">
+                                    <span class=" text-2xl"><i class="fa-solid fa-blog"></i></span>
+                                    <span class="ml-2">Blog</span></a>
+                                </div>
+                            </li>
+                            <li class="w-32 h-14 mt-3 pt-3  border rounded-t-lg border-gray-200 bg-gray-50"><a href="#">
+                                <div class="pl-3">
+                                    <span class=" text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
+                                    <span class="ml-2">Tutorials</span></a>
+                                </div>
+                            </li>
+                            <li class="w-32 h-14 mt-3 pt-3  border rounded-t-lg border-gray-200 bg-gray-50"><a href="#">
+                                <div class="pl-3">
+                                    <span class=" text-2xl"><i class="fa-regular fa-handshake"></i></span>
+                                    <span class="ml-2">Services</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    {{-- items end --}}
                     <div class="w-20 h-20 bg-gray-50  z-10  rounded-full fixed  bottom-28 right-3 -ml-9 border border-gray-100 shadow-lg duration-700 "
+                    @click="expanded  = !expanded"
                     @if (!Request::is('docs'))
                     :class="open ? 'blur-sm' : ''"
                     @endif>
                         <div class="text-center mt-6 text-gray-600 font-black text-2xl">
-                            <a class="text-center" href="#"><i class="fa-solid fa-plus"></i></a>
+                            <span class="text-center"><i class="fa-solid fa-plus"></i></span>
                         </div>
                     </div>
 
