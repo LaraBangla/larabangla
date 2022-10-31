@@ -4,12 +4,12 @@
     <div class="container mx-auto">
         <div class="">
            <div class="grid grid-cols-12 gap-3">
-                <div class="col-span-9">
-                    <div class="pl-10 pr-5 mt-8 leading-20">
+                <div class="col-span-12 md:col-span-9">
+                    <div class="mx-5 md:pl-10  md:pr-5 mt-8 leading-20">
                         {!! $data !!}
                     </div>
                 </div>
-                <div class="col-span-3 bg-blue-50 mt-8">
+                <div class="col-span-12 md:col-span-3 bg-blue-50 mt-8">
 
                 </div>
            </div>
