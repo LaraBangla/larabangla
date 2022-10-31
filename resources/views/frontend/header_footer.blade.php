@@ -48,7 +48,7 @@
             open = false
         }"
     @endif>
-        <div class="bg-gray-200 shadow-xl" x-data="{ tutorial: false }" >
+        <div class="bg-gray-200 shadow-md" x-data="{ tutorial: false }" >
 
             <div>
                 <!-- class="container" -->
@@ -186,7 +186,7 @@
             @if (!Request::is('docs'))
             bg-gray-100
             @else
-            bg-gray-300
+            bg-gray-100  md:border-r-2 md:border-r-gray-200 md:mt-1
             @endif
             duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
