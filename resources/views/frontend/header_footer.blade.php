@@ -78,7 +78,7 @@
                         <div class=" bg-slate-50 rounded-lg mt-2 absolute right-2 border" x-show="search" @click.outside="search=false" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
                             x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
                             <form class="px-6 h-32 flex items-center justify-center w-full">
-                                <div><input type="text" placeholder="অনুসন্ধান" class="py-4 border rounded-l-lg w-80"></div>
+                                <div><input type="text" placeholder="অনুসন্ধান" class="py-4 pl-4 border rounded-l-lg w-80"></div>
                                 <div>
                                     <button class=" bg-slate-500 p-5 rounded-r-lg font-semibold text-base text-gray-50" type="submit">অনুসন্ধান</button>
                                 </div>
