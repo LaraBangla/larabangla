@@ -182,10 +182,12 @@
             @endif
 
 
-            z-10 w-1/2 md:w-2/12 h-screen
+            z-10 w-1/2 md:w-2/12
             @if (!Request::is('docs'))
             bg-gray-100
+            h-screen
             @else
+            rounded-r-md
             bg-gray-100  md:border-r-2 md:border-r-gray-200 md:mt-1
             @endif
             duration-700" x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
@@ -212,8 +214,9 @@
 
                 <div class="pl-4 pb-2">
                     <ul class="pt-6">
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="{{ route('/') }}"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>হোম</a></li>
+
                         @if (Request::is('/'))
+                            <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="{{ route('/') }}"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>হোম</a></li>
                             <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
                             <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-fan mr-4 "></i></span>সার্ভিস</a></li>
                             <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>ব্লগ</a></li>
@@ -221,7 +224,36 @@
                             <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
                             <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>লগিন</a></li>
                         @else
+                        <li class="pt-3 pl-1 font-semibold text-base text-gray-600"><a href="{{ route('/') }}"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>হোম</a></li>
+                        <li class=" font-bold mt-5 text-gray-700 border-b pb-1 mb-2">শুরু হচ্ছে</li>
+                        <li class="my-2 pl-1 md:pl-2 font-bold  text-gray-600"><a href="#">ইন্সটলেশন</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">কনফিগারেশন</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ডিরেক্টরি কাঠামো</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ফ্রন্টইন্ড</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">স্টার্টার কিটস</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">স্থাপনা / ডেপ্লয়মেন্ট</a></li>
 
+                        <li class=" font-bold mt-5 text-gray-700 border-b pb-1 mb-2">স্থাপত্য ধারণা</li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium  text-gray-700"><a href="#">রিকুয়েস্ট জীবনচক্র</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">সার্ভিস কনটেইনার</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">সার্ভিস প্রভাইডার</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ফ্যাসাডস</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">স্টার্টার কিটস</a></li>
+
+                        <li class=" font-bold mt-5 text-gray-700 border-b pb-1 mb-2">মৌলিক বিষয়</li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700"><a href="#">মিডলওয়্যার</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">CSRF সুরক্ষা</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">কন্ট্রোলার</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">অনুরোধ / রিকুয়েস্ট</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">প্রতিক্রিয়া / রেসপন্স</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ভিউ</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ব্লেড টেমপ্লেট</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">সম্পদ বান্ডলিং</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ইউআরএল জেনারেশন</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">সেশন</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">বৈধতা / ভেলিডেসন</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">ত্রুটি পরিচালনা করা</a></li>
+                        <li class="my-2 pl-1 md:pl-2 font-medium text-gray-700 hover:ml-1 duration-300"><a href="#">লগিং</a></li>
                         @endif
 
                     </ul>

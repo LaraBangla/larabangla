@@ -79,6 +79,14 @@
     .text-xs{
         font-size: 10px;
     }
+
+    /* docs side bar */
+    /* .list-menu{
+       @apply leading-7 pl-2 font-medium text-gray-700;
+    }
+    .list-active{
+        @apply font-bold  text-gray-900;
+    } */
 }
 
 @layer components {
