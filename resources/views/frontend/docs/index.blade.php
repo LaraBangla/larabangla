@@ -8,7 +8,7 @@
                 <div class="col-span-12 md:col-span-9">
                     <div class="mx-5 md:pl-10  md:pr-5 mt-8 leading-20" >
                     {{-- version start for mobile --}}
-                   <div class=" md:block" x-data="{ doc_version: false }">
+                   <div class=" md:hidden" x-data="{ doc_version: false }">
 
                     <div class="text-center pt-2 border-b pb-2 bg-slate-50" @click="doc_version =! doc_version">
                         <label class=" text-lg font-medium text-gray-600">Version<span class="ml-6"><i class="fa-solid fa-caret-down"></i></span></label>
@@ -25,9 +25,9 @@
                 </div>
                  {{-- version end for mobile --}}
                  {{-- search --}}
-                    <div >
+                    <div class="md:hidden mb-6">
                         <div class="mt-2 rounded-md mx-3"  @click="mobile_search =! mobile_search" >
-                            <div class="flex py-3 bg-white px-4">
+                            <div class="flex py-3 bg-gray-100 rounded-md px-3">
                                 <div>
                                     <span class=" text-xl font-thin text-gray-500 pr-4"><i class="fa-solid fa-magnifying-glass"></i></span>
                                 </div>
@@ -37,12 +37,12 @@
                             </div>
                         </div>
                         {{-- search body start --}}
-                        <div class=" fixed top-5 right-0 w-screen duration-200
-                        "  x-show="mobile_search" @click.outside="mobile_search = false"
+                        <div class=" fixed top-5 right-0 w-screen duration-200 "
+                        x-show="mobile_search" @click.outside="mobile_search = false"
                         x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50" x-transition:enter-end="opacity-100 scale-100"
                         x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
                         >
-                            <div class=" pt-3 bg-gray-900  mx-5">
+                            <div class=" pt-3 bg-gray-900  mx-4">
                                 <div class="px-3">
                                     <div class="flex justify-end">
                                         <div @click="mobile_search = false">
@@ -52,7 +52,7 @@
                                     {{-- search input --}}
                                    <div class="flex border-b border-gray-500 pb-1">
                                     <div class="mr-3">
-                                        <span class=" text-lg text-gray-200 "><i class="fa-solid fa-magnifying-glass"></i></span>
+                                        <span class=" text-lg text-gray-400 "><i class="fa-solid fa-magnifying-glass"></i></span>
                                     </div>
                                     <div>
                                         <input type="text" class=" bg-gray-900 text-gray-200 outline-none " placeholder="ডক অনুসন্ধান">
