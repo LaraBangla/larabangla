@@ -8,20 +8,16 @@
                 <div class="col-span-12 md:col-span-9">
                     <div class="mx-5 md:pl-10  md:pr-5 mt-8 leading-20" >
                     {{-- version start for mobile --}}
-                   <div class=" md:hidden" x-data="{ doc_version: false }">
-
-                    <div class="text-center pt-2 border-b pb-2 bg-slate-50" @click="doc_version =! doc_version">
-                        <label class=" text-lg font-medium text-gray-600">Version<span class="ml-6"><i class="fa-solid fa-caret-down"></i></span></label>
-                    </div>
-
-                    <div class=" w-28 mx-auto  " x-show="doc_version" @click.outside="doc_version = false">
-                        <ul class="bg-white absolute py-3 z-20 border rounded-b-md">
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">Master</span></a></li>
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">9.x</span></a></li>
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">8.x</span></a></li>
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">7.x</span></a></li>
-                        </ul>
-                    </div>
+                <div class="md:hidden mx-3">
+                    <div class="text-left w-full bg-slate-50 border-b text-gray-600 ">
+                        <label for="version" class="text-left w-full bg-slate-50  uppercase text-sm">Version</label>
+                        <select name="version" id="version" class="text-left w-full bg-slate-50 pb-1 select_icon" id="">
+                            <option value="">Master</option>
+                            <option value="">9.x</option>
+                            <option value="">7.x</option>
+                            <option value="">6.x</option>
+                        </select>
+                      </div>
                 </div>
                  {{-- version end for mobile --}}
                  {{-- search --}}
@@ -79,27 +75,18 @@
                        </div>
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-3 bg-blue-50 mt-8">
+                <div class="col-span-12 md:col-span-3 bg-blue-50 mt-8 pt-1">
                    {{-- version start --}}
-                   <div class="hidden md:block" x-data="{ doc_version: false }">
-
-                    <div class="text-center pt-2 border-b pb-2 bg-slate-100" @click="doc_version =! doc_version">
-                        <label class=" text-lg font-medium text-gray-600">Version<span class="ml-4"><i class="fa-solid fa-caret-down"></i></span></label>
-                    </div>
-
-                    <div class=" w-28 mx-auto  " x-show="doc_version" @click.outside="doc_version = false">
-                        <ul class="bg-white absolute py-3 z-20 border rounded-b-md">
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">Master</span></a></li>
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">9.x</span></a></li>
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">8.x</span></a></li>
-                            <li class=" list-none hover:bg-gray-200 px-5"><a href="#" ><span class=" text-gray-700">7.x</span></a></li>
-                        </ul>
-                    </div>
-                </div>
+                  <div class="text-center w-full bg-slate-100">
+                    <label for="version" class="text-center w-full bg-slate-100 text-gray-600 font-bold uppercase">Version</label>
+                    <select name="version" id="version" class="text-center w-full bg-slate-100 text-gray-600 border-b pb-1 select_icon" id="">
+                        <option value="">Master</option>
+                        <option value="">9.x</option>
+                        <option value="">7.x</option>
+                        <option value="">6.x</option>
+                    </select>
+                  </div>
                  {{-- version end --}}
-                    <div>
-
-                    </div>
                 </div>
            </div>
         </div>
