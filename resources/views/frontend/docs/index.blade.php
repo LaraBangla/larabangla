@@ -75,9 +75,9 @@
                        </div>
                     </div>
                 </div>
-                <div class="col-span-12 md:col-span-3 bg-blue-50 mt-8 pt-1">
+                <div class="col-span-12 md:col-span-3 bg-slate-50 mt-8 pt-1">
                    {{-- version start --}}
-                  <div class="text-center w-full bg-slate-100">
+                  <div class="text-center w-full -mt-1 bg-slate-100">
                     <label for="version" class="text-center w-full bg-slate-100 text-gray-600 font-bold uppercase">Version</label>
                     <select name="version" id="version" class="text-center w-full bg-slate-100 text-gray-600 border-b pb-1 select_icon" id="">
                         <option value="">Master</option>
