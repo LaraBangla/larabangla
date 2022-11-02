@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('frontend.index');
 })->name('/');
 
+Route::get('/dashboard', function () {
+    return view('backend.backend_header_footer');
+})->name('dashboard');
+
 
 Route::get('/docs', function () {
 
