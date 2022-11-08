@@ -57,44 +57,35 @@
                             <li class=" hover:bg-gray-300 pl-2 rounded font-semibold"><a href="{{ route('/') }}" ><span><i class="fa-solid fa-globe"></i></span> Visite website</a></li>
                             <li class="mt-1" x-data="{open: false}" >
                                 <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
-                                    <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Category <span><i class="fa-solid fa-caret-down"></i></span></a>
+                                    <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Technology <span><i class="fa-solid fa-caret-down"></i></span></a>
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Technology</a></li>
                                     <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Category</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
                                 <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
-                                    <a class=" font-semibold" ><span><i class="fa-regular fa-folder"></i></span> Category <span><i class="fa-solid fa-caret-down"></i></span></a>
+                                    <a class=" font-semibold" ><span><i class="fa-regular fa-newspaper"></i></span> News <span><i class="fa-solid fa-caret-down"></i></span></a>
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> News Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> News Post</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
                                 <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
-                                    <a class=" font-semibold" ><span><i class="fa-regular fa-folder"></i></span> Category <span><i class="fa-solid fa-caret-down"></i></span></a>
+                                    <a class=" font-semibold" ><span><i class="fa-solid fa-gear"></i></span> Settings <span><i class="fa-solid fa-caret-down"></i></span></a>
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Header</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Footer</a></li>
                                 </ul>
                             </li>
-                            <li class="mt-1" x-data="{open: false}" >
-                                <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
-                                    <a class=" font-semibold" ><span><i class="fa-regular fa-folder"></i></span> Category <span><i class="fa-solid fa-caret-down"></i></span></a>
-                                </div>
 
-                                <ul x-show="open" x-collapse.duration.300ms>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Category</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>
