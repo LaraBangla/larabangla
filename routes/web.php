@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('frontend.index');
 })->name('/');
 
-Route::get('/dashboard', function () {
-    return view('backend.backend_header_footer');
-})->name('dashboard');
 
 
 Route::get('/docs', function () {
@@ -39,3 +36,12 @@ $converter = new GithubFlavoredMarkdownConverter([
 // <h1>Hello World!</h1>
     return view('frontend.docs.index',compact('data'));
 })->name('docs');
+
+// dashboard
+Route::middleware(['auth','verified'])->group(function(){
+    Route::get('/dashboard', function () {
+        return view('backend.backend_header_footer');
+    })->name('dashboard');
+});
+
+
