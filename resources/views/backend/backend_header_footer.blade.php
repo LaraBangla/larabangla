@@ -16,7 +16,7 @@
             rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
         @stack('style')
-        <title>Dashboard</title>
+        <title>{{$title ?? 'Dashboard'}}</title>
 </head>
 
 <body class=" bg-gray-50">
@@ -39,7 +39,7 @@
         <div class="flex">
             <div class=" w-96 md:w-60 h-screen bg-slate-200 border-r border-gray-300 duration-500" x-show="sidebar" x-transition>
                 <div class="text-center pt-6 pb-6 border-b border-gray-300">
-                    <a href="{{ route('dashboard') }}" class=" text-gray-600 text-xl font-bold" href="#">Dashboard</a>
+                    <a href="{{ route('admin.dashboard') }}" class=" text-gray-600 text-xl font-bold" href="#">Dashboard</a>
                 </div>
                 <div>
                     <div class=" leading-7 cursor-pointer">
