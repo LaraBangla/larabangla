@@ -14,13 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('technologies', function (Blueprint $table) {
-            Schema::create('technologies', function (Blueprint $table) {
-                $table->id();
-                $table->string('name');
-                $table->string('slug')->unique;
-                $table->integer('status')->default(1);
-                $table->timestamps();
-            });
+            $table->id();
+            $table->string('name');
+            $table->string('slug')->unique;
+            $table->integer('status')->default(1);
+            $table->timestamps();
         });
     }
 
