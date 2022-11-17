@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/prism.css')}}">
+    @livewireStyles
     @stack('style')
     <title>লারা বাংলা</title>
 </head>
@@ -538,6 +539,7 @@
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 
         {{-- hotwire turbo ends --}}
+@livewireScripts
 </body>
 
 </html>
