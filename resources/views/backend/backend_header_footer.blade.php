@@ -41,6 +41,7 @@
                 <div class="text-center pt-6 pb-6 border-b border-gray-300">
                     <a href="{{ route('admin.dashboard') }}" class=" text-gray-600 text-xl font-bold" href="#">Dashboard</a>
                 </div>
+            
                 <div>
                     <div class=" leading-7 cursor-pointer">
                         <ul class=" text-gray-700 pl-2">
@@ -99,9 +100,14 @@
                         <li class="px-3 py-1 mr-2"><img class=" rounded-full w-8 ring-2 ring-slate-400" src="https://ui-avatars.com/api/?name=Anowar+Hosen&background=0000&color=fff" alt=""></li>
                     </ul>
                 </div>
+                {{-- content --}}
+                <div>
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
+   
     </section>
 
 
