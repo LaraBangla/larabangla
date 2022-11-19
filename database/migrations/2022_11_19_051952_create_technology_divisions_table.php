@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('technologies', function (Blueprint $table) {
+        Schema::create('technology_divisions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('technology_division_id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('technologies');
+        Schema::dropIfExists('technology_divisions');
     }
 };

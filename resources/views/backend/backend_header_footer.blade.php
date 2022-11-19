@@ -41,7 +41,7 @@
                 <div class="text-center pt-6 pb-6 border-b border-gray-300">
                     <a href="{{ route('admin.dashboard') }}" class=" text-gray-600 text-xl font-bold" href="#">Dashboard</a>
                 </div>
-            
+
                 <div>
                     <div class=" leading-7 cursor-pointer">
                         <ul class=" text-gray-700 pl-2">
@@ -63,7 +63,7 @@
 
                                 <ul x-show="open" x-collapse.duration.300ms>
                                     <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Technology</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>
-   
+
     </section>
 
 
