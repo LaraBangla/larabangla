@@ -55,7 +55,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
 
     Route::controller(DivisionController::class)->group(function () {
         Route::get('/add/division', 'create')->name('add.division');
-       // Route::post('/orders', 'store');
+        Route::put('/store/division', 'store')->name('store.division');
     });
 });
 
