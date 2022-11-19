@@ -58,6 +58,16 @@
                             <li class=" hover:bg-gray-300 pl-2 rounded font-semibold"><a href="{{ route('/') }}" ><span><i class="fa-solid fa-globe"></i></span> Visite website</a></li>
                             <li class="mt-1" x-data="{open: false}" >
                                 <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
+                                    <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Tech Devision<span><i class="fa-solid fa-caret-down"></i></span></a>
+                                </div>
+
+                                <ul x-show="open" x-collapse.duration.300ms>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Division</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.division') }}"><span><i class="fa-regular fa-circle"></i></span> Add Division</a></li>
+                                </ul>
+                            </li>
+                            <li class="mt-1" x-data="{open: false}" >
+                                <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
                                     <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Technology <span><i class="fa-solid fa-caret-down"></i></span></a>
                                 </div>
 

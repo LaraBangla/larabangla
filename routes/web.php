@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Division\DivisionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
@@ -38,16 +39,22 @@ $converter = new GithubFlavoredMarkdownConverter([
     return view('frontend.docs.index',compact('data'));
 })->name('docs');
 
+
 // dashboard
-Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(function(){
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', function () {
         return view('backend.backend_header_footer');
     })->name('dashboard');
 
    // Route::get('/add/technology',[TechnologyController::class,'create'])->name('add.technology');
-    
+
     Route::controller(TechnologyController::class)->group(function () {
         Route::get('/add/technology', 'create')->name('add.technology');
+       // Route::post('/orders', 'store');
+    });
+
+    Route::controller(DivisionController::class)->group(function () {
+        Route::get('/add/division', 'create')->name('add.division');
        // Route::post('/orders', 'store');
     });
 });
