@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/prism.css')}}">
     @livewireStyles
+    @notifyCss
     @stack('style')
     <title>লারা বাংলা</title>
 </head>
@@ -282,6 +283,9 @@
             <!-- body section -->
             <div>
 
+                {{-- notify 2 message --}}
+                <x:notify-messages />
+
                 <section>
                     @yield('content')
                 </section>
@@ -540,6 +544,7 @@
 
         {{-- hotwire turbo ends --}}
 @livewireScripts
+@notifyJs
 </body>
 
 </html>
