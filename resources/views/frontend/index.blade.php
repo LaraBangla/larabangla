@@ -1,4 +1,6 @@
-@extends('frontend.header_footer')
+@extends('frontend.header_footer',[
+    'slot' => null,
+])
 @section('content')
 
  <div>

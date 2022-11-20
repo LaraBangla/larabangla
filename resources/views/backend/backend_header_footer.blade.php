@@ -15,6 +15,7 @@
             href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
+        @notifyCss
         @stack('style')
         <title>{{$title ?? 'Dashboard'}}</title>
 </head>
@@ -41,7 +42,7 @@
                 <div class="text-center pt-6 pb-6 border-b border-gray-300">
                     <a href="{{ route('admin.dashboard') }}" class=" text-gray-600 text-xl font-bold" href="#">Dashboard</a>
                 </div>
-            
+
                 <div>
                     <div class=" leading-7 cursor-pointer">
                         <ul class=" text-gray-700 pl-2">
@@ -58,12 +59,22 @@
                             <li class=" hover:bg-gray-300 pl-2 rounded font-semibold"><a href="{{ route('/') }}" ><span><i class="fa-solid fa-globe"></i></span> Visite website</a></li>
                             <li class="mt-1" x-data="{open: false}" >
                                 <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
+                                    <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Tech Devision<span><i class="fa-solid fa-caret-down"></i></span></a>
+                                </div>
+
+                                <ul x-show="open" x-collapse.duration.300ms>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.show.division') }}"><span><i class="fa-regular fa-circle"></i></span> All Division</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.division') }}"><span><i class="fa-regular fa-circle"></i></span> Add Division</a></li>
+                                </ul>
+                            </li>
+                            <li class="mt-1" x-data="{open: false}" >
+                                <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
                                     <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Technology <span><i class="fa-solid fa-caret-down"></i></span></a>
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
                                     <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Technology</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
@@ -100,6 +111,8 @@
                         <li class="px-3 py-1 mr-2"><img class=" rounded-full w-8 ring-2 ring-slate-400" src="https://ui-avatars.com/api/?name=Anowar+Hosen&background=0000&color=fff" alt=""></li>
                     </ul>
                 </div>
+                {{-- notify 2 message --}}
+                <x:notify-messages />
                 {{-- content --}}
                 <div>
                     @yield('content')
@@ -107,9 +120,8 @@
             </div>
         </div>
     </div>
-   
-    </section>
 
+    </section>
 
 
 
@@ -133,6 +145,8 @@
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
 
     {{-- hotwire turbo ends --}}
+    @notifyJs
+
 </body>
 
 </html>

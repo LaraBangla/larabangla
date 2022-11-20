@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- @notifyCss --}}
     @vite('resources/css/app.css')
     <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
     <!-- Alpine collapse Plugins -->
@@ -14,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/prism.css')}}">
     @livewireStyles
+
     @stack('style')
     <title>লারা বাংলা</title>
 </head>
@@ -69,7 +71,7 @@
                     <li class="hidden md:block px-3 py-3 mx-1 duration-500 text-gray-600 " @click="user = ! user" @click.outside="user=false"><a class="font-bold"><i class="fa-solid fa-user"></i></a>
                         <div class=" bg-slate-50 rounded mt-2 absolute right-2 border" x-show="user">
                             <ul class="py-5">
-                                <li class=" py-2 font-semibold hover:bg-slate-100 px-5 rounded-sm"><a href="#"><span class=" text-gray-500"><i class="fa fa-sign-in mr-2 "></i></span>লগিন</a></li>
+                                <li class=" py-2 font-semibold hover:bg-slate-100 px-5 rounded-sm"><a href="{{ route('login') }}"><span class=" text-gray-500"><i class="fa fa-sign-in mr-2 "></i></span>লগিন</a></li>
                                 <li class=" py-2 font-semibold hover:bg-slate-100 px-5 rounded-sm"><a href="#"><span class=" text-gray-500"><i class="fa-solid fa-user-plus mr-2 "></i></span>রেজিস্টার</a></li>
                             </ul>
                         </div>
@@ -282,7 +284,13 @@
             <!-- body section -->
             <div>
 
+                {{-- notify 2 message --}}
+                {{-- <x:notify-messages /> --}}
+
                 <section>
+                    <main>
+                        {{$slot}}
+                    </main>
                     @yield('content')
                 </section>
 
@@ -539,7 +547,10 @@
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 
         {{-- hotwire turbo ends --}}
-@livewireScripts
+    {{-- jetstream modals --}}
+    @stack('modals')
+    @livewireScripts
+
 </body>
 
 </html>
