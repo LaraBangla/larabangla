@@ -15,7 +15,7 @@
             href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
-
+        @notifyCss
         @stack('style')
         <title>{{$title ?? 'Dashboard'}}</title>
 </head>
@@ -111,7 +111,8 @@
                         <li class="px-3 py-1 mr-2"><img class=" rounded-full w-8 ring-2 ring-slate-400" src="https://ui-avatars.com/api/?name=Anowar+Hosen&background=0000&color=fff" alt=""></li>
                     </ul>
                 </div>
-
+                {{-- notify 2 message --}}
+                <x:notify-messages />
                 {{-- content --}}
                 <div>
                     @yield('content')
@@ -145,7 +146,7 @@
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
 
     {{-- hotwire turbo ends --}}
-
+    @notifyJs
 </body>
 
 </html>

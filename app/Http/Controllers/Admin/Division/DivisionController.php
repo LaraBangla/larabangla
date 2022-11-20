@@ -39,4 +39,12 @@ class DivisionController extends Controller
         }
 
     }
+
+    // show all division
+    public function show()
+    {
+        $data = TechnologyDivision::orderBy('id','desc')->paginate(50);
+
+        return view('backend.division.all',compact('data'));
+    }
 }
