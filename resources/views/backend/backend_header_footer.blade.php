@@ -63,7 +63,7 @@
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="#"><span><i class="fa-regular fa-circle"></i></span> All Division</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.show.division') }}"><span><i class="fa-regular fa-circle"></i></span> All Division</a></li>
                                     <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.division') }}"><span><i class="fa-regular fa-circle"></i></span> Add Division</a></li>
                                 </ul>
                             </li>
