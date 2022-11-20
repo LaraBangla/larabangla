@@ -57,6 +57,8 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
         Route::get('/add/division', 'create')->name('add.division');
         Route::put('/store/division', 'store')->name('store.division');
         Route::get('/all/division', 'show')->name('show.division');
+        Route::get('/edit/division/{id}', 'edit')->name('edit.division');
+        Route::patch('/update/division/{id}', 'update')->name('update.division');
     });
 });
 

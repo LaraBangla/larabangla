@@ -22,7 +22,7 @@
                 <td class="border border-slate-300 p-2">{{ $row->slug }}</td>
                 <td class="border border-slate-300 p-2 w-40">
                     <a href="#" class="p-2 text-lg bg-sky-400 mx-1 rounded-sm"><i class="fa-solid fa-eye"></i></a>
-                    <a href="#" class="p-2 text-lg bg-green-500 mx-1 rounded-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{{ route('admin.edit.division',$row->id) }}" class="p-2 text-lg bg-green-500 mx-1 rounded-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                     <a href="#" class="p-2 text-lg bg-red-500 text-red-800 mx-1 rounded-sm"><i class="fa-solid fa-trash"></i></a>
                 </td>
               </tr>
