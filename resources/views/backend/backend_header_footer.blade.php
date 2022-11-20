@@ -132,7 +132,6 @@
 
 
 
-
     <script src="{{ asset('js/prism.js') }}"></script>
     {{-- hotwire turbo start --}}
     <script data-turbolinks-eval="false" data-turbo-eval="false" type="module">
@@ -147,6 +146,7 @@
 
     {{-- hotwire turbo ends --}}
     @notifyJs
+
 </body>
 
 </html>

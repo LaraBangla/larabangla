@@ -102,4 +102,30 @@ class DivisionController extends Controller
 
 
     }
+
+    // delete devision
+    public function destroy($id)
+    {
+        $find = TechnologyDivision::whereId($id)->first();
+        if ($find)
+        {
+            try
+            {
+                $find->delete();
+                notify()->success('Technology Devision deleted!','Successful');
+                return back();
+            }
+            catch (\Throwable $th)
+            {
+                notify()->error('Failed to delete Technology Devision!','Failed');
+                return back();
+            }
+        }
+        else
+        {
+            notify()->error('Division not found!','Not found');
+            return back();
+        }
+
+    }
 }
