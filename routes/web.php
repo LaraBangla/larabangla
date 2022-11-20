@@ -41,7 +41,7 @@ $converter = new GithubFlavoredMarkdownConverter([
 
 
 // dashboard
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function(){
+Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(function(){
     Route::get('/dashboard', function () {
         return view('backend.backend_header_footer');
     })->name('dashboard');
