@@ -288,6 +288,9 @@
                 {{-- <x:notify-messages /> --}}
 
                 <section>
+                    <main>
+                        {{$slot}}
+                    </main>
                     @yield('content')
                 </section>
 
@@ -544,7 +547,9 @@
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
 
         {{-- hotwire turbo ends --}}
-@livewireScripts
+    {{-- jetstream modals --}}
+    @stack('modals')
+    @livewireScripts
 
 </body>
 
