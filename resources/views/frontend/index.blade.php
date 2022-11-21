@@ -4,7 +4,7 @@
 @section('content')
 
  <div>
-    <div >
+    <div>
         <div>
             <div class="  pt-20 lg:pt-32 duration-700" :class="open ? 'blur-sm' : ''">
                 <h1 class=" text-center font-black text-4xl md:text-6xl lg:text-7xl"><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-500  to-gray-400 ">লারা</span> <span class=" text-5xl md:text-7xl lg:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-gray-500  to-gray-400">বাংলা</span></h1>
