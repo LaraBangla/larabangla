@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('technology_division_id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->integer('status')->default(1);
+            $table->integer('status')->default(1)->comment('1 for active, 0 for deactive');
             $table->timestamps();
         });
     }

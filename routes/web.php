@@ -48,11 +48,14 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
 
    // Route::get('/add/technology',[TechnologyController::class,'create'])->name('add.technology');
 
-    Route::controller(TechnologyController::class)->group(function () {
-        Route::get('/add/technology', 'create')->name('add.technology');
-       // Route::post('/orders', 'store');
-    });
 
+
+
+    /**
+     * admin
+     * -------------------------
+     */
+    // division routes
     Route::controller(DivisionController::class)->group(function () {
         Route::get('/add/division', 'create')->name('add.division');
         Route::put('/store/division', 'store')->name('store.division');
@@ -60,6 +63,15 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
         Route::get('/edit/division/{id}', 'edit')->name('edit.division');
         Route::patch('/update/division/{id}', 'update')->name('update.division');
         Route::get('/delete/division/{id}', 'destroy')->name('delete.division');
+    });
+
+    Route::controller(TechnologyController::class)->group(function () {
+        Route::get('/add/technology', 'create')->name('add.technology');
+        Route::put('/store/technology', 'store')->name('store.technology');
+        Route::get('/show/technologies', 'index')->name('show.technologies');
+        Route::get('/edit/technology/{id}', 'edit')->name('edit.technology');
+        Route::patch('/update/technology/{id}', 'update')->name('update.technology');
+        Route::get('/delete/technology/{id}', 'destroy')->name('delete.technology');
     });
 });
 

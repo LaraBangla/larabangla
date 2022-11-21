@@ -2,19 +2,47 @@
 
 @section('content')
 <section>
-    <div class="container mx-auto bg-gray-100 rounded-lg mt-10 rounded">
+    <div class="container mx-auto bg-gray-100 rounded-lg mt-10">
         <div class="p-5">
-            <form action="#" method="post">
+            <form action="{{ route('admin.store.technology') }}" method="post">
                 @csrf
-                @method('post')
+                @method('put')
                 <div>
-                <label for="name" class="font-bold text-lg">Technology Name</label> <br/>
-                <input type="text" name="name" id="name" class="w-1/3 py-3" />
+                <label for="name" class="font-bold text-lg">Technology Name *</label> <br/>
+                <input type="text" name="name" value="{{ old('name') }}" id="name" class="w-1/3 py-3" />
+                    @error('name')
+                        <div class=" text-red-500 mt-1 font-medium">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mt-4">
+                    <label for="division" class="font-bold text-lg">Select Division *</label> <br>
+                    <select name="division" id="division" class="w-1/3 py-3">
+                        <option value=""
+                        @if (old('division') == null)
+                        selected
+                        @endif
+                        disabled class=" text-base font-bold ml-3">Select</option>
+
+                        @foreach ($division as $row)
+                        <option value="{{ $row->id }}"
+                            @if (old('division') == $row->id)
+                                selected
+                            @endif
+                            class="text-base font-bold ml-3">{{ $row->name }}</option>
+                        @endforeach
+                    </select>
+                        @error('division')
+                            <div class=" text-red-500 mt-1 font-medium">{{ $message }}</div>
+                        @enderror
                 </div>
 
                 <div class="mt-5">
-                <label for="slug" class="font-bold text-lg">Slug</label> <br/>
-                <input type="text" name="slug" id="slug" class="w-1/3 py-3" />
+                <label for="slug" class="font-bold text-lg">Slug *</label> <br/>
+                <input type="text" name="slug" value="{{ old('slug') }}" id="slug" class="w-1/3 py-3" />
+                    @error('slug')
+                        <div class=" text-red-500 mt-1 font-medium">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <button type="submit" class="mt-10 px-5 py-3 bg-gray-200 uppercase rounded-lg font-bold hover:bg-gray-300  ">ADD Technology</button>

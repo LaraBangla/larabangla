@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Technology extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'technology_division_id',
+        'name',
+        'slug',
+        'status',
+    ];
+
+    public function division()
+    {
+        return $this->hasOne(TechnologyDivision::class, 'id','technology_division_id');
+    }
 }

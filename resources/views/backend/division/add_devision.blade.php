@@ -2,7 +2,7 @@
 
 @section('content')
 <section>
-    <div class="container mx-auto bg-gray-100 rounded-lg mt-10 rounded">
+    <div class="container mx-auto bg-gray-100 rounded-lg mt-10">
         <div class="p-5">
             <form action="{{ route('admin.store.division') }}" method="post">
                 @csrf
