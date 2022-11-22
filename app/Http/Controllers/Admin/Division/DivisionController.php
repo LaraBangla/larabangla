@@ -17,8 +17,8 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
-            'slug' => 'required|unique:technology_divisions|max:255',
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|unique:technology_divisions|max:255',
         ]);
 
         $data = [
@@ -71,8 +71,8 @@ class DivisionController extends Controller
         {
 
                 $request->validate([
-                    'name' => 'required|max:255',
-                    'slug' => "required|unique:technology_divisions,slug,$id|max:255",
+                    'name' => 'required|string|max:255',
+                    'slug' => "required|string|unique:technology_divisions,slug,$id|max:255",
                 ]);
 
                 $data = [

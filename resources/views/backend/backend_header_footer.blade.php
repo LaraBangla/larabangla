@@ -16,6 +16,7 @@
             rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
         @notifyCss
+        @livewireStyles
         @stack('style')
         <title>{{$title ?? 'Dashboard'}}</title>
 </head>
@@ -75,6 +76,16 @@
                                 <ul x-show="open" x-collapse.duration.300ms>
                                     <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.show.technologies') }}"><span><i class="fa-regular fa-circle"></i></span> All Technology</a></li>
                                     <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
+                                </ul>
+                            </li>
+                            <li class="mt-1" x-data="{open: false}" >
+                                <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
+                                    <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Versions <span><i class="fa-solid fa-caret-down"></i></span></a>
+                                </div>
+
+                                <ul x-show="open" x-collapse.duration.300ms>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.show.versions') }}"><span><i class="fa-regular fa-circle"></i></span> All Versions</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.version') }}"><span><i class="fa-regular fa-circle"></i></span> Add Version</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
@@ -146,7 +157,7 @@
 
     {{-- hotwire turbo ends --}}
     @notifyJs
-
+    @livewireScripts
 </body>
 
 </html>

@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\Division\DivisionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
+use App\Http\Controllers\Admin\Versions\VersonController;
+use App\Http\Controllers\Admin\Division\DivisionController;
 use App\Http\Controllers\Admin\Technology\TechnologyController;
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,16 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
         Route::get('/edit/technology/{id}', 'edit')->name('edit.technology');
         Route::patch('/update/technology/{id}', 'update')->name('update.technology');
         Route::get('/delete/technology/{id}', 'destroy')->name('delete.technology');
+    });
+
+    // version
+    Route::controller(VersonController::class)->group(function () {
+        Route::get('/add/version', 'create')->name('add.version');
+        Route::put('/store/version', 'store')->name('store.version');
+        Route::get('/show/versions', 'index')->name('show.versions');
+        Route::get('/edit/version/{id}', 'edit')->name('edit.version');
+        Route::patch('/update/version/{id}', 'update')->name('update.version');
+        Route::get('/delete/version/{id}', 'destroy')->name('delete.version');
     });
 });
 

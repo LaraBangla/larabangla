@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('versions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('technology_id');
-            $table->string('name');
-            $table->string('slug')->unique;
-            $table->integer('status')->default(1);
+            $table->foreignId('division_id')->comment('Division ID');
+            $table->foreignId('technology_id')->comment('Technology ID');
+            $table->string('name')->comment('Version Name');
+            $table->string('slug')->unique()->comment('Version Slug');
+            $table->integer('status')->default(1)->comment('1 for active, 0 for deactive');
             $table->timestamps();
         });
     }
