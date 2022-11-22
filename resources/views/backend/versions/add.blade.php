@@ -22,7 +22,7 @@
                             <div class=" text-red-500 mt-1 font-medium">{{ $message }}</div>
                         @enderror
                     </div>
-                    <livewire:admin.version-technology.version-technologoy/>
+                    <livewire:admin.version-technology.version-technologoy :version_id="null"/>
                 <button type="submit" class="mt-10 px-5 py-3 bg-gray-200 uppercase rounded-lg font-bold hover:bg-gray-300  ">ADD Version</button>
             </form>
         </div>
