@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Versions;
 
-use App\Http\Controllers\Controller;
-use App\Models\Frontend\Technology\Version;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
+use App\Models\Frontend\Technology\Version;
 
 class VersonController extends Controller
 {
@@ -97,7 +98,43 @@ class VersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $find = Version::whereId($id)->first();
+        if ($find)
+        {
+
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'slug' => "required|string|unique:versions,slug,$id|max:255",
+                'division' => 'required|numeric',
+                'technology' => 'required|numeric',
+            ]);
+
+            $data = [
+                'name' => $request->name,
+                'slug' => strtolower($request->slug),
+                'division_id' => $request->division,
+                'technology_id' => $request->technology,
+            ];
+                // update data
+                $update = $find->update($data);
+                if ($update)
+                {
+                    notify()->success('Version updated successfully!','Successful');
+                    return back();
+                }
+                else
+                {
+                    notify()->error('Failed to update Version!','Failed');
+                    return back();
+                }
+
+        }
+        else
+        {
+            notify()->error('Version not found!','Not found');
+            return back();
+        }
     }
 
     /**
@@ -108,6 +145,28 @@ class VersonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $decripted_id = Crypt::decryptString($id);
+
+       $find = Version::whereId($decripted_id)->first();
+       if ($find)
+       {
+           try
+           {
+               $find->delete();
+               notify()->success('Version deleted!','Successful');
+               return back();
+           }
+           catch (\Throwable $th)
+           {
+               notify()->error('Failed to delete Version!','Failed');
+               return back();
+           }
+       }
+       else
+       {
+           notify()->error('Version not found!','Not found');
+           return back();
+       }
     }
+
 }

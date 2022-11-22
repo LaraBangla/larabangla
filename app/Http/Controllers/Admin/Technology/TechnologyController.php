@@ -162,7 +162,7 @@ class TechnologyController extends Controller
        }
        else
        {
-           notify()->error('Division not found!','Not found');
+           notify()->error('Technology not found!','Not found');
            return back();
        }
     }
