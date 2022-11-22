@@ -13,6 +13,12 @@
                         <option value="{{ $row->id }}"
                             @if (old('division') == $row->id)
                                 selected
+                            @else
+                               @isset($version->division_id)
+                                    @if ($row->id == $version->division_id)
+                                        selected
+                                    @endif
+                               @endisset
                             @endif
                             class="text-base font-bold ml-3" wire:click="get_technology({{ $row->id }})">{{ $row->name }}</option>
                         @endforeach
@@ -36,6 +42,12 @@
                             <option value="{{ $row->id }}"
                                 @if (old('technologies') == $row->id)
                                     selected
+                                @else
+                                @isset($version->technology_id)
+                                        @if ($row->id == $version->technology_id)
+                                            selected
+                                        @endif
+                                @endisset
                                 @endif
                                 class="text-base font-bold ml-3">{{ $row->name }}</option>
                             @endforeach

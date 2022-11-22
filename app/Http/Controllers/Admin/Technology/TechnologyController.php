@@ -42,8 +42,8 @@ class TechnologyController extends Controller
     {
         $request->validate([
             'division' => 'required|numeric',
-            'name' => 'required|max:255',
-            'slug' => 'required|unique:technologies|max:255',
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|unique:technologies|max:255',
         ]);
 
         $data = [
@@ -104,8 +104,8 @@ class TechnologyController extends Controller
 
                 $request->validate([
                     'division' => 'required|numeric',
-                    'name' => 'required|max:255',
-                    'slug' => "required|unique:technologies,slug,$id|max:255",
+                    'name' => 'required|string|max:255',
+                    'slug' => "required|string|unique:technologies,slug,$id|max:255",
                 ]);
 
                 $data = [

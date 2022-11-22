@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Versions;
 
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Technology\Version;
 use Illuminate\Http\Request;
 
 class VersonController extends Controller
@@ -14,7 +15,8 @@ class VersonController extends Controller
      */
     public function index()
     {
-        //
+        $data = Version::orderBy('id','desc')->paginate(50);
+        return view('backend.versions.all',compact('data'));
     }
 
     /**
@@ -35,7 +37,31 @@ class VersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|unique:versions|max:255',
+            'division' => 'required|numeric',
+            'technology' => 'required|numeric',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'slug' => strtolower($request->slug),
+            'division_id' => $request->division,
+            'technology_id' => $request->technology,
+        ];
+
+        $store = Version::create($data);
+        if ($store)
+        {
+            notify()->success('Version added successfully!','Successful');
+            return back();
+        }
+        else
+        {
+            notify()->error('Failed to store Version!','Failed');
+            return back();
+        }
     }
 
     /**
@@ -57,7 +83,9 @@ class VersonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $find = Version::whereId($id)->first();
+        return view('backend.versions.edit',compact('find'));
+
     }
 
     /**
