@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('versions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('division_id')->comment('Division ID');
             $table->foreignId('technology_id')->comment('Technology ID');
             $table->string('name')->comment('Version Name');
             $table->string('slug')->unique()->comment('Version Slug');

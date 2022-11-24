@@ -78,8 +78,8 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
 
     // version
     Route::controller(VersonController::class)->group(function () {
-        Route::get('/add/version', 'create')->name('add.version');
-        Route::put('/store/version', 'store')->name('store.version');
+        Route::get('/add/version/{id}', 'create')->name('add.version');
+        Route::put('/store/version/{id}', 'store')->name('store.version');
         Route::get('/show/versions', 'index')->name('show.versions');
         Route::get('/edit/version/{id}', 'edit')->name('edit.version');
         Route::patch('/update/version/{id}', 'update')->name('update.version');

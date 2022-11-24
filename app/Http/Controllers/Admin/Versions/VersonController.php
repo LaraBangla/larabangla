@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Versions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Technology\Technology;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Frontend\Technology\Version;
 
@@ -25,9 +26,21 @@ class VersonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('backend.versions.add');
+        $decripted_id = Crypt::decryptString($id);
+        $technology = Technology::whereId($decripted_id)->first();
+        if ($technology)
+        {
+            return view('backend.versions.add',compact('technology'));
+        }
+        else
+        {
+            notify()->error('Technology not found!','Not found');
+           return back();
+        }
+
+
     }
 
     /**
@@ -36,33 +49,44 @@ class VersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:versions|max:255',
-            'division' => 'required|numeric',
-            'technology' => 'required|numeric',
-        ]);
+        $decripted_id = Crypt::decryptString($id);
+        $technology = Technology::whereId($decripted_id)->first();
 
-        $data = [
-            'name' => $request->name,
-            'slug' => strtolower($request->slug),
-            'division_id' => $request->division,
-            'technology_id' => $request->technology,
-        ];
-
-        $store = Version::create($data);
-        if ($store)
+        if ($technology)
         {
-            notify()->success('Version added successfully!','Successful');
-            return back();
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'slug' => 'required|string|unique:versions|max:255',
+            ]);
+
+            $data = [
+                'name' => $request->name,
+                'slug' => strtolower($request->slug),
+                'division_id' => $technology->technology_division_id,
+                'technology_id' => $technology->id,
+            ];
+
+            $store = Version::create($data);
+            if ($store)
+            {
+                notify()->success('Version added successfully!','Successful');
+                return back();
+            }
+            else
+            {
+                notify()->error('Failed to store Version!','Failed');
+                return back();
+            }
         }
         else
         {
-            notify()->error('Failed to store Version!','Failed');
-            return back();
+            notify()->error('Technology not found!','Not found');
+           return back();
         }
+
+
     }
 
     /**
@@ -98,23 +122,20 @@ class VersonController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $decripted_id = Crypt::decryptString($id);
 
-        $find = Version::whereId($id)->first();
+        $find = Version::whereId($decripted_id)->first();
         if ($find)
         {
 
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => "required|string|unique:versions,slug,$id|max:255",
-                'division' => 'required|numeric',
-                'technology' => 'required|numeric',
             ]);
 
             $data = [
                 'name' => $request->name,
                 'slug' => strtolower($request->slug),
-                'division_id' => $request->division,
-                'technology_id' => $request->technology,
             ];
                 // update data
                 $update = $find->update($data);
