@@ -4,7 +4,10 @@
 <section>
     <div class="container mx-auto bg-gray-100 rounded-lg mt-10">
         <div class="p-5">
-            <form action="{{ route('admin.store.version') }}" method="post">
+            <div class=" mb-5">
+                <a class=" text-lg bg-slate-200 p-2 rounded-lg hover:bg-slate-300" href="{{ route('admin.show.technology', $technology->id) }}">< Back</a>
+            </div>
+            <form action="{{ route('admin.store.version', Crypt::encryptString($technology->id)) }}" method="post">
                 @csrf
                 @method('put')
                 <div>
@@ -22,7 +25,6 @@
                             <div class=" text-red-500 mt-1 font-medium">{{ $message }}</div>
                         @enderror
                     </div>
-                    <livewire:admin.version-technology.version-technologoy :version_id="null"/>
                 <button type="submit" class="mt-10 px-5 py-3 bg-gray-200 uppercase rounded-lg font-bold hover:bg-gray-300  ">ADD Version</button>
             </form>
         </div>

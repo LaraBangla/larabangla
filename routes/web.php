@@ -69,7 +69,8 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
     Route::controller(TechnologyController::class)->group(function () {
         Route::get('/add/technology', 'create')->name('add.technology');
         Route::put('/store/technology', 'store')->name('store.technology');
-        Route::get('/show/technologies', 'index')->name('show.technologies');
+        Route::get('/technologies', 'index')->name('all.technologies');
+        Route::get('/show/technology/{id}', 'show')->name('show.technology');
         Route::get('/edit/technology/{id}', 'edit')->name('edit.technology');
         Route::patch('/update/technology/{id}', 'update')->name('update.technology');
         Route::get('/delete/technology/{id}', 'destroy')->name('delete.technology');
@@ -77,8 +78,8 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
 
     // version
     Route::controller(VersonController::class)->group(function () {
-        Route::get('/add/version', 'create')->name('add.version');
-        Route::put('/store/version', 'store')->name('store.version');
+        Route::get('/add/version/{id}', 'create')->name('add.version');
+        Route::put('/store/version/{id}', 'store')->name('store.version');
         Route::get('/show/versions', 'index')->name('show.versions');
         Route::get('/edit/version/{id}', 'edit')->name('edit.version');
         Route::patch('/update/version/{id}', 'update')->name('update.version');

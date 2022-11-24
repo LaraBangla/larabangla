@@ -4,13 +4,13 @@
 <section>
     <div class="container mx-auto bg-gray-100 rounded-lg mt-10 ">
         <h1 class="ml-3 mt-3 text-xl font-bold text-gray-600">Edit Version</h1>
-        <a href="{{ route('admin.show.versions') }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">All Versions</a>
+        <a href="{{ route('admin.show.technology', $find->technology_id) }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">< Back</a>
         <div class="p-5">
-            <form action="{{ route('admin.update.version',$find->id) }}" method="post">
+            <form action="{{ route('admin.update.version',Crypt::encryptString($find->id)) }}" method="post">
                 @csrf
                 @method('patch')
                 <div>
-                <label for="name" class="font-bold text-lg">Technology Name</label> <br/>
+                <label for="name" class="font-bold text-lg">Version Name</label> <br/>
                 <input type="text" name="name"
                 @if (old('name') != null)
                 value="{{ old('name') }}"
@@ -22,8 +22,6 @@
                     <div class=" text-red-500 mt-1 font-medium">{{ $message }}</div>
                 @enderror
                 </div>
-
-                <livewire:admin.version-technology.version-technologoy :version_id="$find->id"/>
 
                 <div class="mt-5">
                 <label for="slug" class="font-bold text-lg">Slug</label> <br/>

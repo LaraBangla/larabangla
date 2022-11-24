@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('technology_division_id');
             $table->foreignId('technology_id');
             $table->foreignId('version_id');
             $table->foreignId('chapter_id');
