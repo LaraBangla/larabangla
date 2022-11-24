@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Frontend\Technology\Technology;
 use App\Models\Frontend\Technology\TechnologyDivision;
+use App\Models\Frontend\Technology\Version;
 
 class TechnologyController extends Controller
 {
@@ -73,7 +74,17 @@ class TechnologyController extends Controller
      */
     public function show($id)
     {
-
+        $find = Technology::whereId($id)->first();
+        if ($find)
+        {
+            $versions = Version::orderBy('id','desc')->get();
+            return view('backend.technology.show',compact('find','versions'));
+        }
+        else
+        {
+            notify()->error('Technology not found!','Not found');
+            return back();
+        }
     }
 
     /**

@@ -4,7 +4,7 @@
 <section>
     <div class="container mx-auto bg-gray-100 rounded-lg mt-10 ">
         <h1 class="ml-3 mt-3 text-xl font-bold text-gray-600">Edit Technology</h1>
-        <a href="{{ route('admin.show.technologies') }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">All Technologies</a>
+        <a href="{{ route('admin.all.technologies') }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">All Technologies</a>
         <div class="p-5">
             <form action="{{ route('admin.update.technology',$find->id) }}" method="post">
                 @csrf

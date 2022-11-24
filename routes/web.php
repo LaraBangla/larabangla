@@ -69,7 +69,8 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
     Route::controller(TechnologyController::class)->group(function () {
         Route::get('/add/technology', 'create')->name('add.technology');
         Route::put('/store/technology', 'store')->name('store.technology');
-        Route::get('/show/technologies', 'index')->name('show.technologies');
+        Route::get('/technologies', 'index')->name('all.technologies');
+        Route::get('/show/technology/{id}', 'show')->name('show.technology');
         Route::get('/edit/technology/{id}', 'edit')->name('edit.technology');
         Route::patch('/update/technology/{id}', 'update')->name('update.technology');
         Route::get('/delete/technology/{id}', 'destroy')->name('delete.technology');
