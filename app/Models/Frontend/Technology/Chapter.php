@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Chapter extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'technology_id',
+        'version_id',
+        'name',
+        'slug',
+    ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Versions;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Technology\Chapter;
 use App\Models\Frontend\Technology\Technology;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Frontend\Technology\Version;
@@ -94,9 +95,26 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($technology_id,$version_id)
     {
-        //
+        $tech_id = Crypt::decryptString($technology_id);
+        $v_id = Crypt::decryptString($version_id);
+
+        $find = Version::whereId($v_id)->whereTechnology_id($tech_id)->first();
+
+        if ($find)
+        {
+
+            $chapters = Chapter::whereVersion_id($v_id)->whereTechnology_id($tech_id)->orderBy('id','desc')->get();
+
+            return view('backend.versions.show',compact('find','chapters'));
+        }
+        else
+        {
+            notify()->error('Version not found!','Not found');
+            return back();
+        }
+
     }
 
     /**
