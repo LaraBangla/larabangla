@@ -64,7 +64,6 @@ class VersonController extends Controller
             $data = [
                 'name' => $request->name,
                 'slug' => strtolower($request->slug),
-                'division_id' => $technology->technology_division_id,
                 'technology_id' => $technology->id,
             ];
 
