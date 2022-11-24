@@ -6,8 +6,9 @@
         <h1 class="ml-3 mt-3 text-xl font-bold text-gray-600">Show Version</h1>
         <a href="{{ route('admin.show.technology', $find->technology_id) }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">< Back</a>
         <div class="p-5">
-            <p><span class=" font-bold">Technology Name:</span> <span>{{ $find->name }}</span></p>
-            <p><span class=" font-bold">Technology Slug:</span> <span>{{ $find->slug }}</span></p>
+            <p><span class=" font-bold">Technology Name:</span> <span>{{ $find->technology->name }}</span></p>
+            <p><span class=" font-bold">Version Name:</span> <span>{{ $find->name }}</span></p>
+            <p><span class=" font-bold">Version Slug:</span> <span>{{ $find->slug }}</span></p>
         </div>
         <div class=" border-t">
             <h3 class=" font-bold text-xl ml-5">Chapters</h3>
