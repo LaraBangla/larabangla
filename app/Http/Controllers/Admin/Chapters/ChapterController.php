@@ -139,7 +139,18 @@ class ChapterController extends Controller
      */
     public function show($id)
     {
-        //
+        $decripted_id = Crypt::decryptString($id);
+        $find = Chapter::whereId($decripted_id)->first();
+        if ($find)
+        {
+            return view('backend.chapters.show',compact('find'));
+        }
+        else
+        {
+            notify()->error('Chapter not found!','Not found');
+            return back();
+        }
+
     }
 
     /**
