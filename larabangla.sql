@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 08:34 AM
+-- Generation Time: Nov 24, 2022 at 10:13 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `chapters` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `technology_division_id` bigint(20) UNSIGNED NOT NULL,
   `technology_id` bigint(20) UNSIGNED NOT NULL,
   `version_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -37,6 +36,25 @@ CREATE TABLE `chapters` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chapters`
+--
+
+INSERT INTO `chapters` (`id`, `technology_id`, `version_id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 4, 2, 'Installation', 'installation', '2022-11-24 00:43:43', '2022-11-24 00:43:43'),
+(2, 4, 2, 'Routes', 'routes', '2022-11-24 00:45:10', '2022-11-24 00:45:10'),
+(3, 4, 2, 'Installation', 'installation-Laravel', '2022-11-24 01:27:54', '2022-11-24 01:27:54'),
+(4, 4, 2, 'Installation', 'installation-1', '2022-11-24 01:33:18', '2022-11-24 01:33:18'),
+(5, 4, 2, 'Installation', 'installation-1-2', '2022-11-24 01:33:38', '2022-11-24 01:33:38'),
+(6, 4, 2, 'Installation', 'installation-1-2-3', '2022-11-24 01:33:57', '2022-11-24 01:33:57'),
+(7, 4, 2, 'Installation', 'installation-2', '2022-11-24 01:37:20', '2022-11-24 01:37:20'),
+(8, 4, 2, 'Installation', 'installation-3', '2022-11-24 01:37:23', '2022-11-24 01:37:23'),
+(9, 4, 2, 'Installation', 'installation-4', '2022-11-24 01:37:25', '2022-11-24 01:37:25'),
+(10, 4, 2, 'ইন্সটলেশন', 'installation-5', '2022-11-24 01:42:32', '2022-11-24 01:42:32'),
+(11, 4, 2, 'sasad', 'sasd', '2022-11-24 01:45:19', '2022-11-24 01:45:19'),
+(12, 4, 2, 'সদলফাস্লদ', 'asd', '2022-11-24 01:45:55', '2022-11-24 01:45:55'),
+(13, 4, 2, 'কনট্রলার', 'controller', '2022-11-24 01:47:09', '2022-11-24 01:47:09');
 
 -- --------------------------------------------------------
 
@@ -62,7 +80,6 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `lessons` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `technology_division_id` bigint(20) UNSIGNED NOT NULL,
   `technology_id` bigint(20) UNSIGNED NOT NULL,
   `version_id` bigint(20) UNSIGNED NOT NULL,
   `chapter_id` bigint(20) UNSIGNED NOT NULL,
@@ -100,11 +117,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2020_05_21_200000_create_team_user_table', 1),
 (8, '2020_05_21_300000_create_team_invitations_table', 1),
 (9, '2022_11_14_081246_create_sessions_table', 1),
-(10, '2022_11_17_061641_create_versions_table', 1),
-(11, '2022_11_17_062744_create_chapters_table', 1),
-(12, '2022_11_17_063052_create_lessons_table', 1),
-(13, '2022_11_17_063549_create_technologies_table', 1),
-(14, '2022_11_19_051952_create_technology_divisions_table', 1);
+(10, '2022_11_17_061122_create_technologies_table', 1),
+(11, '2022_11_17_061123_create_technology_divisions_table', 1),
+(12, '2022_11_17_061641_create_versions_table', 1),
+(14, '2022_11_17_063052_create_lessons_table', 1),
+(15, '2022_11_17_062744_create_chapters_table', 2);
 
 -- --------------------------------------------------------
 
@@ -157,11 +174,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('3mjXhnFHaxt7YmOvXoEpKMSMezsn5HqpZSVZjCQI', NULL, '192.168.159.1', 'HomeNet/1.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWE54R1Q5MlhtU1gwcnlRZWlkN0lWZ25lQmtlMXR5ZTBMWFVuRnJQQyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly8xOTIuMTY4LjE1OS4xMjgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1669098291),
-('dZy9jeoEpcCfIh1z334YrDcmTJbbIWUtXaeUdZvH', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMHVRRDZ0SkVwU1pRd2J6OVlFM3d1NFMxOXJhWVRyZ2x5NVlMWjRXcSI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNToiaHR0cDovL2xiLnNpdGUvYWRtaW4vZWRpdC92ZXJzaW9uLzIiO31zOjk6Il9wcmV2aW91cyI7YToxOntzOjM6InVybCI7czozNToiaHR0cDovL2xiLnNpdGUvYWRtaW4vZWRpdC92ZXJzaW9uLzIiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1669100067),
-('FL1eXrSi9tHrQwbVR06bfptCYl2FzK38WGAKuDQ3', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiUVJaZW50SmpHd0lPd3NSdVhvcmR0V2FHZXg1Nzd0MHlTaFBMcGpSRSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjA6Imh0dHA6Ly9sYi5zaXRlL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1669100067),
-('hmCHuhzYJFNekDhvzuWcMWxGhMT75ULuGoa1uptC', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWVZwOVJwVHdqRXl1MlczU0h2ZmFhN0R2YzdHeXRIOXd4M3U3SjRBcyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjM6Imh0dHA6Ly9sYi5zaXRlL3JlZ2lzdGVyIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1669097967),
-('lhc8mgvnNPxz0tgn1xhL9DOsdRlVOEkDEID4aSMJ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiS2xiREtvc2czSWVXWkxFa1EydlptMjVydmJ6UXdWMm1hQXRNNm5XbSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM4OiJodHRwOi8vbGIuc2l0ZS9hZG1pbi9zaG93L3RlY2hub2xvZ2llcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1669102320);
+('fAEMkkgZXxhkG6pSmVo0FpRLy5w9Mbp66nZrV3A7', NULL, '192.168.159.1', 'HomeNet/1.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRWxnbHlpcWoybDlXS3FJTmhWSnJ1UHZMQldBbVZlZXc5UXZyNlZMYyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly8xOTIuMTY4LjE1OS4xMjgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1669277008),
+('lNA1dJ53IOTPAQE5TAvfwdWqB4xawi2uEaFtHoKb', NULL, '192.168.159.1', 'HomeNet/1.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiamRIcUc2djZDdVhNSW9Ud3BhQ3VGc25ZWE1uTjAxS1FhaGhobWo0cyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI6Imh0dHA6Ly8xOTIuMTY4LjE1OS4xMjgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1669272615),
+('TqepFVC9oJx1cGxyFYK46UVRkDMiuglojcZQUIO5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidm1KbkxON2lqUUhlcEpWNE5qT0RRbmhsUURyaUd3OHZWR29vaDBmUCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQzNToiaHR0cDovL2xiLnNpdGUvYWRtaW4vc2hvdy92ZXJzaW9uL2V5SnBkaUk2SWtwSldUSkZNRFF2ZWpKVmN6QnpkeTlyZG1sNmRXYzlQU0lzSW5aaGJIVmxJam9pTDBSSVJHaHVXVW96V1RRME16Sm9RMFFyZVRGMVp6MDlJaXdpYldGaklqb2lOakk1T1dVNFlUZzVaV1F5WlRjNU16WmpZVGN4WWpoak1qVXpOV1E1TW1ZM1kyRTJaak5tTmpRMFltSXlNemN3TWpRNU9XUTVNVGN5WXpCaU0yTmpNaUlzSW5SaFp5STZJaUo5L2V5SnBkaUk2SWpCbWVuQm5aelppZVRVNGVVOUZXRWRhTlRScGRFRTlQU0lzSW5aaGJIVmxJam9pYkhaelprd3djVkZTWlZCRFpsZDNNbFUwU1ZkbFp6MDlJaXdpYldGaklqb2lPVFl3TUdVeE5UVTRNRFZpWWpNMU9URTFNalkyTkdGaE9UaGxNamcxT1RCak0yRmxORFE1WWpkbVkyWTFZbVkwTVRsbU5XRXlaamMyTkdJeFl6UXpNeUlzSW5SaFp5STZJaUo5Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1669281186);
 
 -- --------------------------------------------------------
 
@@ -183,7 +198,7 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `user_id`, `name`, `personal_team`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Anowar\'s Team', 1, '2022-11-22 00:17:23', '2022-11-22 00:17:23');
+(1, 1, 'Anowar\'s Team', 1, '2022-11-23 23:59:55', '2022-11-23 23:59:55');
 
 -- --------------------------------------------------------
 
@@ -236,11 +251,10 @@ CREATE TABLE `technologies` (
 --
 
 INSERT INTO `technologies` (`id`, `technology_division_id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'CSS', 'css', 1, '2022-11-22 00:18:39', '2022-11-22 00:18:39'),
-(2, 1, 'Bootstrap', 'bootstrap', 1, '2022-11-22 00:18:52', '2022-11-22 00:18:52'),
-(3, 2, 'PHP', 'php', 1, '2022-11-22 00:19:06', '2022-11-22 00:19:06'),
-(4, 2, 'Laravel', 'laravel', 1, '2022-11-22 00:19:18', '2022-11-22 00:19:18'),
-(5, 2, 'Django', 'django', 1, '2022-11-22 01:01:41', '2022-11-22 01:01:41');
+(1, 1, 'CSS', 'css', 1, '2022-11-24 00:01:10', '2022-11-24 00:01:10'),
+(2, 1, 'Bootstrap', 'bootstrap', 1, '2022-11-24 00:01:17', '2022-11-24 00:01:17'),
+(3, 2, 'PHP', 'php', 1, '2022-11-24 00:01:28', '2022-11-24 00:01:28'),
+(4, 2, 'Laravel', 'laravel', 1, '2022-11-24 00:01:38', '2022-11-24 00:01:38');
 
 -- --------------------------------------------------------
 
@@ -261,9 +275,9 @@ CREATE TABLE `technology_divisions` (
 --
 
 INSERT INTO `technology_divisions` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Frontend', 'frontend', '2022-11-22 00:18:06', '2022-11-22 00:18:06'),
-(2, 'Backend', 'backend', '2022-11-22 00:18:15', '2022-11-22 00:18:15'),
-(3, 'Others', 'others', '2022-11-22 00:18:23', '2022-11-22 00:18:23');
+(1, 'Frontend', 'frontend', '2022-11-24 00:00:35', '2022-11-24 00:00:35'),
+(2, 'Backend', 'backend', '2022-11-24 00:00:45', '2022-11-24 00:00:45'),
+(3, 'Others', 'others', '2022-11-24 00:00:52', '2022-11-24 00:00:52');
 
 -- --------------------------------------------------------
 
@@ -292,7 +306,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Anowar Hosen', 'anowarhosensoft@gmail.com', '2022-11-22 06:17:36', '$2y$10$QA7iCcu0qshoip5noNjhieMPzpqTJwIV4CvHMJaL9FjRxhmI3w8eC', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-22 00:17:23', '2022-11-22 00:17:23');
+(1, 'Anowar Hosen', 'anowarhosensoft@gmail.com', '2022-11-24 06:00:13', '$2y$10$PmXt8P/oaeydk.s0D02dyuOmMuWd2vZuU5WWWqYsm9XRM60p6YrDa', NULL, NULL, NULL, NULL, NULL, NULL, '2022-11-23 23:59:55', '2022-11-23 23:59:55');
 
 -- --------------------------------------------------------
 
@@ -302,7 +316,6 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `tw
 
 CREATE TABLE `versions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `division_id` bigint(20) UNSIGNED NOT NULL COMMENT 'Division ID',
   `technology_id` bigint(20) UNSIGNED NOT NULL COMMENT 'Technology ID',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Version Name',
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Version Slug',
@@ -315,8 +328,9 @@ CREATE TABLE `versions` (
 -- Dumping data for table `versions`
 --
 
-INSERT INTO `versions` (`id`, `division_id`, `technology_id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
-(3, 2, 4, '1x', '1x', 1, '2022-11-22 01:22:59', '2022-11-22 01:22:59');
+INSERT INTO `versions` (`id`, `technology_id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
+(1, 4, '1x', '1x', 1, '2022-11-24 00:01:58', '2022-11-24 00:03:24'),
+(2, 4, '2x', '2x', 1, '2022-11-24 00:02:09', '2022-11-24 00:02:09');
 
 --
 -- Indexes for dumped tables
@@ -326,7 +340,8 @@ INSERT INTO `versions` (`id`, `division_id`, `technology_id`, `name`, `slug`, `s
 -- Indexes for table `chapters`
 --
 ALTER TABLE `chapters`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `chapters_slug_unique` (`slug`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -428,7 +443,7 @@ ALTER TABLE `versions`
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -446,7 +461,7 @@ ALTER TABLE `lessons`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -476,7 +491,7 @@ ALTER TABLE `team_user`
 -- AUTO_INCREMENT for table `technologies`
 --
 ALTER TABLE `technologies`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `technology_divisions`
@@ -494,7 +509,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `versions`
 --
 ALTER TABLE `versions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

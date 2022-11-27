@@ -77,7 +77,7 @@ class TechnologyController extends Controller
         $find = Technology::whereId($id)->first();
         if ($find)
         {
-            $versions = Version::orderBy('id','desc')->get();
+            $versions = Version::where('technology_id',$find->id)->orderBy('id','desc')->get();
             return view('backend.technology.show',compact('find','versions'));
         }
         else

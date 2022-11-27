@@ -28,4 +28,10 @@ class Version extends Model
         return $this->hasOne(Technology::class, 'id','technology_id');
     }
 
+    // get chapters
+    // public function chapters()
+    // {
+    //     return $this->hasMany(Chapter::class,'version_id','id');
+    // }
+
 }

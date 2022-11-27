@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('technology_id');
             $table->foreignId('version_id');
+            $table->integer('order');
             $table->string('name');
-            $table->string('slug')->unique;
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
