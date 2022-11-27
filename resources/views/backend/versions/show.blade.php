@@ -21,8 +21,8 @@
                     <p class=" text-gray-500">{{ $chapter->slug }}</p>
                     </div>
                     <div class="mr-2">
-                        <a href="{{ route('admin.show.chapter',$chapter->id) }}" class="p-2 text-lg bg-sky-600 text-white mx-1 rounded-sm"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{ route('admin.edit.chapter',$chapter->id) }}" class="p-2 text-lg bg-green-700 text-white mx-1 rounded-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{ route('admin.show.chapter',Crypt::encryptString($chapter->id)) }}" class="p-2 text-lg bg-sky-600 text-white mx-1 rounded-sm"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{ route('admin.edit.chapter',Crypt::encryptString($chapter->id)) }}" class="p-2 text-lg bg-green-700 text-white mx-1 rounded-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                         <a href="{{ route('admin.delete.chapter',Crypt::encryptString($chapter->id)) }}" onclick="return confirm('Are you sure?')" class="p-2 text-lg bg-red-700 text-white mx-1 rounded-sm"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </li>
