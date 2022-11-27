@@ -5,7 +5,7 @@
     <div class="container mx-auto bg-gray-100 rounded-lg mt-10">
         <div class="p-5">
             <div class=" mb-5">
-                <a class=" text-lg bg-slate-200 p-2 rounded-lg hover:bg-slate-300" href="{{ route('admin.show.version', $version->id) }}">< Back</a>
+                <a class=" text-lg bg-slate-200 p-2 rounded-lg hover:bg-slate-300" href="{{ route('admin.show.version',['technology_id' => Crypt::encryptString($version->technology_id), 'version_id' => Crypt::encryptString($version->id)]) }}">< Back</a>
             </div>
             <form action="{{ route('admin.store.chapter', Crypt::encryptString($version->id)) }}" method="post">
                 @csrf

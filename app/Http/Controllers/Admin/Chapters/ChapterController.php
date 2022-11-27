@@ -57,8 +57,7 @@ class ChapterController extends Controller
         {
             $request->validate([
                 'name' => 'required|string|max:255',
-                'slug' => 'required|regex:/^[a-zA-Z]+$/u|string|max:255',
-
+                'slug' => 'required|regex:/^[A-Za-z.-]+$/|string|max:255',
             ]);
 
               // generate slug
@@ -97,13 +96,16 @@ class ChapterController extends Controller
                 }
               }
 
-
+              // generate chapter id
+              $last_chapter = Chapter::orderBy('id','desc')->first();
+              $last_chapter != null? $chapter_id = $last_chapter->id +1 : $chapter_id = 1;
 
             $data = [
                 'name' => $request->name,
                  'slug' => $slug,
                 'version_id' => $version->id,
                 'technology_id' => $version->technology_id,
+                'order' => $chapter_id,
             ];
 
 

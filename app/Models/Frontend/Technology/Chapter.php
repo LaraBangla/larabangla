@@ -11,6 +11,7 @@ class Chapter extends Model
     protected $fillable = [
         'technology_id',
         'version_id',
+        'order',
         'name',
         'slug',
     ];
