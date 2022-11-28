@@ -11,8 +11,11 @@ class Lesson extends Model
     protected $fillable = [
         'technology_id',
         'version_id',
+        'chapter_id',
         'order',
         'name',
         'slug',
+        'file',
+        'status',
     ];
 }

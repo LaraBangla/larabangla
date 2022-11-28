@@ -11,7 +11,7 @@
         </div>
         <div class=" border-t">
             <h3 class=" font-bold text-xl ml-5">Lessons</h3>
-        <a href="{{ route('admin.add.chapter', Crypt::encryptString($find->id)) }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">Add Lesson</a>
+        <a href="{{ route('admin.add.lesson', Crypt::encryptString($find->id)) }}" class=" float-right mr-3 bg-gray-300 p-3 rounded-md font-normal hover:bg-gray-400">Add Lesson</a>
             <ul class="ml-5 text-lg pt-10">
                 {{-- @foreach ($versions as $version)
                 <li class=" my-10 border py-5 pl-5">

@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\Chapters\ChapterController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
+use App\Http\Controllers\Admin\Lessons\LessonsController;
 use App\Http\Controllers\Admin\Versions\VersonController;
+use App\Http\Controllers\Admin\Chapters\ChapterController;
 use App\Http\Controllers\Admin\Division\DivisionController;
 use App\Http\Controllers\Admin\Technology\TechnologyController;
 /*
@@ -97,6 +98,17 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
         Route::get('/edit/chapter/{id}', 'edit')->name('edit.chapter');
         Route::patch('/update/chapter/{id}', 'update')->name('update.chapter');
         Route::get('/delete/chapter/{id}', 'destroy')->name('delete.chapter');
+    });
+
+    // chapter
+    Route::controller(LessonsController::class)->group(function () {
+        Route::get('/add/lesson/{id}', 'create')->name('add.lesson');
+        Route::put('/store/lesson/{id}', 'store')->name('store.lesson');
+        Route::get('/show/lessons', 'index')->name('show.lessons');
+        Route::get('/show/lesson/{id}', 'show')->name('show.lesson'); // single
+        Route::get('/edit/lesson/{id}', 'edit')->name('edit.lesson');
+        Route::patch('/update/lesson/{id}', 'update')->name('update.lesson');
+        Route::get('/delete/lesson/{id}', 'destroy')->name('delete.lesson');
     });
 
 

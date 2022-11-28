@@ -19,12 +19,15 @@ class Chapter extends Model
 
     public function version()
     {
-        return $this->hasOne(Version::class, 'id','technology_id');
+        return $this->belongsTo(Version::class,'version_id','id' );
     }
 
     // get single technology
     public function technology()
     {
-        return $this->hasOne(Technology::class, 'id','technology_id');
+        return $this->belongsTo(Technology::class, 'technology_id', 'id');
     }
+
+
+
 }
