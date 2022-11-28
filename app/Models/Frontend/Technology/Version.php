@@ -25,13 +25,13 @@ class Version extends Model
     // get single technology
     public function technology()
     {
-        return $this->hasOne(Technology::class, 'id','technology_id');
+        return $this->belongsTo(Technology::class,'technology_id','id');
     }
 
     // get chapters
     // public function chapters()
     // {
-    //     return $this->hasMany(Chapter::class,'version_id','id');
+    //     return $this->belongsTo(Chapter::class,'version_id','id');
     // }
 
 }

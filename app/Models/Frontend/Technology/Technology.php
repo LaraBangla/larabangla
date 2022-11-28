@@ -17,6 +17,6 @@ class Technology extends Model
 
     public function division()
     {
-        return $this->hasOne(TechnologyDivision::class, 'id','technology_division_id');
+        return $this->belongsTo(TechnologyDivision::class, 'technology_division_id','id');
     }
 }
