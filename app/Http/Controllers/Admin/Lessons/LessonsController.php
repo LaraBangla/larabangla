@@ -84,7 +84,7 @@ class LessonsController extends Controller
               else
               {
                 // if not available then
-                $slug_with_tech_name = $slug.'-'.strtolower($chapter->technology->name);
+                $slug_with_tech_name = $slug.'-'.strtolower(Str::slug($chapter->technology->name,'-'));
                  // check into database that, is slug available?
                 $check_slug = Lesson::where('slug',$slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
@@ -93,16 +93,26 @@ class LessonsController extends Controller
                 }
                 else
                 {
-                    // auto generate slug
-                    $number = 1;
-                    while(!empty($check_slug))
+                    // if not available then
+                    $slug_with_version_name = $slug.'-'.strtolower(Str::slug($chapter->technology->name,'-')).'-'.strtolower($chapter->version->slug);
+                    // check into database that, is slug available?
+                    $check_slug = Lesson::where('slug',$slug_with_version_name)->first();
+                    if (!isset($check_slug) && $check_slug == null)
                     {
-                        $generate_slug = $slug.'-'.$number;
-                        $check_slug = Lesson::where('slug',$generate_slug)->first();
-                        $number ++;
+                        $slug = $slug_with_version_name;
                     }
-                    $slug = $generate_slug;
-
+                    else
+                    {
+                        // auto generate slug
+                        $number = 1;
+                        while(!empty($check_slug))
+                        {
+                            $generate_slug = $slug.'-'.$number;
+                            $check_slug = Lesson::where('slug',$generate_slug)->first();
+                            $number ++;
+                        }
+                        $slug = $generate_slug;
+                    }
                 }
               }
 
@@ -118,15 +128,15 @@ class LessonsController extends Controller
                $fileName  = strtolower(Str::slug($slug,'_')).'.md';
 
               // check that named file already exist or not, if not exist then store it, else name that file name uniqid
-                $path = strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name).'/'.$fileName;
+                $path = strtolower(Str::slug($chapter->technology->name,'-')).'/'.strtolower(Str::slug($chapter->version->slug,'-')).'/'.$fileName;
                 if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()) )
                 {
-                    $doc_file->storeAs(strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name),$fileName, 'docs');
+                    $doc_file->storeAs(strtolower(Str::slug($chapter->technology->name,'-')).'/'.strtolower(Str::slug($chapter->version->slug,'-')),$fileName, 'docs');
                 }
                 else
                 {
                     $fileName  = strtolower(Str::slug($slug,'_')).uniqid().'.md';
-                    $doc_file->storeAs(strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name),$fileName, 'docs');
+                    $doc_file->storeAs(strtolower(Str::slug($chapter->technology->name,'-')).'/'.strtolower(Str::slug($chapter->version->slug,'-')),$fileName, 'docs');
                 }
 
 
