@@ -111,10 +111,13 @@ class LessonsController extends Controller
               $last_lesson != null? $lesson_id = $last_lesson->id +1 : $lesson_id = 1;
 
 
-              // file
+                // doc file
                $doc_file = $request->doc_file;
+
+               //generate file name
                $fileName  = strtolower(Str::slug($slug,'_')).'.md';
 
+              // check that named file already exist or not, if not exist then store it, else name that file name uniqid
                 $path = strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name).'/'.$fileName;
                 if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()) )
                 {
@@ -122,10 +125,9 @@ class LessonsController extends Controller
                 }
                 else
                 {
-                    $fileName  = strtolower(Str::slug($request->name,'_')).uniqid().'.md';
+                    $fileName  = strtolower(Str::slug($slug,'_')).uniqid().'.md';
                     $doc_file->storeAs(strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name),$fileName, 'docs');
                 }
-
 
 
             $data = [
@@ -138,9 +140,6 @@ class LessonsController extends Controller
                 'file' => $fileName,
 
             ];
-
-
-
 
 
             $store = Lesson::create($data);
