@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin\Lessons;
 
+use App\Rules\Markdown;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Chapter;
-use App\Rules\Markdown;
 
 class LessonsController extends Controller
 {
@@ -111,9 +112,21 @@ class LessonsController extends Controller
 
 
               // file
-              $doc_file = $request->doc_file;
-              $fileName = $doc_file->hashName();
-              $doc_file->storeAs(strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name),$fileName, 'docs');
+               $doc_file = $request->doc_file;
+               $fileName  = strtolower(Str::slug($slug,'_')).'.md';
+
+                $path = strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name).'/'.$fileName;
+                if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()) )
+                {
+                    $doc_file->storeAs(strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name),$fileName, 'docs');
+                }
+                else
+                {
+                    $fileName  = strtolower(Str::slug($request->name,'_')).uniqid().'.md';
+                    $doc_file->storeAs(strtolower($chapter->technology->name).'/'.strtolower($chapter->version->name),$fileName, 'docs');
+                }
+
+
 
             $data = [
                 'name' => $request->name,
