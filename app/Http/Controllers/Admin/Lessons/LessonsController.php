@@ -33,6 +33,7 @@ class LessonsController extends Controller
         $decripted_id = Crypt::decryptString($id);
 
         $chapter = Chapter::whereId($decripted_id)->first();
+
         if ($chapter)
         {
             return view('backend.lessons.add',compact('chapter'));

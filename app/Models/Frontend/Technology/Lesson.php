@@ -2,8 +2,9 @@
 
 namespace App\Models\Frontend\Technology;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\Chapter;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Lesson extends Model
 {
@@ -18,4 +19,10 @@ class Lesson extends Model
         'file',
         'status',
     ];
+
+    //get chapter
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class, 'chapter_id', 'id');
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Models\Frontend\Technology;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\Chapter;
+use App\Models\Frontend\Technology\Technology;
 use App\Models\Frontend\Technology\TechnologyDivision;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 

@@ -93,7 +93,7 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
     Route::controller(ChapterController::class)->group(function () {
         Route::get('/add/chapter/{id}', 'create')->name('add.chapter');
         Route::put('/store/chapter/{id}', 'store')->name('store.chapter');
-        Route::get('/show/chapters', 'index')->name('show.chapters');
+      //  Route::get('/show/chapters', 'index')->name('show.chapters');
         Route::get('/show/chapter/{id}', 'show')->name('show.chapter'); // single
         Route::get('/edit/chapter/{id}', 'edit')->name('edit.chapter');
         Route::patch('/update/chapter/{id}', 'update')->name('update.chapter');

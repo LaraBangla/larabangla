@@ -3,6 +3,8 @@
 namespace App\Models\Frontend\Technology;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\Lesson;
+use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -26,6 +28,12 @@ class Chapter extends Model
     public function technology()
     {
         return $this->belongsTo(Technology::class, 'technology_id', 'id');
+    }
+
+    // get that chapter lessons
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class,'chapter_id','id')->orderBy('id','desc');     // 'foreign_key', 'local_key'
     }
 
 
