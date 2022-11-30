@@ -17,8 +17,8 @@
                 <li class=" my-10 border py-5 pl-5">
                     <a href="#">{{ $lesson->name }}</a>
                     <div class=" float-right">
-                        <a href="{{ route('admin.show.lesson',$lesson->id) }}" class="p-2 text-lg bg-sky-600 text-white mx-1 rounded-sm"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{ route('admin.edit.lesson',$lesson->id) }}" class="p-2 text-lg bg-green-700 text-white mx-1 rounded-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="{{ route('admin.show.lesson',Crypt::encryptString($lesson->id)) }}" class="p-2 text-lg bg-sky-600 text-white mx-1 rounded-sm"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{ route('admin.edit.lesson',Crypt::encryptString($lesson->id)) }}" class="p-2 text-lg bg-green-700 text-white mx-1 rounded-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                         <a href="{{ route('admin.delete.lesson',Crypt::encryptString($lesson->id)) }}" onclick="return confirm('Are you sure?')" class="p-2 text-lg bg-red-700 text-white mx-1 rounded-sm"><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </li>

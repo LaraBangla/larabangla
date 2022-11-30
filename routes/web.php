@@ -104,7 +104,7 @@ Route::middleware(['auth','verified'])->prefix('admin')->name('admin.')->group(f
     Route::controller(LessonsController::class)->group(function () {
         Route::get('/add/lesson/{id}', 'create')->name('add.lesson');
         Route::put('/store/lesson/{id}', 'store')->name('store.lesson');
-        Route::get('/show/lessons', 'index')->name('show.lessons');
+       // Route::get('/show/lessons', 'index')->name('show.lessons');
         Route::get('/show/lesson/{id}', 'show')->name('show.lesson'); // single
         Route::get('/edit/lesson/{id}', 'edit')->name('edit.lesson');
         Route::patch('/update/lesson/{id}', 'update')->name('update.lesson');
