@@ -315,22 +315,24 @@ class LessonsController extends Controller
                 {
                     $slice = Str::before($lesson->file, '.md');
 
-                    // $fileName  = $slice.Str::slug(now(),'_').'.md';
-                    // if (strlen($fileName) > 20)
-                    // {
-                    //     $newName = substr($fileName, 0, 20).'.md';
-                    //     $fileName = $newName;
-                    // }
-                    $slice = Str::before($lesson->file, '.md');
-                    $fileNum = 1;
-                    $fileName  = $slice.'_'.$fileNum;
-                    $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $fileName;
-                    while (Storage::disk('docs')->exists($path) && !empty(Lesson::wherefile($fileName)->first()))
+                    $fileName  = $slice.Str::slug(now(),'_').'.md';
+                    if (strlen($fileName) > 20)
                     {
-                        $fileName  = $slice.'_'.$fileNum;
-                        $fileNum++;
+                        $newName = substr($fileName, 0, 20).'.md';
+                        $fileName = $newName;
                     }
-                    dd($fileName);
+
+                    // $slice = Str::before($lesson->file, '.md');
+                    // $fileNum = 1;
+                    // $fileName  = $slice.'_'.$fileNum.'.md';
+                    // $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $fileName;
+                    // while (Storage::disk('docs')->exists($path) && !empty(Lesson::wherefile($fileName)->first()))
+                    // {
+                    //     $fileName  = $slice.'_'.$fileNum.'.md';
+                    //     $fileNum++;
+                    // }
+
+                   // dd($fileName);
                 }
 
 
