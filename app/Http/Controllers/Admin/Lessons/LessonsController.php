@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Chapter;
+use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 class LessonsController extends Controller
 {
@@ -181,7 +182,34 @@ class LessonsController extends Controller
      */
     public function show($id)
     {
-        //
+        $decripted_id = Crypt::decryptString($id);
+        $find = Lesson::whereId($decripted_id)->first();
+        if ($find)
+        {
+            $converter = new GithubFlavoredMarkdownConverter([
+                'html_input' => 'strip',
+                'allow_unsafe_links' => false,
+            ]);
+
+            $path = strtolower(Str::slug($find->technology->name, '-')) . '/' . strtolower(Str::slug($find->version->slug, '-')) . '/' . $find->file;
+            if (Storage::disk('docs')->exists($path))
+            {
+                $md = file_get_contents( storage_path('/docs/'.$path));
+                $data = $converter->convert($md);
+                return view('backend.lessons.show',compact('data','find'));
+            }
+            {
+                notify()->error('Doc file does not exists!', 'Does not exists!');
+                return back();
+            }
+
+        }
+        else
+        {
+            notify()->error('Lesson not found!', 'Not found');
+            return back();
+        }
+
     }
 
     /**
