@@ -3,6 +3,8 @@
 namespace App\Models\Frontend\Technology;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\Chapter;
+use App\Models\Frontend\Technology\Technology;
 use App\Models\Frontend\Technology\TechnologyDivision;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -25,13 +27,13 @@ class Version extends Model
     // get single technology
     public function technology()
     {
-        return $this->hasOne(Technology::class, 'id','technology_id');
+        return $this->belongsTo(Technology::class,'technology_id','id');
     }
 
     // get chapters
     // public function chapters()
     // {
-    //     return $this->hasMany(Chapter::class,'version_id','id');
+    //     return $this->belongsTo(Chapter::class,'version_id','id');
     // }
 
 }

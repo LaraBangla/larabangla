@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Frontend\Technology\Chapter;
+use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Version;
 
 class ChapterController extends Controller
@@ -141,6 +142,7 @@ class ChapterController extends Controller
     {
         $decripted_id = Crypt::decryptString($id);
         $find = Chapter::whereId($decripted_id)->first();
+
         if ($find)
         {
             return view('backend.chapters.show',compact('find'));

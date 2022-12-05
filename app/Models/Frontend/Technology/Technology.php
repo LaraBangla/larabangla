@@ -2,8 +2,9 @@
 
 namespace App\Models\Frontend\Technology;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\TechnologyDivision;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Technology extends Model
 {
@@ -17,6 +18,6 @@ class Technology extends Model
 
     public function division()
     {
-        return $this->hasOne(TechnologyDivision::class, 'id','technology_division_id');
+        return $this->belongsTo(TechnologyDivision::class, 'technology_division_id','id');
     }
 }
