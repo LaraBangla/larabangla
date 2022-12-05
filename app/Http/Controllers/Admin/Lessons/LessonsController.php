@@ -194,22 +194,20 @@ class LessonsController extends Controller
             $path = strtolower(Str::slug($find->technology->name, '-')) . '/' . strtolower(Str::slug($find->version->slug, '-')) . '/' . $find->file;
             if (Storage::disk('docs')->exists($path))
             {
-                $md = file_get_contents( storage_path('/docs/'.$path));
+                $md = file_get_contents(storage_path('/docs/' . $path));
                 $data = $converter->convert($md);
-                return view('backend.lessons.show',compact('data','find'));
+                return view('backend.lessons.show', compact('data', 'find'));
             }
             {
                 notify()->error('Doc file does not exists!', 'Does not exists!');
                 return back();
             }
-
         }
         else
         {
             notify()->error('Lesson not found!', 'Not found');
             return back();
         }
-
     }
 
     /**
@@ -343,10 +341,10 @@ class LessonsController extends Controller
                 {
                     $slice = Str::before($lesson->file, '.md');
 
-                    $fileName  = $slice.Str::slug(now(),'_').'.md';
+                    $fileName  = $slice . Str::slug(now(), '_') . '.md';
                     if (strlen($fileName) > 20)
                     {
-                        $newName = substr($fileName, 0, 20).'.md';
+                        $newName = substr($fileName, 0, 20) . '.md';
                         $fileName = $newName;
                     }
 
@@ -360,7 +358,7 @@ class LessonsController extends Controller
                     //     $fileNum++;
                     // }
 
-                   // dd($fileName);
+                    // dd($fileName);
                 }
 
 
@@ -426,6 +424,33 @@ class LessonsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $decripted_id = Crypt::decryptString($id);
+        $find = Lesson::whereId($decripted_id)->first();
+        if ($find)
+        {
+            $file = $find->file;
+            $delete = $find->delete();
+            if ($delete)
+            {
+                // * delete old file
+                $path = strtolower(Str::slug($find->technology->name, '-')) . '/' . strtolower(Str::slug($find->version->slug, '-')) . '/' . $file;
+                if (Storage::disk('docs')->exists($path))
+                {
+                    Storage::disk('docs')->delete($path);
+                }
+                notify()->success('Successfully deleted', 'Deleted');
+                return back();
+            }
+            else
+            {
+                notify()->error('Failed to delete!', 'Failed');
+                return back();
+            }
+        }
+        else
+        {
+            notify()->error('Chapter not found!', 'Not found');
+            return back();
+        }
     }
 }
