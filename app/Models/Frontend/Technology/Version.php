@@ -21,19 +21,19 @@ class Version extends Model
     // get single division
     public function division()
     {
-        return $this->hasOne(TechnologyDivision::class, 'id','division_id');
+        return $this->hasOne(TechnologyDivision::class, 'id', 'division_id');
     }
 
     // get single technology
     public function technology()
     {
-        return $this->belongsTo(Technology::class,'technology_id','id');
+        return $this->belongsTo(Technology::class, 'technology_id', 'id');
     }
 
     // get chapters
-    // public function chapters()
-    // {
-    //     return $this->belongsTo(Chapter::class,'version_id','id');
-    // }
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class, 'version_id', 'id')->orderBy('order', 'asc');     // 'foreign_key', 'local_key'
 
+    }
 }

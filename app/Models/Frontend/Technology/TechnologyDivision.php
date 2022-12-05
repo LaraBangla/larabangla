@@ -11,4 +11,9 @@ class TechnologyDivision extends Model
     protected $fillable = [
         'name', 'slug',
     ];
+
+    public function technologies()
+    {
+        return $this->hasMany(Technology::class, 'technology_division_id', 'id')->orderBy('name', 'asc');     // 'foreign_key', 'local_key'
+    }
 }
