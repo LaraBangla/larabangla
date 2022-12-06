@@ -18,8 +18,8 @@ class VersonController extends Controller
      */
     public function index()
     {
-        $data = Version::orderBy('id','desc')->paginate(50);
-        return view('backend.versions.all',compact('data'));
+        $data = Version::orderBy('id', 'desc')->paginate(50);
+        return view('backend.versions.all', compact('data'));
     }
 
     /**
@@ -33,15 +33,13 @@ class VersonController extends Controller
         $technology = Technology::whereId($decripted_id)->first();
         if ($technology)
         {
-            return view('backend.versions.add',compact('technology'));
+            return view('backend.versions.add', compact('technology'));
         }
         else
         {
-            notify()->error('Technology not found!','Not found');
-           return back();
+            notify()->error('Technology not found!', 'Not found');
+            return back();
         }
-
-
     }
 
     /**
@@ -50,7 +48,7 @@ class VersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
         $decripted_id = Crypt::decryptString($id);
         $technology = Technology::whereId($decripted_id)->first();
@@ -71,22 +69,20 @@ class VersonController extends Controller
             $store = Version::create($data);
             if ($store)
             {
-                notify()->success('Version added successfully!','Successful');
+                notify()->success('Version added successfully!', 'Successful');
                 return back();
             }
             else
             {
-                notify()->error('Failed to store Version!','Failed');
+                notify()->error('Failed to store Version!', 'Failed');
                 return back();
             }
         }
         else
         {
-            notify()->error('Technology not found!','Not found');
-           return back();
+            notify()->error('Technology not found!', 'Not found');
+            return back();
         }
-
-
     }
 
     /**
@@ -95,7 +91,7 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($technology_id,$version_id)
+    public function show($technology_id, $version_id)
     {
         $tech_id = Crypt::decryptString($technology_id);
         $v_id = Crypt::decryptString($version_id);
@@ -105,16 +101,15 @@ class VersonController extends Controller
         if ($find)
         {
 
-            $chapters = Chapter::whereVersion_id($v_id)->whereTechnology_id($tech_id)->orderBy('id','desc')->get();
+            $chapters = Chapter::whereVersion_id($v_id)->whereTechnology_id($tech_id)->orderBy('id', 'asc')->get();
 
-            return view('backend.versions.show',compact('find','chapters'));
+            return view('backend.versions.show', compact('find', 'chapters'));
         }
         else
         {
-            notify()->error('Version not found!','Not found');
+            notify()->error('Version not found!', 'Not found');
             return back();
         }
-
     }
 
     /**
@@ -126,8 +121,7 @@ class VersonController extends Controller
     public function edit($id)
     {
         $find = Version::whereId($id)->first();
-        return view('backend.versions.edit',compact('find'));
-
+        return view('backend.versions.edit', compact('find'));
     }
 
     /**
@@ -154,23 +148,22 @@ class VersonController extends Controller
                 'name' => $request->name,
                 'slug' => strtolower($request->slug),
             ];
-                // update data
-                $update = $find->update($data);
-                if ($update)
-                {
-                    notify()->success('Version updated successfully!','Successful');
-                    return back();
-                }
-                else
-                {
-                    notify()->error('Failed to update Version!','Failed');
-                    return back();
-                }
-
+            // update data
+            $update = $find->update($data);
+            if ($update)
+            {
+                notify()->success('Version updated successfully!', 'Successful');
+                return back();
+            }
+            else
+            {
+                notify()->error('Failed to update Version!', 'Failed');
+                return back();
+            }
         }
         else
         {
-            notify()->error('Version not found!','Not found');
+            notify()->error('Version not found!', 'Not found');
             return back();
         }
     }
@@ -185,26 +178,25 @@ class VersonController extends Controller
     {
         $decripted_id = Crypt::decryptString($id);
 
-       $find = Version::whereId($decripted_id)->first();
-       if ($find)
-       {
-           try
-           {
-               $find->delete();
-               notify()->success('Version deleted!','Successful');
-               return back();
-           }
-           catch (\Throwable $th)
-           {
-               notify()->error('Failed to delete Version!','Failed');
-               return back();
-           }
-       }
-       else
-       {
-           notify()->error('Version not found!','Not found');
-           return back();
-       }
+        $find = Version::whereId($decripted_id)->first();
+        if ($find)
+        {
+            try
+            {
+                $find->delete();
+                notify()->success('Version deleted!', 'Successful');
+                return back();
+            }
+            catch (\Throwable $th)
+            {
+                notify()->error('Failed to delete Version!', 'Failed');
+                return back();
+            }
+        }
+        else
+        {
+            notify()->error('Version not found!', 'Not found');
+            return back();
+        }
     }
-
 }

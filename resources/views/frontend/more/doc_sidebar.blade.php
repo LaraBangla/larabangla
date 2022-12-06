@@ -6,6 +6,6 @@
   @endif
 
   @foreach ($chapter->lessons as $lesson)
-    <li class="my-2 pl-1 font-bold text-gray-600 md:pl-2"><a href="#">{{ $lesson->name }}</a></li>
+    <li class="my-2 pl-1 font-bold text-gray-600 md:pl-2"><a href="{{ route('docs',['technology_slug' => $chapter->technology->slug, 'version_slug' => $chapter->version->slug, 'chapter_slug' => $chapter->slug, 'lesson_slug' =>$lesson->slug]) }}">{{ $lesson->name }}</a></li>
   @endforeach
 @endforeach

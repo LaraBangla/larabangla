@@ -21,7 +21,7 @@ class Chapter extends Model
 
     public function version()
     {
-        return $this->belongsTo(Version::class,'version_id','id' );
+        return $this->belongsTo(Version::class, 'version_id', 'id');
     }
 
     // get single technology
@@ -33,9 +33,6 @@ class Chapter extends Model
     // get that chapter lessons
     public function lessons()
     {
-        return $this->hasMany(Lesson::class,'chapter_id','id')->orderBy('id','desc');     // 'foreign_key', 'local_key'
+        return $this->hasMany(Lesson::class, 'chapter_id', 'id')->orderBy('id', 'asc');     // 'foreign_key', 'local_key'
     }
-
-
-
 }
