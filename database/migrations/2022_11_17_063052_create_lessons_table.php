@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('file')->unique();
             $table->integer('status')->default(1)->comment('1 for active, 0 for deactivate');
+            // * for seo
+            $table->text('keyword')->nullable()->comment('Keywords for SEO');
+            $table->text('description')->nullable()->comment('Description for SEO');
             $table->timestamps();
         });
     }
