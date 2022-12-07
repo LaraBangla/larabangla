@@ -39,7 +39,6 @@ class Lesson extends Model
     //get version
     public function version()
     {
-        return $this->belongsTo(Version::class,'version_id','id' );
+        return $this->belongsTo(Version::class, 'version_id', 'id');
     }
-
 }

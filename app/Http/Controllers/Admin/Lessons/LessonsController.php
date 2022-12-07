@@ -87,7 +87,7 @@ class LessonsController extends Controller
             else
             {
                 // if not available then
-                $slug_with_tech_name = $slug . '-' . strtolower(Str::slug($chapter->technology->name, '-'));
+                $slug_with_tech_name = $slug . '-' . strtolower(Str::slug($chapter->technology->slug, '-'));
                 // check into database that, is slug available?
                 $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
@@ -97,7 +97,7 @@ class LessonsController extends Controller
                 else
                 {
                     // if not available then
-                    $slug_with_version_name = $slug . '-' . strtolower(Str::slug($chapter->technology->name, '-')) . '-' . strtolower($chapter->version->slug);
+                    $slug_with_version_name = $slug . '-' . strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . strtolower($chapter->version->slug);
                     // check into database that, is slug available?
                     $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
                     if (!isset($check_slug) && $check_slug == null)
@@ -119,7 +119,7 @@ class LessonsController extends Controller
                 }
             }
 
-            // generate chapter id
+            // generate order for shorting
             $last_lesson = Lesson::orderBy('id', 'desc')->first();
             $last_lesson != null ? $lesson_id = $last_lesson->id + 1 : $lesson_id = 1;
 

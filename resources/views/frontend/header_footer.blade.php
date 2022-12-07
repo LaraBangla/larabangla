@@ -129,7 +129,7 @@
                         @php
                             $find_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->select('id','slug')->first();
                         @endphp
-                        @if ($find_lesson)
+                        @if (s$find_lesson)
                         <li class="duration-300 hover:rounded-sm hover:bg-gray-200 hover:pl-3 hover:shadow-md"><a
                             href="{{ route('send.to.docs', ['technology_slug' => $technology->slug]) }}">{{ $technology->name }}</a>
                        </li>

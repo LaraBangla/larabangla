@@ -15,7 +15,9 @@ class Version extends Model
         'name',
         'slug',
         'division_id',
-        'technology_id'
+        'technology_id',
+        'path_folder_name',
+        'order',
     ];
 
     // get single division

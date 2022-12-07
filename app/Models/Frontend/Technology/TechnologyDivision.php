@@ -9,7 +9,9 @@ class TechnologyDivision extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'slug',
+        'name',
+        'slug',
+        'order',
     ];
 
     public function technologies()

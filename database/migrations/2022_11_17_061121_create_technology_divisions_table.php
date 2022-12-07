@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('technology_divisions', function (Blueprint $table) {
+        Schema::create('technology_divisions', function (Blueprint $table)
+        {
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
+            $table->integer('status')->default(1)->comment('1 for active, 0 for deactivate');
+            $table->integer('order');
             $table->timestamps();
         });
     }
