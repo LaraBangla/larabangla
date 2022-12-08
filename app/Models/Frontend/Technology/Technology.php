@@ -17,6 +17,7 @@ class Technology extends Model
         'status',
         'path_folder_name',
         'order',
+        'keywords',
     ];
 
     public function division()

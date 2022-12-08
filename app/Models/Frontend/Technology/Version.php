@@ -19,6 +19,8 @@ class Version extends Model
         'technology_id',
         'path_folder_name',
         'order',
+        'keywords',
+        'description',
     ];
 
     // get single division

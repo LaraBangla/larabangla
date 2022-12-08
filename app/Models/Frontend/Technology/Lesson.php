@@ -21,6 +21,8 @@ class Lesson extends Model
         'slug',
         'file',
         'status',
+        'keywords',
+        'description',
     ];
 
 
