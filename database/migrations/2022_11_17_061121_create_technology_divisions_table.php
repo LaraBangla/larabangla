@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('status')->default(1)->comment('1 for active, 0 for deactivate');
             $table->integer('order');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

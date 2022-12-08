@@ -7,10 +7,11 @@ use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Chapter extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'technology_id',
         'version_id',

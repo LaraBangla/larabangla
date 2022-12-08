@@ -5,10 +5,11 @@ namespace App\Models\Frontend\Technology;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Frontend\Technology\TechnologyDivision;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Technology extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'technology_division_id',
         'name',

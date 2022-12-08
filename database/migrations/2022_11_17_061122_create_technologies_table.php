@@ -25,6 +25,7 @@ return new class extends Migration
             // * for seo
             $table->text('keyword')->nullable()->comment('Keywords for SEO');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
