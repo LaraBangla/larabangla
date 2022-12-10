@@ -6,6 +6,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
 use App\Models\Frontend\Technology\TechnologyDivision;
@@ -43,13 +45,33 @@ class TechnologyController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'division' => 'required|numeric',
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:technologies|max:255',
-            'path_folder_name' => 'required|string|unique:technologies|max:50',
-            'keywords' => 'nullable|string|max:256',
-        ]);
+        $request->validate(
+            [
+                'division' => 'required|numeric',
+                'name' => 'required|string|max:255',
+                'slug' => 'required|string|unique:technologies|max:255',
+                'path_folder_name' => 'required|string|unique:technologies|max:50',
+                'keywords' => 'nullable|string|max:256',
+                'image' => 'required|image|max:5120',
+            ],
+            [
+                'image.max' => 'Image file size should not be greater than 5MB',
+            ]
+        );
+
+        // Technology image optimize and resize
+        $image = $request->file('image');
+        //image
+        $image_name = $image->hashName();
+        $image = Image::make($image);
+        // resize the image to a width of 300 and constrain aspect ratio (auto height)
+        $image->resize(400, null, function ($constraint)
+        {
+            $constraint->aspectRatio();
+        });
+        Storage::disk('tech_images')->put($image_name, (string) $image->encode());
+
+
 
         $folderName =  Str::studly($request->path_folder_name);
 
@@ -64,6 +86,7 @@ class TechnologyController extends Controller
             'path_folder_name' => $folderName,
             'keywords' => $request->keywords ?? null,
             'order' => $last_id,
+            'image' => $image_name,
         ];
 
         $store = Technology::create($data);
@@ -110,6 +133,8 @@ class TechnologyController extends Controller
     {
         $division = TechnologyDivision::orderBy('id', 'desc')->get();
         $find = Technology::whereId($id)->first();
+
+
         return view('backend.technology.edit', compact('find', 'division'));
     }
 
@@ -126,17 +151,58 @@ class TechnologyController extends Controller
         if ($find)
         {
 
-            $request->validate([
-                'division' => 'required|numeric',
-                'name' => 'required|string|max:255',
-                'slug' => "required|string|unique:technologies,slug,$id|max:255",
-            ]);
+            $request->validate(
+                [
+                    'division' => 'required|numeric',
+                    'name' => 'required|string|max:255',
+                    'slug' => "required|string|unique:technologies,slug,$id|max:255",
+                    'path_folder_name' => "nullable|string|unique:technologies,path_folder_name,$id|max:50",
+                    'keywords' => 'nullable|string|max:256',
+                    'image' => 'image|max:5120',
+                ],
+                [
+                    'image.max' => 'Image file size should not be greater than 5MB',
+                ]
+            );
+            $data = array();
 
-            $data = [
-                'technology_division_id' => $request->division,
-                'name' => $request->name,
-                'slug' => strtolower($request->slug),
-            ];
+            $image = $request->file('image');
+
+            if ($image != null)
+            {
+
+                //image
+                $image_name = $image->hashName();
+                $image = Image::make($image);
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $image->resize(400, null, function ($constraint)
+                {
+                    $constraint->aspectRatio();
+                });
+                Storage::disk('tech_images')->put($image_name, (string) $image->encode());
+                $data['image'] = $image_name;
+            }
+
+
+
+            if ($request->division != $find->technology_division_id)
+            {
+                $data['technology_division_id'] = $request->division;
+            }
+
+            if ($request->name != $find->name)
+            {
+                $data['name'] = $request->name;
+            }
+
+            if ($request->slug != $find->slug)
+            {
+                $data['slug'] = strtolower($request->slug);
+            }
+            if ($find->lesson == null && $request->path_folder_name != null && $request->path_folder_name != $find->path_folder_name)
+            {
+                $data['path_folder_name'] = Str::studly($request->path_folder_name);
+            }
 
             // update data
             $update = $find->update($data);
