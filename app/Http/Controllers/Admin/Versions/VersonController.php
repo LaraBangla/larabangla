@@ -76,7 +76,7 @@ class VersonController extends Controller
                 'slug' => strtolower($request->slug),
                 'technology_id' => $technology->id,
                 'path_folder_name' => $folderName,
-                'keywords' => $request->tags,
+                'keywords' => $request->keywords,
                 'description' => $request->description,
                 'order' => $last_id,
             ];
@@ -156,23 +156,71 @@ class VersonController extends Controller
 
             $request->validate([
                 'name' => 'required|string|max:255',
-                'slug' => "required|string|unique:versions,slug,$id|max:255",
+                'slug' => "required|string|unique:versions,slug,$decrypted_id|max:255",
+                'path_folder_name' => 'required|string|max:50',
+                'keywords' => 'nullable|string|max:255',
+                'description' => 'nullable|max:500',
+                'order' => 'required|numeric',
             ]);
 
-            $data = [
-                'name' => $request->name,
-                'slug' => strtolower($request->slug),
-            ];
-            // update data
-            $update = $find->update($data);
-            if ($update)
+            // make studly folder name || remove word space and make as My folder => MyFolder
+            $folderName =  Str::studly($request->path_folder_name);
+
+            // generate order for shorting
+            $last = Version::orderBy('id', 'desc')->first();
+            $last != null ? $last_id = $last->id + 1 : $last_id = 1;
+
+            $data = array();
+
+            if ($request->name != $find->name)
             {
-                notify()->success('Version updated successfully!', 'Successful');
-                return back();
+                $data['name'] = $request->name;
+            }
+
+            if (strtolower($request->slug) != $find->slug)
+            {
+                $data['slug'] = $request->slug;
+            }
+
+            if ($folderName != $find->path_folder_name)
+            {
+                $data['path_folder_name'] = $folderName;
+            }
+
+            if ($request->keywords != $find->keywords)
+            {
+                $data['keywords'] = $request->keywords;
+            }
+
+            if ($request->description != $find->description)
+            {
+                $data['description'] = $request->description;
+            }
+
+            if ($request->order != $find->order)
+            {
+                $data['order'] = $request->order;
+            }
+
+            // if data have then update
+            if (!is_null($data))
+            {
+                // update data
+                $update = $find->update($data);
+                if ($update)
+                {
+                    notify()->success('Version updated successfully!', 'Successful');
+                    return back();
+                }
+                else
+                {
+                    notify()->error('Failed to update Version!', 'Failed');
+                    return back();
+                }
             }
             else
             {
-                notify()->error('Failed to update Version!', 'Failed');
+                notify()->error('Nothing to update!', 'Failed');
                 return back();
             }
         }
