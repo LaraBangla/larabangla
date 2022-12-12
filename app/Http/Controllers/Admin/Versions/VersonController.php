@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Versions;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Frontend\Technology\Chapter;
-use App\Models\Frontend\Technology\Technology;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\Frontend\Technology\Chapter;
 use App\Models\Frontend\Technology\Version;
+use App\Models\Frontend\Technology\Technology;
 
 class VersonController extends Controller
 {
@@ -29,8 +30,8 @@ class VersonController extends Controller
      */
     public function create($id)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $technology = Technology::whereId($decripted_id)->first();
+        $decrypted_id = Crypt::decryptString($id);
+        $technology = Technology::whereId($decrypted_id)->first();
         if ($technology)
         {
             return view('backend.versions.add', compact('technology'));
@@ -50,20 +51,34 @@ class VersonController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $technology = Technology::whereId($decripted_id)->first();
+        $decrypted_id = Crypt::decryptString($id);
+        $technology = Technology::whereId($decrypted_id)->first();
 
         if ($technology)
         {
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|string|unique:versions|max:255',
+                'tags' => 'required|string|max:50',
+                'tags' => 'nullable|string|max:255',
+                'description' => 'nullable|max:500',
             ]);
+
+            // make studly folder name || remove word space and make as My folder => MyFolder
+            $folderName =  Str::studly($request->path_folder_name);
+
+            // generate order for shorting
+            $last = Version::orderBy('id', 'desc')->first();
+            $last != null ? $last_id = $last->id + 1 : $last_id = 1;
 
             $data = [
                 'name' => $request->name,
                 'slug' => strtolower($request->slug),
                 'technology_id' => $technology->id,
+                'path_folder_name' => $folderName,
+                'keywords' => $request->tags,
+                'description' => $request->description,
+                'order' => $last_id,
             ];
 
             $store = Version::create($data);
@@ -133,9 +148,9 @@ class VersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $decripted_id = Crypt::decryptString($id);
+        $decrypted_id = Crypt::decryptString($id);
 
-        $find = Version::whereId($decripted_id)->first();
+        $find = Version::whereId($decrypted_id)->first();
         if ($find)
         {
 
@@ -176,9 +191,9 @@ class VersonController extends Controller
      */
     public function destroy($id)
     {
-        $decripted_id = Crypt::decryptString($id);
+        $decrypted_id = Crypt::decryptString($id);
 
-        $find = Version::whereId($decripted_id)->first();
+        $find = Version::whereId($decrypted_id)->first();
         if ($find)
         {
             try

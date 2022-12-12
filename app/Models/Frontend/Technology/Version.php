@@ -23,10 +23,10 @@ class Version extends Model
         'description',
     ];
 
-    // get single division
+    // get single division || fixed
     public function division()
     {
-        return $this->hasOne(TechnologyDivision::class, 'id', 'division_id');
+        return $this->belongsTo(TechnologyDivision::class, 'division_id', 'id');
     }
 
     // get single technology

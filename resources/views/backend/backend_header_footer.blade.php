@@ -14,6 +14,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap"
             rel="stylesheet">
+            <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
         @notifyCss
         @livewireStyles
@@ -144,6 +145,15 @@
     </script>
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
+
+        <script src="https://unpkg.com/@yaireo/tagify"></script>
+        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <script>
+          // The DOM element you wish to replace with Tagify
+          var input = document.querySelector('input[name=tags]');
+          // initialize Tagify on the above input node reference
+          new Tagify(input);
+        </script>
 
     {{-- hotwire turbo ends --}}
     @notifyJs
