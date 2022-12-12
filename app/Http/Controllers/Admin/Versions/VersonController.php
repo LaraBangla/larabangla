@@ -59,8 +59,8 @@ class VersonController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|string|unique:versions|max:255',
-                'tags' => 'required|string|max:50',
-                'tags' => 'nullable|string|max:255',
+                'path_folder_name' => 'required|string|max:50',
+                'keywords' => 'nullable|string|max:255',
                 'description' => 'nullable|max:500',
             ]);
 

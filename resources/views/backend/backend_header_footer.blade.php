@@ -150,9 +150,13 @@
         <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
         <script>
           // The DOM element you wish to replace with Tagify
-          var input = document.querySelector('input[name=tags]');
+          var input = document.querySelector('.tagify');
           // initialize Tagify on the above input node reference
-          new Tagify(input);
+         // new Tagify(input);  // that line will provide data with json type
+        // that code provide data with comma
+         var tagify =  new Tagify(input, {
+            originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+            })
         </script>
 
     {{-- hotwire turbo ends --}}

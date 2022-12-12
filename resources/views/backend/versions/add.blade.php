@@ -37,7 +37,7 @@
 
           <div class="mt-5">
             <label class="text-lg font-bold" for="keywords">Keywords</label> <br />
-            <input class="w-1/3 py-3 form-control" id="keywords" name="tags" type="text" value="{{ old('keywords') }}" data-role="tagsinput" />
+            <input class="w-1/3 py-3 form-control tagify" id="keywords" name="keywords" type="text" value="{{ old('keywords') }}" data-role="tagsinput" />
             @error('keywords')
               <div class="mt-1 font-medium text-red-500">{{ $message }}</div>
             @enderror
