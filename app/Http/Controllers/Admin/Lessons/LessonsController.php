@@ -89,7 +89,7 @@ class LessonsController extends Controller
             else
             {
                 // if not available then
-                $slug_with_tech_name = $slug . '-' . strtolower(Str::slug($chapter->technology->slug, '-'));
+                $slug_with_tech_name =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug;
                 // check into database that, is slug available?
                 $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
@@ -99,7 +99,7 @@ class LessonsController extends Controller
                 else
                 {
                     // if not available then
-                    $slug_with_version_name = $slug . '-' . strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . strtolower($chapter->version->slug);
+                    $slug_with_version_name =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug . '-' . strtolower($chapter->version->slug);
                     // check into database that, is slug available?
                     $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
                     if (!isset($check_slug) && $check_slug == null)
@@ -290,7 +290,7 @@ class LessonsController extends Controller
                 else
                 {
                     // if not available then
-                    $slug_with_tech_name = $slug . '-' . strtolower(Str::slug($lesson->technology->name, '-'));
+                    $slug_with_tech_name =  strtolower(Str::slug($lesson->technology->name, '-')) . '-' . $slug;
                     // check into database that, is slug available?
                     $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
                     if (!isset($check_slug) && $check_slug == null)
@@ -300,7 +300,7 @@ class LessonsController extends Controller
                     else
                     {
                         // if not available then
-                        $slug_with_version_name = $slug . '-' . strtolower(Str::slug($lesson->technology->name, '-')) . '-' . strtolower($lesson->version->slug);
+                        $slug_with_version_name = strtolower(Str::slug($lesson->technology->name, '-')) . '-' . $slug . '-' .  strtolower($lesson->version->slug);
                         // check into database that, is slug available?
                         $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
                         if (!isset($check_slug) && $check_slug == null)
