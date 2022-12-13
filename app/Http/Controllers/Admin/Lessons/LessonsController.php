@@ -75,7 +75,7 @@ class LessonsController extends Controller
             );
 
 
-            // generate slug
+            // generate slug for lesson slug and filename
             $get_slug = strtolower($request->slug);
             $slug = Str::slug($get_slug, '-');
 
@@ -133,15 +133,15 @@ class LessonsController extends Controller
             $fileName  = strtolower(Str::slug($slug, '_')) . '.md';
 
             // check that named file already exist or not, if not exist then store it, else name that file name uniqid
-            $path = strtolower(Str::slug($chapter->technology->name, '-')) . '/' . strtolower(Str::slug($chapter->version->slug, '-')) . '/' . $fileName;
+            $path = strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')) . '/' . $fileName;
             if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()))
             {
-                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->name, '-')) . '/' . strtolower(Str::slug($chapter->version->slug, '-')), $fileName, 'docs');
+                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')), $fileName, 'docs');
             }
             else
             {
                 $fileName  = strtolower(Str::slug($slug, '_')) . uniqid() . '.md';
-                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->name, '-')) . '/' . strtolower(Str::slug($chapter->version->slug, '-')), $fileName, 'docs');
+                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')), $fileName, 'docs');
             }
 
 
@@ -276,7 +276,7 @@ class LessonsController extends Controller
 
             if ($request->slug != $lesson->slug)
             {
-                // generate slug
+                // generate slug for lesson slug and filename
                 $get_slug = strtolower($request->slug);
                 $slug = Str::slug($get_slug, '-');
 
@@ -343,7 +343,6 @@ class LessonsController extends Controller
             }
 
             // doc file
-
             if (!empty($request->doc_file))
             {
                 $doc_file = $request->doc_file;
@@ -363,33 +362,19 @@ class LessonsController extends Controller
                         $newName = substr($fileName, 0, 20) . '.md';
                         $fileName = $newName;
                     }
-
-                    // $slice = Str::before($lesson->file, '.md');
-                    // $fileNum = 1;
-                    // $fileName  = $slice.'_'.$fileNum.'.md';
-                    // $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $fileName;
-                    // while (Storage::disk('docs')->exists($path) && !empty(Lesson::wherefile($fileName)->first()))
-                    // {
-                    //     $fileName  = $slice.'_'.$fileNum.'.md';
-                    //     $fileNum++;
-                    // }
-
-                    // dd($fileName);
                 }
 
 
-
-
                 // check that named file already exist or not, if not exist then store it, else name that file name uniqid
-                $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $fileName;
+                $path = strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')) . '/' . $fileName;
                 if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()))
                 {
-                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')), $fileName, 'docs');
+                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')), $fileName, 'docs');
                 }
                 else
                 {
                     $fileName  = strtolower(Str::before($lesson->file, '.md')) . uniqid() . '.md';
-                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')), $fileName, 'docs');
+                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')), $fileName, 'docs');
                 }
                 $data['file'] = $fileName;
             }
@@ -403,7 +388,7 @@ class LessonsController extends Controller
                     // if doc file updated then remove old doc file
                     if (!empty($request->doc_file))
                     {
-                        $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $old_file;
+                        $path = strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')) . '/' . $old_file;
                         if (Storage::disk('docs')->exists($path))
                         {
                             Storage::disk('docs')->delete($path);
