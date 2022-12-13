@@ -434,7 +434,7 @@ class LessonsController extends Controller
             if ($delete)
             {
                 // * delete old file
-                $path = strtolower(Str::slug($find->technology->name, '-')) . '/' . strtolower(Str::slug($find->version->slug, '-')) . '/' . $file;
+                $path = strtolower(Str::slug($find->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($find->version->path_folder_name, '-')) . '/' . $file;
                 if (Storage::disk('docs')->exists($path))
                 {
                     Storage::disk('docs')->delete($path);

@@ -59,12 +59,12 @@ class VersonController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|string|unique:versions|max:255',
-                'path_folder_name' => 'required|string|max:50',
+                'path_folder_name' => 'required|string|unique:versions|max:50',
                 'keywords' => 'nullable|string|max:255',
             ]);
 
             // make studly folder name || remove word space and make as My folder => MyFolder
-            $folderName =  Str::studly($request->path_folder_name);
+            $folderName =  strtolower(Str::studly($request->path_folder_name));
 
             // generate order for shorting
             $last = Version::orderBy('id', 'desc')->first();
@@ -155,13 +155,13 @@ class VersonController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => "required|string|unique:versions,slug,$decrypted_id|max:255",
-                'path_folder_name' => 'required|string|max:50',
+                'path_folder_name' => "required|string|unique:versions,path_folder_name,$decrypted_id|max:50",
                 'keywords' => 'nullable|string|max:255',
                 'order' => 'required|numeric',
             ]);
 
             // make studly folder name || remove word space and make as My folder => MyFolder
-            $folderName =  Str::studly($request->path_folder_name);
+            $folderName =  strtolower(Str::studly($request->path_folder_name));
 
             // generate order for shorting
             $last = Version::orderBy('id', 'desc')->first();
@@ -197,7 +197,7 @@ class VersonController extends Controller
             }
 
             // if data have then update
-            if (!is_null($data))
+            if ($data != null && isset($data))
             {
                 // update data
                 $update = $find->update($data);

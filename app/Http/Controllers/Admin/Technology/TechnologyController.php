@@ -73,7 +73,7 @@ class TechnologyController extends Controller
 
 
 
-        $folderName =  Str::studly($request->path_folder_name);
+        $folderName =  strtolower(Str::studly($request->path_folder_name));
 
         // generate order for shorting
         $last = Technology::orderBy('id', 'desc')->first();
@@ -199,21 +199,32 @@ class TechnologyController extends Controller
             {
                 $data['slug'] = strtolower($request->slug);
             }
-            if ($find->lesson == null && $request->path_folder_name != null && $request->path_folder_name != $find->path_folder_name)
+
+            // check current request folder name and old folder name same or not, if not, then keep that data into array
+            $folderName = strtolower(Str::studly($request->path_folder_name));
+            if ($find->lesson == null && $request->path_folder_name != null && $folderName != $find->path_folder_name)
             {
-                $data['path_folder_name'] = Str::studly($request->path_folder_name);
+                $data['path_folder_name'] = $folderName;
             }
 
-            // update data
-            $update = $find->update($data);
-            if ($update)
+            if ($data != null && isset($data))
             {
-                notify()->success('Technology updated successfully!', 'Successful');
-                return back();
+                // update data
+                $update = $find->update($data);
+                if ($update)
+                {
+                    notify()->success('Technology updated successfully!', 'Successful');
+                    return back();
+                }
+                else
+                {
+                    notify()->error('Failed to update Technology!', 'Failed');
+                    return back();
+                }
             }
             else
             {
-                notify()->error('Failed to update Technology!', 'Failed');
+                notify()->error('Nothing to update!', 'Failed');
                 return back();
             }
         }
