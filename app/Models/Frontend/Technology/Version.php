@@ -3,11 +3,12 @@
 namespace App\Models\Frontend\Technology;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Chapter;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Frontend\Technology\Technology;
 use App\Models\Frontend\Technology\TechnologyDivision;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Version extends Model
 {
@@ -40,5 +41,11 @@ class Version extends Model
     {
         return $this->hasMany(Chapter::class, 'version_id', 'id')->orderBy('order', 'asc');     // 'foreign_key', 'local_key'
 
+    }
+
+    // get single lesson
+    public function lesson()
+    {
+        return $this->hasOne(Lesson::class, 'version_id', 'id');
     }
 }

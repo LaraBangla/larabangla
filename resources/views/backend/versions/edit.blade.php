@@ -35,6 +35,7 @@
                 @enderror
               </div>
 
+              @if (!isset($find->lesson))
               <div class="mt-5">
                 <label class="text-lg font-bold" for="path_folder_name">Folder Name *</label> <br />
                 <input class="w-1/3 py-3" id="path_folder_name" name="path_folder_name" type="text"
@@ -48,6 +49,8 @@
                   <div class="mt-1 font-medium text-red-500">{{ $message }}</div>
                 @enderror
               </div>
+              @endif
+
 
               <div class="mt-5">
                 <label class="text-lg font-bold" for="keywords">Keywords</label> <br />

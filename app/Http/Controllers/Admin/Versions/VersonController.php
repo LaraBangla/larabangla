@@ -182,7 +182,9 @@ class VersonController extends Controller
                 $data['slug'] = $request->slug;
             }
 
-            if ($folderName != $find->path_folder_name)
+
+            // if lesson doesn't exists and request folder name not like old one then keep new folder name into variable
+            if (!isset($find->lesson) && $folderName != $find->path_folder_name)
             {
                 $data['path_folder_name'] = $folderName;
             }
