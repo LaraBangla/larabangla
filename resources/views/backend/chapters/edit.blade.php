@@ -36,6 +36,19 @@
               </div>
 
               <div class="mt-5">
+                <label class="text-lg font-bold" for="keywords">Keywords</label> <br />
+                <input class="w-1/3 py-3 form-control tagify" id="keywords" name="keywords" type="text"
+                @if (old('keywords') != null)
+                value="{{ old('keywords') }}"
+                @else
+                  value="{{ $find->keywords }}"
+                @endif />
+                @error('keywords')
+                  <div class="mt-1 font-medium text-red-500">{{ $message }}</div>
+                @enderror
+              </div>
+
+              <div class="mt-5">
                 <label class="text-lg font-bold" for="order">Order</label> <br />
                 <input class="w-1/3 py-3" id="order" name="order" type="text"
                        @if (old('order') != null) value="{{ old('order') }}"
