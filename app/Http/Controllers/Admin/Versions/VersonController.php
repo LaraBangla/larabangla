@@ -61,7 +61,6 @@ class VersonController extends Controller
                 'slug' => 'required|string|unique:versions|max:255',
                 'path_folder_name' => 'required|string|max:50',
                 'keywords' => 'nullable|string|max:255',
-                'description' => 'nullable|max:500',
             ]);
 
             // make studly folder name || remove word space and make as My folder => MyFolder
@@ -77,7 +76,6 @@ class VersonController extends Controller
                 'technology_id' => $technology->id,
                 'path_folder_name' => $folderName,
                 'keywords' => $request->keywords,
-                'description' => $request->description,
                 'order' => $last_id,
             ];
 
@@ -159,7 +157,6 @@ class VersonController extends Controller
                 'slug' => "required|string|unique:versions,slug,$decrypted_id|max:255",
                 'path_folder_name' => 'required|string|max:50',
                 'keywords' => 'nullable|string|max:255',
-                'description' => 'nullable|max:500',
                 'order' => 'required|numeric',
             ]);
 
@@ -192,11 +189,6 @@ class VersonController extends Controller
             if ($request->keywords != $find->keywords)
             {
                 $data['keywords'] = $request->keywords;
-            }
-
-            if ($request->description != $find->description)
-            {
-                $data['description'] = $request->description;
             }
 
             if ($request->order != $find->order)

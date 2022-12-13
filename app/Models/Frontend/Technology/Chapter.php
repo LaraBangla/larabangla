@@ -19,7 +19,6 @@ class Chapter extends Model
         'name',
         'slug',
         'keywords',
-        'description',
     ];
 
     public function version()

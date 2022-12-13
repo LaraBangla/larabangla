@@ -67,16 +67,6 @@
 
 
               <div class="mt-5">
-                <label class="text-lg font-bold" for="description">Description</label> <br />
-                {{-- <input class="w-1/3 py-3" id="description" name="description" type="text" value="{{ old('description') }}" /> --}}
-                <textarea name="description" id="description" cols="100" rows="10">@if (old('description') != null){{ old('description') }}@else{{ $find->description }}@endif
-                  </textarea>
-                @error('description')
-                  <div class="mt-1 font-medium text-red-500">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="mt-5">
                 <label class="text-lg font-bold" for="order">Order</label> <br />
                 <input class="w-1/3 py-3" id="order" name="order" type="text"
                        @if (old('order') != null) value="{{ old('order') }}"

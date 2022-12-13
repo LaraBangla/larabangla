@@ -66,6 +66,7 @@ class LessonsController extends Controller
                     'name' => 'required|string|max:255',
                     'slug' => 'required|string|unique:technologies|regex:/^[A-Za-z.-]+$/|string|max:255',
                     'doc_file' => ['required', new Markdown, 'max:10240'],
+                    'description' => 'nullable|max:500',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -151,6 +152,7 @@ class LessonsController extends Controller
                 'technology_id' => $chapter->technology_id,
                 'chapter_id' => $chapter->id,
                 'file' => $fileName,
+                'description' => $request->description,
 
             ];
 
@@ -256,6 +258,7 @@ class LessonsController extends Controller
                     'name' => 'required|string|max:255',
                     'slug' => "required|string|unique:lessons,slug,$decripted_id|regex:/^[A-Za-z.-]+$/|string|max:255",
                     'doc_file' => [new Markdown, 'max:10240'],
+                    'description' => 'nullable|max:500',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -319,6 +322,11 @@ class LessonsController extends Controller
                 $data['slug'] = $slug;
             }
 
+            // if old description and request description is not same then keep that data into array
+            if ($request->description != $lesson->description)
+            {
+                $data['description'] = $request->description;
+            }
 
             // set order
             if ($request->order != $lesson->order)

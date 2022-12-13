@@ -24,7 +24,6 @@ return new class extends Migration
             $table->integer('order');
             // * for seo
             $table->string('keywords')->nullable()->comment('Keywords for SEO');
-            $table->text('description')->nullable()->comment('Description for SEO');
             $table->timestamps();
             $table->softDeletes();
         });

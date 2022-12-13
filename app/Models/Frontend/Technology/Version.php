@@ -21,7 +21,6 @@ class Version extends Model
         'path_folder_name',
         'order',
         'keywords',
-        'description',
     ];
 
     // get single division || fixed
