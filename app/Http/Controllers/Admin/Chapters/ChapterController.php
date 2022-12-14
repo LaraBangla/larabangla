@@ -99,7 +99,7 @@ class ChapterController extends Controller
                         $number = 1;
                         while (!empty($check_slug))
                         {
-                            $generate_slug = $req_slug . '-' . $number;
+                            $generate_slug =  $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name) . '-' . $number;
                             $check_slug = Chapter::where('slug', $generate_slug)->first();
                             $number++;
                         }
