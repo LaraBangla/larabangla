@@ -7,21 +7,23 @@ use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Chapter extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'technology_id',
         'version_id',
         'order',
         'name',
         'slug',
+        'keywords',
     ];
 
     public function version()
     {
-        return $this->belongsTo(Version::class,'version_id','id' );
+        return $this->belongsTo(Version::class, 'version_id', 'id');
     }
 
     // get single technology
@@ -33,9 +35,6 @@ class Chapter extends Model
     // get that chapter lessons
     public function lessons()
     {
-        return $this->hasMany(Lesson::class,'chapter_id','id')->orderBy('id','desc');     // 'foreign_key', 'local_key'
+        return $this->hasMany(Lesson::class, 'chapter_id', 'id')->orderBy('id', 'asc');     // 'foreign_key', 'local_key'
     }
-
-
-
 }

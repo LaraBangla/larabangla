@@ -66,6 +66,8 @@ class LessonsController extends Controller
                     'name' => 'required|string|max:255',
                     'slug' => 'required|string|unique:technologies|regex:/^[A-Za-z.-]+$/|string|max:255',
                     'doc_file' => ['required', new Markdown, 'max:10240'],
+                    'keywords' => 'nullable|string|max:255',
+                    'description' => 'nullable|max:500',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -73,7 +75,7 @@ class LessonsController extends Controller
             );
 
 
-            // generate slug
+            // generate slug for lesson slug and filename
             $get_slug = strtolower($request->slug);
             $slug = Str::slug($get_slug, '-');
 
@@ -87,7 +89,7 @@ class LessonsController extends Controller
             else
             {
                 // if not available then
-                $slug_with_tech_name = $slug . '-' . strtolower(Str::slug($chapter->technology->name, '-'));
+                $slug_with_tech_name =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug;
                 // check into database that, is slug available?
                 $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
@@ -96,16 +98,17 @@ class LessonsController extends Controller
                 }
                 else
                 {
-                    // if not available then
-                    $slug_with_version_name = $slug . '-' . strtolower(Str::slug($chapter->technology->name, '-')) . '-' . strtolower($chapter->version->slug);
+                    // if not available then make slug with technology slug
+                    $slug_with_version_slug =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug . '-' . strtolower($chapter->version->slug);
                     // check into database that, is slug available?
-                    $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
+                    $check_slug = Lesson::where('slug', $slug_with_version_slug)->first();
                     if (!isset($check_slug) && $check_slug == null)
                     {
-                        $slug = $slug_with_version_name;
+                        $slug = $slug_with_version_slug;
                     }
                     else
                     {
+
                         // auto generate slug
                         $number = 1;
                         while (!empty($check_slug))
@@ -119,7 +122,7 @@ class LessonsController extends Controller
                 }
             }
 
-            // generate chapter id
+            // generate order for shorting
             $last_lesson = Lesson::orderBy('id', 'desc')->first();
             $last_lesson != null ? $lesson_id = $last_lesson->id + 1 : $lesson_id = 1;
 
@@ -131,15 +134,15 @@ class LessonsController extends Controller
             $fileName  = strtolower(Str::slug($slug, '_')) . '.md';
 
             // check that named file already exist or not, if not exist then store it, else name that file name uniqid
-            $path = strtolower(Str::slug($chapter->technology->name, '-')) . '/' . strtolower(Str::slug($chapter->version->slug, '-')) . '/' . $fileName;
+            $path = strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')) . '/' . $fileName;
             if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()))
             {
-                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->name, '-')) . '/' . strtolower(Str::slug($chapter->version->slug, '-')), $fileName, 'docs');
+                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')), $fileName, 'docs');
             }
             else
             {
                 $fileName  = strtolower(Str::slug($slug, '_')) . uniqid() . '.md';
-                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->name, '-')) . '/' . strtolower(Str::slug($chapter->version->slug, '-')), $fileName, 'docs');
+                $doc_file->storeAs(strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')), $fileName, 'docs');
             }
 
 
@@ -151,6 +154,8 @@ class LessonsController extends Controller
                 'technology_id' => $chapter->technology_id,
                 'chapter_id' => $chapter->id,
                 'file' => $fileName,
+                'keywords' => $request->keywords,
+                'description' => $request->description,
 
             ];
 
@@ -256,6 +261,8 @@ class LessonsController extends Controller
                     'name' => 'required|string|max:255',
                     'slug' => "required|string|unique:lessons,slug,$decripted_id|regex:/^[A-Za-z.-]+$/|string|max:255",
                     'doc_file' => [new Markdown, 'max:10240'],
+                    'keywords' => 'nullable|string|max:255',
+                    'description' => 'nullable|max:500',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -270,7 +277,7 @@ class LessonsController extends Controller
 
             if ($request->slug != $lesson->slug)
             {
-                // generate slug
+                // generate slug for lesson slug and filename
                 $get_slug = strtolower($request->slug);
                 $slug = Str::slug($get_slug, '-');
 
@@ -284,7 +291,7 @@ class LessonsController extends Controller
                 else
                 {
                     // if not available then
-                    $slug_with_tech_name = $slug . '-' . strtolower(Str::slug($lesson->technology->name, '-'));
+                    $slug_with_tech_name =  strtolower(Str::slug($lesson->technology->name, '-')) . '-' . $slug;
                     // check into database that, is slug available?
                     $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
                     if (!isset($check_slug) && $check_slug == null)
@@ -294,7 +301,7 @@ class LessonsController extends Controller
                     else
                     {
                         // if not available then
-                        $slug_with_version_name = $slug . '-' . strtolower(Str::slug($lesson->technology->name, '-')) . '-' . strtolower($lesson->version->slug);
+                        $slug_with_version_name = strtolower(Str::slug($lesson->technology->name, '-')) . '-' . $slug . '-' .  strtolower($lesson->version->slug);
                         // check into database that, is slug available?
                         $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
                         if (!isset($check_slug) && $check_slug == null)
@@ -319,6 +326,16 @@ class LessonsController extends Controller
                 $data['slug'] = $slug;
             }
 
+            if ($request->keywords != $lesson->keywords)
+            {
+                $data['keywords'] = $request->keywords;
+            }
+
+            // if old description and request description is not same then keep that data into array
+            if ($request->description != $lesson->description)
+            {
+                $data['description'] = $request->description;
+            }
 
             // set order
             if ($request->order != $lesson->order)
@@ -327,7 +344,6 @@ class LessonsController extends Controller
             }
 
             // doc file
-
             if (!empty($request->doc_file))
             {
                 $doc_file = $request->doc_file;
@@ -347,33 +363,19 @@ class LessonsController extends Controller
                         $newName = substr($fileName, 0, 20) . '.md';
                         $fileName = $newName;
                     }
-
-                    // $slice = Str::before($lesson->file, '.md');
-                    // $fileNum = 1;
-                    // $fileName  = $slice.'_'.$fileNum.'.md';
-                    // $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $fileName;
-                    // while (Storage::disk('docs')->exists($path) && !empty(Lesson::wherefile($fileName)->first()))
-                    // {
-                    //     $fileName  = $slice.'_'.$fileNum.'.md';
-                    //     $fileNum++;
-                    // }
-
-                    // dd($fileName);
                 }
 
 
-
-
                 // check that named file already exist or not, if not exist then store it, else name that file name uniqid
-                $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $fileName;
+                $path = strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')) . '/' . $fileName;
                 if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()))
                 {
-                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')), $fileName, 'docs');
+                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')), $fileName, 'docs');
                 }
                 else
                 {
                     $fileName  = strtolower(Str::before($lesson->file, '.md')) . uniqid() . '.md';
-                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')), $fileName, 'docs');
+                    $doc_file->storeAs(strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')), $fileName, 'docs');
                 }
                 $data['file'] = $fileName;
             }
@@ -387,7 +389,7 @@ class LessonsController extends Controller
                     // if doc file updated then remove old doc file
                     if (!empty($request->doc_file))
                     {
-                        $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $old_file;
+                        $path = strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')) . '/' . $old_file;
                         if (Storage::disk('docs')->exists($path))
                         {
                             Storage::disk('docs')->delete($path);
@@ -433,7 +435,7 @@ class LessonsController extends Controller
             if ($delete)
             {
                 // * delete old file
-                $path = strtolower(Str::slug($find->technology->name, '-')) . '/' . strtolower(Str::slug($find->version->slug, '-')) . '/' . $file;
+                $path = strtolower(Str::slug($find->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($find->version->path_folder_name, '-')) . '/' . $file;
                 if (Storage::disk('docs')->exists($path))
                 {
                     Storage::disk('docs')->delete($path);

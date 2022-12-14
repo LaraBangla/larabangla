@@ -42,10 +42,17 @@ return [
             'throw' => false,
         ],
 
+        // technologies disck
+        'tech_images' => [
+            'driver' => 'local',
+            'root' => storage_path('tech_images'),
+            'throw' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -78,6 +85,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('storage/docs') => storage_path('docs'),
+        public_path('storage/tech_images') => storage_path('tech_images'),
     ],
 
 ];

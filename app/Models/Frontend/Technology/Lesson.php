@@ -7,10 +7,11 @@ use App\Models\Frontend\Technology\Chapter;
 use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Lesson extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'technology_id',
         'version_id',
@@ -20,6 +21,8 @@ class Lesson extends Model
         'slug',
         'file',
         'status',
+        'keywords',
+        'description',
     ];
 
 
@@ -36,10 +39,9 @@ class Lesson extends Model
         return $this->belongsTo(Chapter::class, 'chapter_id', 'id');
     }
 
-    //get version
+    //get single version
     public function version()
     {
-        return $this->belongsTo(Version::class,'version_id','id' );
+        return $this->belongsTo(Version::class, 'version_id', 'id');
     }
-
 }

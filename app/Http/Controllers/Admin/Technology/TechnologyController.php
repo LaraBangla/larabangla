@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Admin\Technology;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Crypt;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
 use App\Models\Frontend\Technology\TechnologyDivision;
-use App\Models\Frontend\Technology\Version;
 
 class TechnologyController extends Controller
 {
@@ -18,8 +21,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        $data = Technology::orderBy('id','desc')->paginate(50);
-        return view('backend.technology.all',compact('data'));
+        $data = Technology::orderBy('id', 'desc')->paginate(50);
+        return view('backend.technology.all', compact('data'));
     }
 
     /**
@@ -29,8 +32,8 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        $division = TechnologyDivision::orderBy('id','desc')->get();
-        return view('backend.technology.add_technology',compact('division'));
+        $division = TechnologyDivision::orderBy('id', 'desc')->get();
+        return view('backend.technology.add_technology', compact('division'));
     }
 
     /**
@@ -41,27 +44,60 @@ class TechnologyController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'division' => 'required|numeric',
-            'name' => 'required|string|max:255',
-            'slug' => 'required|string|unique:technologies|max:255',
-        ]);
+
+        $request->validate(
+            [
+                'division' => 'required|numeric',
+                'name' => 'required|string|max:255',
+                'slug' => 'required|string|unique:technologies|max:255',
+                'path_folder_name' => 'required|string|unique:technologies|max:50',
+                'keywords' => 'nullable|string|max:256',
+                'image' => 'required|image|max:5120',
+            ],
+            [
+                'image.max' => 'Image file size should not be greater than 5MB',
+            ]
+        );
+
+        // Technology image optimize and resize
+        $image = $request->file('image');
+        //image
+        $image_name = $image->hashName();
+        $image = Image::make($image);
+        // resize the image to a width of 300 and constrain aspect ratio (auto height)
+        $image->resize(400, null, function ($constraint)
+        {
+            $constraint->aspectRatio();
+        });
+        Storage::disk('tech_images')->put($image_name, (string) $image->encode());
+
+
+
+        $folderName =  strtolower(Str::studly($request->path_folder_name));
+
+        // generate order for shorting
+        $last = Technology::orderBy('id', 'desc')->first();
+        $last != null ? $last_id = $last->id + 1 : $last_id = 1;
 
         $data = [
             'technology_division_id' => $request->division,
             'name' => $request->name,
             'slug' => strtolower($request->slug),
+            'path_folder_name' => $folderName,
+            'keywords' => $request->keywords ?? null,
+            'order' => $last_id,
+            'image' => $image_name,
         ];
 
         $store = Technology::create($data);
         if ($store)
         {
-            notify()->success('Technology added successfully!','Successful');
+            notify()->success('Technology added successfully!', 'Successful');
             return back();
         }
         else
         {
-            notify()->error('Failed to store Technology!','Failed');
+            notify()->error('Failed to store Technology!', 'Failed');
             return back();
         }
     }
@@ -77,12 +113,12 @@ class TechnologyController extends Controller
         $find = Technology::whereId($id)->first();
         if ($find)
         {
-            $versions = Version::where('technology_id',$find->id)->orderBy('id','desc')->get();
-            return view('backend.technology.show',compact('find','versions'));
+            $versions = Version::where('technology_id', $find->id)->orderBy('id', 'desc')->get();
+            return view('backend.technology.show', compact('find', 'versions'));
         }
         else
         {
-            notify()->error('Technology not found!','Not found');
+            notify()->error('Technology not found!', 'Not found');
             return back();
         }
     }
@@ -95,9 +131,11 @@ class TechnologyController extends Controller
      */
     public function edit($id)
     {
-        $division = TechnologyDivision::orderBy('id','desc')->get();
+        $division = TechnologyDivision::orderBy('id', 'desc')->get();
         $find = Technology::whereId($id)->first();
-        return view('backend.technology.edit',compact('find','division'));
+
+
+        return view('backend.technology.edit', compact('find', 'division'));
     }
 
     /**
@@ -113,35 +151,86 @@ class TechnologyController extends Controller
         if ($find)
         {
 
-                $request->validate([
+            $request->validate(
+                [
                     'division' => 'required|numeric',
                     'name' => 'required|string|max:255',
                     'slug' => "required|string|unique:technologies,slug,$id|max:255",
-                ]);
+                    'path_folder_name' => "nullable|string|unique:technologies,path_folder_name,$id|max:50",
+                    'keywords' => 'nullable|string|max:256',
+                    'image' => 'image|max:5120',
+                ],
+                [
+                    'image.max' => 'Image file size should not be greater than 5MB',
+                ]
+            );
+            $data = array();
 
-                $data = [
-                    'technology_division_id' => $request->division,
-                    'name' => $request->name,
-                    'slug' => strtolower($request->slug),
-                ];
+            $image = $request->file('image');
 
+            if ($image != null)
+            {
+
+                //image
+                $image_name = $image->hashName();
+                $image = Image::make($image);
+                // resize the image to a width of 300 and constrain aspect ratio (auto height)
+                $image->resize(400, null, function ($constraint)
+                {
+                    $constraint->aspectRatio();
+                });
+                Storage::disk('tech_images')->put($image_name, (string) $image->encode());
+                $data['image'] = $image_name;
+            }
+
+
+
+            if ($request->division != $find->technology_division_id)
+            {
+                $data['technology_division_id'] = $request->division;
+            }
+
+            if ($request->name != $find->name)
+            {
+                $data['name'] = $request->name;
+            }
+
+            if ($request->slug != $find->slug)
+            {
+                $data['slug'] = strtolower($request->slug);
+            }
+
+            // check current request folder name and old folder name same or not, if not, then keep that data into array
+            $folderName = strtolower(Str::studly($request->path_folder_name));
+            if ($find->lesson == null && $request->path_folder_name != null && $folderName != $find->path_folder_name)
+            {
+                $data['path_folder_name'] = $folderName;
+            }
+
+            if ($data != null && isset($data))
+            {
                 // update data
                 $update = $find->update($data);
                 if ($update)
                 {
-                    notify()->success('Technology updated successfully!','Successful');
+                    notify()->success('Technology updated successfully!', 'Successful');
                     return back();
                 }
                 else
                 {
-                    notify()->error('Failed to update Technology!','Failed');
+                    notify()->error('Failed to update Technology!', 'Failed');
                     return back();
                 }
-
+            }
+            else
+            {
+                notify()->error('Nothing to update!', 'Failed');
+                return back();
+            }
         }
         else
         {
-            notify()->error('Technology not found!','Not found');
+            notify()->error('Technology not found!', 'Not found');
             return back();
         }
     }
@@ -154,27 +243,27 @@ class TechnologyController extends Controller
      */
     public function destroy($id)
     {
-       $decripted_id = Crypt::decryptString($id);
+        $decripted_id = Crypt::decryptString($id);
 
-       $find = Technology::whereId($decripted_id)->first();
-       if ($find)
-       {
-           try
-           {
-               $find->delete();
-               notify()->success('Technology Devision deleted!','Successful');
-               return back();
-           }
-           catch (\Throwable $th)
-           {
-               notify()->error('Failed to delete Technology Devision!','Failed');
-               return back();
-           }
-       }
-       else
-       {
-           notify()->error('Technology not found!','Not found');
-           return back();
-       }
+        $find = Technology::whereId($decripted_id)->first();
+        if ($find)
+        {
+            try
+            {
+                $find->delete();
+                notify()->success('Technology Devision deleted!', 'Successful');
+                return back();
+            }
+            catch (\Throwable $th)
+            {
+                notify()->error('Failed to delete Technology Devision!', 'Failed');
+                return back();
+            }
+        }
+        else
+        {
+            notify()->error('Technology not found!', 'Not found');
+            return back();
+        }
     }
 }

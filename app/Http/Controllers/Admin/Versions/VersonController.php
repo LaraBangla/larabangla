@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Versions;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Frontend\Technology\Chapter;
-use App\Models\Frontend\Technology\Technology;
 use Illuminate\Support\Facades\Crypt;
+use App\Models\Frontend\Technology\Chapter;
 use App\Models\Frontend\Technology\Version;
+use App\Models\Frontend\Technology\Technology;
 
 class VersonController extends Controller
 {
@@ -18,8 +19,8 @@ class VersonController extends Controller
      */
     public function index()
     {
-        $data = Version::orderBy('id','desc')->paginate(50);
-        return view('backend.versions.all',compact('data'));
+        $data = Version::orderBy('id', 'desc')->paginate(50);
+        return view('backend.versions.all', compact('data'));
     }
 
     /**
@@ -29,19 +30,17 @@ class VersonController extends Controller
      */
     public function create($id)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $technology = Technology::whereId($decripted_id)->first();
+        $decrypted_id = Crypt::decryptString($id);
+        $technology = Technology::whereId($decrypted_id)->first();
         if ($technology)
         {
-            return view('backend.versions.add',compact('technology'));
+            return view('backend.versions.add', compact('technology'));
         }
         else
         {
-            notify()->error('Technology not found!','Not found');
-           return back();
+            notify()->error('Technology not found!', 'Not found');
+            return back();
         }
-
-
     }
 
     /**
@@ -50,43 +49,53 @@ class VersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $technology = Technology::whereId($decripted_id)->first();
+        $decrypted_id = Crypt::decryptString($id);
+        $technology = Technology::whereId($decrypted_id)->first();
 
         if ($technology)
         {
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|string|unique:versions|max:255',
+                'path_folder_name' => 'required|string|unique:versions|max:50',
+                'keywords' => 'nullable|string|max:255',
             ]);
+
+            // make studly folder name || remove word space and make as My folder => MyFolder
+            $folderName =  strtolower(Str::studly($request->path_folder_name));
+
+            // generate order for shorting
+            $last = Version::orderBy('id', 'desc')->first();
+            $last != null ? $last_id = $last->id + 1 : $last_id = 1;
 
             $data = [
                 'name' => $request->name,
                 'slug' => strtolower($request->slug),
                 'technology_id' => $technology->id,
+                'path_folder_name' => $folderName,
+                'keywords' => $request->keywords,
+                'order' => $last_id,
             ];
 
             $store = Version::create($data);
             if ($store)
             {
-                notify()->success('Version added successfully!','Successful');
+                notify()->success('Version added successfully!', 'Successful');
                 return back();
             }
             else
             {
-                notify()->error('Failed to store Version!','Failed');
+                notify()->error('Failed to store Version!', 'Failed');
                 return back();
             }
         }
         else
         {
-            notify()->error('Technology not found!','Not found');
-           return back();
+            notify()->error('Technology not found!', 'Not found');
+            return back();
         }
-
-
     }
 
     /**
@@ -95,7 +104,7 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($technology_id,$version_id)
+    public function show($technology_id, $version_id)
     {
         $tech_id = Crypt::decryptString($technology_id);
         $v_id = Crypt::decryptString($version_id);
@@ -105,16 +114,15 @@ class VersonController extends Controller
         if ($find)
         {
 
-            $chapters = Chapter::whereVersion_id($v_id)->whereTechnology_id($tech_id)->orderBy('id','desc')->get();
+            $chapters = Chapter::whereVersion_id($v_id)->whereTechnology_id($tech_id)->orderBy('id', 'asc')->get();
 
-            return view('backend.versions.show',compact('find','chapters'));
+            return view('backend.versions.show', compact('find', 'chapters'));
         }
         else
         {
-            notify()->error('Version not found!','Not found');
+            notify()->error('Version not found!', 'Not found');
             return back();
         }
-
     }
 
     /**
@@ -126,8 +134,7 @@ class VersonController extends Controller
     public function edit($id)
     {
         $find = Version::whereId($id)->first();
-        return view('backend.versions.edit',compact('find'));
-
+        return view('backend.versions.edit', compact('find'));
     }
 
     /**
@@ -139,38 +146,81 @@ class VersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $decripted_id = Crypt::decryptString($id);
+        $decrypted_id = Crypt::decryptString($id);
 
-        $find = Version::whereId($decripted_id)->first();
+        $find = Version::whereId($decrypted_id)->first();
         if ($find)
         {
 
             $request->validate([
                 'name' => 'required|string|max:255',
-                'slug' => "required|string|unique:versions,slug,$id|max:255",
+                'slug' => "required|string|unique:versions,slug,$decrypted_id|max:255",
+                'path_folder_name' => "required|string|unique:versions,path_folder_name,$decrypted_id|max:50",
+                'keywords' => 'nullable|string|max:255',
+                'order' => 'required|numeric',
             ]);
 
-            $data = [
-                'name' => $request->name,
-                'slug' => strtolower($request->slug),
-            ];
+            // make studly folder name || remove word space and make as My folder => MyFolder
+            $folderName =  strtolower(Str::studly($request->path_folder_name));
+
+            // generate order for shorting
+            $last = Version::orderBy('id', 'desc')->first();
+            $last != null ? $last_id = $last->id + 1 : $last_id = 1;
+
+            $data = array();
+
+            if ($request->name != $find->name)
+            {
+                $data['name'] = $request->name;
+            }
+
+            if (strtolower($request->slug) != $find->slug)
+            {
+                $data['slug'] = $request->slug;
+            }
+
+
+            // if lesson doesn't exists and request folder name not like old one then keep new folder name into variable
+            if (!isset($find->lesson) && $folderName != $find->path_folder_name)
+            {
+                $data['path_folder_name'] = $folderName;
+            }
+
+            if ($request->keywords != $find->keywords)
+            {
+                $data['keywords'] = $request->keywords;
+            }
+
+            if ($request->order != $find->order)
+            {
+                $data['order'] = $request->order;
+            }
+
+            // if data have then update
+            if ($data != null && isset($data))
+            {
                 // update data
                 $update = $find->update($data);
                 if ($update)
                 {
-                    notify()->success('Version updated successfully!','Successful');
+                    notify()->success('Version updated successfully!', 'Successful');
                     return back();
                 }
                 else
                 {
-                    notify()->error('Failed to update Version!','Failed');
+                    notify()->error('Failed to update Version!', 'Failed');
                     return back();
                 }
-
+            }
+            else
+            {
+                notify()->error('Nothing to update!', 'Failed');
+                return back();
+            }
         }
         else
         {
-            notify()->error('Version not found!','Not found');
+            notify()->error('Version not found!', 'Not found');
             return back();
         }
     }
@@ -183,28 +233,27 @@ class VersonController extends Controller
      */
     public function destroy($id)
     {
-        $decripted_id = Crypt::decryptString($id);
+        $decrypted_id = Crypt::decryptString($id);
 
-       $find = Version::whereId($decripted_id)->first();
-       if ($find)
-       {
-           try
-           {
-               $find->delete();
-               notify()->success('Version deleted!','Successful');
-               return back();
-           }
-           catch (\Throwable $th)
-           {
-               notify()->error('Failed to delete Version!','Failed');
-               return back();
-           }
-       }
-       else
-       {
-           notify()->error('Version not found!','Not found');
-           return back();
-       }
+        $find = Version::whereId($decrypted_id)->first();
+        if ($find)
+        {
+            try
+            {
+                $find->delete();
+                notify()->success('Version deleted!', 'Successful');
+                return back();
+            }
+            catch (\Throwable $th)
+            {
+                notify()->error('Failed to delete Version!', 'Failed');
+                return back();
+            }
+        }
+        else
+        {
+            notify()->error('Version not found!', 'Not found');
+            return back();
+        }
     }
-
 }

@@ -14,6 +14,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap"
             rel="stylesheet">
+            <link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
         @notifyCss
         @livewireStyles
@@ -74,8 +75,8 @@
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.all.technologies') }}"><span><i class="fa-regular fa-circle"></i></span> All Technology</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.all.technologies') }}"><span><i class="fa-regular fa-circle"></i></span> All Technologies</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Technology</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
@@ -144,6 +145,19 @@
     </script>
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
         data-turbolinks-eval="false" data-turbo-eval="false"></script>
+
+        <script src="https://unpkg.com/@yaireo/tagify"></script>
+        <script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
+        <script>
+          // The DOM element you wish to replace with Tagify
+          var input = document.querySelector('.tagify');
+          // initialize Tagify on the above input node reference
+         // new Tagify(input);  // that line will provide data with json type
+        // that code provide data with comma
+         var tagify =  new Tagify(input, {
+            originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+            })
+        </script>
 
     {{-- hotwire turbo ends --}}
     @notifyJs

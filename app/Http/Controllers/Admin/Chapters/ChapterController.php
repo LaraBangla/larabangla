@@ -33,14 +33,13 @@ class ChapterController extends Controller
         $version = Version::whereId($decripted_id)->first();
         if ($version)
         {
-           return view('backend.chapters.add',compact('version'));
+            return view('backend.chapters.add', compact('version'));
         }
         else
         {
-            notify()->error('Version not found!','Not found');
+            notify()->error('Version not found!', 'Not found');
             return back();
         }
-
     }
 
     /**
@@ -49,7 +48,7 @@ class ChapterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request, $id)
     {
         $decripted_id = Crypt::decryptString($id);
         $version = Version::whereId($decripted_id)->first();
@@ -59,76 +58,86 @@ class ChapterController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|regex:/^[A-Za-z.-]+$/|string|max:255',
+                'keywords' => 'nullable|string|max:255',
             ]);
 
-              // generate slug
-              $get_slug = strtolower($request->slug);
-              $slug = Str::slug($get_slug,'-');
+            // generate slug
+            $get_slug = strtolower($request->slug);
+            $req_slug = Str::slug($get_slug, '-');
 
-              // first check into database that, is slug available?
-              //
-              $check_slug = Chapter::where('slug',$slug)->first();
-              if (!isset($check_slug) && $check_slug == null)
-              {
-                $slug = $slug;
-              }
-              else
-              {
+            // first check into database that, is slug available?
+            //
+            $check_slug = Chapter::where('slug', $req_slug)->first();
+            if (!isset($check_slug) && $check_slug == null)
+            {
+                $slug = $req_slug;
+            }
+            else
+            {
                 // if not available then
-                $slug_with_tech_name = $slug.'-'.strtolower($version->technology->name);
-                 // check into database that, is slug available?
-                $check_slug = Chapter::where('slug',$slug_with_tech_name)->first();
+                $slug_with_tech_name = $req_slug . '-' . strtolower($version->technology->name);
+                // check into database that, is req_slug available?
+                $check_slug = Chapter::where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
                     $slug = $slug_with_tech_name;
                 }
                 else
                 {
-                    // auto generate slug
-                    $number = 1;
-                    while(!empty($check_slug))
+
+                    // if not available then make slug with req_slug-technology name and version name
+                    $slug_with_version_name = $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name);
+                    // check into database that, is slug available?
+                    $check_slug = Chapter::where('slug', $slug_with_version_name)->first();
+                    if (!isset($check_slug) && $check_slug == null)
                     {
-                        $generate_slug = $slug.'-'.$number;
-                        $check_slug = Chapter::where('slug',$generate_slug)->first();
-                        $number ++;
+                        $slug = $slug_with_version_name;
                     }
-                    $slug = $generate_slug;
-
+                    else
+                    {
+                        // auto generate slug
+                        $number = 1;
+                        while (!empty($check_slug))
+                        {
+                            $generate_slug =  $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name) . '-' . $number;
+                            $check_slug = Chapter::where('slug', $generate_slug)->first();
+                            $number++;
+                        }
+                        $slug = $generate_slug;
+                    }
                 }
-              }
+            }
 
-              // generate chapter id
-              $last_chapter = Chapter::orderBy('id','desc')->first();
-              $last_chapter != null? $chapter_id = $last_chapter->id +1 : $chapter_id = 1;
+            // generate chapter id
+            $last_chapter = Chapter::orderBy('id', 'desc')->first();
+            $last_chapter != null ? $chapter_id = $last_chapter->id + 1 : $chapter_id = 1;
 
             $data = [
                 'name' => $request->name,
-                 'slug' => $slug,
+                'slug' => $slug,
                 'version_id' => $version->id,
                 'technology_id' => $version->technology_id,
                 'order' => $chapter_id,
+                'keywords' => $request->keywords,
             ];
 
-
-
-
-
+            // store data
             $store = Chapter::create($data);
             if ($store)
             {
-                notify()->success('Chapter added successfully!','Successful');
+                notify()->success('Chapter added successfully!', 'Successful');
                 return back();
             }
             else
             {
-                notify()->error('Failed to store Chapter!','Failed');
+                notify()->error('Failed to store Chapter!', 'Failed');
                 return back();
             }
         }
         else
         {
-            notify()->error('Version not found!','Not found');
-           return back();
+            notify()->error('Version not found!', 'Not found');
+            return back();
         }
     }
 
@@ -145,14 +154,13 @@ class ChapterController extends Controller
 
         if ($find)
         {
-            return view('backend.chapters.show',compact('find'));
+            return view('backend.chapters.show', compact('find'));
         }
         else
         {
-            notify()->error('Chapter not found!','Not found');
+            notify()->error('Chapter not found!', 'Not found');
             return back();
         }
-
     }
 
     /**
@@ -168,14 +176,13 @@ class ChapterController extends Controller
         if ($find)
         {
 
-            return view('backend.chapters.edit',compact('find'));
+            return view('backend.chapters.edit', compact('find'));
         }
         else
         {
-            notify()->error('Chapter not found!','Not found');
+            notify()->error('Chapter not found!', 'Not found');
             return back();
         }
-
     }
 
     /**
@@ -195,18 +202,24 @@ class ChapterController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|regex:/^[A-Za-z.-]+$/|string|max:255',
+                'keywords' => 'nullable|string|max:255',
                 'order' => 'required|numeric|min:1'
             ]);
+            $data = array();
 
-              // generate slug
-              $get_slug = strtolower($request->slug);
-              $slug = Str::slug($get_slug,'-');
+            if ($request->keywords != $find->keywords)
+            {
+                $data['keywords'] = $request->keywords;
+            }
+            // generate slug
+            $get_slug = strtolower($request->slug);
+            $slug = Str::slug($get_slug, '-');
 
-              // first check request slug and old slug same or not! if not same then regenerate slug
-              if ($slug != $find->slug)
-              {
-                 // first check into database that, is slug available?
-                $check_slug = Chapter::where('id','!=',$find->id)->where('slug',$slug)->first();
+            // first check request slug and old slug same or not! if not same then regenerate slug
+            if ($slug != $find->slug)
+            {
+                // first check into database that, is slug available?
+                $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $slug)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
                     $slug = $slug;
@@ -214,70 +227,86 @@ class ChapterController extends Controller
                 else
                 {
                     $is_already_slug = Str::of($find->slug)->endsWith(strtolower($find->technology->name));
-                   if ($is_already_slug != true)
-                   {
-                     // if not available then
-                     $slug_with_tech_name = $slug.'-'.strtolower($find->technology->name);
-                     // check into database that, is slug available?
-                     $check_slug = Chapter::where('id','!=',$find->id)->where('slug',$slug_with_tech_name)->first();
-                     if (!isset($check_slug) && $check_slug == null)
-                     {
-                         $slug = $slug_with_tech_name;
-                     }
-                     else
-                     {
-                         // auto generate slug
-                         $number = 1;
-                         while(!empty($check_slug))
-                         {
-                             $generate_slug = $slug.'-'.$number;
-                             $check_slug = Chapter::where('id','!=',$find->id)->where('slug',$generate_slug)->first();
-                             $number ++;
-                         }
-                         $slug = $generate_slug;
-
-                     }
-                   }
+                    if ($is_already_slug != true)
+                    {
+                        // if not available then
+                        $slug_with_tech_name = $slug . '-' . strtolower($find->technology->name);
+                        // check into database that, is slug available?
+                        $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $slug_with_tech_name)->first();
+                        if (!isset($check_slug) && $check_slug == null)
+                        {
+                            $slug = $slug_with_tech_name;
+                        }
+                        else
+                        {
+                            // auto generate slug
+                            $number = 1;
+                            while (!empty($check_slug))
+                            {
+                                $generate_slug = $slug . '-' . $number;
+                                $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $generate_slug)->first();
+                                $number++;
+                            }
+                            $slug = $generate_slug;
+                        }
+                    }
 
                     else
                     {
                         // auto generate slug
                         $number = 1;
-                        while(!empty($check_slug))
+                        while (!empty($check_slug))
                         {
-                            $generate_slug = $slug.'-'.$number;
-                            $check_slug = Chapter::where('id','!=',$find->id)->where('slug',$generate_slug)->first();
-                            $number ++;
+                            $generate_slug = $slug . '-' . $number;
+                            $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $generate_slug)->first();
+                            $number++;
                         }
                         $slug = $generate_slug;
-
                     }
                 }
-              }
-
-            $data = [
-                'name' => $request->name,
-                'slug' => $slug,
-                'order' => $request->order,
-            ];
+            }
 
 
-            $update = $find->update($data);
-            if ($update)
+
+            if ($request->name != $find->name)
             {
-                notify()->success('Chapter updated successfully!','Successful');
-                return back();
+                $data['name'] = $request->name;
+            }
+
+            if ($slug != $find->slug)
+            {
+                $data['slug'] = $slug;
+            }
+
+            if ($request->order != $find->order)
+            {
+                $data['order'] = $request->order;
+            }
+
+            // if data exists in array for update then update
+            if ($data != null && isset($data))
+            {
+                $update = $find->update($data);
+                if ($update)
+                {
+                    notify()->success('Chapter updated successfully!', 'Successful');
+                    return back();
+                }
+                else
+                {
+                    notify()->error('Failed to store Chapter!', 'Failed');
+                    return back();
+                }
             }
             else
             {
-                notify()->error('Failed to store Chapter!','Failed');
+                notify()->error('Nothing to update!', 'Failed');
                 return back();
             }
-
         }
         else
         {
-            notify()->error('Chapter not found!','Not found');
+            notify()->error('Chapter not found!', 'Not found');
             return back();
         }
     }
@@ -294,24 +323,22 @@ class ChapterController extends Controller
         $find = Chapter::whereId($decripted_id)->first();
         if ($find)
         {
-          $delete = $find->delete();
-          if ($delete)
-          {
-            notify()->success('Successfully deleted','Deleted');
-            return back();
-          }
-          else
-          {
-            notify()->error('Failed to delete!','Failed');
-            return back();
-          }
-
+            $delete = $find->delete();
+            if ($delete)
+            {
+                notify()->success('Successfully deleted', 'Deleted');
+                return back();
+            }
+            else
+            {
+                notify()->error('Failed to delete!', 'Failed');
+                return back();
+            }
         }
         else
         {
-            notify()->error('Chapter not found!','Not found');
+            notify()->error('Chapter not found!', 'Not found');
             return back();
         }
-
     }
 }
