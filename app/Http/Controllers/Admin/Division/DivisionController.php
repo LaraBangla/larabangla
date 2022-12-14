@@ -34,12 +34,12 @@ class DivisionController extends Controller
         $store = TechnologyDivision::create($data);
         if ($store)
         {
-            notify()->success('Technology Devision added successfully!', 'Successful');
+            notify()->success('Technology Division added successfully!', 'Successful');
             return back();
         }
         else
         {
-            notify()->error('Failed to store Technology Devision!', 'Failed');
+            notify()->error('Failed to store Technology Division!', 'Failed');
             return back();
         }
     }

@@ -11,11 +11,20 @@
               <div class="mx-3 md:hidden">
                 <div class="w-full border-b bg-slate-50 text-left text-gray-600">
                   <label class="w-full bg-slate-50 text-left text-sm uppercase" for="version">Version</label>
-                  <select class="select_icon w-full bg-slate-50 pb-1 text-left" id="version" id="" name="version">
-                    <option value="">Master</option>
-                    <option value="">9.x</option>
-                    <option value="">7.x</option>
-                    <option value="">6.x</option>
+                  <select class="select_icon w-full bg-slate-50 pb-1 text-left" id="version" id="" name="version" @change="window.location = $event.target.value">
+                    @foreach ($technology->versions as $version)
+                    @php
+                     $get_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($version->chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
+                    @endphp
+                    @if ($get_lesson != null)
+                      <option value="{{ route('send.to.docs.version',['technology_slug' => $technology->slug, 'version_slug' => $version->slug]) }}"
+                      @if ($lesson->version_id == $version->id)
+                          selected
+                      @endif>
+                      {{ $version->name }}
+                    </option>
+                    @endif
+                  @endforeach
                   </select>
                 </div>
               </div>
@@ -78,11 +87,20 @@
             {{-- version start --}}
             <div class="-mt-1 w-full bg-slate-100 text-center">
               <label class="w-full bg-slate-100 text-center font-bold uppercase text-gray-600" for="version">Version</label>
-              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600" id="version" id="" name="version">
-                <option value="">Master</option>
-                <option value="">9.x</option>
-                <option value="">7.x</option>
-                <option value="">6.x</option>
+              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600" id="version" id="" name="version"  @change="window.location = $event.target.value">
+                @foreach ($technology->versions as $version)
+                  @php
+                   $get_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($version->chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
+                  @endphp
+                  @if ($get_lesson != null)
+                    <option value="{{ route('send.to.docs.version',['technology_slug' => $technology->slug, 'version_slug' => $version->slug]) }}"
+                    @if ($lesson->version_id == $version->id)
+                        selected
+                    @endif>
+                    {{ $version->name }}
+                  </option>
+                  @endif
+                @endforeach
               </select>
             </div>
             {{-- version end --}}

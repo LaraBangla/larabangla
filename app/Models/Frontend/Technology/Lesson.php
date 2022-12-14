@@ -39,7 +39,7 @@ class Lesson extends Model
         return $this->belongsTo(Chapter::class, 'chapter_id', 'id');
     }
 
-    //get version
+    //get single version
     public function version()
     {
         return $this->belongsTo(Version::class, 'version_id', 'id');

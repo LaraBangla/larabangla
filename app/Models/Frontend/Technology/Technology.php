@@ -3,9 +3,10 @@
 namespace App\Models\Frontend\Technology;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Frontend\Technology\Version;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Frontend\Technology\TechnologyDivision;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Technology extends Model
 {
@@ -30,5 +31,11 @@ class Technology extends Model
     public function lesson()
     {
         return $this->hasOne(Lesson::class, 'technology_id', 'id');
+    }
+
+    // get multiple versions
+    public function versions()
+    {
+        return $this->hasMany(Version::class, 'technology_id', 'id')->where('status', 1)->orderBy('id', 'desc');
     }
 }

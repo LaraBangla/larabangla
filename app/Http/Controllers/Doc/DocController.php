@@ -22,16 +22,16 @@ class DocController extends Controller
 
     public function sendToDocs($technology_slug)
     {
-        $technology = Technology::whereSlug($technology_slug)->first();
+        $technology = Technology::whereSlug($technology_slug)->whereStatus(1)->first();
 
         if (isset($technology) && $technology != null)
         {
             try
             {
-                $version = Version::whereTechnology_id($technology->id)->orderBy('id', 'desc')->select('id', 'slug')->first();
+                $version = Version::whereTechnology_id($technology->id)->whereStatus(1)->orderBy('id', 'desc')->select('id', 'slug')->first();
 
-                $chapter = Chapter::whereTechnology_id($technology->id)->whereVersion_id($version->id)->orderBy('id', 'asc')->select('id', 'slug')->first();
-                $lesson = Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($chapter->id)->orderBy('id', 'asc')->select('id', 'slug')->first();
+                $chapter = Chapter::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
+                $lesson = Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
 
                 if ((isset($version) && $version != null) && (isset($chapter) && $chapter != null) & (isset($lesson) && $lesson != null))
                 {
@@ -53,14 +53,52 @@ class DocController extends Controller
         }
     }
 
+    // send to version documentation
+    public function sendToDocsVersion($technology_slug, $version_slug)
+    {
+        //  dd($technology_slug . ' ' . $version_slug);
+        $technology = Technology::whereSlug($technology_slug)->whereStatus(1)->first();
+        if ($technology)
+        {
+            $version = Version::whereSlug($version_slug)->where('technology_id', $technology->id)->whereStatus(1)->first();
+            if ($version)
+            {
+                // dd($version);
+                $chapter = Chapter::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
+                $lesson = Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
+                if ((isset($version) && $version != null) && (isset($chapter) && $chapter != null) & (isset($lesson) && $lesson != null))
+                {
+                    return redirect()->route('docs', ['technology_slug' => $technology->slug, 'version_slug' => $version->slug, 'chapter_slug' => $chapter->slug, 'lesson_slug' => $lesson->slug]);
+                }
+                else
+                {
+                    dd($lesson);
+                    abort(404);
+                }
+            }
+            else
+            {
+                notify()->error('Version  not found!', 'Not Found');
+                return back();
+            }
+        }
+        else
+        {
+            notify()->error('Technology  not found!', 'Not Found');
+            return back();
+        }
+    }
+
     public function index($technology_slug, $version_slug, $chapter_slug, $lesson_slug)
     {
 
         $technology = Technology::whereSlug($technology_slug)->first();
         $version = Version::whereSlug($version_slug)->whereTechnology_id($technology->id)->first();
+        //  $versions = Version::whereTechnology_id($technology->id)->get();
         $chapter = Chapter::whereSlug($chapter_slug)->whereTechnology_id($technology->id)->whereVersion_id($version->id)->first();
         $lesson = Lesson::whereSlug($lesson_slug)->whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($chapter->id)->first();
-        // dd($lesson);
+
+        // return response()->json($technology->versions);
         if ((isset($technology) && $technology != null) && (isset($version) && $version != null) && (isset($chapter) && $chapter != null) && (isset($lesson) && $lesson != null))
         {
 
@@ -75,6 +113,7 @@ class DocController extends Controller
             }
             else
             {
+                // ! Here give a default .md file if doc not found
                 dd('file nai');
                 $md = file_get_contents(storage_path('/docs.md'));
             }
@@ -83,7 +122,7 @@ class DocController extends Controller
 
             $chapters = Chapter::whereTechnology_id($technology->id)->whereVersion_id($version->id)->orderBy('order', 'asc')->get();
 
-            return view('frontend.docs.index', compact('data', 'version', 'chapters'));
+            return view('frontend.docs.index', compact('data', 'technology', 'lesson', 'chapters'));
         }
         else
         {

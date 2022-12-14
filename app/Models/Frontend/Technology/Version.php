@@ -47,4 +47,10 @@ class Version extends Model
     {
         return $this->hasOne(Lesson::class, 'version_id', 'id');
     }
+
+    // get single chapter
+    public function chapter()
+    {
+        return $this->hasOne(Chapter::class, 'version_id', 'id');
+    }
 }

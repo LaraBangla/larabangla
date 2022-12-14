@@ -98,16 +98,17 @@ class LessonsController extends Controller
                 }
                 else
                 {
-                    // if not available then
-                    $slug_with_version_name =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug . '-' . strtolower($chapter->version->slug);
+                    // if not available then make slug with technology slug
+                    $slug_with_version_slug =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug . '-' . strtolower($chapter->version->slug);
                     // check into database that, is slug available?
-                    $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
+                    $check_slug = Lesson::where('slug', $slug_with_version_slug)->first();
                     if (!isset($check_slug) && $check_slug == null)
                     {
-                        $slug = $slug_with_version_name;
+                        $slug = $slug_with_version_slug;
                     }
                     else
                     {
+
                         // auto generate slug
                         $number = 1;
                         while (!empty($check_slug))
