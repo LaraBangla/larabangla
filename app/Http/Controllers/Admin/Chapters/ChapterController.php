@@ -63,20 +63,20 @@ class ChapterController extends Controller
 
             // generate slug
             $get_slug = strtolower($request->slug);
-            $slug = Str::slug($get_slug, '-');
+            $req_slug = Str::slug($get_slug, '-');
 
             // first check into database that, is slug available?
             //
-            $check_slug = Chapter::where('slug', $slug)->first();
+            $check_slug = Chapter::where('slug', $req_slug)->first();
             if (!isset($check_slug) && $check_slug == null)
             {
-                $slug = $slug;
+                $slug = $req_slug;
             }
             else
             {
                 // if not available then
-                $slug_with_tech_name = $slug . '-' . strtolower($version->technology->name);
-                // check into database that, is slug available?
+                $slug_with_tech_name = $req_slug . '-' . strtolower($version->technology->name);
+                // check into database that, is req_slug available?
                 $check_slug = Chapter::where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
@@ -84,15 +84,27 @@ class ChapterController extends Controller
                 }
                 else
                 {
-                    // auto generate slug
-                    $number = 1;
-                    while (!empty($check_slug))
+
+                    // if not available then make slug with req_slug-technology name and version name
+                    $slug_with_version_name = $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name);
+                    // check into database that, is slug available?
+                    $check_slug = Chapter::where('slug', $slug_with_version_name)->first();
+                    if (!isset($check_slug) && $check_slug == null)
                     {
-                        $generate_slug = $slug . '-' . $number;
-                        $check_slug = Chapter::where('slug', $generate_slug)->first();
-                        $number++;
+                        $slug = $slug_with_version_name;
                     }
-                    $slug = $generate_slug;
+                    else
+                    {
+                        // auto generate slug
+                        $number = 1;
+                        while (!empty($check_slug))
+                        {
+                            $generate_slug = $req_slug . '-' . $number;
+                            $check_slug = Chapter::where('slug', $generate_slug)->first();
+                            $number++;
+                        }
+                        $slug = $generate_slug;
+                    }
                 }
             }
 
