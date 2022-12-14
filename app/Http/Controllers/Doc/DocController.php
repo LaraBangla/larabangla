@@ -68,7 +68,7 @@ class DocController extends Controller
                 'html_input' => 'strip',
                 'allow_unsafe_links' => false,
             ]);
-            $path = strtolower(Str::slug($lesson->technology->name, '-')) . '/' . strtolower(Str::slug($lesson->version->slug, '-')) . '/' . $lesson->file;
+            $path = strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')) . '/' . $lesson->file;
             if (Storage::disk('docs')->exists($path))
             {
                 $md = file_get_contents(storage_path('/docs/' . $path));
@@ -81,12 +81,7 @@ class DocController extends Controller
 
             $data = $converter->convert($md);
 
-
-
-
             $chapters = Chapter::whereTechnology_id($technology->id)->whereVersion_id($version->id)->orderBy('order', 'asc')->get();
-            //  $lessons = Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->orderBy('order', 'asc')->get();
-
 
             return view('frontend.docs.index', compact('data', 'version', 'chapters'));
         }

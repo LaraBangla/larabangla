@@ -75,8 +75,8 @@
                                 </div>
 
                                 <ul x-show="open" x-collapse.duration.300ms>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.all.technologies') }}"><span><i class="fa-regular fa-circle"></i></span> All Technology</a></li>
-                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Category</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.all.technologies') }}"><span><i class="fa-regular fa-circle"></i></span> All Technologies</a></li>
+                                    <li class="pl-3 rounded hover:bg-gray-300 font-medium"><a href="{{ route('admin.add.technology') }}"><span><i class="fa-regular fa-circle"></i></span> Add Technology</a></li>
                                 </ul>
                             </li>
                             <li class="mt-1" x-data="{open: false}" >
