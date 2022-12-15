@@ -113,7 +113,10 @@
                 <a class="text-2xl font-bold" href="#">Lara Bangla</a>
             </div> -->
         <ul class="mr-4 flex justify-end py-6" x-data="{ user: false }">
-          <li><a class="pl-5 text-2xl font-bold text-gray-600" href="{{ route('/') }}">লারা <span class="text-3xl">বাংলা</span></a></li>
+          <li><a class="pl-5 text-2xl font-bold text-gray-600 " href="{{ route('/') }}">
+            {{-- লারা <span class="text-3xl">বাংলা</span> --}}
+            <img src="{{ asset('img/logo.png') }}"  class="ml-8 -mt-9" width="60" alt="LaraBangla Logo">
+          </a></li>
           <li class="grow"></li>
           <li class="mx-1 hidden bg-gray-300 px-2 py-3 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                  class="fa fa-home"></i> হোম</a></li>
