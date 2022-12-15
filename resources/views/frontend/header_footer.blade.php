@@ -5,6 +5,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name='keywords' content='@yield('keywords','লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,laravel,bangla documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
+  <meta name='description' content='@yield('description','')'>
+  <meta name='subject' content='@yield('title','টেকনোলজি ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='copyright' content='LaraBangla'>
+  <meta name='language' content='BD'>
+  <meta name='topic' content='টেকনোলজি ডকুমেন্টেশন'>
+  <meta name='summary' content=''>
+  <meta name='author' content='LaraBangla, info@larabangla.com'>
+  <meta name='designer' content='লারা বাংলা - LaraBangla'>
+  <meta name='owner' content='লারা বাংলা - LaraBangla'>
+  <meta name='url' content='@yield('that_url','https://www.larabangla.com')'>
+  <meta name='identifier-URL' content='@yield('that_url','https://www.larabangla.com')'>
+  {{-- <meta name='directory' content='submission'> --}}
+  <meta name='pagename' content='@yield('pagename','হোম পেজ,Home Page')'>
+  <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
+  <meta name='coverage' content='Worldwide'>
+  <meta name='distribution' content='Global'>
+  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='target' content='all'>
+  <meta name='HandheldFriendly' content='True'>
+
+
+  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='og:type' content='ডকুমেন্টেশন'>
+  <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
+  <meta name='og:image' content=''>
+  <meta name='og:site_name' content='লারা বাংলা - LaraBangla'>
+  <meta name='og:description' content='@yield('description','')'>
+
+  <meta name='fb:page_id' content='100088381790920'>
+  <meta name='application-name' content='LaraBangla'>
+  <meta name='og:email' content='info@larabangla.com'>
+  <meta name='og:region' content='BD'>
+  <meta name='og:country-name' content='BD'>
+
+  <meta name="google-analytics" content="@yield('description','') " />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="twitter:url" content="">
+  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
+  <meta name="twitter:description" content="@yield('description','')">
+  <meta name="twitter:image" content="">
+  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
+
+
+  <meta itemprop="name" content="লারা বাংলা - LaraBangla">
+  <meta itemprop="image" content="">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta name="x5-orientation" content="landscape/portrait">
+  <meta name="x5-fullscreen" content="true">
+  <meta name="x5-page-mode" content="app">
+  <meta name="screen-orientation" content="landscape/portrait">
+  <meta name="full-screen" content="yes">
+  <meta name="imagemode" content="force">
+  <meta name="browsermode" content="application">
+  <meta name="nightmode" content="disable">
+  <meta name="layoutmode" content="fitscreen">
+
   {{-- @notifyCss --}}
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
@@ -18,7 +76,7 @@
   @livewireStyles
 
   @stack('style')
-  <title>লারা বাংলা</title>
+  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')</title>
 </head>
 
 <body class="bg-gray-50">

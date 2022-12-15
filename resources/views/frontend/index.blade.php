@@ -10,7 +10,7 @@
                   class="bg-gradient-to-r from-gray-500 to-gray-400 bg-clip-text text-transparent">লারা</span> <span
                   class="bg-gradient-to-r from-gray-500 to-gray-400 bg-clip-text text-5xl text-transparent md:text-7xl lg:text-8xl">বাংলা</span></h1>
           <h2 class="pb-10 pt-6 text-center text-4xl font-black text-gray-500 sm:text-4xl md:text-6xl lg:text-7xl">এবার শিখা হোক বাংলায়</h2>
-          <h3 class="px-5 text-center text-xl font-semibold text-gray-500">সাধারণ, অতি সাধারণ। সাধারণ, অতি সাধারণ। সাধারণ, অতি সাধারণ</h3>
+          <h3 class="px-5 text-center text-xl font-semibold text-gray-500">ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট</h3>
           <div class="mt-14 flex justify-center">
             <div class="m-2"><a class="btn-lg rounded-full bg-gray-500 text-white hover:bg-gray-600 hover:ring-blue-200" href="#">লারাভেল ডক</a>
             </div>
