@@ -6,6 +6,10 @@
 @section('pagename'){{ $lesson->technology->name.' '.$lesson->version->name.' Documentation' }}@endsection
 @section('category'){{ $lesson->technology->name }}@endsection
 @section('that_url'){{ Request::url(); }}@endsection
+@if ($lesson->technology->image != null)
+  
+@endif
+@section('image') @endsection
 
 @section('content')
   <section class="docs" x-data="{ mobile_search: false }">

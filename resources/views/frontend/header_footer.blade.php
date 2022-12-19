@@ -12,13 +12,12 @@
   <meta name='copyright' content='LaraBangla'>
   <meta name='language' content='BD'>
   <meta name='topic' content='টেকনোলজি ডকুমেন্টেশন'>
-  <meta name='summary' content=''>
+  <meta name='summary' content='@yield('description','')'>
   <meta name='author' content='LaraBangla, info@larabangla.com'>
   <meta name='designer' content='লারা বাংলা - LaraBangla'>
   <meta name='owner' content='লারা বাংলা - LaraBangla'>
   <meta name='url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='identifier-URL' content='@yield('that_url','https://www.larabangla.com')'>
-  {{-- <meta name='directory' content='submission'> --}}
   <meta name='pagename' content='@yield('pagename','হোম পেজ,Home Page')'>
   <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
   <meta name='coverage' content='Worldwide'>
@@ -27,11 +26,10 @@
   <meta name='target' content='all'>
   <meta name='HandheldFriendly' content='True'>
 
-
   <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
   <meta name='og:type' content='ডকুমেন্টেশন'>
   <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
-  <meta name='og:image' content=''>
+  <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
   <meta name='og:site_name' content='লারা বাংলা - LaraBangla'>
   <meta name='og:description' content='@yield('description','')'>
 
@@ -43,15 +41,14 @@
 
   <meta name="google-analytics" content="@yield('description','') " />
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
   <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
   <meta name="twitter:description" content="@yield('description','')">
-  <meta name="twitter:image" content="">
+  <meta name="twitter:image" content="@yield('image','www.larabangla.com/img/logo.png')'">
   <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
 
-
   <meta itemprop="name" content="লারা বাংলা - LaraBangla">
-  <meta itemprop="image" content="">
+  <meta itemprop="image" content="@yield('image','www.larabangla.com/img/logo.png')'">
   <meta name="renderer" content="webkit|ie-comp|ie-stand">
   <meta name="x5-orientation" content="landscape/portrait">
   <meta name="x5-fullscreen" content="true">

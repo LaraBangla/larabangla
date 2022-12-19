@@ -168,9 +168,10 @@ class TechnologyController extends Controller
 
             $image = $request->file('image');
 
+            $old_image = null;
             if ($image != null)
             {
-
+                $old_image = $find->image;
                 //image
                 $image_name = $image->hashName();
                 $image = Image::make($image);
@@ -213,6 +214,12 @@ class TechnologyController extends Controller
                 $update = $find->update($data);
                 if ($update)
                 {
+                    // remove old tech image
+                    if ($image != null && Storage::disk('tech_images')->exists($old_image))
+                    {
+                        Storage::disk('tech_images')->delete($old_image);
+                    }
+
                     notify()->success('Technology updated successfully!', 'Successful');
                     return back();
                 }
