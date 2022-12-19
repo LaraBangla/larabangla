@@ -24,6 +24,18 @@
               </div>
 
               <div class="mt-5">
+                <label class="text-lg font-bold" for="title">Title</label> <br />
+                <input class="w-1/3 py-3" id="title" name="title" type="text"
+                       @if (old('title') != null) value="{{ old('title') }}"
+                @else
+                    value="{{ $find->title }}" @endif
+                       required />
+                @error('title')
+                  <div class="mt-1 font-medium text-red-500">{{ $message }}</div>
+                @enderror
+              </div>
+
+              <div class="mt-5">
                 <label class="text-lg font-bold" for="slug">Slug</label> <br />
                 <input class="w-1/3 py-3" id="slug" name="slug" type="text"
                        @if (old('slug') != null) value="{{ old('slug') }}"

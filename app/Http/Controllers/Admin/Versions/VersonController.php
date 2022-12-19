@@ -59,7 +59,7 @@ class VersonController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => 'required|string|unique:versions|max:255',
-                'path_folder_name' => 'required|string|unique:versions|max:50',
+                'path_folder_name' => 'required|string|max:50',
                 'keywords' => 'nullable|string|max:255',
             ]);
 
@@ -155,7 +155,7 @@ class VersonController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'slug' => "required|string|unique:versions,slug,$decrypted_id|max:255",
-                'path_folder_name' => "required|string|unique:versions,path_folder_name,$decrypted_id|max:50",
+                'path_folder_name' => "required|string|max:50",
                 'keywords' => 'nullable|string|max:255',
                 'order' => 'required|numeric',
             ]);

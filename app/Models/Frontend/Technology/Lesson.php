@@ -19,6 +19,7 @@ class Lesson extends Model
         'order',
         'name',
         'slug',
+        'title',
         'file',
         'status',
         'keywords',

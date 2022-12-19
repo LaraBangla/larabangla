@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('technology_id')->comment('Technology ID')->references('id')->on('technologies')->onDelete('cascade');
             $table->string('name')->comment('Version Name');
             $table->string('slug')->unique()->comment('Version Slug');
-            $table->string('path_folder_name', 50)->unique()->comment('Technology folder name, for store docs files');
+            $table->string('path_folder_name', 50)->comment('Technology folder name, for store docs files');
             $table->integer('status')->default(1)->comment('1 for active, 0 for deactivate');
             $table->integer('order');
             // * for seo
