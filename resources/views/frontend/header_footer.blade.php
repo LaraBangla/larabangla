@@ -27,7 +27,7 @@
   <meta name='HandheldFriendly' content='True'>
 
   <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
-  <meta name='og:type' content='ডকুমেন্টেশন'>
+  <meta name='og:type' content='Documentation,ডকুমেন্টেশন'>
   <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
   <meta name='og:site_name' content='লারা বাংলা - LaraBangla'>

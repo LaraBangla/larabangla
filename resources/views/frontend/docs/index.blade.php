@@ -6,10 +6,11 @@
 @section('pagename'){{ $lesson->technology->name.' '.$lesson->version->name.' Documentation' }}@endsection
 @section('category'){{ $lesson->technology->name }}@endsection
 @section('that_url'){{ Request::url(); }}@endsection
-@if ($lesson->technology->image != null)
-  
+
+@if ($lesson->technology->image != null && Storage::disk('tech_images')->exists($lesson->technology->image))
+@section('image'){{ asset('storage/tech_images/'.$lesson->technology->image) }} @endsection
 @endif
-@section('image') @endsection
+
 
 @section('content')
   <section class="docs" x-data="{ mobile_search: false }">
