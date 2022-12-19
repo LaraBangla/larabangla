@@ -92,13 +92,10 @@ class DocController extends Controller
     public function index($technology_slug, $version_slug, $chapter_slug, $lesson_slug)
     {
 
-        $technology = Technology::whereSlug($technology_slug)->first();
-        $version = Version::whereSlug($version_slug)->whereTechnology_id($technology->id)->first();
-        //  $versions = Version::whereTechnology_id($technology->id)->get();
-        $chapter = Chapter::whereSlug($chapter_slug)->whereTechnology_id($technology->id)->whereVersion_id($version->id)->first();
-        $lesson = Lesson::whereSlug($lesson_slug)->whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($chapter->id)->first();
-
-        // return response()->json($technology->versions);
+        $technology = Technology::whereSlug($technology_slug)->whereStatus(1)->first();
+        $version = Version::whereSlug($version_slug)->whereTechnology_id($technology->id)->whereStatus(1)->first();
+        $chapter = Chapter::whereSlug($chapter_slug)->whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereStatus(1)->first();
+        $lesson = Lesson::whereSlug($lesson_slug)->whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($chapter->id)->whereStatus(1)->first();
         if ((isset($technology) && $technology != null) && (isset($version) && $version != null) && (isset($chapter) && $chapter != null) && (isset($lesson) && $lesson != null))
         {
 

@@ -5,6 +5,61 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name='keywords' content='@yield('keywords','লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,laravel,bangla documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
+  <meta name='description' content='@yield('description','')'>
+  <meta name='subject' content='@yield('title','টেকনোলজি ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='copyright' content='LaraBangla'>
+  <meta name='language' content='BD'>
+  <meta name='topic' content='টেকনোলজি ডকুমেন্টেশন'>
+  <meta name='summary' content='@yield('description','')'>
+  <meta name='author' content='LaraBangla, info@larabangla.com'>
+  <meta name='designer' content='লারা বাংলা - LaraBangla'>
+  <meta name='owner' content='লারা বাংলা - LaraBangla'>
+  <meta name='url' content='@yield('that_url','https://www.larabangla.com')'>
+  <meta name='identifier-URL' content='@yield('that_url','https://www.larabangla.com')'>
+  <meta name='pagename' content='@yield('pagename','হোম পেজ,Home Page')'>
+  <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
+  <meta name='coverage' content='Worldwide'>
+  <meta name='distribution' content='Global'>
+  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='target' content='all'>
+  <meta name='HandheldFriendly' content='True'>
+
+  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='og:type' content='Documentation,ডকুমেন্টেশন'>
+  <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
+  <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
+  <meta name='og:site_name' content='লারা বাংলা - LaraBangla'>
+  <meta name='og:description' content='@yield('description','')'>
+
+  <meta name='fb:page_id' content='100088381790920'>
+  <meta name='application-name' content='LaraBangla'>
+  <meta name='og:email' content='info@larabangla.com'>
+  <meta name='og:region' content='BD'>
+  <meta name='og:country-name' content='BD'>
+
+  <meta name="google-analytics" content="@yield('description','') " />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
+  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
+  <meta name="twitter:description" content="@yield('description','')">
+  <meta name="twitter:image" content="@yield('image','www.larabangla.com/img/logo.png')'">
+  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
+
+  <meta itemprop="name" content="লারা বাংলা - LaraBangla">
+  <meta itemprop="image" content="@yield('image','www.larabangla.com/img/logo.png')'">
+  <meta name="renderer" content="webkit|ie-comp|ie-stand">
+  <meta name="x5-orientation" content="landscape/portrait">
+  <meta name="x5-fullscreen" content="true">
+  <meta name="x5-page-mode" content="app">
+  <meta name="screen-orientation" content="landscape/portrait">
+  <meta name="full-screen" content="yes">
+  <meta name="imagemode" content="force">
+  <meta name="browsermode" content="application">
+  <meta name="nightmode" content="disable">
+  <meta name="layoutmode" content="fitscreen">
+
   {{-- @notifyCss --}}
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
@@ -18,7 +73,7 @@
   @livewireStyles
 
   @stack('style')
-  <title>লারা বাংলা</title>
+  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')</title>
 </head>
 
 <body class="bg-gray-50">
@@ -55,7 +110,10 @@
                 <a class="text-2xl font-bold" href="#">Lara Bangla</a>
             </div> -->
         <ul class="mr-4 flex justify-end py-6" x-data="{ user: false }">
-          <li><a class="pl-5 text-2xl font-bold text-gray-600" href="{{ route('/') }}">লারা <span class="text-3xl">বাংলা</span></a></li>
+          <li><a class="pl-5 text-2xl font-bold text-gray-600 " href="{{ route('/') }}">
+            {{-- লারা <span class="text-3xl">বাংলা</span> --}}
+            <img src="{{ asset('img/logo.png') }}"  class="ml-8 -mt-9" width="60" alt="LaraBangla Logo">
+          </a></li>
           <li class="grow"></li>
           <li class="mx-1 hidden bg-gray-300 px-2 py-3 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                  class="fa fa-home"></i> হোম</a></li>
@@ -237,13 +295,13 @@
         {{-- right side fixed menu --}}
         <div class="fixed top-56 right-3 z-10 -ml-9 hidden duration-700 md:block">
           <ul>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#"><i
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.facebook.com/LaraBangla"><i
                    class="fa-brands fa-facebook-f"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://twitter.com/LaraBangla"><i class="fa-brands fa-twitter"></i></a>
             </li>
             <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#"><i
                    class="fa-brands fa-instagram"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.youtube.com/@Larabangla"><i class="fa-brands fa-youtube"></i></a>
             </li>
           </ul>
         </div>

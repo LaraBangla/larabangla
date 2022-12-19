@@ -67,7 +67,8 @@ class LessonsController extends Controller
                     'slug' => 'required|string|unique:technologies|regex:/^[A-Za-z.-]+$/|string|max:255',
                     'doc_file' => ['required', new Markdown, 'max:10240'],
                     'keywords' => 'nullable|string|max:255',
-                    'description' => 'nullable|max:500',
+                    'title' => 'required|string|max:255',
+                    'description' => 'nullable|string|max:150',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -155,6 +156,7 @@ class LessonsController extends Controller
                 'chapter_id' => $chapter->id,
                 'file' => $fileName,
                 'keywords' => $request->keywords,
+                'title' => $request->title,
                 'description' => $request->description,
 
             ];
@@ -262,7 +264,8 @@ class LessonsController extends Controller
                     'slug' => "required|string|unique:lessons,slug,$decripted_id|regex:/^[A-Za-z.-]+$/|string|max:255",
                     'doc_file' => [new Markdown, 'max:10240'],
                     'keywords' => 'nullable|string|max:255',
-                    'description' => 'nullable|max:500',
+                    'title' => 'required|string|max:255',
+                    'description' => 'nullable|string|max:150',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -329,6 +332,11 @@ class LessonsController extends Controller
             if ($request->keywords != $lesson->keywords)
             {
                 $data['keywords'] = $request->keywords;
+            }
+
+            if ($request->title != $lesson->title)
+            {
+                $data['title'] = $request->title;
             }
 
             // if old description and request description is not same then keep that data into array

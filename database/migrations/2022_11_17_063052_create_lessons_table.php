@@ -21,12 +21,13 @@ return new class extends Migration
             $table->foreignId('chapter_id')->references('id')->on('chapters')->onDelete('cascade');
             $table->integer('order');
             $table->string('name');
+            $table->string('title');
             $table->string('slug')->unique();
             $table->string('file')->unique();
             $table->integer('status')->default(1)->comment('1 for active, 0 for deactivate');
             // * for seo
             $table->string('keywords')->nullable()->comment('Keywords for SEO');
-            $table->text('description')->nullable()->comment('Description for SEO');
+            $table->string('description')->nullable()->comment('Description for SEO');
             $table->timestamps();
             $table->softDeletes();
         });
