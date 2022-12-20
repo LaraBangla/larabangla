@@ -5,10 +5,10 @@
     <div class="container mx-auto mt-10 rounded-lg bg-gray-100">
       <h1 class="ml-3 mt-3 text-xl font-bold text-gray-600">Edit Chapter</h1>
       <a class="float-right mr-3 rounded-md bg-gray-300 p-3 font-normal hover:bg-gray-400"
-         href="{{ route('admin.show.version', ['technology_id' => Crypt::encryptString($find->technology_id), 'version_id' => Crypt::encryptString($find->version_id)]) }}">
+         href="{{ route('admin.show.version', ['technology_slug' => $find->technology->slug, 'version_slug' => $find->version->slug]) }}">
         < Back</a>
           <div class="p-5">
-            <form action="{{ route('admin.update.chapter', Crypt::encryptString($find->id)) }}" method="post">
+            <form action="{{ route('admin.update.chapter', $find->slug)}}" method="post">
               @csrf
               @method('patch')
               <div>

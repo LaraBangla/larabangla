@@ -8,7 +8,7 @@
          href="{{ route('admin.show.technology', $find->technology_id) }}">
         < Back</a>
           <div class="p-5">
-            <form action="{{ route('admin.update.version', Crypt::encryptString($find->id)) }}" method="post">
+            <form action="{{ route('admin.update.version', $find->slug) }}" method="post">
               @csrf
               @method('patch')
               <div>

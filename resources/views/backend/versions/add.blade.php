@@ -8,7 +8,7 @@
           <a class="rounded-lg bg-slate-200 p-2 text-lg hover:bg-slate-300" href="{{ route('admin.show.technology', $technology->id) }}">
             < Back</a>
         </div>
-        <form action="{{ route('admin.store.version', Crypt::encryptString($technology->id)) }}" method="post">
+        <form action="{{ route('admin.store.version', $technology->slug) }}" method="post">
           @csrf
           @method('put')
           <div>

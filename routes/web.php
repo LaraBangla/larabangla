@@ -99,36 +99,36 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // version
     Route::controller(VersonController::class)->group(function ()
     {
-        Route::get('/add/version/{id}', 'create')->name('add.version');
-        Route::put('/store/version/{id}', 'store')->name('store.version');
+        Route::get('/add/version/{slug}', 'create')->name('add.version');
+        Route::put('/store/version/{slug}', 'store')->name('store.version');
         Route::get('/show/versions', 'index')->name('show.versions');
-        Route::get('/show/version/{technology_id}/{version_id}', 'show')->name('show.version'); // single
-        Route::get('/edit/version/{id}', 'edit')->name('edit.version');
-        Route::patch('/update/version/{id}', 'update')->name('update.version');
-        Route::get('/delete/version/{id}', 'destroy')->name('delete.version');
+        Route::get('/show/version/{technology_slug}/{version_slug}', 'show')->name('show.version'); // single
+        Route::get('/edit/version/{slug}', 'edit')->name('edit.version');
+        Route::patch('/update/version/{slug}', 'update')->name('update.version');
+        Route::get('/delete/version/{slug}', 'destroy')->name('delete.version');
     });
 
     // chapter
     Route::controller(ChapterController::class)->group(function ()
     {
-        Route::get('/add/chapter/{id}', 'create')->name('add.chapter');
-        Route::put('/store/chapter/{id}', 'store')->name('store.chapter');
+        Route::get('/add/chapter/{slug}', 'create')->name('add.chapter');
+        Route::put('/store/chapter/{slug}', 'store')->name('store.chapter');
         //  Route::get('/show/chapters', 'index')->name('show.chapters');
-        Route::get('/show/chapter/{id}', 'show')->name('show.chapter'); // single
-        Route::get('/edit/chapter/{id}', 'edit')->name('edit.chapter');
-        Route::patch('/update/chapter/{id}', 'update')->name('update.chapter');
-        Route::get('/delete/chapter/{id}', 'destroy')->name('delete.chapter');
+        Route::get('/show/chapter/{slug}', 'show')->name('show.chapter'); // single
+        Route::get('/edit/chapter/{slug}', 'edit')->name('edit.chapter');
+        Route::patch('/update/chapter/{slug}', 'update')->name('update.chapter');
+        Route::get('/delete/chapter/{slug}', 'destroy')->name('delete.chapter');
     });
 
     // chapter
     Route::controller(LessonsController::class)->group(function ()
     {
-        Route::get('/add/lesson/{id}', 'create')->name('add.lesson');
-        Route::put('/store/lesson/{id}', 'store')->name('store.lesson');
+        Route::get('/add/lesson/{slug}', 'create')->name('add.lesson');
+        Route::put('/store/lesson/{slug}', 'store')->name('store.lesson');
         // Route::get('/show/lessons', 'index')->name('show.lessons');
-        Route::get('/show/lesson/{id}', 'show')->name('show.lesson'); // single
-        Route::get('/edit/lesson/{id}', 'edit')->name('edit.lesson');
-        Route::patch('/update/lesson/{id}', 'update')->name('update.lesson');
-        Route::get('/delete/lesson/{id}', 'destroy')->name('delete.lesson');
+        Route::get('/show/lesson/{slug}', 'show')->name('show.lesson'); // single
+        Route::get('/edit/lesson/{slug}', 'edit')->name('edit.lesson');
+        Route::patch('/update/lesson/{slug}', 'update')->name('update.lesson');
+        Route::get('/delete/lesson/{slug}', 'destroy')->name('delete.lesson');
     });
 });
