@@ -147,11 +147,9 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $find = Chapter::whereId($decripted_id)->first();
-
+        $find = Chapter::whereSlug($slug)->first();
         if ($find)
         {
             return view('backend.chapters.show', compact('find'));

@@ -6,10 +6,10 @@
       <div class="p-5">
         <div class="mb-5">
           <a class="rounded-lg bg-slate-200 p-2 text-lg hover:bg-slate-300"
-             href="{{ route('admin.show.version', ['technology_id' => Crypt::encryptString($chapter->technology_id), 'version_id' => Crypt::encryptString($chapter->id)]) }}">
+             href="{{ route('admin.show.chapter', ['slug' => $chapter->slug]) }}">
             < Back</a>
         </div>
-        <form action="{{ route('admin.store.lesson', Crypt::encryptString($chapter->id)) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.store.lesson',['slug' => $chapter->slug]) }}" method="post" enctype="multipart/form-data">
           @csrf
           @method('put')
           <div>

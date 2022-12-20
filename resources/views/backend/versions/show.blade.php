@@ -25,7 +25,7 @@
                   </div>
                   <div class="mr-2">
                     <a class="mx-1 rounded-sm bg-sky-600 p-2 text-lg text-white"
-                       href="{{ route('admin.show.chapter', Crypt::encryptString($chapter->id)) }}"><i class="fa-solid fa-eye"></i></a>
+                       href="{{ route('admin.show.chapter', $chapter->slug) }}"><i class="fa-solid fa-eye"></i></a>
                     <a class="mx-1 rounded-sm bg-green-700 p-2 text-lg text-white"
                        href="{{ route('admin.edit.chapter', Crypt::encryptString($chapter->id)) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                     <a class="mx-1 rounded-sm bg-red-700 p-2 text-lg text-white"

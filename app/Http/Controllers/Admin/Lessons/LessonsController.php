@@ -29,11 +29,10 @@ class LessonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
 
-        $chapter = Chapter::whereId($decripted_id)->first();
+        $chapter = Chapter::whereSlug($slug)->first();
 
         if ($chapter)
         {
@@ -52,12 +51,9 @@ class LessonsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, $slug)
     {
-
-        $decripted_id = Crypt::decryptString($id);
-
-        $chapter = Chapter::whereId($decripted_id)->first();
+        $chapter = Chapter::whereSlug($slug)->first();
 
         if ($chapter)
         {
@@ -187,10 +183,10 @@ class LessonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $find = Lesson::whereId($decripted_id)->first();
+
+        $find = Lesson::whereSlug($slug)->first();
         if ($find)
         {
             $converter = new GithubFlavoredMarkdownConverter([
@@ -223,11 +219,9 @@ class LessonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-
-        $find = Lesson::whereId($decripted_id)->first();
+        $find = Lesson::whereSlug($slug)->first();
 
         if ($find)
         {
@@ -247,12 +241,9 @@ class LessonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-
-        $decripted_id = Crypt::decryptString($id);
-
-        $lesson = Lesson::whereId($decripted_id)->first();
+        $lesson = Lesson::whereSlug($slug)->first();
         $data = array();
 
         if ($lesson)
@@ -261,7 +252,7 @@ class LessonsController extends Controller
             $validate = $request->validate(
                 [
                     'name' => 'required|string|max:255',
-                    'slug' => "required|string|unique:lessons,slug,$decripted_id|regex:/^[A-Za-z.-]+$/|string|max:255",
+                    'slug' => "required|string|unique:lessons,slug,$lesson->id|regex:/^[A-Za-z.-]+$/|string|max:255",
                     'doc_file' => [new Markdown, 'max:10240'],
                     'keywords' => 'nullable|string|max:255',
                     'title' => 'required|string|max:255',
@@ -432,10 +423,10 @@ class LessonsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $find = Lesson::whereId($decripted_id)->first();
+
+        $find = Lesson::whereSlug($slug)->first();
         if ($find)
         {
             $file = $find->file;

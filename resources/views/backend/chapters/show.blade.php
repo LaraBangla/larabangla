@@ -13,20 +13,24 @@
           </div>
           <div class="border-t">
             <h3 class="ml-5 text-xl font-bold">Lessons</h3>
+            {{-- add lesson --}}
             <a class="float-right mr-3 rounded-md bg-gray-300 p-3 font-normal hover:bg-gray-400"
-               href="{{ route('admin.add.lesson', Crypt::encryptString($find->id)) }}">Add
+               href="{{ route('admin.add.lesson', $find->slug) }}">Add
               Lesson</a>
             <ul class="ml-5 pt-10 text-lg">
               @foreach ($find->lessons as $lesson)
                 <li class="my-10 border py-5 pl-5">
                   <a href="#">{{ $lesson->name }}</a>
                   <div class="float-right">
+                    {{-- show lesson --}}
                     <a class="mx-1 rounded-sm bg-sky-600 p-2 text-lg text-white"
-                       href="{{ route('admin.show.lesson', Crypt::encryptString($lesson->id)) }}"><i class="fa-solid fa-eye"></i></a>
+                       href="{{ route('admin.show.lesson', $lesson->slug) }}"><i class="fa-solid fa-eye"></i></a>
+                    {{-- edit lesson --}}
                     <a class="mx-1 rounded-sm bg-green-700 p-2 text-lg text-white"
-                       href="{{ route('admin.edit.lesson', Crypt::encryptString($lesson->id)) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                       href="{{ route('admin.edit.lesson',$lesson->slug) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                      {{-- delete lesson --}}
                     <a class="mx-1 rounded-sm bg-red-700 p-2 text-lg text-white"
-                       href="{{ route('admin.delete.lesson', Crypt::encryptString($lesson->id)) }}" onclick="return confirm('Are you sure?')"><i
+                       href="{{ route('admin.delete.lesson', $lesson->slug) }}" onclick="return confirm('Are you sure?')"><i
                          class="fa-solid fa-trash"></i></a>
                   </div>
                 </li>

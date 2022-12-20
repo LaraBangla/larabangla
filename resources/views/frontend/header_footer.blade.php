@@ -295,13 +295,13 @@
         {{-- right side fixed menu --}}
         <div class="fixed top-56 right-3 z-10 -ml-9 hidden duration-700 md:block">
           <ul>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.facebook.com/LaraBangla"><i
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.facebook.com/LaraBangla" target="_blank"><i
                    class="fa-brands fa-facebook-f"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://twitter.com/LaraBangla"><i class="fa-brands fa-twitter"></i></a>
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://twitter.com/LaraBangla" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#"><i
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#" target="_blank"><i
                    class="fa-brands fa-instagram"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.youtube.com/@Larabangla"><i class="fa-brands fa-youtube"></i></a>
+            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.youtube.com/@Larabangla" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </li>
           </ul>
         </div>
