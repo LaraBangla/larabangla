@@ -194,7 +194,7 @@ class LessonsController extends Controller
                 'allow_unsafe_links' => false,
             ]);
 
-            $path = strtolower(Str::slug($find->technology->name, '-')) . '/' . strtolower(Str::slug($find->version->slug, '-')) . '/' . $find->file;
+            $path = strtolower(Str::slug($find->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($find->version->path_folder_name, '-')) . '/' . $find->file;
             if (Storage::disk('docs')->exists($path))
             {
                 $md = file_get_contents(storage_path('/docs/' . $path));

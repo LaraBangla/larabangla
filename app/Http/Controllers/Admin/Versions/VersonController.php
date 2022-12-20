@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 use App\Models\Frontend\Technology\Chapter;
 use App\Models\Frontend\Technology\Version;
 use App\Models\Frontend\Technology\Technology;
+use Illuminate\Validation\Rule;
 
 class VersonController extends Controller
 {
@@ -28,10 +29,10 @@ class VersonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($slug)
     {
-        $decrypted_id = Crypt::decryptString($id);
-        $technology = Technology::whereId($decrypted_id)->first();
+
+        $technology = Technology::whereSlug($slug)->first();
         if ($technology)
         {
             return view('backend.versions.add', compact('technology'));
@@ -49,11 +50,9 @@ class VersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, $slug)
     {
-        $decrypted_id = Crypt::decryptString($id);
-        $technology = Technology::whereId($decrypted_id)->first();
-
+        $technology = Technology::whereSlug($slug)->first();
         if ($technology)
         {
             $request->validate([
@@ -153,29 +152,21 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $decrypted_id = Crypt::decryptString($id);
-
-        $find = Version::whereId($decrypted_id)->first();
+        $find = Version::whereSlug($slug)->first();
         if ($find)
         {
-
             $request->validate([
                 'name' => 'required|string|max:255',
-                'slug' => "required|string|unique:versions,slug,$decrypted_id|max:255",
-                'path_folder_name' => "required|string|max:50",
+                'slug' => "required|string|unique:versions,slug,$find->id|max:255",
+                'path_folder_name' => ['nullable', Rule::requiredIf(!isset($find->lesson) && strtolower(Str::studly($request->path_folder_name)) != $find->path_folder_name), 'string', 'max:50'],
                 'keywords' => 'nullable|string|max:255',
                 'order' => 'required|numeric',
             ]);
 
             // make studly folder name || remove word space and make as My folder => MyFolder
             $folderName =  strtolower(Str::studly($request->path_folder_name));
-
-            // generate order for shorting
-            $last = Version::orderBy('id', 'desc')->first();
-            $last != null ? $last_id = $last->id + 1 : $last_id = 1;
-
             $data = array();
 
             if ($request->name != $find->name)
@@ -187,7 +178,6 @@ class VersonController extends Controller
             {
                 $data['slug'] = $request->slug;
             }
-
 
             // if lesson doesn't exists and request folder name not like old one then keep new folder name into variable
             if (!isset($find->lesson) && $folderName != $find->path_folder_name)
@@ -240,11 +230,9 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $decrypted_id = Crypt::decryptString($id);
-
-        $find = Version::whereId($decrypted_id)->first();
+        $find = Version::whereSlug($slug)->first();
         if ($find)
         {
             try

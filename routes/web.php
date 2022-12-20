@@ -99,13 +99,13 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // version
     Route::controller(VersonController::class)->group(function ()
     {
-        Route::get('/add/version/{id}', 'create')->name('add.version');
-        Route::put('/store/version/{id}', 'store')->name('store.version');
+        Route::get('/add/version/{slug}', 'create')->name('add.version');
+        Route::put('/store/version/{slug}', 'store')->name('store.version');
         Route::get('/show/versions', 'index')->name('show.versions');
         Route::get('/show/version/{technology_slug}/{version_slug}', 'show')->name('show.version'); // single
         Route::get('/edit/version/{slug}', 'edit')->name('edit.version');
-        Route::patch('/update/version/{id}', 'update')->name('update.version');
-        Route::get('/delete/version/{id}', 'destroy')->name('delete.version');
+        Route::patch('/update/version/{slug}', 'update')->name('update.version');
+        Route::get('/delete/version/{slug}', 'destroy')->name('delete.version');
     });
 
     // chapter

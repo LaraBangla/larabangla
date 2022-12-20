@@ -13,7 +13,7 @@
       <div class="border-t">
         <h3 class="ml-5 text-xl font-bold">Versions</h3>
         <a class="float-right mr-3 rounded-md bg-gray-300 p-3 font-normal hover:bg-gray-400"
-           href="{{ route('admin.add.version', Crypt::encryptString($find->id)) }}">Add Version</a>
+           href="{{ route('admin.add.version', $find->slug) }}">Add Version</a>
         <ul class="ml-5 pt-10 text-lg">
           @foreach ($versions as $version)
             @include('backend.show_all.versions.all_versions')
