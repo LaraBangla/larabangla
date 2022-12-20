@@ -104,23 +104,32 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($technology_id, $version_id)
+    public function show($technology_slug, $version_slug)
     {
-        $tech_id = Crypt::decryptString($technology_id);
-        $v_id = Crypt::decryptString($version_id);
 
-        $find = Version::whereId($v_id)->whereTechnology_id($tech_id)->first();
-
-        if ($find)
+        // find technology
+        $find_technology = Technology::whereSlug($technology_slug)->first();
+        if ($find_technology)
         {
+            // find version
+            $find = Version::whereSlug($version_slug)->whereTechnology_id($find_technology->id)->first();
 
-            $chapters = Chapter::whereVersion_id($v_id)->whereTechnology_id($tech_id)->orderBy('id', 'asc')->get();
+            if ($find)
+            {
 
-            return view('backend.versions.show', compact('find', 'chapters'));
+                $chapters = Chapter::whereVersion_id($find->id)->whereTechnology_id($find_technology->id)->orderBy('id', 'asc')->get();
+
+                return view('backend.versions.show', compact('find', 'chapters'));
+            }
+            else
+            {
+                notify()->error('Version not found!', 'Not found');
+                return back();
+            }
         }
         else
         {
-            notify()->error('Version not found!', 'Not found');
+            notify()->error('Technology not found!', 'Not found');
             return back();
         }
     }
@@ -131,9 +140,9 @@ class VersonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $find = Version::whereId($id)->first();
+        $find = Version::whereSlug($slug)->first();
         return view('backend.versions.edit', compact('find'));
     }
 

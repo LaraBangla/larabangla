@@ -6,7 +6,8 @@
 -   doc version folder name unique problem ==> done
 -   doc description max 150 \*\*\* ==> done
 -   lesson title \*\*\* ==> done
--   update all code for seo
+-   update all code for seo ==> done
 -   fix slug
--   from add lesson "back button" it's taking chapter page. fix it
+-   from add lesson "back button" it's taking chapter page. fix it ==> done
+-   all routes now with encrypted id route. make those all routes with slug. [chapter,version,technologies,technologies division routes]
 -   lesson slug problem. hence, soft delete activated, data not deleting. thats why when we add new lesson/data it's make data unique problem

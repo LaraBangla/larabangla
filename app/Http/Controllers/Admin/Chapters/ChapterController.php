@@ -27,10 +27,9 @@ class ChapterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $version = Version::whereId($decripted_id)->first();
+        $version = Version::whereSlug($slug)->first();
         if ($version)
         {
             return view('backend.chapters.add', compact('version'));
@@ -167,10 +166,9 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $find = Chapter::whereId($decripted_id)->first();
+        $find = Chapter::whereSlug($slug)->first();
         if ($find)
         {
 
@@ -190,10 +188,9 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $find = Chapter::whereId($decripted_id)->first();
+        $find = Chapter::whereSlug($slug)->first();
         if ($find)
         {
 
@@ -315,10 +312,9 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $find = Chapter::whereId($decripted_id)->first();
+        $find = Chapter::whereSlug($slug)->first();
         if ($find)
         {
             $delete = $find->delete();
