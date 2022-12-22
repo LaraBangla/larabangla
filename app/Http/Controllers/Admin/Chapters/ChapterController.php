@@ -285,7 +285,7 @@ class ChapterController extends Controller
                 if ($update)
                 {
                     notify()->success('Chapter updated successfully!', 'Successful');
-                    return back();
+                    return to_route('admin.edit.chapter', ['slug' => $find->slug]);
                 }
                 else
                 {

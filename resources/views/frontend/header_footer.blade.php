@@ -127,17 +127,7 @@
                href="#">সম্পর্কে</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="#">যোগাযোগ</a></li>
-          <li class="mx-1 hidden px-3 py-3 text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
-               class="font-bold"><i class="fa-solid fa-user"></i></a>
-            <div class="absolute right-2 mt-2 rounded border bg-slate-50" x-show="user">
-              <ul class="py-5">
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('login') }}"><span class="text-gray-500"><i
-                         class="fa fa-sign-in mr-2"></i></span>লগিন</a></li>
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="#"><span class="text-gray-500"><i
-                         class="fa-solid fa-user-plus mr-2"></i></span>রেজিস্টার</a></li>
-              </ul>
-            </div>
-          </li>
+         
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ search: false }">
             <a class="font-bold" @click="search = ! search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
             <!-- search -->
@@ -154,7 +144,38 @@
             </div>
 
           </li>
+          <li class="mx-1 hidden px-3 py-3 text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
+            class="font-bold"><i class="fa-solid fa-user"></i></a>
+         <div class="absolute right-2 mt-2 rounded border bg-slate-50" x-show="user">
+           <ul class="py-5">
+            @guest
+            <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('login') }}"><span class="text-gray-500"><i
+              class="fa fa-sign-in mr-2"></i></span>লগিন</a></li>
 
+              <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('register') }}"><span class="text-gray-500"><i
+                class="fa-solid fa-user-plus mr-2"></i></span>রেজিস্টার</a></li>
+
+                   
+            @else
+            <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
+              class="fa-solid fa-user-plus mr-2"></i></span>প্রফাইল</a></li>
+            <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100">
+                 <!-- Authentication -->
+                 <form method="POST" action="{{ route('logout') }}" x-data>
+                  @csrf
+
+                  <a href="{{ route('logout') }}"
+                           @click.prevent="$root.submit();">
+                           <span class="text-gray-500"><i class="fa fa-sign-in mr-2"></i> লগ আউট</span>
+                  </a>
+              </form>
+            </li>
+            @endguest
+            
+             
+           </ul>
+         </div>
+       </li>
           <li class="mx-1 hidden py-3 text-gray-600 duration-500 md:block" x-data="{ option: false }">
             <a class="px-2 font-bold" @click="option = ! option" @click.outside="option=false"><span class="text-xl"><i
                    class="fa fa-ellipsis-v"></i></span>
@@ -239,7 +260,7 @@
         <div class="pl-4 pb-2">
           <ul class="pt-6">
 
-            @if (Request::route()->getName() == '/')
+            @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show')
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
                        class="fa fa-home mr-4"></i></span>হোম</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
@@ -286,9 +307,12 @@
         {{-- <x:notify-messages /> --}}
 
         <section>
-          {{-- <main>
+          @if (Request::route()->getName() == 'profile.show')
+            <main>
             {{ $slot }}
-          </main> --}}
+          </main>
+          @endif
+         
           @yield('content')
         </section>
 

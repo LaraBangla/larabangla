@@ -6,7 +6,7 @@
       <h1 class="ml-3 mt-3 text-xl font-bold text-gray-600">Edit Technology Devision</h1>
       <a class="float-right mr-3 rounded-md bg-gray-300 p-3 font-normal hover:bg-gray-400" href="{{ route('admin.show.division') }}">All Tech Devision</a>
       <div class="p-5">
-        <form action="{{ route('admin.update.division', $find->id) }}" method="post">
+        <form action="{{ route('admin.update.division', $find->slug) }}" method="post">
           @csrf
           @method('patch')
           <div>

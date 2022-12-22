@@ -396,7 +396,7 @@ class LessonsController extends Controller
                     }
 
                     notify()->success('Lesson update successfully!', 'Successful');
-                    return back();
+                    return to_route('admin.edit.lesson', ['slug' => $lesson->slug]);
                 }
                 else
                 {
