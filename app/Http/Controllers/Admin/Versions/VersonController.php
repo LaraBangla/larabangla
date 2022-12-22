@@ -203,7 +203,7 @@ class VersonController extends Controller
                 if ($update)
                 {
                     notify()->success('Version updated successfully!', 'Successful');
-                    return back();
+                    return to_route('admin.edit.version', ['slug' => $find->slug]);
                 }
                 else
                 {
