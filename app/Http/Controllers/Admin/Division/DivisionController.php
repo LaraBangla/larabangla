@@ -53,30 +53,31 @@ class DivisionController extends Controller
     }
 
     // edit division
-    public function edit($id)
+    public function edit($slug)
     {
-        try
+
+        $find = TechnologyDivision::whereSlug($slug)->first();
+        if ($find)
         {
-            $find = TechnologyDivision::whereId($id)->first();
             return view('backend.division.edit', compact('find'));
         }
-        catch (\Throwable $th)
+        else
         {
-            notify()->error('Not found or something went wrong!', 'Failed');
+            notify()->error('Not found!', 'Failed');
             return back();
         }
     }
 
     // update division
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $find = TechnologyDivision::whereId($id)->first();
+        $find = TechnologyDivision::whereSlug($slug)->first();
         if ($find)
         {
 
             $request->validate([
                 'name' => 'required|string|max:255',
-                'slug' => "required|string|unique:technology_divisions,slug,$id|max:255",
+                'slug' => "required|string|unique:technology_divisions,slug,$find->id|max:255",
                 'order' => 'required|numeric',
 
             ]);
@@ -92,7 +93,7 @@ class DivisionController extends Controller
             if ($update)
             {
                 notify()->success('Technology Division updated successfully!', 'Successful');
-                return back();
+                return to_route('admin.edit.division', ['slug' => $find->slug]);
             }
             else
             {
@@ -108,9 +109,9 @@ class DivisionController extends Controller
     }
 
     // delete division
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $find = TechnologyDivision::whereId($id)->first();
+        $find = TechnologyDivision::whereSlug($slug)->first();
         if ($find)
         {
             try

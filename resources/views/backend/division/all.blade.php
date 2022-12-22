@@ -20,9 +20,11 @@
             <td class="border border-slate-300 p-2">{{ $row->slug }}</td>
             <td class="w-28 border border-slate-300 p-2">
               {{-- <a href="#" class="p-2 text-lg bg-sky-400 mx-1 rounded-sm"><i class="fa-solid fa-eye"></i></a> --}}
-              <a class="mx-1 rounded-sm bg-green-700 p-2 text-lg text-white" href="{{ route('admin.edit.division', $row->id) }}"><i
+              {{-- edit division --}}
+              <a class="mx-1 rounded-sm bg-green-700 p-2 text-lg text-white" href="{{ route('admin.edit.division', $row->slug) }}"><i
                    class="fa-solid fa-pen-to-square"></i></a>
-              <a class="mx-1 rounded-sm bg-red-700 p-2 text-lg text-white" href="{{ route('admin.delete.division', $row->id) }}"
+                   {{-- delete division --}}
+              <a class="mx-1 rounded-sm bg-red-700 p-2 text-lg text-white" href="{{ route('admin.delete.division', $row->slug) }}"
                  onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i></a>
             </td>
           </tr>

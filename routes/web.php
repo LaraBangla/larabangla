@@ -80,9 +80,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::get('/add/division', 'create')->name('add.division');
         Route::put('/store/division', 'store')->name('store.division');
         Route::get('/all/divisions', 'show')->name('show.division');
-        Route::get('/edit/division/{id}', 'edit')->name('edit.division');
-        Route::patch('/update/division/{id}', 'update')->name('update.division');
-        Route::get('/delete/division/{id}', 'destroy')->name('delete.division');
+        Route::get('/edit/division/{slug}', 'edit')->name('edit.division');
+        Route::patch('/update/division/{slug}', 'update')->name('update.division');
+        Route::get('/delete/division/{slug}', 'destroy')->name('delete.division');
     });
 
     Route::controller(TechnologyController::class)->group(function ()
