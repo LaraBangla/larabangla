@@ -90,10 +90,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         Route::get('/add/technology', 'create')->name('add.technology');
         Route::put('/store/technology', 'store')->name('store.technology');
         Route::get('/technologies', 'index')->name('all.technologies');
-        Route::get('/show/technology/{id}', 'show')->name('show.technology');
-        Route::get('/edit/technology/{id}', 'edit')->name('edit.technology');
-        Route::patch('/update/technology/{id}', 'update')->name('update.technology');
-        Route::get('/delete/technology/{id}', 'destroy')->name('delete.technology');
+        Route::get('/show/technology/{slug}', 'show')->name('show.technology');
+        Route::get('/edit/technology/{slug}', 'edit')->name('edit.technology');
+        Route::patch('/update/technology/{slug}', 'update')->name('update.technology');
+        Route::get('/delete/technology/{slug}', 'destroy')->name('delete.technology');
     });
 
     // version

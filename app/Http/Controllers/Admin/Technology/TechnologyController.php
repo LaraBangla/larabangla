@@ -108,9 +108,9 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $find = Technology::whereId($id)->first();
+        $find = Technology::whereSlug($slug)->first();
         if ($find)
         {
             $versions = Version::where('technology_id', $find->id)->orderBy('id', 'desc')->get();
@@ -129,13 +129,21 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $division = TechnologyDivision::orderBy('id', 'desc')->get();
-        $find = Technology::whereId($id)->first();
 
+        $find = Technology::whereSlug($slug)->first();
+        if ($find)
+        {
+            $division = TechnologyDivision::orderBy('id', 'desc')->get();
+            return view('backend.technology.edit', compact('find', 'division'));
+        }
+        else
+        {
 
-        return view('backend.technology.edit', compact('find', 'division'));
+            notify()->error('Technology not found!', 'Not found');
+            return back();
+        }
     }
 
     /**
@@ -145,9 +153,9 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        $find = Technology::whereId($id)->first();
+        $find = Technology::whereSlug($slug)->first();
         if ($find)
         {
 
@@ -155,8 +163,8 @@ class TechnologyController extends Controller
                 [
                     'division' => 'required|numeric',
                     'name' => 'required|string|max:255',
-                    'slug' => "required|string|unique:technologies,slug,$id|max:255",
-                    'path_folder_name' => "nullable|string|unique:technologies,path_folder_name,$id|max:50",
+                    'slug' => "required|string|unique:technologies,slug,$find->id|max:255",
+                    'path_folder_name' => "nullable|string|unique:technologies,path_folder_name,$find->id|max:50",
                     'keywords' => 'nullable|string|max:256',
                     'image' => 'image|max:5120',
                 ],
@@ -221,7 +229,7 @@ class TechnologyController extends Controller
                     }
 
                     notify()->success('Technology updated successfully!', 'Successful');
-                    return back();
+                    return to_route('admin.edit.technology', ['slug' => $find->slug]);
                 }
                 else
                 {
@@ -248,22 +256,20 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-
-        $find = Technology::whereId($decripted_id)->first();
+        $find = Technology::whereSlug($slug)->first();
         if ($find)
         {
             try
             {
                 $find->delete();
-                notify()->success('Technology Devision deleted!', 'Successful');
+                notify()->success('Technology Division deleted!', 'Successful');
                 return back();
             }
             catch (\Throwable $th)
             {
-                notify()->error('Failed to delete Technology Devision!', 'Failed');
+                notify()->error('Failed to delete Technology Division!', 'Failed');
                 return back();
             }
         }

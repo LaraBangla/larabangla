@@ -7,7 +7,7 @@
       <a class="float-right mr-3 rounded-md bg-gray-300 p-3 font-normal hover:bg-gray-400" href="{{ route('admin.all.technologies') }}">All
         Technologies</a>
       <div class="p-5">
-        <form action="{{ route('admin.update.technology', $find->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.update.technology', $find->slug) }}" method="post" enctype="multipart/form-data"">
           @csrf
           @method('patch')
           <div>
