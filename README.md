@@ -2,11 +2,30 @@
 
 ---
 
+## **for upload to server**
+
+-   footer top ui design
+-   home page ui modify
+-   unavailable services make "coming soon"
+-   contact us form
+-   about content
+-   privacy policy content
+-   terms conditions content
+-   user auth with username system
+
+## **after google ad request**
+
+-   trash system
+-   show technologies,versions,chapters and lessons ui modify
+-   **news system**
+-   **blog system**
+-
+
+## **already done**
+
 -   technologies,technologies division routes with slug => done
 -   redirect to edit route after update with new data => done
--
 -   chapter,lesson slug problem. hence, soft delete activated, data not deleting. thats why when we add new lesson/data it's make data unique problem => done
-
 -   doc folder name lowercase ==> done
 -   doc version folder name unique problem => done
 -   doc description max 150 \*\*\* => done
