@@ -57,7 +57,7 @@ class LessonsController extends Controller
 
         if ($chapter)
         {
-            $validate = $request->validate(
+            $request->validate(
                 [
                     'name' => 'required|string|max:255',
                     'slug' => 'required|string|unique:technologies|regex:/^[A-Za-z.-]+$/|string|max:255',
@@ -78,7 +78,7 @@ class LessonsController extends Controller
 
             // first check into database that, is slug available?
             //
-            $check_slug = Lesson::where('slug', $slug)->first();
+            $check_slug = Lesson::withTrashed()->where('slug', $slug)->first();
             if (!isset($check_slug) && $check_slug == null)
             {
                 $slug = $slug;
@@ -88,7 +88,7 @@ class LessonsController extends Controller
                 // if not available then
                 $slug_with_tech_name =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug;
                 // check into database that, is slug available?
-                $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
+                $check_slug = Lesson::withTrashed()->where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
                     $slug = $slug_with_tech_name;
@@ -98,7 +98,7 @@ class LessonsController extends Controller
                     // if not available then make slug with technology slug
                     $slug_with_version_slug =  strtolower(Str::slug($chapter->technology->slug, '-')) . '-' . $slug . '-' . strtolower($chapter->version->slug);
                     // check into database that, is slug available?
-                    $check_slug = Lesson::where('slug', $slug_with_version_slug)->first();
+                    $check_slug = Lesson::withTrashed()->where('slug', $slug_with_version_slug)->first();
                     if (!isset($check_slug) && $check_slug == null)
                     {
                         $slug = $slug_with_version_slug;
@@ -111,7 +111,7 @@ class LessonsController extends Controller
                         while (!empty($check_slug))
                         {
                             $generate_slug = $slug . '-' . $number;
-                            $check_slug = Lesson::where('slug', $generate_slug)->first();
+                            $check_slug = Lesson::withTrashed()->where('slug', $generate_slug)->first();
                             $number++;
                         }
                         $slug = $generate_slug;
@@ -120,7 +120,7 @@ class LessonsController extends Controller
             }
 
             // generate order for shorting
-            $last_lesson = Lesson::orderBy('id', 'desc')->first();
+            $last_lesson = Lesson::withTrashed()->orderBy('id', 'desc')->first();
             $last_lesson != null ? $lesson_id = $last_lesson->id + 1 : $lesson_id = 1;
 
 
@@ -132,7 +132,7 @@ class LessonsController extends Controller
 
             // check that named file already exist or not, if not exist then store it, else name that file name uniqid
             $path = strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')) . '/' . $fileName;
-            if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()))
+            if (Storage::disk('docs')->missing($path) && empty(Lesson::withTrashed()->wherefile($fileName)->first()))
             {
                 $doc_file->storeAs(strtolower(Str::slug($chapter->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($chapter->version->path_folder_name, '-')), $fileName, 'docs');
             }
@@ -249,7 +249,7 @@ class LessonsController extends Controller
         if ($lesson)
         {
             $old_file = $lesson->file;
-            $validate = $request->validate(
+            $request->validate(
                 [
                     'name' => 'required|string|max:255',
                     'slug' => "required|string|unique:lessons,slug,$lesson->id|regex:/^[A-Za-z.-]+$/|string|max:255",
@@ -277,7 +277,7 @@ class LessonsController extends Controller
 
                 // first check into database that, is slug available?
                 //
-                $check_slug = Lesson::where('slug', $slug)->first();
+                $check_slug = Lesson::withTrashed()->where('slug', $slug)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
                     $slug = $slug;
@@ -287,7 +287,7 @@ class LessonsController extends Controller
                     // if not available then
                     $slug_with_tech_name =  strtolower(Str::slug($lesson->technology->name, '-')) . '-' . $slug;
                     // check into database that, is slug available?
-                    $check_slug = Lesson::where('slug', $slug_with_tech_name)->first();
+                    $check_slug = Lesson::withTrashed()->where('slug', $slug_with_tech_name)->first();
                     if (!isset($check_slug) && $check_slug == null)
                     {
                         $slug = $slug_with_tech_name;
@@ -297,7 +297,7 @@ class LessonsController extends Controller
                         // if not available then
                         $slug_with_version_name = strtolower(Str::slug($lesson->technology->name, '-')) . '-' . $slug . '-' .  strtolower($lesson->version->slug);
                         // check into database that, is slug available?
-                        $check_slug = Lesson::where('slug', $slug_with_version_name)->first();
+                        $check_slug = Lesson::withTrashed()->where('slug', $slug_with_version_name)->first();
                         if (!isset($check_slug) && $check_slug == null)
                         {
                             $slug = $slug_with_version_name;
@@ -309,7 +309,7 @@ class LessonsController extends Controller
                             while (!empty($check_slug))
                             {
                                 $generate_slug = $slug . '-' . $number;
-                                $check_slug = Lesson::where('slug', $generate_slug)->first();
+                                $check_slug = Lesson::withTrashed()->where('slug', $generate_slug)->first();
                                 $number++;
                             }
                             $slug = $generate_slug;
@@ -367,7 +367,7 @@ class LessonsController extends Controller
 
                 // check that named file already exist or not, if not exist then store it, else name that file name uniqid
                 $path = strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')) . '/' . $fileName;
-                if (Storage::disk('docs')->missing($path) && empty(Lesson::wherefile($fileName)->first()))
+                if (Storage::disk('docs')->missing($path) && empty(Lesson::withTrashed()->wherefile($fileName)->first()))
                 {
                     $doc_file->storeAs(strtolower(Str::slug($lesson->technology->path_folder_name, '-')) . '/' . strtolower(Str::slug($lesson->version->path_folder_name, '-')), $fileName, 'docs');
                 }

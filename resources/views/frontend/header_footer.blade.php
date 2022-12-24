@@ -260,7 +260,7 @@
         <div class="pl-4 pb-2">
           <ul class="pt-6">
 
-            @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show')
+            @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
                        class="fa fa-home mr-4"></i></span>হোম</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i

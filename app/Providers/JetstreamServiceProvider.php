@@ -21,7 +21,8 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // ignore default routes;
+        Jetstream::ignoreRoutes();
     }
 
     /**

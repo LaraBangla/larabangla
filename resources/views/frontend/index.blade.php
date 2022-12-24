@@ -12,7 +12,7 @@
           <h2 class="pb-10 pt-6 text-center text-4xl font-black text-gray-500 sm:text-4xl md:text-6xl lg:text-7xl">এবার শিখা হোক বাংলায়</h2>
           <h3 class="px-5 text-center text-xl font-semibold text-gray-500">ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট</h3>
           <div class="mt-14 flex justify-center">
-            <div class="m-2"><a class="btn-lg rounded-full bg-gray-500 text-white hover:bg-gray-600 hover:ring-blue-200" href="#">লারাভেল ডক</a>
+            <div class="m-2"><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="btn-lg rounded-full bg-gray-500 text-white hover:bg-gray-600 hover:ring-blue-200" href="#">লারাভেল ডক</a>
             </div>
             <div class="m-2"><a class="btn-lg rounded-full bg-gray-500 px-16 text-white hover:bg-gray-600 hover:ring-blue-200"
                  href="#">ব্লগ</a></div>
