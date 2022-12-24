@@ -9,7 +9,7 @@
              href="{{ route('admin.show.version', ['technology_slug' => $version->technology->slug, 'version_slug' => $version->slug]) }}">
             < Back</a>
         </div>
-        <form action="{{ route('admin.store.chapter', Crypt::encryptString($version->id)) }}" method="post">
+        <form action="{{ route('admin.store.chapter', $version->slug) }}" method="post">
           @csrf
           @method('put')
           <div>

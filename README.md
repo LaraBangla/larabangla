@@ -6,7 +6,7 @@
 -   technologies,technologies division routes with slug => done
 -   redirect to edit route after update with new data => done
 -
--   lesson slug problem. hence, soft delete activated, data not deleting. thats why when we add new lesson/data it's make data unique problem
+-   chapter,lesson slug problem. hence, soft delete activated, data not deleting. thats why when we add new lesson/data it's make data unique problem
 
 -   doc folder name lowercase ==> done
 -   doc version folder name unique problem => done

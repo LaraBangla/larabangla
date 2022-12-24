@@ -47,10 +47,10 @@ class ChapterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, $slug)
     {
-        $decripted_id = Crypt::decryptString($id);
-        $version = Version::whereId($decripted_id)->first();
+
+        $version = Version::whereSlug($slug)->first();
 
         if ($version)
         {
@@ -60,13 +60,14 @@ class ChapterController extends Controller
                 'keywords' => 'nullable|string|max:255',
             ]);
 
+
             // generate slug
             $get_slug = strtolower($request->slug);
             $req_slug = Str::slug($get_slug, '-');
 
             // first check into database that, is slug available?
             //
-            $check_slug = Chapter::where('slug', $req_slug)->first();
+            $check_slug = Chapter::withTrashed()->where('slug', $req_slug)->first();
             if (!isset($check_slug) && $check_slug == null)
             {
                 $slug = $req_slug;
@@ -76,7 +77,7 @@ class ChapterController extends Controller
                 // if not available then
                 $slug_with_tech_name = $req_slug . '-' . strtolower($version->technology->name);
                 // check into database that, is req_slug available?
-                $check_slug = Chapter::where('slug', $slug_with_tech_name)->first();
+                $check_slug = Chapter::withTrashed()->where('slug', $slug_with_tech_name)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
                     $slug = $slug_with_tech_name;
@@ -87,7 +88,7 @@ class ChapterController extends Controller
                     // if not available then make slug with req_slug-technology name and version name
                     $slug_with_version_name = $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name);
                     // check into database that, is slug available?
-                    $check_slug = Chapter::where('slug', $slug_with_version_name)->first();
+                    $check_slug = Chapter::withTrashed()->where('slug', $slug_with_version_name)->first();
                     if (!isset($check_slug) && $check_slug == null)
                     {
                         $slug = $slug_with_version_name;
@@ -99,7 +100,7 @@ class ChapterController extends Controller
                         while (!empty($check_slug))
                         {
                             $generate_slug =  $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name) . '-' . $number;
-                            $check_slug = Chapter::where('slug', $generate_slug)->first();
+                            $check_slug = Chapter::withTrashed()->where('slug', $generate_slug)->first();
                             $number++;
                         }
                         $slug = $generate_slug;
@@ -108,7 +109,7 @@ class ChapterController extends Controller
             }
 
             // generate chapter id
-            $last_chapter = Chapter::orderBy('id', 'desc')->first();
+            $last_chapter = Chapter::withTrashed()->orderBy('id', 'desc')->first();
             $last_chapter != null ? $chapter_id = $last_chapter->id + 1 : $chapter_id = 1;
 
             $data = [
@@ -214,7 +215,7 @@ class ChapterController extends Controller
             if ($slug != $find->slug)
             {
                 // first check into database that, is slug available?
-                $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $slug)->first();
+                $check_slug = Chapter::withTrashed()->where('id', '!=', $find->id)->where('slug', $slug)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
                     $slug = $slug;
@@ -227,7 +228,7 @@ class ChapterController extends Controller
                         // if not available then
                         $slug_with_tech_name = $slug . '-' . strtolower($find->technology->name);
                         // check into database that, is slug available?
-                        $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $slug_with_tech_name)->first();
+                        $check_slug = Chapter::withTrashed()->where('id', '!=', $find->id)->where('slug', $slug_with_tech_name)->first();
                         if (!isset($check_slug) && $check_slug == null)
                         {
                             $slug = $slug_with_tech_name;
@@ -239,7 +240,7 @@ class ChapterController extends Controller
                             while (!empty($check_slug))
                             {
                                 $generate_slug = $slug . '-' . $number;
-                                $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $generate_slug)->first();
+                                $check_slug = Chapter::withTrashed()->where('id', '!=', $find->id)->where('slug', $generate_slug)->first();
                                 $number++;
                             }
                             $slug = $generate_slug;
@@ -253,7 +254,7 @@ class ChapterController extends Controller
                         while (!empty($check_slug))
                         {
                             $generate_slug = $slug . '-' . $number;
-                            $check_slug = Chapter::where('id', '!=', $find->id)->where('slug', $generate_slug)->first();
+                            $check_slug = Chapter::withTrashed()->where('id', '!=', $find->id)->where('slug', $generate_slug)->first();
                             $number++;
                         }
                         $slug = $generate_slug;
