@@ -42,6 +42,12 @@ return [
             'throw' => false,
         ],
 
+        'site_content' => [
+            'driver' => 'local',
+            'root' => storage_path('site_content'),
+            'throw' => false,
+        ],
+
         // technologies disck
         'tech_images' => [
             'driver' => 'local',
@@ -85,6 +91,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('storage/docs') => storage_path('docs'),
+        public_path('storage/site_content') => storage_path('site_content'),
         public_path('storage/tech_images') => storage_path('tech_images'),
     ],
 

@@ -8,10 +8,14 @@
 -   home page ui modify
 -   unavailable services make "coming soon"
 -   contact us form
--   about content
+-   about-us content ->done
 -   privacy policy content
 -   terms conditions content
 -   user auth with username system
+-   footer copyright year now in bengali -> done
+-   search option disable for a short time
+-   mobile navigation bar full height
+-
 
 ## **after google ad request**
 

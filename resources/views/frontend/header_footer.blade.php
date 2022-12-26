@@ -260,7 +260,7 @@
         <div class="pl-4 pb-2">
           <ul class="pt-6">
 
-            @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
+            {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
                        class="fa fa-home mr-4"></i></span>হোম</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
@@ -277,6 +277,25 @@
                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
             @else
               @include('frontend.more.doc_sidebar')
+            @endif --}}
+
+            @if (Request::route()->getName() == 'docs')
+              @include('frontend.more.doc_sidebar')
+            @else
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
+                class="fa fa-home mr-4"></i></span>হোম</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+                        class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+                        class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+                        class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
+                        class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+                        class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
+                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
             @endif
 
           </ul>
@@ -459,7 +478,7 @@
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">তথ্য </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
+              <li><a href="{{ route('about.us') }}"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
               <li><a href="#"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
               <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
               <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
