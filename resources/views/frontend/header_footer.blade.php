@@ -550,7 +550,7 @@
     <!-- footer bottom -->
     <div class="bg_footer_3 py-4 text-gray-300">
       <div class="container mx-auto text-center">
-        <p>কপিরাইট ২০২২ || <a href="#">লারা <span class="text-lg">বাংলা</a></span></p>
+        <p>কপিরাইট ২০২২ - {{ date("Y") }} || <a href="#">লারা <span class="text-lg">বাংলা</a></span></p>
       </div>
     </div>
     <!-- footer bottom end-->
