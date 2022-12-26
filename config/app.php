@@ -181,6 +181,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Rakibhstu\Banglanumber\NumberToBanglaServiceProvider::class,
 
         /*
          * Package Service Providers...
