@@ -9,7 +9,8 @@ use App\Http\Controllers\Frontend\Home\HomeController;
 Route::controller(HomeController::class)->group(function ()
 {
     Route::get('/', 'index')->name('/');
-    Route::get('/about-us', 'about')->name('about.us');
+    Route::get('/about-us', 'about_us')->name('about.us');
+    Route::get('/about', 'about')->name('about');
 });
 
 

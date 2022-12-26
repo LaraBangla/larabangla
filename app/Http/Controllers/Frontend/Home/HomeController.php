@@ -15,7 +15,7 @@ class HomeController extends Controller
         return view('frontend.index');
     }
 
-    public function about()
+    public function about_us()
     {
         $converter = new GithubFlavoredMarkdownConverter([
             'html_input' => 'strip',
@@ -26,5 +26,11 @@ class HomeController extends Controller
         $data = $converter->convert($md);
         //dd($data);
         return view('frontend.more.about-us', compact('data'));
+    }
+
+    // if user hit /about then redirect to /about-us
+    public function about()
+    {
+        return to_route('about.us');
     }
 }
