@@ -47,6 +47,137 @@
 
       </div>
     </section>
-    <!-- home content section end -->
+   
+    <section class="py-12 mt-10 bg-gray-900" >
+
+<div>
+  
+
+      <div>
+        <div>
+          <div class="flex justify-around ">
+            <div class=" -mb-10">
+
+           
+
+
+             <div class=" ml-10 mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
+             <div class=" float-right py-16">
+               <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
+               <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
+             </div>
+            </div>
+            <div class=" w-1/3 py-16">
+      <div class="code-toolbar"><pre class="language-php" tabindex="0"><code class="language-php">composer <span class="token keyword">global</span> <span class="token keyword">require</span> laravel<span class="token operator">/</span>installer 
+laravel <span class="token keyword">new</span> <span class="token class-name">example</span><span class="token operator">-</span>app</code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <div class="flex justify-around ">
+            <div class=" mb-10 mt-5">
+
+              <div>
+                <div class="ml-8  text-xl text-white" >
+                  <span ><i class="fa-solid fa-layer-group mt-10 mb-5" ></i></span>
+                  
+                </div>
+              </div>
+
+
+             <div class=" ml-10 mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
+             <div class=" float-right py-16">
+               <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
+               <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
+             </div>
+            </div>
+            <div class=" w-1/3 pb-16 pt-40">
+      <div class="code-toolbar"><pre class="language-php" tabindex="0"><code class="language-php">composer <span class="token keyword">global</span> <span class="token keyword">require</span> laravel<span class="token operator">/</span>installer 
+laravel <span class="token keyword">new</span> <span class="token class-name">example</span><span class="token operator">-</span>app</code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <div class="flex justify-around ">
+            <div class=" mb-10 mt-5">
+
+              <div>
+                <div class="-ml-10 text-xl text-white" >
+                  <span ><i class="fa-solid fa-layer-group mt-10 mb-5" ></i></span>
+                  
+                </div>
+              </div>
+
+
+             <div class=" -ml-8 mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
+             <div class=" float-right py-16">
+              <img src="{{ asset('img/css.png') }}" style="max-height: 700px;" alt="Code">
+             </div>
+            </div>
+            <div class=" pb-16 pt-40 w-96">
+              <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>  
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <div class="flex justify-around ">
+            <div class=" mb-10 mt-5 ml-7">
+
+              <div>
+                <div class="ml-9  text-xl text-white" >
+                  <span ><i class="fa-solid fa-layer-group mt-10 mb-5" ></i></span>
+                  
+                </div>
+              </div>
+
+
+             <div class=" ml-11 float-left h-full" style="width: 3px; background: linear-gradient(#64CE772A 1%, #2ea043 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
+             
+             <div class=" float-right pt-16 pb-36">
+              <div class="flex">
+                <div class="">
+                  <img src="{{ asset('img/productivity.svg') }}" alt="svg">
+                 </div>
+    
+                   <div>
+                    <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
+                   <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
+                   </div>
+
+                   
+                   
+              </div>
+
+              <div class=" ml-32 -mt-72">
+                <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
+               <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
+               </div>
+
+              
+
+             </div>
+             
+            </div>
+            <div class=" w-1/3 pb-16 pt-40">
+             <img src="{{ asset('img/code-2.png') }}" alt="Code">
+          </div>
+          </div>
+        </div>
+      </div>
+       
+    
+  
+</div>
+
+    </section>
   </div>
 @endsection

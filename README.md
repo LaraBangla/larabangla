@@ -2,7 +2,7 @@
 
 ---
 
-## **for upload to server**
+## **For upload to server**
 
 -   footer top ui design
 -   home page ui modify
@@ -19,15 +19,18 @@
 -   footer social link
 -
 
-## **after google ad request**
+## **After google ad request**
 
 -   trash system
 -   show technologies,versions,chapters and lessons ui modify
 -   **news system**
 -   **blog system**
--
 
-## **already done**
+## **Future Development**
+
+-   Code editor IDE online
+
+## **Already done**
 
 -   technologies,technologies division routes with slug => done
 -   redirect to edit route after update with new data => done
