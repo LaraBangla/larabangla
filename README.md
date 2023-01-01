@@ -25,6 +25,7 @@
 -   show technologies,versions,chapters and lessons ui modify
 -   **news system**
 -   **blog system**
+-   **github globe**
 
 ## **Future Development**
 

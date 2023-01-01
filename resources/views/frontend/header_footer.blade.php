@@ -102,14 +102,23 @@
         else{
             open = false
         }" @endif>
-    <div class="bg-gray-200 shadow-md" x-data="{ tutorial: false }">
+    <div class="
+    
+   
+    @if (Request::route()->getName() == '/')
+    bg-gray-900
+    border-b  border-slate-600
+    @else
+    bg-gray-200
+    @endif
+     shadow-md" x-data="{ tutorial: false }">
 
       <div>
         <!-- class="container" -->
         <!-- <div class="float-left pt-5 pl-3 sm:pt-7">
                 <a class="text-2xl font-bold" href="#">Lara Bangla</a>
             </div> -->
-        <ul class="mr-4 flex justify-end py-6" x-data="{ user: false }">
+        <ul class="mr-4 flex justify-end py-6 " x-data="{ user: false }">
           <li><a class="pl-5 text-2xl font-bold text-gray-600 " href="{{ route('/') }}">
             {{-- লারা <span class="text-3xl">বাংলা</span> --}}
             <img src="{{ asset('img/logo.png') }}"  class="ml-8 -mt-9" width="60" alt="LaraBangla Logo">
@@ -591,6 +600,7 @@
   {{-- hotwire turbo ends --}}
   {{-- jetstream modals --}}
   @stack('modals')
+  @stack('scripts')
   @livewireScripts
 
 </body>
