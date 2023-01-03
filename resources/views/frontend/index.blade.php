@@ -9,7 +9,8 @@
           <h1 class="text-center text-4xl font-black md:text-6xl lg:text-7xl"><span
                   class="bg-gradient-to-r from-blue-500 to-amber-400 bg-clip-text text-transparent">লারা</span> <span
                   class="bg-gradient-to-r from-red-500 to-green-400 bg-clip-text text-5xl text-transparent md:text-7xl lg:text-8xl">বাংলা</span></h1>
-          <h2 class="pb-10 pt-6 text-center text-4xl font-black text-green-500 sm:text-4xl md:text-6xl lg:text-7xl">এবার শিখা হোক বাংলায়</h2>
+          <h2 class="pb-10 pt-6 text-center text-4xl font-black  sm:text-4xl md:text-6xl lg:text-7xl"> 
+            <span class="bg-gradient-to-r from-blue-500  via-red-400 to-green-500 bg-clip-text  text-transparent">এবার শিখা হোক বাংলায়</span> </h2>
           <h3 class="px-5 text-center text-xl font-semibold text-green-500">ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট</h3>
           <div class="mt-14 flex justify-center">
             <div class="m-2"><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="btn-lg rounded-full text-white  bg-green-600  hover:bg-green-700  hover:ring-amber-400 " href="#">লারাভেল ডক</a>
@@ -50,32 +51,58 @@
 
     {{-- <div class="bg-gradient-to-b from-white to-gray-900 h-52"></div> --}}
    
-    <section class="py-12 bg-gray-900 mt-28" >
+    <section class="pb-12  bg-gray-900 mt-28 container mx-auto" >
+
+      
+     
+      <div class=" md:pl-44 mb-32 md:-ml-10">
+        
+     <div class="lg:flex justify-center ">
+      <div  >
+        <form action="#" class="mx-auto">
+          <label for="newsleter" class=" text-white block mb-3 md:text-left text-center">আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন</label>
+          <div class="flex justify-center md:justify-start mx-2 sm:mx-0">
+            <div>
+              
+              <input type="text" class=" lg:pr-32 md:pr-24 sm:pr-10 pr-1 rounded-l" id="newsleter" placeholder="ইমেল অ্যাড্রেস" style="padding-top: 12px; padding-bottom:12px;">
+            </div>
+            <div>
+              <div class="bg-green-600 py-4 lg:px-20 md:px-16 sm:px-10 px-5 rounded-r hover:bg-green-700 ">
+                <button type="submit" class=" text-md font-bold text-white">সাবস্ক্রাইব</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      {{-- create account  --}}
+      <div class=" xl:ml-20  md:ml-16 text-center">
+        <div class=" block mt-12 pt-1 ">
+          <div class=" ">
+            <a href="{{ route('register') }}" class=" bg-transparent font-medium border-2 border-green-600 px-14 sm:px-32  xl:px-32 lg:px-10 md:-ml-40 lg:ml-0  rounded text-white hover:bg-green-700  " style="padding-top: 12px; padding-bottom:12px;">একাউন্ট তৈরি করুন</a>
+          </div>
+        </div>
+      </div>
+     </div>
+      </div>
 
 <div>
   
 
-      <div>
-        <div>
-          <div class="flex justify-around ">
+      
+          <div class="md:flex justify-around  mx-3 md:mx-0">
             <div class=" -mb-10">
-
-           
-
-
-             <div class=" ml-10 mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
-             <div class=" float-right py-16">
+             <div class="  mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
+             <div class=" float-right py-16 ">
                <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
                <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
              </div>
             </div>
-            <div class=" w-1/3 py-16">
+            <div class=" md:w-1/3 sm:w-screen  py-16 ">
       <div class="code-toolbar"><pre class="language-php" tabindex="0"><code class="language-php">composer <span class="token keyword">global</span> <span class="token keyword">require</span> laravel<span class="token operator">/</span>installer 
 laravel <span class="token keyword">new</span> <span class="token class-name">example</span><span class="token operator">-</span>app</code></pre><div class="toolbar"><div class="toolbar-item"><button class="copy-to-clipboard-button" type="button" data-copy-state="copy"><span>Copy</span></button></div></div></div>
             </div>
           </div>
-        </div>
-      </div>
+      
 
  
 
