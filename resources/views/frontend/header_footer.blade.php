@@ -266,7 +266,7 @@
           </div>
         @endif
 
-        <div class="pl-4 pb-2">
+        <div class="pl-4 pb-2 min-h-screen">
           <ul class="pt-6">
 
             {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')

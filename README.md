@@ -15,9 +15,9 @@
 -   footer copyright year now in bengali -> done
 -   search option disable for a short time
 -   mobile navigation bar full height
+-   mobile navigation bar logo add
 -   docs top menu click to the right section
 -   footer social link
--
 
 ## **After google ad request**
 
