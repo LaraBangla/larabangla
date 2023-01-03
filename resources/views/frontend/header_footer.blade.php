@@ -266,7 +266,13 @@
           </div>
         @endif
 
-        <div class="pl-4 pb-2 min-h-screen">
+        <div class="pl-4 pb-2 min-h-screen
+        
+        @if (Request::route()->getName() == '/')
+        bg-slate-800
+        @else
+        @endif
+        ">
           <ul class="pt-6">
 
             {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
@@ -291,19 +297,20 @@
             @if (Request::route()->getName() == 'docs')
               @include('frontend.more.doc_sidebar')
             @else
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
+            {{-- mobile menu navigation --}}
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
                 class="fa fa-home mr-4"></i></span>হোম</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a  href="{{ route('about.us') }}"> <span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a  href="{{ route('about.us') }}"> <span class="text-x"><i
                         class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-x"><i
                         class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"> <span class="text-xl"><i
                         class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
             @endif
 
