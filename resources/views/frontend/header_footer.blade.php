@@ -310,7 +310,7 @@
                         class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-x"><i
                         class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"> <span class="text-xl"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('login') }}"> <span class="text-xl"><i
                         class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
             @endif
 
