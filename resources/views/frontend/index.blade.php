@@ -51,7 +51,7 @@
 
     {{-- <div class="bg-gradient-to-b from-white to-gray-900 h-52"></div> --}}
    
-    <section class="pb-12  bg-gray-900 mt-28 container mx-auto" >
+    <section class="pb-12  bg-gray-900 mt-28 container mx-auto " :class="open ? 'blur-sm' : ''" >
 
       
      
