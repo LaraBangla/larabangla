@@ -9,13 +9,13 @@
           <h1 class="text-center text-4xl font-black md:text-6xl lg:text-7xl"><span
                   class="bg-gradient-to-r from-blue-500 to-amber-400 bg-clip-text text-transparent">লারা</span> <span
                   class="bg-gradient-to-r from-red-500 to-green-400 bg-clip-text text-5xl text-transparent md:text-7xl lg:text-8xl">বাংলা</span></h1>
-          <h2 class="pb-10 pt-6 text-center text-4xl font-black  sm:text-4xl md:text-6xl lg:text-7xl"> 
+          <h2 class="pb-10 pt-6 text-center font-black text-4xl sm:text-4xl md:text-6xl lg:text-7xl"> 
             <span class="bg-gradient-to-r from-blue-500  via-red-400 to-green-500 bg-clip-text  text-transparent">এবার শিখা হোক বাংলায়</span> </h2>
           <h3 class="px-5 text-center text-xl font-semibold text-green-500">ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট</h3>
           <div class="mt-14 flex justify-center">
             <div class="m-2"><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="btn-lg rounded-full text-white  bg-green-600  hover:bg-green-700  hover:ring-amber-400 " href="#">লারাভেল ডক</a>
             </div>
-            <div class="m-2"><a class="btn-lg rounded-full bg-green-600 px-16 text-white hover:bg-green-700 hover:ring-amber-400 "
+            <div class="m-2"><a class="btn-lg rounded-full bg-green-600 px-14 sm:px-16 text-white hover:bg-green-700 hover:ring-amber-400 "
                  href="#">ব্লগ</a></div>
 
           </div>
@@ -57,16 +57,15 @@
      {{-- subcription --}}
     <div class=" md:pl-44 mb-32 md:-ml-10">
      <div class="lg:flex justify-center ">
-      <div  >
+      <div class="mx-2 sm:mx-0" >
         <form action="#" class="mx-auto">
           <label for="newsleter" class=" text-white block mb-3 md:text-left text-center">আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন</label>
-          <div class="flex justify-center md:justify-start mx-2 sm:mx-0">
+          <div class="flex justify-center md:justify-start ">
             <div>
-              
-              <input type="text" class=" lg:pr-32 md:pr-24 sm:pr-10 pr-1 rounded-l" id="newsleter" placeholder="ইমেল অ্যাড্রেস" style="padding-top: 12px; padding-bottom:12px;">
+              <input type="text" class=" lg:pr-32 md:pr-24 sm:pr-10 pr-0 rounded-l" id="newsleter" placeholder="ইমেল অ্যাড্রেস" style="padding-top: 12px; padding-bottom:12px;">
             </div>
             <div>
-              <div class="bg-green-600 py-4 lg:px-20 md:px-16 sm:px-10 px-5 rounded-r hover:bg-green-700 ">
+              <div class="bg-green-600 py-4 lg:px-20 md:px-16 sm:px-10 px-2 rounded-r hover:bg-green-700 ">
                 <button type="submit" class=" text-md font-bold text-white">সাবস্ক্রাইব</button>
               </div>
             </div>
@@ -89,8 +88,8 @@
             <div class="mx-auto md:mx-0">
              <div class="  md:mr-5 md:float-left h-full lg:block md:hidden" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
              <div class=" md:float-right py-16 ">
-               <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
-               <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
+               <p class="  font-black text-xl sm:text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
+               <p class=" mt-4 text-gray-400 text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
              </div>
             </div>
             <div class=" md:w-1/3 sm:w-full  py-16 -mt-24 md:mt-0">
@@ -121,8 +120,8 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
 
             <div class=" pb-16 md:pt-4 flex justify-center items-center mx-12 md:mx-0">
              <div class=" max-w-md">
-              <p class="  font-black text-3xl text-green-500 ">ওয়েব ডিজাইনে আগ্রহী?</p>  
-              <p class=" text-white mt-4 leading-8">আপনি যদি ওয়েব ডিজাইন শিখতে আগ্রহী হন, আপনি সঠিক জায়গায় এসেছেন। এখানে আপনি বিভিন্ন রিসোর্স এবং টিউটোরিয়াল পাবেন যা আপনাকে ওয়েব ডিজাইনের উত্তেজনাপূর্ণ ক্ষেত্রে শুরু করতে সাহায্য করবে। আপনি প্রাথমিক বিষয়গুলি শিখছেন এমন একজন শিক্ষানবিস বা একজন অভিজ্ঞ ডিজাইনার যা আপনার দক্ষতা বাড়াতে চান?, আমাদের সবার জন্য কিছু না কিছু আছে৷ তাই এক কাপ কফি নিন, আরাম করুন, এবং আসুন একসাথে শেখা শুরু করি!</p>
+              <p class="  font-black text-xl sm:text-3xl text-green-500 ">ওয়েব ডিজাইনে আগ্রহী?</p>  
+              <p class=" text-gray-400 mt-4 leading-8">আপনি যদি ওয়েব ডিজাইন শিখতে আগ্রহী হন, আপনি সঠিক জায়গায় এসেছেন। এখানে আপনি বিভিন্ন রিসোর্স এবং টিউটোরিয়াল পাবেন যা আপনাকে ওয়েব ডিজাইনের উত্তেজনাপূর্ণ ক্ষেত্রে শুরু করতে সাহায্য করবে। আপনি প্রাথমিক বিষয়গুলি শিখছেন এমন একজন শিক্ষানবিস বা একজন অভিজ্ঞ ডিজাইনার যা আপনার দক্ষতা বাড়াতে চান?, আমাদের সবার জন্য কিছু না কিছু আছে৷ তাই এক কাপ কফি নিন, আরাম করুন, এবং আসুন একসাথে শেখা শুরু করি!</p>
              
             </div>
             </div>
@@ -147,8 +146,8 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
                  </div >
                    <div class=" md:w-96 w-full mx-auto md:mx-0" >
                     <div class="md:ml-10 sm:mx-24 mx-10 md:mx-0">
-                      <p class="  font-black text-3xl text-green-500">প্রগ্রামিং-এ আগ্রহী?</p>
-                   <p class=" mt-4 text-white text-lg leading-8">
+                      <p class="  font-black text-xl sm:text-3xl text-green-500">প্রগ্রামিং-এ আগ্রহী?</p>
+                   <p class=" mt-4 text-gray-400 text-lg leading-8">
                     আপনি কি প্রোগ্রামিং জগতে ডুব দিতে প্রস্তুত? আমরা আপনাকে পথের প্রতিটি ধাপে সাহায্য করতে এখানে আছি। 
                     আমাদের ওয়েবসাইটটি ব্যাপক নির্দেশিকা, টিউটোরিয়াল এবং সংস্থানগুলিতে পূর্ণ যা আপনাকে বিভিন্ন ধরণের প্রোগ্রামিং ভাষা এবং ধারণাগুলিতে গতি আনতে সাহায্য করবে। 
                     তাই আপনার প্রিয় পানীয় নিন এবং আপনার প্রোগ্রামিং যাত্রা শুরু করা যাক!
@@ -182,8 +181,8 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
             </div>
             <div class=" pb-16 pt-4 flex justify-center items-center w-full" >
              <div class="mx-5 md:mx-0">
-              <p class="  font-black text-3xl text-green-500 ">ওয়েব ডেভেলপমেন্টে আগ্রহী?</p>  
-              <p class=" text-white mt-4 leading-8">
+              <p class="  font-black text-xl sm:text-3xl text-green-500 ">ওয়েব ডেভেলপমেন্টে আগ্রহী?</p>  
+              <p class=" text-gray-400 mt-4 leading-8">
                 আপনার ওয়েব ডেভেলপমেন্ট শিখার যাত্রার পথে আমরা আপনাকে এখানে এখানে পেয়ে আনন্দিত।
                 আমাদের ওয়েবসাইট উচ্চ-মানের সংস্থান এবং টিউটোরিয়াল দিয়ে পরিপূর্ণ যা আপনাকে শুরু করতে এবং দক্ষ করতে সাহায্য করবে।
                 তো চলুন শুরু করা যাক!                
