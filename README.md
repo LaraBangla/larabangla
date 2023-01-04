@@ -5,7 +5,7 @@
 ## **For upload to server**
 
 -   footer top ui design
--   home page ui modify
+-   home page ui modify -> done
 -   unavailable services make "coming soon"
 -   contact us form
 -   about-us content ->done
