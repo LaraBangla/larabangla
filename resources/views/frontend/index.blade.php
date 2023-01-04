@@ -54,9 +54,8 @@
     <section class="pb-12  bg-gray-900 mt-28 container mx-auto " :class="open ? 'blur-sm' : ''" >
 
       
-     
-      <div class=" md:pl-44 mb-32 md:-ml-10">
-        
+     {{-- subcription --}}
+    <div class=" md:pl-44 mb-32 md:-ml-10">
      <div class="lg:flex justify-center ">
       <div  >
         <form action="#" class="mx-auto">
@@ -84,13 +83,10 @@
       </div>
      </div>
       </div>
-
-<div>
-  
-
-      
-          <div class="md:flex justify-around  mx-3 md:mx-0">
-            <div class=" -mb-10">
+ {{-- /subcription --}}
+      <div>
+          <div class="md:flex justify-around -ml-4 -mb-10">
+            <div>
              <div class="  mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
              <div class=" float-right py-16 ">
                <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
@@ -106,20 +102,16 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
 
  
 
-      <div>
+      <div class=" -ml-8 ">
         <div>
           <div class="flex justify-around ">
             <div class=" mb-10 mt-5">
-
               <div>
-                <div class="-ml-10 text-xl text-white" >
+                <div class="-ml-3 text-xl text-white" >
                   <span ><i class="fa-solid fa-layer-group mt-10 mb-5" ></i></span>
-                  
                 </div>
               </div>
-
-
-             <div class=" -ml-8 mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
+             <div class="mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
              <div class=" float-right py-16">
               <img src="{{ asset('img/css.png') }}" style="max-height: 700px;" alt="Code">
              </div>
@@ -128,34 +120,27 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
              <div class=" max-w-md">
               <p class="  font-black text-3xl text-green-500 ">ওয়েব ডিজাইনে আগ্রহী?</p>  
               <p class=" text-white mt-4 leading-8">আপনি যদি ওয়েব ডিজাইন শিখতে আগ্রহী হন, আপনি সঠিক জায়গায় এসেছেন। এখানে আপনি বিভিন্ন রিসোর্স এবং টিউটোরিয়াল পাবেন যা আপনাকে ওয়েব ডিজাইনের উত্তেজনাপূর্ণ ক্ষেত্রে শুরু করতে সাহায্য করবে। আপনি প্রাথমিক বিষয়গুলি শিখছেন এমন একজন শিক্ষানবিস বা একজন অভিজ্ঞ ডিজাইনার যা আপনার দক্ষতা বাড়াতে চান?, আমাদের সবার জন্য কিছু না কিছু আছে৷ তাই এক কাপ কফি নিন, আরাম করুন, এবং আসুন একসাথে শেখা শুরু করি!</p>
-
              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div>
+      <div class="-ml-5">
         <div>
           <div class="flex justify-around ">
-            <div class=" mb-10 mt-5 ml-7">
-
+            <div class=" mb-10 mt-5">
               <div>
-                <div class="ml-9  text-xl text-white" >
+                <div class="-ml-3 text-xl text-white" >
                   <span ><i class="fa-solid fa-layer-group mt-10 mb-5" ></i></span>
-                  
                 </div>
               </div>
-
-
-             <div class=" ml-11 float-left h-full" style="width: 3px; background: linear-gradient(#64CE772A 1%, #2ea043 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
-             
+             <div class=" float-left h-full" style="width: 3px; background: linear-gradient(#64CE772A 1%, #2ea043 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
              <div class=" float-right pt-16 pb-36">
               <div class="flex">
                 <div class="">
                   <img src="{{ asset('img/productivity.svg') }}" alt="svg">
                  </div>
-    
                    <div class=" w-96">
                     <p class="  font-black text-3xl text-green-500">প্রগ্রামিং-এ আগ্রহী?</p>
                    <p class=" mt-4 text-white text-lg leading-8">
@@ -164,20 +149,8 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
                     তাই আপনার প্রিয় পানীয় নিন এবং আপনার প্রোগ্রামিং যাত্রা শুরু করা যাক!
                    </p>
                    </div>
-
-                   
-                   
               </div>
-
-              {{-- <div class=" ml-32 -mt-72">
-                <p class="  font-black text-3xl text-green-500">আপনি কি শিক্ষানবিস?</p>
-               <p class=" mt-4 text-white text-lg"> নতুন টেকনলজি শিখতে চাচ্ছেন? লারা বাংলা আপনার সাথেই আছে।</p>
-               </div> --}}
-
-              
-
              </div>
-             
             </div>
             <div class=" w-1/3 pb-16 pt-40">
              <img class=" -mt-12" src="{{ asset('img/php-logic-example.png') }}" alt="Code">
@@ -187,38 +160,28 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
       </div>
        
 
-      <div>
+      <div class=" ml-16">
         <div>
-          
           <div class="flex justify-around ">
             <div class=" mb-10 mt-5">
-
               <div>
-                
-                <div class="-ml-10 text-xl text-white" >
+                <div class="-ml-2 text-xl text-white" >
                   <span ><i class="fa-solid fa-layer-group mt-10 mb-5" ></i></span>
-                  
                 </div>
               </div>
-
-
-             <div class=" -ml-8 mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
-             
+             <div class="  mr-5 float-left h-full" style="width: 3px; background: linear-gradient(#d2a8ff, #a371f7 10%, #196c2e 70%, #2ea043 80%, #56d364);"></div>
              <div class=" float-right py-16">
-              
               <img src="{{ asset('img/code-2.png') }}" width="800"  alt="Code">
              </div>
             </div>
             <div class=" pb-16 pt-4 flex justify-center items-center">
              <div class=" max-w-md">
-              
               <p class="  font-black text-3xl text-green-500 ">ওয়েব ডেভেলপমেন্টে আগ্রহী?</p>  
               <p class=" text-white mt-4 leading-8">
                 আপনার ওয়েব ডেভেলপমেন্ট শিখার যাত্রার পথে আমরা আপনাকে এখানে এখানে পেয়ে আনন্দিত।
                 আমাদের ওয়েবসাইট উচ্চ-মানের সংস্থান এবং টিউটোরিয়াল দিয়ে পরিপূর্ণ যা আপনাকে শুরু করতে এবং দক্ষ করতে সাহায্য করবে।
                 তো চলুন শুরু করা যাক!                
               </p>
-
              </div>
             </div>
           </div>
