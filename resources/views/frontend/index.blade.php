@@ -166,7 +166,7 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
       </div>
        
 
-      <div class=" md:ml-2 2xl:ml-32 xl:ml-26  md:pb-14">
+      <div class=" 2xl:ml-28 xl:ml-26 md:ml-2   md:pb-14">
         <div>
           <div class="md:flex block md:justify-around ">
             <div class=" md:mb-10 md:mt-5 -mt-14">
@@ -180,8 +180,8 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
               <img src="{{ asset('img/code-2.png') }}"   alt="Code">
              </div>
             </div>
-            <div class="mx-5 md:mx-0 pb-16 pt-4 flex justify-center items-center w-full" >
-             <div class=" max-w-md">
+            <div class=" pb-16 pt-4 flex justify-center items-center w-full" >
+             <div class="mx-5 md:mx-0">
               <p class="  font-black text-3xl text-green-500 ">ওয়েব ডেভেলপমেন্টে আগ্রহী?</p>  
               <p class=" text-white mt-4 leading-8">
                 আপনার ওয়েব ডেভেলপমেন্ট শিখার যাত্রার পথে আমরা আপনাকে এখানে এখানে পেয়ে আনন্দিত।
