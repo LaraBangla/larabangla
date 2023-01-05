@@ -485,7 +485,7 @@
     <!-- footer top and middle -->
     <div class="bg_footer_2 pt-20 leading-7  text-gray-300   relative" >
       {{-- footer top --}}
-      <div class="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-500 shadow-md shadow-amber-400/50 h-40 sm:h-32 rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
+      <div class="bg-gradient-to-r from-slate-700 via-gray-700 to-slate-500 shadow-lg shadow-slate-400/50 h-40 sm:h-32 sm:rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
         <div class="my-7 mx-5 sm:flex sm:justify-between">
           <div>
             <p class=" text-base sm:text-xl font-medium">আজকেই শুরু করা যাক</p>
@@ -505,10 +505,10 @@
       </div>
       {{-- footer top end --}}
 
-      <div class="container mx-auto">
+      <div class="container mx-auto text-gray-400">
         <div class="grid grid-cols-12 gap-4 py-5">
           <div class="col-span-12 md:col-span-3">
-            <h6 class="border-b border-gray-700"><span class="text-2xl">লারা </span><span class="text-3xl">বাংলা</span></h6>
+            <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;হোম</a></li>
               <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
@@ -608,7 +608,7 @@
     </div>
     <!-- footer middle end-->
     <!-- footer bottom -->
-    <div class="bg_footer_3 py-4 text-gray-300">
+    <div class=" bg_footer_3 py-4 text-gray-400">
       <div class="container mx-auto text-center">
         <p>কপিরাইট ২০২২ - {{ $present_year }} || <a href="#">লারা <span class="text-lg">বাংলা</a></span></p>
       </div>
