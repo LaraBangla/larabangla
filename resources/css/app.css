@@ -100,6 +100,11 @@
     .list-active{
         @apply font-bold  text-gray-900;
     } */
+
+    .mx-20p {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
 @layer components {

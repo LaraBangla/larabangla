@@ -425,9 +425,9 @@
   </div>
 
   <!-- footer start -->
-  <footer class="pt-12 duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
+  <footer class="duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <!-- footer top -->
-    <div class="bg_footer_1 pl-2 text-gray-300 md:pl-0">
+    {{-- <div class="bg_footer_1 pl-2 text-gray-300 md:pl-0">
       <div class="container mx-auto block py-2 md:flex md:justify-evenly">
         <div>
           <div class="flex items-center py-2 md:py-0">
@@ -475,11 +475,36 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- footer end -->
+    </div> --}}
 
-    <!-- footer middle -->
-    <div class="bg_footer_2 pl-4 leading-7 text-gray-300 md:pl-0">
+
+    
+
+   
+
+    <!-- footer top and middle -->
+    <div class="bg_footer_2 pt-20 leading-7  text-gray-300   relative" >
+      {{-- footer top --}}
+      <div class="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-500 shadow-md shadow-amber-400/50 h-40 sm:h-32 rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
+        <div class="my-7 mx-5 sm:flex sm:justify-between">
+          <div>
+            <p class=" text-base sm:text-xl font-medium">আজকেই শুরু করা যাক</p>
+            <div class="mt-3">
+              <span class="text-sm sm:text-base"> <i class="fa-solid fa-check-to-slot"></i> বাংলা ভাষা</span>
+              <span class="text-sm sm:text-base md:ml-3"><i class="fa-solid fa-check-to-slot"></i> টিউটোরিয়াল</span>
+              <span class="text-sm sm:text-base md:ml-3"> <i class="fa-solid fa-check-to-slot"></i> রিসোর্স</span> 
+            </div>
+          </div>
+          <div>
+            <div class="mt-5">
+              <a href="#" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-slate-700 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#" class="py-1 sm:py-3 px-2 sm:px-5 bg-slate-700 rounded-sm sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{-- footer top end --}}
+
       <div class="container mx-auto">
         <div class="grid grid-cols-12 gap-4 py-5">
           <div class="col-span-12 md:col-span-3">
