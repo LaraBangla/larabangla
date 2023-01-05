@@ -483,7 +483,11 @@
    
 
     <!-- footer top and middle -->
-    <div class="bg_footer_2 pt-20 leading-7  text-gray-300   relative" >
+    <div class="bg_footer_2 pt-20 leading-7 
+    @if (Request::route()->getName() != '/')
+        mt-24
+    @endif
+    text-gray-300   relative" >
       {{-- footer top --}}
       <div class="bg-gradient-to-r from-slate-700 via-gray-700 to-slate-500 shadow-lg shadow-slate-400/50 h-40 sm:h-32 sm:rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
         <div class="my-7 mx-5 sm:flex sm:justify-between">

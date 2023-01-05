@@ -4,7 +4,7 @@
 
 ## **For upload to server**
 
--   footer top ui design
+-   footer top ui design -> done
 -   home page ui modify -> done
 -   unavailable services make "coming soon"
 -   contact us form
@@ -14,7 +14,7 @@
 -   user auth with username system
 -   footer copyright year now in bengali -> done
 -   search option disable for a short time
--   mobile navigation bar full height
+-   mobile navigation bar full height -> done
 -   mobile navigation bar logo add
 -   docs top menu click to the right section
 -   footer social link
