@@ -2,6 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Doc\DocController;
+use App\Http\Controllers\Frontend\Home\HomeController;
+
+
+
+Route::controller(HomeController::class)->group(function ()
+{
+    Route::get('/', 'index')->name('/');
+    Route::get('/about-us', 'about_us')->name('about.us');
+    Route::get('/about', 'about')->name('about');
+});
+
 
 Route::controller(DocController::class)->group(function ()
 {

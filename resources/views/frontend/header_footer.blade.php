@@ -102,14 +102,23 @@
         else{
             open = false
         }" @endif>
-    <div class="bg-gray-200 shadow-md" x-data="{ tutorial: false }">
+    <div class="
+    
+   
+    @if (Request::route()->getName() == '/')
+    bg-gray-900
+    border-b  border-slate-600
+    @else
+    bg-gray-200
+    @endif
+     shadow-md" x-data="{ tutorial: false }">
 
       <div>
         <!-- class="container" -->
         <!-- <div class="float-left pt-5 pl-3 sm:pt-7">
                 <a class="text-2xl font-bold" href="#">Lara Bangla</a>
             </div> -->
-        <ul class="mr-4 flex justify-end py-6" x-data="{ user: false }">
+        <ul class="mr-4 flex justify-end py-6 " x-data="{ user: false }">
           <li><a class="pl-5 text-2xl font-bold text-gray-600 " href="{{ route('/') }}">
             {{-- লারা <span class="text-3xl">বাংলা</span> --}}
             <img src="{{ asset('img/logo.png') }}"  class="ml-8 -mt-9" width="60" alt="LaraBangla Logo">
@@ -124,7 +133,7 @@
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold" href="#">ব্লগ</a>
           </li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
-               href="#">সম্পর্কে</a></li>
+               href="{{ route('about.us') }}">সম্পর্কে</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="#">যোগাযোগ</a></li>
          
@@ -257,10 +266,16 @@
           </div>
         @endif
 
-        <div class="pl-4 pb-2">
+        <div class="pl-4 pb-2 min-h-screen
+        
+        @if (Request::route()->getName() == '/')
+        bg-slate-800
+        @else
+        @endif
+        ">
           <ul class="pt-6">
 
-            @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
+            {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
                        class="fa fa-home mr-4"></i></span>হোম</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
@@ -269,7 +284,7 @@
                        class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a  href="{{ route('about.us') }}"> <span class="text-xl text-gray-500"><i
                        class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
@@ -277,6 +292,26 @@
                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
             @else
               @include('frontend.more.doc_sidebar')
+            @endif --}}
+
+            @if (Request::route()->getName() == 'docs')
+              @include('frontend.more.doc_sidebar')
+            @else
+            {{-- mobile menu navigation --}}
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
+                class="fa fa-home mr-4"></i></span>হোম</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
+                        class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
+                        class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
+                        class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a  href="{{ route('about.us') }}"> <span class="text-x"><i
+                        class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-x"><i
+                        class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('login') }}"> <span class="text-xl"><i
+                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
             @endif
 
           </ul>
@@ -289,7 +324,7 @@
                     <ul class="pt-4">
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>Home</a></li>
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>Blog</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-users mr-4 "></i></span>Team</a></li>
+                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a  href="{{ route('about.us') }}"><span class=" text-xl text-gray-500"><i class="fa-solid fa-users mr-4 "></i></span>Team</a></li>
                         <li class="py-3 pl-3 font-semibold text-base text-gray-600">
                             <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>সম্পর্কে</a>
                         </li>
@@ -390,9 +425,9 @@
   </div>
 
   <!-- footer start -->
-  <footer class="pt-12 duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
+  <footer class="duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <!-- footer top -->
-    <div class="bg_footer_1 pl-2 text-gray-300 md:pl-0">
+    {{-- <div class="bg_footer_1 pl-2 text-gray-300 md:pl-0">
       <div class="container mx-auto block py-2 md:flex md:justify-evenly">
         <div>
           <div class="flex items-center py-2 md:py-0">
@@ -440,15 +475,44 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- footer end -->
+    </div> --}}
 
-    <!-- footer middle -->
-    <div class="bg_footer_2 pl-4 leading-7 text-gray-300 md:pl-0">
-      <div class="container mx-auto">
+
+    
+
+   
+
+    <!-- footer top and middle -->
+    <div class="bg_footer_2 pt-20 leading-7 
+    @if (Request::route()->getName() != '/')
+        mt-24
+    @endif
+    text-gray-300   relative" >
+      {{-- footer top --}}
+      <div class="bg-gradient-to-r from-slate-700 via-gray-700 to-slate-500 shadow-lg shadow-slate-400/50 h-40 sm:h-32 sm:rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
+        <div class="my-7 mx-5 sm:flex sm:justify-between">
+          <div>
+            <p class=" text-base sm:text-xl font-medium">আজকেই শুরু করা যাক</p>
+            <div class="mt-3">
+              <span class="text-sm sm:text-base"> <i class="fa-solid fa-check-to-slot"></i> বাংলা ভাষা</span>
+              <span class="text-sm sm:text-base md:ml-3"><i class="fa-solid fa-check-to-slot"></i> ডকুমেন্টেশন</span>
+              <span class="text-sm sm:text-base md:ml-3"> <i class="fa-solid fa-check-to-slot"></i> রিসোর্স</span> 
+            </div>
+          </div>
+          <div>
+            <div class="mt-5">
+              <a href="#" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{-- footer top end --}}
+
+      <div class="container mx-auto text-gray-400 pl-5 md:pl-0 pt-4 md:mt-0">
         <div class="grid grid-cols-12 gap-4 py-5">
           <div class="col-span-12 md:col-span-3">
-            <h6 class="border-b border-gray-700"><span class="text-2xl">লারা </span><span class="text-3xl">বাংলা</span></h6>
+            <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;হোম</a></li>
               <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
@@ -459,7 +523,7 @@
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">তথ্য </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
+              <li><a href="{{ route('about.us') }}"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
               <li><a href="#"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
               <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
               <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
@@ -478,8 +542,8 @@
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">আমাদের সম্পর্কে </span></h6>
             <p class="pt-3">
-              জীবের মধ্যে সবচেয়ে সম্পূর্ণতা মানুষের। কিন্তু সবচেয়ে অসম্পূর্ণ হয়ে সে জন্মগ্রহণ করে। বাঘ ভালুক তার জীবনযাত্রার পনেরো- আনা মূলধন নিয়ে
-              আসে প্রকৃতির মালখানা থেকে। জীবরঙ্গভূমিতে মানুষ এসে দেখা দেয় দুই শূন্য হাতে মুঠো বেঁধে।
+              বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী "লারা বাংলা"-এ স্বাগতম।
+               আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত । 
             </p>
           </div>
 
@@ -548,9 +612,9 @@
     </div>
     <!-- footer middle end-->
     <!-- footer bottom -->
-    <div class="bg_footer_3 py-4 text-gray-300">
+    <div class=" bg_footer_3 py-4 text-gray-400">
       <div class="container mx-auto text-center">
-        <p>কপিরাইট ২০২২ || <a href="#">লারা <span class="text-lg">বাংলা</a></span></p>
+        <p>কপিরাইট ২০২২ - {{ $present_year }} || <a href="#">লারা <span class="text-lg">বাংলা</a></span></p>
       </div>
     </div>
     <!-- footer bottom end-->
@@ -572,6 +636,7 @@
   {{-- hotwire turbo ends --}}
   {{-- jetstream modals --}}
   @stack('modals')
+  @stack('scripts')
   @livewireScripts
 
 </body>

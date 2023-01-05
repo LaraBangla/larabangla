@@ -96,8 +96,8 @@
             </div>
           </div>
           <div class="col-span-12 mt-8 bg-slate-50 pt-1 md:col-span-3">
-            {{-- version start --}}
-            <div class="-mt-1 w-full bg-slate-100 text-center">
+            {{-- desktop version start --}}
+            <div class="-mt-1 w-full bg-slate-100 text-center hidden md:block ">
               <label class="w-full bg-slate-100 text-center font-bold uppercase text-gray-600" for="version">Version</label>
               <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600" id="version" id="" name="version"  @change="window.location = $event.target.value">
                 @foreach ($technology->versions as $version)
@@ -115,7 +115,7 @@
                 @endforeach
               </select>
             </div>
-            {{-- version end --}}
+            {{-- desktop version end --}}
           </div>
         </div>
       </div>

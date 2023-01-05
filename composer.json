@@ -14,7 +14,8 @@
         "laravel/tinker": "^2.7",
         "league/commonmark": "^2.3",
         "livewire/livewire": "^2.5",
-        "mckenziearts/laravel-notify": "^2.3"
+        "mckenziearts/laravel-notify": "^2.3",
+        "rakibhstu/number-to-bangla": "^1.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
