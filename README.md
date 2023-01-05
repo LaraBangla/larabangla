@@ -18,6 +18,11 @@
 -   mobile navigation bar logo add
 -   docs top menu click to the right section
 -   footer social link
+-   actual floating button
+-   mobile bottom navigation bar top padding
+-   bottom to top button
+-   mobile search bar input tag border remove
+-
 
 ## **After google ad request**
 

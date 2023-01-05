@@ -490,7 +490,7 @@
     text-gray-300   relative" >
       {{-- footer top --}}
       <div class="bg-gradient-to-r from-slate-700 via-gray-700 to-slate-500 shadow-lg shadow-slate-400/50 h-40 sm:h-32 sm:rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
-        <div class="my-7 mx-5 sm:flex sm:justify-between">
+        <div class="my-7 ml-10 mr-5 sm:flex sm:justify-between">
           <div>
             <p class=" text-base sm:text-xl font-medium">আজকেই শুরু করা যাক</p>
             <div class="mt-3">
