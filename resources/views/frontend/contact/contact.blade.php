@@ -48,7 +48,13 @@
                 </div>
 
                 </div>
-                <div class="mt-14">
+                <div class="mt-5">
+                    <div>
+                        {!! NoCaptcha::renderJs('bn', false, 'onloadCallback') !!}
+                        {!! NoCaptcha::display() !!}
+                   </div>
+                  </div>
+                <div class="mt-12">
                     <button type="submit" class=" bg-gradient-to-r from-slate-300 via-gray-300 to-slate-200 shadow-md shadow-gray-500/50 px-10 py-5 rounded font-medium text-slate-800">বার্তা পাঠান</button>
                 </div>
            
@@ -59,3 +65,11 @@
 </section>
 {{-- contact section end--}}
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    var onloadCallback = function() {
+      alert("grecaptcha is ready!");
+    };
+  </script>
+@endpush
