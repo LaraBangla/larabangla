@@ -71,7 +71,7 @@
                           <span class="text-lg text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
                         </div>
                         <div>
-                          <input class="bg-gray-900 text-gray-200 outline-none" type="text" placeholder="ডক অনুসন্ধান">
+                          <input class="bg-gray-900 text-gray-200  border-transparent focus:border-0 focus:ring-0" type="text" placeholder="ডক অনুসন্ধান">
                         </div>
                       </div>
                       {{-- search instraction --}}
