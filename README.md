@@ -6,8 +6,9 @@
 
 -   footer top ui design -> done
 -   home page ui modify -> done
+-   toaster message not showing
 -   unavailable services make "coming soon"
--   contact us form
+-   contact us form -> almost done
 -   about-us content ->done
 -   privacy policy content
 -   terms conditions content
@@ -27,7 +28,9 @@
 ## **After google ad request**
 
 -   trash system
+-   show contact message to admin panel
 -   show technologies,versions,chapters and lessons ui modify
+-   doc search system (use doc search package)
 -   **news system**
 -   **blog system**
 -   **github globe**

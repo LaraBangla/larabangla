@@ -135,7 +135,7 @@
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="{{ route('about.us') }}">সম্পর্কে</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
-               href="#">যোগাযোগ</a></li>
+               href="{{ route('contact') }}">যোগাযোগ</a></li>
          
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ search: false }">
             <a class="font-bold" @click="search = ! search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
@@ -286,7 +286,7 @@
                        class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a  href="{{ route('about.us') }}"> <span class="text-xl text-gray-500"><i
                        class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('contact') }}"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
@@ -308,7 +308,7 @@
                         class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a  href="{{ route('about.us') }}"> <span class="text-x"><i
                         class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-x"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('contact') }}"><span class="text-x"><i
                         class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('login') }}"> <span class="text-xl"><i
                         class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
@@ -502,7 +502,7 @@
           <div>
             <div class="mt-5">
               <a href="#" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
-              <a href="#" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              <a href="{{ route('contact') }}" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -524,7 +524,7 @@
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">তথ্য </span></h6>
             <ul class="pt-2">
               <li><a href="{{ route('about.us') }}"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
-              <li><a href="#"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
+              <li><a href="{{ route('contact') }}"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
               <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
               <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
             </ul>

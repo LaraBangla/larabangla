@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend\Contact;
 
 use App\Http\Controllers\Controller;
+use App\Models\Frontend\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -15,6 +17,7 @@ class ContactController extends Controller
     // store contact message
     public function store(Request $request)
     {
+        // validate data
         $request->validate(
             [
                 'name' => 'required|string|max:50',
@@ -39,7 +42,31 @@ class ContactController extends Controller
                 'g-recaptcha-response.required' => 'অনুগ্রহ করে যাচাই করুন যে আপনি রোবট নন।',
                 'g-recaptcha-response.captcha' => 'ক্যাপচা ত্রুটি! পরে আবার চেষ্টা করুন বা সাইট অ্যাডমিনের সাথে যোগাযোগ করুন।'
             ]
-
         );
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ];
+        if (Auth::check())
+        {
+            $data['user_id'] = Auth::id();
+        }
+
+        // store data
+        $store = Contact::create($data);
+        if ($store)
+        {
+            notify()->success('We have received you message! Thank you.', 'Successful');
+            return back();
+        }
+        else
+        {
+            notify()->error('Something went to wrong!', 'Failed');
+            return back();
+        }
     }
 }
