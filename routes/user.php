@@ -27,4 +27,5 @@ Route::controller(DocController::class)->group(function ()
 Route::controller(ContactController::class)->group(function ()
 {
     Route::get('/contact', 'index')->name('contact');
+    Route::put('/contact', 'store')->name('contact.store');
 });
