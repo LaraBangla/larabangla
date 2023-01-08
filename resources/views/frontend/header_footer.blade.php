@@ -298,6 +298,7 @@
               @include('frontend.more.doc_sidebar')
             @else
             {{-- mobile menu navigation --}}
+              <li class="pt-3 pl-1 text-base font-semibold text-gray-400 mb-3 border-b border-b-slate-600"><a href="{{ route('/') }}"><img class="" src="{{ asset('img/logo.png') }}" alt="LaraBangla Logo" width="45"><span class=" text-gray-500 text-sm">লারা বাংলা</span></a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
                 class="fa fa-home mr-4"></i></span>হোম</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
@@ -409,26 +410,32 @@
     </div>
   </div>
 
-  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden pt-1"
+  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden pt-1 z-10"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <ul class="flex justify-around text-center">
       <li class="px-4 py-4 font-bold text-gray-600"><a href="#">
-        <span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span></a>
+        <span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span>
         @if (Request::route()->getName() == 'docs')
-          <p>ডকস</p>
-        @endif
+        <p>ডকস</p>
+      @endif
+      </a>
+    
       </li>
       <li class="px-4 py-4 font-bold text-gray-600">
-        <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span></a>
-         @if (Request::route()->getName() == '/')
-        <p>হোম</p>
-         @endif
+        <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span>
+          @if (Request::route()->getName() == '/')
+          <p>হোম</p>
+           @endif
+        </a>
+         
       </li>
       <!-- <li class="px-4 py-4 font-bold text-gray-600"></li> -->
-      <li class="px-4 py-4 font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span></a>
-         @if (Request::route()->getName() == 'profile')
+      <li class="px-4 py-4 font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
+        @if (Request::route()->getName() == 'profile')
         <p>ইউজার</p>
          @endif
+      </a>
+        
       </li>
     </ul>
   </div>
