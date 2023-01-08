@@ -10,6 +10,10 @@
 -   unavailable services make "coming soon"
 -   contact us form -> done
 -   about-us content ->done
+-   login ui -> done
+-   from login route, mobile nav not showing
+-   register ui
+-   forgot password,reset password and all page check and fix
 -   privacy policy content
 -   terms conditions content
 -   user auth with username system

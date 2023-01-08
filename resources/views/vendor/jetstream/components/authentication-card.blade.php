@@ -45,7 +45,7 @@
                             <div  class=" mx-5 md:mx-5 lg:mx-5 xl:mx-20 lg:mt-16 mt-10">
                                 {{-- globe --}}
                                 <div class="glob">
-                                    <div class="text-center lg:pt-4 sm:pt-5 pt-5" style="cursor: pointer;">
+                                    <div class="text-center lg:pt-10 sm:pt-5 pt-5" style="cursor: pointer;">
                                         <canvas id='globe' width='500' height='500' class="img-responsive mx-auto"
                                         style='width: 45%; max-height: 200px;'></canvas>
                                     </div>
