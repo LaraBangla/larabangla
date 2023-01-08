@@ -23,7 +23,7 @@
 -   mobile bottom navigation bar top padding
 -   bottom to top button
 -   mobile search bar input tag border remove
--
+-   desktop version section background remove and make pure white
 
 ## **After google ad request**
 
