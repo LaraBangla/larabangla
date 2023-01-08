@@ -18,7 +18,7 @@
   <meta name='owner' content='লারা বাংলা - LaraBangla'>
   <meta name='url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='identifier-URL' content='@yield('that_url','https://www.larabangla.com')'>
-  <meta name='pagename' content='@yield('pagename','হোম পেজ,Home Page')'>
+  <meta name='pagename' content='@yield('pagename','বাড়ি পেজ,Home Page')'>
   <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
   <meta name='coverage' content='Worldwide'>
   <meta name='distribution' content='Global'>
@@ -125,7 +125,7 @@
           </a></li>
           <li class="grow"></li>
           <li class="mx-1 hidden bg-gray-300 px-2 py-3 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
-                 class="fa fa-home"></i> হোম</a></li>
+                 class="fa fa-home"></i> বাড়ি</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5" @click="tutorial = ! tutorial"><a
                class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
@@ -277,7 +277,7 @@
 
             {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
-                       class="fa fa-home mr-4"></i></span>হোম</a></li>
+                       class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
@@ -300,9 +300,9 @@
             {{-- mobile menu navigation --}}
               <li class="pt-3 pl-1 text-base font-semibold text-gray-400 mb-3 border-b border-b-slate-600"><a href="{{ route('/') }}"><img class="" src="{{ asset('img/logo.png') }}" alt="LaraBangla Logo" width="45"><span class=" text-gray-500 text-sm">লারা বাংলা</span></a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
-                class="fa fa-home mr-4"></i></span>হোম</a></li>
+                class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
-                        class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+                        class="fa-solid fa-book-open-reader mr-4"></i></span>ডকুমেন্টেশন</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
@@ -424,7 +424,7 @@
       <li class="px-4 py-4 font-bold text-gray-600">
         <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span>
           @if (Request::route()->getName() == '/')
-          <p>হোম</p>
+          <p>বাড়ি</p>
            @endif
         </a>
          
@@ -534,7 +534,7 @@
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;হোম</a></li>
+              <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;বাড়ি</a></li>
               <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
               <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
               <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
