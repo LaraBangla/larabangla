@@ -15,18 +15,21 @@
             </div>
         @endif
 
-        <div class="text-center">
-            <h1 class=" text-2xl font-semibold">লগ ইন</h1>
-        </div>
+            <div class="mb-5">
+                <div class="text-center">
+                    <h1 class=" text-2xl font-semibold">লগ ইন</h1>
+                </div>
+                <div class="w-20 bg-slate-200 mx-auto" style=" height:2px;"></div>
+            </div>
 
        
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div>
-                <x-jet-label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" value="{{ __('ইমেইল') }}" />
+                <x-jet-label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" value="{{ __('ইমেইল অথবা ব্যবহারকারীর নাম') }}" />
                 <div class="flex">
-                <x-jet-input type="email" id="email" name="email" :value="old('email')" required autofocus class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                <x-jet-input type="email"  id="email" name="email" :value="old('email')" required autofocus class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                 <span class="inline-flex items-center px-4 text-sm text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
                     <i class="fa-solid fa-user"></i>
                 </span>
@@ -91,12 +94,14 @@
              @enderror
               </div>
 
-          <div  >
+          <div>
             <x-jet-button class="mt-5 w-full py-3 bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 shadow-md shadow-gray-500/50 ">
                 {{ __('লগ ইন') }}
             </x-jet-button>
             
           </div>
+
+          
           
         </form>
     </x-jet-authentication-card>
