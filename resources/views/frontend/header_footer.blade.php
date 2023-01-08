@@ -409,14 +409,27 @@
     </div>
   </div>
 
-  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden"
+  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden pt-1"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
-    <ul class="flex justify-around">
-      <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span></a></li>
-      <li class="px-4 py-6 font-bold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span></a>
+    <ul class="flex justify-around text-center">
+      <li class="px-4 py-4 font-bold text-gray-600"><a href="#">
+        <span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span></a>
+        @if (Request::route()->getName() == 'docs')
+          <p>ডকস</p>
+        @endif
       </li>
-      <!-- <li class="px-4 py-6 font-bold text-gray-600"></li> -->
-      <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span></a></li>
+      <li class="px-4 py-4 font-bold text-gray-600">
+        <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span></a>
+         @if (Request::route()->getName() == '/')
+        <p>হোম</p>
+         @endif
+      </li>
+      <!-- <li class="px-4 py-4 font-bold text-gray-600"></li> -->
+      <li class="px-4 py-4 font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span></a>
+         @if (Request::route()->getName() == 'profile')
+        <p>ইউজার</p>
+         @endif
+      </li>
     </ul>
   </div>
   </div>
