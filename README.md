@@ -8,7 +8,7 @@
 -   home page ui modify -> done
 -   toaster message not showing
 -   unavailable services make "coming soon"
--   contact us form -> almost done
+-   contact us form -> done
 -   about-us content ->done
 -   privacy policy content
 -   terms conditions content
