@@ -45,7 +45,7 @@
                             <div  class=" mx-5 md:mx-5 lg:mx-5 xl:mx-20
                             @if (Request::route()->getName() == 'login')
                             lg:mt-16 mt-10
-                            @else
+                            @elseif(Request::route()->getName() == 'register')
                             lg:mt-40 mt-10
                             @endif
                             ">
