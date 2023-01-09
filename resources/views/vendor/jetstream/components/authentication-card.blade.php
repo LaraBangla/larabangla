@@ -42,19 +42,34 @@
                             </div>
                         </div>
                         <div class=" lg:col-span-6">
-                            <div  class=" mx-5 md:mx-5 lg:mx-5 xl:mx-20 lg:mt-16 mt-10">
+                            <div  class=" mx-5 md:mx-5 lg:mx-5 xl:mx-20
+                            @if (Request::route()->getName() == 'login')
+                            lg:mt-16 mt-10
+                            @else
+                            lg:mt-40 mt-10
+                            @endif
+                            ">
                                 {{-- globe --}}
                                 <div class="glob">
                                     <div class="text-center lg:pt-10 sm:pt-5 pt-5" style="cursor: pointer;">
                                         <canvas id='globe' width='500' height='500' class="img-responsive mx-auto"
                                         style='width: 45%; max-height: 200px;'></canvas>
                                     </div>
+                                @if (Request::route()->getName() == 'login')
                                     <div class="pt-10">
                                         <h3 class=" font-bold text-lg text-center">একাউন্ট নাই?</h3>
                                         <div class="text-center mt-5">
-                                            <a href="{{route('register')}}" class=" bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 shadow-md shadow-gray-500/50 px-5 py-3 rounded ">রেজিস্টার করুন</a>
+                                            <a href="{{route('register')}}" class=" bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 shadow-md shadow-gray-500/50 px-5 py-3 rounded text-gray-50 font-semibold text-sm">রেজিস্টার করুন</a>
                                         </div>
                                     </div>
+                                @else
+                                <div class="pt-10">
+                                    <h3 class=" font-bold text-lg text-center">ইতিমধ্যে একাউন্ট আছে?</h3>
+                                    <div class="text-center mt-5">
+                                        <a href="{{route('login')}}" class=" bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 shadow-md shadow-gray-500/50 px-5 py-3 rounded text-gray-50 font-semibold text-sm">লগিন করুন</a>
+                                    </div>
+                                </div>
+                                @endif
                                 </div>
                                 {{-- globe end--}}
                             </div>

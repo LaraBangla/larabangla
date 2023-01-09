@@ -270,7 +270,6 @@
         
         @if (Request::route()->getName() == '/')
         bg-slate-800
-        @else
         @endif
         ">
           <ul class="pt-6">

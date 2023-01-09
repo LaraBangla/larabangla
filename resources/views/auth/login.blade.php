@@ -64,16 +64,14 @@
                     <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer "></label>
                 </div>
                 <label for="toggle" class="text-xs text-gray-700">পাসওয়ার্ড দেখুন</label>
-               </div>
+            </div>
     
-               <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-xs text-gray-600 hover:text-gray-900 " href="{{ route('password.request') }}">
                         {{ __('পাসওয়ার্ড ভুলে গেছেন?') }}
                     </a>
                 @endif
-    
-              
             </div>
         </div>
 
