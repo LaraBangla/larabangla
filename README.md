@@ -12,7 +12,10 @@
 -   about-us content ->done
 -   login ui -> done
 -   from login route, mobile nav not showing
--   register ui
+-   register ui -> done
+-   login,register,forgot pass title
+-   verify ui
+-   email template content bengali
 -   forgot password,reset password and all page check and fix
 -   privacy policy content
 -   terms conditions content
@@ -20,14 +23,14 @@
 -   footer copyright year now in bengali -> done
 -   search option disable for a short time
 -   mobile navigation bar full height -> done
--   mobile navigation bar logo add
+-   mobile navigation bar logo add -> done
 -   docs top menu click to the right section
 -   footer social link
 -   actual floating button
--   mobile bottom navigation bar top padding
+-   mobile bottom navigation bar top padding -> done
 -   bottom to top button
--   mobile search bar input tag border remove
--   desktop version section background remove and make pure white
+-   mobile search bar input tag border remove -> done
+-   desktop version section background remove and make pure white : ??
 
 ## **After google ad request**
 
