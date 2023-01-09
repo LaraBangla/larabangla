@@ -23,7 +23,7 @@ class UpdateUserPassword implements UpdatesUserPasswords
             'current_password' => ['required', 'string', 'current_password:web'],
             'password' => $this->passwordRules(),
         ], [
-            'current_password.current_password' => __('The provided password does not match your current password.'),
+            'current_password.current_password' => __('আপনি যেই পাসওয়ার্ডটি দিয়েছেন তা বর্তমান পাসওয়ার্ডের সাথে মিলছে না।'),
         ])->validateWithBag('updatePassword');
 
         $user->forceFill([

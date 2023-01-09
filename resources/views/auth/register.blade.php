@@ -21,9 +21,6 @@
 
             <div>
                 <x-jet-label for="name" value="{{ __('পূর্ণ নাম') }}" />
-                
-                {{-- <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> --}}
-
                 <div class="flex">
                     <x-jet-input type="text"  id="name" name="name" :value="old('name')" required autofocus class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     <span class="inline-flex items-center px-4 text-sm text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -39,7 +36,6 @@
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('ইমেইল') }}" />
-                {{-- <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required /> --}}
                 <div class="flex">
                     <x-jet-input type="email"  id="email" name="email" :value="old('email')" required class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     <span class="inline-flex items-center px-4 text-sm text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -55,7 +51,6 @@
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('ব্যাবহারকারী নাম ( ইউজারনেম )') }}" />
-                {{-- <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required /> --}}
                 <div class="flex">
                     <x-jet-input type="text"  id="username" name="username" :value="old('username')" required class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     <span class="inline-flex items-center px-4 text-sm text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -71,7 +66,6 @@
 
             <div class="mt-4">
                 <x-jet-label for="mobile" value="{{ __('মোবাইল') }}" />
-                {{-- <x-jet-input id="mobile" class="block mt-1 w-full" type="text" name="mobile" :value="old('mobile')" required /> --}}
                 <div class="flex">
                     <x-jet-input type="text"  id="mobile" name="mobile" :value="old('mobile')"   class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     <span class="inline-flex items-center px-4 text-sm text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -86,8 +80,6 @@
             </div>
 
             <div class="mt-4">
-                {{-- <x-jet-label for="password" value="{{ __('পাসওয়ার্ড') }}" /> --}}
-                {{-- <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" /> --}}
                 <div class="mt-4">
                     <x-jet-label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" value="{{ __('পাসওয়ার্ড') }}" />
                     <div class="flex">
@@ -105,8 +97,6 @@
             </div>
 
             <div class="mt-4">
-                {{-- <x-jet-label for="password_confirmation" value="{{ __('নিশ্চিত করন পাসওয়ার্ড') }}" /> --}}
-                {{-- <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" /> --}}
                 <div class="mt-4">
                     <x-jet-label for="password_confirmation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" value="{{ __('নিশ্চিত করন পাসওয়ার্ড') }}" />
                     <div class="flex">
@@ -151,17 +141,7 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('ইতিমধ্যে রেজিস্টার করেছেন?') }}
-                </a> --}}
-
-                {{-- <x-jet-button class="ml-4">
-                    {{ __('রেজিস্টার') }}
-                </x-jet-button> --}}
-
-            
             </div>
-
             <div class="mt-5 -ml-4 sm:ml-0">
                 <div>
                     {!! NoCaptcha::renderJs('bn', false, 'onloadCallback') !!}
@@ -198,10 +178,7 @@
         y.type = "password";
         }
     }
-
-
     </script>
-
 @include('frontend.more.planetaryjsFile')
 
 @endpush
