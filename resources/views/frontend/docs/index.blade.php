@@ -95,11 +95,11 @@
               </div>
             </div>
           </div>
-          <div class="col-span-12 mt-8 bg-slate-50 pt-1 md:col-span-3">
+          <div class="col-span-12 mt-8  pt-1 md:col-span-3">
             {{-- desktop version start --}}
-            <div class="-mt-1 w-full bg-slate-100 text-center hidden md:block ">
-              <label class="w-full bg-slate-100 text-center font-bold uppercase text-gray-600" for="version">Version</label>
-              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600" id="version" id="" name="version"  @change="window.location = $event.target.value">
+            <div class="-mt-1 w-full  text-center hidden md:block ">
+              <label class="w-full text-center font-bold uppercase text-gray-600" for="version">Version</label>
+              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600 focus:border-gray-500 focus:border-b-transparent focus:ring-0" id="version" id="" name="version"  @change="window.location = $event.target.value">
                 @foreach ($technology->versions as $version)
                   @php
                    $get_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($version->chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();

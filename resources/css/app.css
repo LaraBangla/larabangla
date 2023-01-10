@@ -18,10 +18,10 @@
         background-color: #14171d;
     }
     .docs blockquote {
-        background: rgb(220, 220, 220);
+        background: rgb(241, 240, 240);
         padding: 10px;
         margin: 20px 0;
-        box-shadow: -3px 6px 22px 1px rgb(150, 150, 150);
+        box-shadow: -3px 2px 5px 1px rgb(212, 211, 211);
         border-radius: 7px;
     }
     .docs blockquote p {

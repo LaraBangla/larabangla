@@ -11,6 +11,7 @@
 -   privacy policy content
 -   terms conditions content
 -   search option disable for a short time
+-   docs page left sidebar double logo bug
 -   docs top menu click to the right section : ?
 -   instagram account and link to social link
 -   actual floating button

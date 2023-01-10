@@ -127,7 +127,7 @@
           <li class="mx-1 hidden bg-gray-300 px-2 py-3 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                  class="fa fa-home"></i> বাড়ি</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5" @click="tutorial = ! tutorial"><a
-               class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
+               class="font-bold" href="#">ডকুমেন্টেশন <i class="fa-solid fa-caret-down"></i></a></li>
           {{-- <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="#">সার্ভিস</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold" href="#">ব্লগ</a>
@@ -322,7 +322,7 @@
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
                        class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
-                       class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+                       class="fa-solid fa-book-open-reader mr-4"></i></span>ডকুমেন্টেশন</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
@@ -596,7 +596,7 @@
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
+              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;ডকুমেন্টেশন</a></li>
               <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
               <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
 
