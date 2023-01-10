@@ -11,7 +11,7 @@
 -   privacy policy content
 -   terms conditions content
 -   search option disable for a short time
--   docs top menu click to the right section
+-   docs top menu click to the right section : ?
 -   instagram account and link to social link
 -   actual floating button
 -   bottom to top button
@@ -21,6 +21,7 @@
 -   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
 
+-   desktop search ui
 -   footer social link ->done
 -   user auth with username system -> done
 -   footer top ui design -> done

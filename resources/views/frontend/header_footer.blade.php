@@ -128,10 +128,10 @@
                  class="fa fa-home"></i> বাড়ি</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5" @click="tutorial = ! tutorial"><a
                class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
-          <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
+          {{-- <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="#">সার্ভিস</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold" href="#">ব্লগ</a>
-          </li>
+          </li> --}}
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="{{ route('about.us') }}">সম্পর্কে</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
@@ -177,21 +177,6 @@
  </div>
  {{-- search body end --}}
             
-            
-            
-            <!-- desktop search -->
-            {{-- <div class="absolute right-2 mt-2 rounded-lg border bg-slate-50" x-show="search" @click.outside="search=false"
-                 x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50"
-                 x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
-                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-              <form class="flex h-32 w-full items-center justify-center px-6">
-                <div><input class="w-80 rounded-l-lg border py-4 pl-4" type="text" placeholder="অনুসন্ধান"></div>
-                <div>
-                  <button class="rounded-r-lg bg-slate-500 p-5 text-base font-semibold text-gray-50" type="submit">অনুসন্ধান</button>
-                </div>
-              </form>
-            </div> --}}
-
           </li>
           <li class="mx-1 hidden px-3 py-3 text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
             class="font-bold"><i class="fa-solid fa-user"></i></a>
@@ -207,7 +192,7 @@
                    
             @else
             <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
-              class="fa-solid fa-user-plus mr-2"></i></span>প্রফাইল</a></li>
+              class="fa-solid fa-user mr-2"></i></span>প্রফাইল</a></li>
             <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100">
                  <!-- Authentication -->
                  <form method="POST" action="{{ route('logout') }}" x-data>
@@ -230,12 +215,29 @@
                    class="fa fa-ellipsis-v"></i></span>
             </a>
             <!-- options -->
-            <div class="absolute right-2 mt-2 rounded border bg-slate-50" x-show="option">
+            <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option">
               <ul class="py-5">
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="#"><span class="text-gray-500"><i
-                         class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="#"><span class="text-gray-500"><i
-                         class="fa-solid fa-user-plus mr-2"></i></span>সেটিংস</a></li>
+                @guest
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                  <span class="text-gray-500"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;</span>অনলাইন কোর্স</a>
+                </li>
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                  <span class="text-gray-500"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;</span>ওয়েব ডেভেলপমেন্ট</a></li>
+                </li>
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                  <span class="text-gray-500"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;</span>অ্যাপস ডেভেলপমেন্ট</a></li>
+                </li>
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                  <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a></li>
+                </li>
+                  
+                @else
+                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
+                  class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
+                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
+                <i class="fa-solid fa-gear"></i> </span>সেটিংস</a></li>
+                @endguest
+               
               </ul>
             </div>
           </li>
