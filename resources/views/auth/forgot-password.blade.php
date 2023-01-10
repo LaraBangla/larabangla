@@ -28,8 +28,6 @@
 
             <div class="block">
                  <x-jet-label for="email" value="{{ __('ইমেইল') }}" />
-                {{-- <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus /> --}}
-
                 <div class="flex">
                     <x-jet-input type="email"  id="email" name="email" :value="old('email')" required autofocus class="rounded-none rounded-l-lg bg-gray-50 border text-gray-900 focus:ring-0 focus:border-gray-200 block flex-1 min-w-0 w-full text-sm border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     <span class="inline-flex items-center px-4 text-sm text-gray-900 bg-gray-200 border border-l-0 border-gray-300 rounded-r-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">

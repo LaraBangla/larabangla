@@ -13,8 +13,8 @@
 -   login ui -> done
 -   from login route, mobile nav not showing
 -   register ui -> done
--   login,register,forgot pass title
--   verify ui
+-   login,register,forgot pass title -> done
+-   verify ui -> done
 -   email template content bengali
 -   forgot password,reset password and all page check and fix
 -   privacy policy content
