@@ -53,7 +53,7 @@
                     </div>
                   </div>
                 </div>
-                {{-- search body start --}}
+                {{-- mobile search body start --}}
                 <div class="fixed top-5 right-0 w-screen duration-200" x-show="mobile_search" @click.outside="mobile_search = false"
                      x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
                      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
@@ -87,11 +87,11 @@
                     </div>
                   </div>
                 </div>
-                {{-- search body end --}}
+                {{-- mobile search body end --}}
               </div>
               {{-- search end --}}
-              <div :class="mobile_search ? 'blur-sm' : ''">
-                {!! $data !!}
+              <div :class="mobile_search ? 'blur-sm' : ''" >
+                  {!! $data !!}
               </div>
             </div>
           </div>

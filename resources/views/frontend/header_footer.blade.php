@@ -137,10 +137,50 @@
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="{{ route('contact') }}">যোগাযোগ</a></li>
          
-          <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ search: false }">
-            <a class="font-bold" @click="search = ! search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
-            <!-- search -->
-            <div class="absolute right-2 mt-2 rounded-lg border bg-slate-50" x-show="search" @click.outside="search=false"
+          <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ doc_search: false }">
+            <a class="font-bold" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
+      {{-- desktop search body start --}}
+    <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-20" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search" 
+      x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
+      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+ <div class="mt-10" @click.outside="doc_search = false">
+  <div class="md:mx-40 lg:mx-52 xl:mx-60 2xl:mx-72 bg-gray-900 pt-3">
+    <div class="px-3">
+      <div class="flex justify-end">
+        <div @click="doc_search = false">
+          <div class="text-left text-gray-400"><span><i class="fa-solid fa-xmark"></i></span></div>
+        </div>
+      </div>
+      {{-- search input --}}
+      <div class="flex border-b border-gray-500 pb-1">
+        <div class="mr-3">
+          <span class="text-lg text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        <div class=" w-full">
+          <input class="bg-gray-900 w-full text-gray-200  border-transparent focus:border-0 focus:ring-0" type="text" placeholder="ডক অনুসন্ধান">
+        </div>
+      </div>
+      {{-- desktop search instraction --}}
+      <div class="px-5 pt-6 pb-10">
+        <p class="text-sm text-gray-400">
+          ডকুমেন্টেশনে ফলাফল খুঁজে পেতে একটি অনুসন্ধান শব্দ লিখুন।
+        </p>
+      </div>
+      {{-- search footer --}}
+      <div class="border-t border-black pb-2 pt-1 text-right">
+        <span class="text-sm text-gray-400"><span>লারা</span><span class="text-base"> বাংলা</span></span>
+      </div>
+    </div>
+  </div>
+ </div>
+ </div>
+ {{-- search body end --}}
+            
+            
+            
+            <!-- desktop search -->
+            {{-- <div class="absolute right-2 mt-2 rounded-lg border bg-slate-50" x-show="search" @click.outside="search=false"
                  x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50"
                  x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
                  x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
@@ -150,7 +190,7 @@
                   <button class="rounded-r-lg bg-slate-500 p-5 text-base font-semibold text-gray-50" type="submit">অনুসন্ধান</button>
                 </div>
               </form>
-            </div>
+            </div> --}}
 
           </li>
           <li class="mx-1 hidden px-3 py-3 text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
@@ -236,6 +276,8 @@
         {{-- tutorial menu end --}}
       </div>
     </div>
+
+
 
     <div class="@if (Request::route()->getName() == 'docs') md:flex @endif w-screen">
       {{-- mobile menu start --}}

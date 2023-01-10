@@ -15,6 +15,10 @@
 -   instagram account and link to social link
 -   actual floating button
 -   bottom to top button
+-   homepage navigation active color, homepage sidebar social link color
+-   logo height decrease
+-   mobile navigation bottom link
+-   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
 
 -   footer social link ->done
@@ -35,6 +39,7 @@
 
 ## **After google ad request**
 
+-   dark mode
 -   email template content bengali
 -   trash system
 -   show contact message to admin panel
