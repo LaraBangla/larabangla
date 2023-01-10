@@ -602,13 +602,13 @@
             <div class="flex items-center gap-3 pt-4">
               <div class="h-10 w-10 rounded-full bg-blue-800 text-center text-white duration-300 hover:bg-blue-900">
                 <div class="mt-2">
-                  <a href="#"><span class="pt-8 text-xl"><i class="fa-brands fa-facebook-f"></i></span></a>
+                  <a href="https://www.facebook.com/LaraBangla" target="_blank"><span class="pt-8 text-xl"><i class="fa-brands fa-facebook-f"></i></span></a>
                 </div>
               </div>
 
               <div class="h-10 w-10 rounded-full bg-sky-500 text-center text-gray-200 duration-300 hover:bg-sky-600">
                 <div class="mt-2">
-                  <a href="#"><span class="pt-8 text-xl"><i class="fa-brands fa-twitter"></i></span></a>
+                  <a href="https://twitter.com/LaraBangla" target="_blank"><span class="pt-8 text-xl"><i class="fa-brands fa-twitter"></i></span></a>
                 </div>
               </div>
 
@@ -620,7 +620,7 @@
 
               <div class="h-10 w-10 rounded-full bg-red-700 text-center text-white duration-300 hover:bg-red-800">
                 <div class="mt-1.5">
-                  <a href="#"><span class="pt-8 text-xl"><i class="fa-brands fa-youtube"></i></span></a>
+                  <a href="https://www.youtube.com/@Larabangla" target="_blank"><span class="pt-8 text-xl"><i class="fa-brands fa-youtube"></i></span></a>
                 </div>
               </div>
 

@@ -14,7 +14,7 @@
    </div>
 
     {{-- contact form --}}
-        <div class=" mt-10 p-5 md:y-8 md:px-8 md:mx-20 xl:mx-64 mx-3 sm:mx-0 lg:p-16  border rounded">
+        <div class=" mt-10 p-5 md:y-8 md:px-8 md:mx-20 xl:mx-64 mx-3 sm:mx-0 lg:p-16  border rounded shadow-sm">
             <form action="{{ route('contact.store') }}" method="post">
                 @csrf
                 @method('put')

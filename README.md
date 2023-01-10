@@ -4,36 +4,38 @@
 
 ## **For upload to server**
 
--   footer top ui design -> done
--   home page ui modify -> done
 -   toaster message not showing
 -   unavailable services make "coming soon"
--   contact us form -> done
--   about-us content ->done
--   login ui -> done
 -   from login route, mobile nav not showing
--   register ui -> done
--   login,register,forgot pass title -> done
--   verify ui -> done
--   email template content bengali
 -   forgot password,reset password and all page check and fix
 -   privacy policy content
 -   terms conditions content
--   user auth with username system
--   footer copyright year now in bengali -> done
 -   search option disable for a short time
+-   docs top menu click to the right section
+-   instagram account and link to social link
+-   actual floating button
+-   bottom to top button
+-   desktop version section background remove and make pure white : ??
+
+-   footer social link ->done
+-   user auth with username system -> done
+-   footer top ui design -> done
+-   home page ui modify -> done
+-   contact us form -> done
+-   about-us content ->done
+-   login ui -> done
+-   register ui -> done
+-   verify ui -> done
+-   footer copyright year now in bengali -> done
 -   mobile navigation bar full height -> done
 -   mobile navigation bar logo add -> done
--   docs top menu click to the right section
--   footer social link
--   actual floating button
 -   mobile bottom navigation bar top padding -> done
--   bottom to top button
 -   mobile search bar input tag border remove -> done
--   desktop version section background remove and make pure white : ??
+-   login,register,forgot pass title -> done
 
 ## **After google ad request**
 
+-   email template content bengali
 -   trash system
 -   show contact message to admin panel
 -   show technologies,versions,chapters and lessons ui modify
