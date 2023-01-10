@@ -1,5 +1,8 @@
 @extends('frontend.header_footer')
 
+@section('title')
+লারা বাংলা - পাসওয়ার্ড ভুলে গেছেন
+@endsection
 
 @section('content')
 <x-guest-layout>

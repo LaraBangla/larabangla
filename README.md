@@ -38,6 +38,8 @@
 -   show contact message to admin panel
 -   show technologies,versions,chapters and lessons ui modify
 -   doc search system (use doc search package)
+-   profile in bengali
+-   social login system \*\*
 -   **news system**
 -   **blog system**
 -   **github globe**

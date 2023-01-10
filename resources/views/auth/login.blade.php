@@ -1,5 +1,9 @@
 @extends('frontend.header_footer')
 
+@section('title')
+লারা বাংলা - লগ ইন
+@endsection
+
 @section('content')
 <x-guest-layout>
     <x-jet-authentication-card>
