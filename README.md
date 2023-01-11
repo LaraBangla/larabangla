@@ -4,7 +4,6 @@
 
 ## **For upload to server**
 
--   toaster message not showing ->done
 -   from login route, mobile nav not showing
 -   privacy policy content
 -   terms conditions content
@@ -13,13 +12,14 @@
 -   docs top menu click to the right section : ?
 -   instagram account and link to social link
 -   actual floating button
--   bottom to top button
 -   homepage navigation active color, homepage sidebar social link color
 -   logo height decrease
 -   mobile navigation bottom link
 -   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
 
+-   bottom to top button -> done
+-   toaster message not showing ->done
 -   forgot password,reset password and all page check and fix ->done
 -   unavailable services make "coming soon" ->done
 -   desktop search ui -> done

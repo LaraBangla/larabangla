@@ -410,7 +410,7 @@
         </div>
         {{-- right side fixed menu end --}}
 
-        <!-- bottom bar -->
+        <!-- bottom bar  floating action button -->
         <div x-data="{ expanded: false }">
           {{-- items --}}
           <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded " x-collapse @click.outside="expanded =false">
@@ -445,7 +445,7 @@
     </li>
     </ul>
   </div>
-  {{-- items end --}}
+  {{-- items end floting button--}}
   <div class="fixed bottom-28 right-3 z-10 -ml-9 h-20 w-20 rounded-full border border-gray-100 bg-gray-50 shadow-lg duration-700"
        @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <div class="mt-6 text-center text-2xl font-black text-gray-600">
@@ -630,7 +630,9 @@
     <!-- footer bottom end-->
   </footer>
   <!-- footer end -->
+
   </div>
+
 
   <script src="{{ asset('js/prism.js') }}"></script>
   {{-- hotwire turbo start --}}
@@ -649,6 +651,9 @@
   @stack('modals')
   @stack('scripts')
   @livewireScripts
+
+  @include('frontend.more.top-to-bottom')
+
 
 </body>
 
