@@ -5,9 +5,7 @@
 ## **For upload to server**
 
 -   toaster message not showing
--   unavailable services make "coming soon"
 -   from login route, mobile nav not showing
--   forgot password,reset password and all page check and fix
 -   privacy policy content
 -   terms conditions content
 -   search option disable for a short time
@@ -22,6 +20,8 @@
 -   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
 
+-   forgot password,reset password and all page check and fix ->done
+-   unavailable services make "coming soon" ->done
 -   desktop search ui -> done
 -   footer social link ->done
 -   user auth with username system -> done

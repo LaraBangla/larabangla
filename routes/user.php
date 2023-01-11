@@ -33,6 +33,7 @@ Route::controller(ContactController::class)->group(function ()
 });
 
 
+// coming soon pages
 Route::controller(ComingSoonController::class)->group(function ()
 {
     Route::get('/blog', 'blog')->name('blog');
