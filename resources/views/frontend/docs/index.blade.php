@@ -99,7 +99,7 @@
             {{-- desktop version start --}}
             <div class="-mt-1 w-full  text-center hidden md:block ">
               <label class="w-full text-center font-bold uppercase text-gray-600" for="version">Version</label>
-              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600 focus:border-gray-500 focus:border-b-transparent focus:ring-0" id="version" id="" name="version"  @change="window.location = $event.target.value">
+              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600 focus:border-gray-500 focus:ring-0" id="version" id="" name="version"  @change="window.location = $event.target.value">
                 @foreach ($technology->versions as $version)
                   @php
                    $get_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($version->chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();
