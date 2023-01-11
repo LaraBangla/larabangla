@@ -218,16 +218,16 @@
             <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option">
               <ul class="py-5">
                 @guest
-                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('online.course') }}">
                   <span class="text-gray-500"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;</span>অনলাইন কোর্স</a>
                 </li>
-                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('web.design.and.development') }}">
                   <span class="text-gray-500"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;</span>ওয়েব ডেভেলপমেন্ট</a></li>
                 </li>
-                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('apps.development') }}">
                   <span class="text-gray-500"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;</span>অ্যাপস ডেভেলপমেন্ট</a></li>
                 </li>
-                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="#">
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('software.development') }}">
                   <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a></li>
                 </li>
                   
@@ -489,62 +489,6 @@
 
   <!-- footer start -->
   <footer class="duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
-    <!-- footer top -->
-    {{-- <div class="bg_footer_1 pl-2 text-gray-300 md:pl-0">
-      <div class="container mx-auto block py-2 md:flex md:justify-evenly">
-        <div>
-          <div class="flex items-center py-2 md:py-0">
-            <div class="h-20 w-20 rounded-full border border-gray-600 bg-transparent text-center">
-              <div class="mt-5">
-                <span class="text-3xl"><i class="fa-solid fa-phone"></i></span>
-              </div>
-            </div>
-            <div class="-ml-2 h-12 rounded-r-xl border border-l-0 border-gray-600 bg-transparent px-5 py-3">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center py-2 md:py-0">
-            <div class="z-10 -mr-2 hidden h-12 rounded-l-xl border border-r-0 border-gray-600 bg-transparent px-5 py-3 md:block">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-            <div class="bg-transparent-500 h-20 w-20 rounded-full border border-gray-600 text-center">
-              <div class="mt-5">
-                <span class="text-3xl"><i class="fa-solid fa-home"></i></span>
-              </div>
-            </div>
-            <div class="bg-transparent-500 -ml-2 h-12 rounded-r-xl border border-l-0 border-gray-600 px-5 py-3">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="flex items-center py-2 md:py-0">
-            <div class="bg-transparent-500 z-10 -mr-2 hidden h-12 rounded-l-xl border border-r-0 border-gray-600 px-5 py-3 md:block">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-            <div class="bg-transparent-500 h-20 w-20 rounded-full border border-gray-600 text-center">
-              <div class="mt-5">
-                <span class="text-3xl"><i class="fa-solid fa-phone"></i></span>
-              </div>
-            </div>
-
-            <div class="bg-transparent-500 -ml-2 h-12 rounded-r-xl border border-l-0 border-gray-600 px-5 py-3 md:hidden">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div> --}}
-
-
-    
-
-   
-
     <!-- footer top and middle -->
     <div class="bg_footer_2 pt-20 leading-7 
     @if (Request::route()->getName() != '/')
@@ -578,9 +522,9 @@
             <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;বাড়ি</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
+              <li><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
+              <li><a href="{{ route('splade') }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
+              <li><a href="{{ route('livewire') }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
             </ul>
           </div>
           <div class="col-span-12 md:col-span-3">
@@ -588,18 +532,17 @@
             <ul class="pt-2">
               <li><a href="{{ route('about.us') }}"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
               <li><a href="{{ route('contact') }}"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
-              <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
-              <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
+              <li><a href="{{ route('blog') }}"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
+              <li><a href="{{ route('forum') }}"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
             </ul>
           </div>
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
+              <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
               <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;ডকুমেন্টেশন</a></li>
-              <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
-              <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
-
+              <li><a href="{{ route('community') }}"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
+              <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
             </ul>
           </div>
           <div class="col-span-12 md:col-span-3">
@@ -613,9 +556,9 @@
           <div class="col-span-12 md:col-span-3 md:pt-8">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">সমর্থন </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-circle-question"></i>&nbsp;&nbsp;প্রশ্ন</a></li>
-              <li><a href="#"><i class="fa-solid fa-handshake-angle"></i>&nbsp;&nbsp;সাহায্য</a></li>
-              <li><a href="#"><i class="fa-solid fa-sitemap"></i>&nbsp;&nbsp;সাইটম্যাপ</a></li>
+              <li><a href="{{ route('question') }}"><i class="fa-solid fa-circle-question"></i>&nbsp;&nbsp;প্রশ্ন</a></li>
+              <li><a href="{{ route('help') }}"><i class="fa-solid fa-handshake-angle"></i>&nbsp;&nbsp;সাহায্য</a></li>
+              <li><a href="{{ route('sitemap') }}"><i class="fa-solid fa-sitemap"></i>&nbsp;&nbsp;সাইটম্যাপ</a></li>
             </ul>
           </div>
 
@@ -633,11 +576,11 @@
           <div class="col-span-12 md:col-span-3 md:pt-8">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">সেবা সমূহ </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span
+              <li><a href="{{ route('online.course') }}"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span
                         class="rounded-full bg-yellow-600 px-2 text-xs text-black">রেজিস্ট্রেশন করুন</span></a></li>
-              <li><a href="#"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
+              <li><a href="{{ route('web.design.and.development') }}"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
+              <li><a href="{{ route('apps.development') }}"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
+              <li><a href="{{ route('software.development') }}"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
             </ul>
           </div>
 

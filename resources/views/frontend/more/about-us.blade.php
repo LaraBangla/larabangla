@@ -1,5 +1,7 @@
 @extends('frontend.header_footer')
-
+@section('title')
+লারা বাংলা - আমাদের সম্পর্কে
+@endsection
 @section('content')
 <section>
     <div class="container mx-auto md:pb-20 md:pt-10 py-5 ">

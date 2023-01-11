@@ -22,7 +22,7 @@
 -   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
 
--   desktop search ui
+-   desktop search ui -> done
 -   footer social link ->done
 -   user auth with username system -> done
 -   footer top ui design -> done
