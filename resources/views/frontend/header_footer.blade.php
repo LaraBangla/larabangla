@@ -60,7 +60,7 @@
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
 
-  {{-- @notifyCss --}}
+  @notifyCss
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
   <!-- Alpine collapse Plugins -->
@@ -383,7 +383,7 @@
       <div>
 
         {{-- notify 2 message --}}
-        {{-- <x:notify-messages /> --}}
+        <x:notify-messages />
 
         <section>
           @if (Request::route()->getName() == 'profile.show')
@@ -644,6 +644,7 @@
   </script>
 
   {{-- hotwire turbo ends --}}
+  @notifyJs
   {{-- jetstream modals --}}
   @stack('modals')
   @stack('scripts')

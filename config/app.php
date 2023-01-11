@@ -183,6 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Rakibhstu\Banglanumber\NumberToBanglaServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
 
         /*
          * Package Service Providers...
