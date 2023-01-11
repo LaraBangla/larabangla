@@ -4,7 +4,7 @@
 
 ## **For upload to server**
 
--   toaster message not showing
+-   toaster message not showing ->done
 -   from login route, mobile nav not showing
 -   privacy policy content
 -   terms conditions content
@@ -42,6 +42,7 @@
 ## **After google ad request**
 
 -   dark mode
+-   mobile toaster z-index bug
 -   email template content bengali
 -   trash system
 -   show contact message to admin panel

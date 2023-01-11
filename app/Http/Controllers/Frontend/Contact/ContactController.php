@@ -60,12 +60,12 @@ class ContactController extends Controller
         $store = Contact::create($data);
         if ($store)
         {
-            notify()->success('We have received you message! Thank you.', 'Successful');
+            notify()->success('আমরা আপনার বার্তা পেয়েছি! ধন্যবাদ.', 'সফল');
             return back();
         }
         else
         {
-            notify()->error('Something went to wrong!', 'Failed');
+            notify()->error('কিছু ত্রুটি হয়েছে!', 'ব্যর্থ');
             return back();
         }
     }
