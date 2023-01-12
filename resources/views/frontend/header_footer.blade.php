@@ -18,7 +18,7 @@
   <meta name='owner' content='লারা বাংলা - LaraBangla'>
   <meta name='url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='identifier-URL' content='@yield('that_url','https://www.larabangla.com')'>
-  <meta name='pagename' content='@yield('pagename','হোম পেজ,Home Page')'>
+  <meta name='pagename' content='@yield('pagename','বাড়ি পেজ,Home Page')'>
   <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
   <meta name='coverage' content='Worldwide'>
   <meta name='distribution' content='Global'>
@@ -60,7 +60,7 @@
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
 
-  {{-- @notifyCss --}}
+  @notifyCss
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
   <!-- Alpine collapse Plugins -->
@@ -125,33 +125,58 @@
           </a></li>
           <li class="grow"></li>
           <li class="mx-1 hidden bg-gray-300 px-2 py-3 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
-                 class="fa fa-home"></i> হোম</a></li>
+                 class="fa fa-home"></i> বাড়ি</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5" @click="tutorial = ! tutorial"><a
-               class="font-bold" href="#">টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></a></li>
-          <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
+               class="font-bold" href="#">ডকুমেন্টেশন <i class="fa-solid fa-caret-down"></i></a></li>
+          {{-- <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="#">সার্ভিস</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold" href="#">ব্লগ</a>
-          </li>
+          </li> --}}
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="{{ route('about.us') }}">সম্পর্কে</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
-               href="#">যোগাযোগ</a></li>
+               href="{{ route('contact') }}">যোগাযোগ</a></li>
          
-          <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ search: false }">
-            <a class="font-bold" @click="search = ! search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
-            <!-- search -->
-            <div class="absolute right-2 mt-2 rounded-lg border bg-slate-50" x-show="search" @click.outside="search=false"
-                 x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50"
-                 x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
-                 x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-              <form class="flex h-32 w-full items-center justify-center px-6">
-                <div><input class="w-80 rounded-l-lg border py-4 pl-4" type="text" placeholder="অনুসন্ধান"></div>
-                <div>
-                  <button class="rounded-r-lg bg-slate-500 p-5 text-base font-semibold text-gray-50" type="submit">অনুসন্ধান</button>
-                </div>
-              </form>
-            </div>
-
+          <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ doc_search: false }">
+            <a class="font-bold" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
+      {{-- desktop search body start --}}
+    <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-20" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search" 
+      x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
+      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
+      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+ <div class="mt-10" @click.outside="doc_search = false">
+  <div class="md:mx-40 lg:mx-52 xl:mx-60 2xl:mx-72 bg-gray-900 pt-3">
+    <div class="px-3">
+      <div class="flex justify-end">
+        <div @click="doc_search = false">
+          <div class="text-left text-gray-400"><span><i class="fa-solid fa-xmark"></i></span></div>
+        </div>
+      </div>
+      {{-- search input --}}
+      <div class="flex border-b border-gray-500 pb-1">
+        <div class="mr-3">
+          <span class="text-lg text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+        </div>
+        <div class=" w-full">
+          <input class="bg-gray-900 w-full text-gray-200  border-transparent focus:border-0 focus:ring-0" type="text" placeholder="ডক অনুসন্ধান">
+        </div>
+      </div>
+      {{-- desktop search instraction --}}
+      <div class="px-5 pt-6 pb-10">
+        <p class="text-sm text-gray-400">
+          ডকুমেন্টেশনে ফলাফল খুঁজে পেতে একটি অনুসন্ধান শব্দ লিখুন।
+        </p>
+      </div>
+      {{-- search footer --}}
+      <div class="border-t border-black pb-2 pt-1 text-right">
+        <span class="text-sm text-gray-400"><span>লারা</span><span class="text-base"> বাংলা</span></span>
+      </div>
+    </div>
+  </div>
+ </div>
+ </div>
+ {{-- search body end --}}
+            
           </li>
           <li class="mx-1 hidden px-3 py-3 text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
             class="font-bold"><i class="fa-solid fa-user"></i></a>
@@ -167,7 +192,7 @@
                    
             @else
             <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
-              class="fa-solid fa-user-plus mr-2"></i></span>প্রফাইল</a></li>
+              class="fa-solid fa-user mr-2"></i></span>প্রফাইল</a></li>
             <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100">
                  <!-- Authentication -->
                  <form method="POST" action="{{ route('logout') }}" x-data>
@@ -190,12 +215,29 @@
                    class="fa fa-ellipsis-v"></i></span>
             </a>
             <!-- options -->
-            <div class="absolute right-2 mt-2 rounded border bg-slate-50" x-show="option">
+            <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option">
               <ul class="py-5">
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="#"><span class="text-gray-500"><i
-                         class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="#"><span class="text-gray-500"><i
-                         class="fa-solid fa-user-plus mr-2"></i></span>সেটিংস</a></li>
+                @guest
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('online.course') }}">
+                  <span class="text-gray-500"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;</span>অনলাইন কোর্স</a>
+                </li>
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('web.design.and.development') }}">
+                  <span class="text-gray-500"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;</span>ওয়েব ডেভেলপমেন্ট</a></li>
+                </li>
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('apps.development') }}">
+                  <span class="text-gray-500"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;</span>অ্যাপস ডেভেলপমেন্ট</a></li>
+                </li>
+                <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('software.development') }}">
+                  <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a></li>
+                </li>
+                  
+                @else
+                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
+                  class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
+                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
+                <i class="fa-solid fa-gear"></i> </span>সেটিংস</a></li>
+                @endguest
+               
               </ul>
             </div>
           </li>
@@ -237,6 +279,8 @@
       </div>
     </div>
 
+
+
     <div class="@if (Request::route()->getName() == 'docs') md:flex @endif w-screen">
       {{-- mobile menu start --}}
       <div class="@if (!Request::route()->getName() == 'docs') absolute top-0 left-0
@@ -270,23 +314,22 @@
         
         @if (Request::route()->getName() == '/')
         bg-slate-800
-        @else
         @endif
         ">
           <ul class="pt-6">
 
             {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
-                       class="fa fa-home mr-4"></i></span>হোম</a></li>
+                       class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
-                       class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+                       class="fa-solid fa-book-open-reader mr-4"></i></span>ডকুমেন্টেশন</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a  href="{{ route('about.us') }}"> <span class="text-xl text-gray-500"><i
                        class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('contact') }}"><span class="text-xl text-gray-500"><i
                        class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
@@ -298,17 +341,18 @@
               @include('frontend.more.doc_sidebar')
             @else
             {{-- mobile menu navigation --}}
+              <li class="pt-3 pl-1 text-base font-semibold text-gray-400 mb-3 border-b border-b-slate-600"><a href="{{ route('/') }}"><img class="" src="{{ asset('img/logo.png') }}" alt="LaraBangla Logo" width="45"><span class=" text-gray-500 text-sm">লারা বাংলা</span></a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
-                class="fa fa-home mr-4"></i></span>হোম</a></li>
+                class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
-                        class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
+                        class="fa-solid fa-book-open-reader mr-4"></i></span>ডকুমেন্টেশন</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a  href="{{ route('about.us') }}"> <span class="text-x"><i
                         class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-x"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('contact') }}"><span class="text-x"><i
                         class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('login') }}"> <span class="text-xl"><i
                         class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
@@ -339,7 +383,7 @@
       <div>
 
         {{-- notify 2 message --}}
-        {{-- <x:notify-messages /> --}}
+        <x:notify-messages />
 
         <section>
           @if (Request::route()->getName() == 'profile.show')
@@ -366,7 +410,7 @@
         </div>
         {{-- right side fixed menu end --}}
 
-        <!-- bottom bar -->
+        <!-- bottom bar  floating action button -->
         <div x-data="{ expanded: false }">
           {{-- items --}}
           <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded " x-collapse @click.outside="expanded =false">
@@ -401,7 +445,7 @@
     </li>
     </ul>
   </div>
-  {{-- items end --}}
+  {{-- items end floting button--}}
   <div class="fixed bottom-28 right-3 z-10 -ml-9 h-20 w-20 rounded-full border border-gray-100 bg-gray-50 shadow-lg duration-700"
        @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <div class="mt-6 text-center text-2xl font-black text-gray-600">
@@ -409,14 +453,33 @@
     </div>
   </div>
 
-  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden"
+  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden pt-1 z-10"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
-    <ul class="flex justify-around">
-      <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span></a></li>
-      <li class="px-4 py-6 font-bold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span></a>
+    <ul class="flex justify-around text-center">
+      <li class="px-4 py-4 font-bold text-gray-600"><a href="#">
+        <span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span>
+        @if (Request::route()->getName() == 'docs')
+        <p>ডকস</p>
+      @endif
+      </a>
+    
       </li>
-      <!-- <li class="px-4 py-6 font-bold text-gray-600"></li> -->
-      <li class="px-4 py-6 font-bold text-gray-600"><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span></a></li>
+      <li class="px-4 py-4 font-bold text-gray-600">
+        <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span>
+          @if (Request::route()->getName() == '/')
+          <p>বাড়ি</p>
+           @endif
+        </a>
+         
+      </li>
+      <!-- <li class="px-4 py-4 font-bold text-gray-600"></li> -->
+      <li class="px-4 py-4 font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
+        @if (Request::route()->getName() == 'profile')
+        <p>ইউজার</p>
+         @endif
+      </a>
+        
+      </li>
     </ul>
   </div>
   </div>
@@ -426,62 +489,6 @@
 
   <!-- footer start -->
   <footer class="duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
-    <!-- footer top -->
-    {{-- <div class="bg_footer_1 pl-2 text-gray-300 md:pl-0">
-      <div class="container mx-auto block py-2 md:flex md:justify-evenly">
-        <div>
-          <div class="flex items-center py-2 md:py-0">
-            <div class="h-20 w-20 rounded-full border border-gray-600 bg-transparent text-center">
-              <div class="mt-5">
-                <span class="text-3xl"><i class="fa-solid fa-phone"></i></span>
-              </div>
-            </div>
-            <div class="-ml-2 h-12 rounded-r-xl border border-l-0 border-gray-600 bg-transparent px-5 py-3">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center py-2 md:py-0">
-            <div class="z-10 -mr-2 hidden h-12 rounded-l-xl border border-r-0 border-gray-600 bg-transparent px-5 py-3 md:block">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-            <div class="bg-transparent-500 h-20 w-20 rounded-full border border-gray-600 text-center">
-              <div class="mt-5">
-                <span class="text-3xl"><i class="fa-solid fa-home"></i></span>
-              </div>
-            </div>
-            <div class="bg-transparent-500 -ml-2 h-12 rounded-r-xl border border-l-0 border-gray-600 px-5 py-3">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="flex items-center py-2 md:py-0">
-            <div class="bg-transparent-500 z-10 -mr-2 hidden h-12 rounded-l-xl border border-r-0 border-gray-600 px-5 py-3 md:block">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-            <div class="bg-transparent-500 h-20 w-20 rounded-full border border-gray-600 text-center">
-              <div class="mt-5">
-                <span class="text-3xl"><i class="fa-solid fa-phone"></i></span>
-              </div>
-            </div>
-
-            <div class="bg-transparent-500 -ml-2 h-12 rounded-r-xl border border-l-0 border-gray-600 px-5 py-3 md:hidden">
-              <span class="text-xl font-medium">017777777777</span>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div> --}}
-
-
-    
-
-   
-
     <!-- footer top and middle -->
     <div class="bg_footer_2 pt-20 leading-7 
     @if (Request::route()->getName() != '/')
@@ -490,7 +497,7 @@
     text-gray-300   relative" >
       {{-- footer top --}}
       <div class="bg-gradient-to-r from-slate-700 via-gray-700 to-slate-500 shadow-lg shadow-slate-400/50 h-40 sm:h-32 sm:rounded-md -mt-36   overflow-visible absolute md:w-4/5 w-full md:mx-20p">
-        <div class="my-7 mx-5 sm:flex sm:justify-between">
+        <div class="my-7 ml-10 mr-5 sm:flex sm:justify-between">
           <div>
             <p class=" text-base sm:text-xl font-medium">আজকেই শুরু করা যাক</p>
             <div class="mt-3">
@@ -501,8 +508,12 @@
           </div>
           <div>
             <div class="mt-5">
-              <a href="#" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
-              <a href="#" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              @guest
+              <a href="{{ route('register') }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              @else
+              <a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ডকুমেন্টেশন &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              @endguest
+              <a href="{{ route('contact') }}" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -514,29 +525,28 @@
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;হোম</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
+              <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;বাড়ি</a></li>
+              <li><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
+              <li><a href="{{ route('splade') }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
+              <li><a href="{{ route('livewire') }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
             </ul>
           </div>
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">তথ্য </span></h6>
             <ul class="pt-2">
               <li><a href="{{ route('about.us') }}"><i class="fa-solid fa-circle-info"></i>&nbsp;&nbsp;আমাদের সম্পর্কে</a></li>
-              <li><a href="#"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
-              <li><a href="#"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
-              <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
+              <li><a href="{{ route('contact') }}"><i class="fa-solid fa-message"></i>&nbsp;&nbsp;যোগাযোগ করুন</a></li>
+              <li><a href="{{ route('blog') }}"><i class="fa-solid fa-blog"></i>&nbsp;&nbsp;ব্লগ</a></li>
+              <li><a href="{{ route('forum') }}"><i class="fa fa-group"></i>&nbsp;&nbsp;ফোরাম</a></li>
             </ul>
           </div>
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
-              <li><a href="#"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
-              <li><a href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
-
+              <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
+              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;ডকুমেন্টেশন</a></li>
+              <li><a href="{{ route('community') }}"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
+              <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
             </ul>
           </div>
           <div class="col-span-12 md:col-span-3">
@@ -550,9 +560,9 @@
           <div class="col-span-12 md:col-span-3 md:pt-8">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">সমর্থন </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-circle-question"></i>&nbsp;&nbsp;প্রশ্ন</a></li>
-              <li><a href="#"><i class="fa-solid fa-handshake-angle"></i>&nbsp;&nbsp;সাহায্য</a></li>
-              <li><a href="#"><i class="fa-solid fa-sitemap"></i>&nbsp;&nbsp;সাইটম্যাপ</a></li>
+              <li><a href="{{ route('question') }}"><i class="fa-solid fa-circle-question"></i>&nbsp;&nbsp;প্রশ্ন</a></li>
+              <li><a href="{{ route('help') }}"><i class="fa-solid fa-handshake-angle"></i>&nbsp;&nbsp;সাহায্য</a></li>
+              <li><a href="{{ route('sitemap') }}"><i class="fa-solid fa-sitemap"></i>&nbsp;&nbsp;সাইটম্যাপ</a></li>
             </ul>
           </div>
 
@@ -570,11 +580,11 @@
           <div class="col-span-12 md:col-span-3 md:pt-8">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">সেবা সমূহ </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span
+              <li><a href="{{ route('online.course') }}"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;অনলাইন কোর্স <span
                         class="rounded-full bg-yellow-600 px-2 text-xs text-black">রেজিস্ট্রেশন করুন</span></a></li>
-              <li><a href="#"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
+              <li><a href="{{ route('web.design.and.development') }}"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;ওয়েব ডিজাইন এবং ডেভেলপমেন্ট</a></li>
+              <li><a href="{{ route('apps.development') }}"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;অ্যাপস ডেভেলপমেন্ট</a></li>
+              <li><a href="{{ route('software.development') }}"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;সফটওয়্যার ডেভেলপমেন্ট</a></li>
             </ul>
           </div>
 
@@ -583,13 +593,13 @@
             <div class="flex items-center gap-3 pt-4">
               <div class="h-10 w-10 rounded-full bg-blue-800 text-center text-white duration-300 hover:bg-blue-900">
                 <div class="mt-2">
-                  <a href="#"><span class="pt-8 text-xl"><i class="fa-brands fa-facebook-f"></i></span></a>
+                  <a href="https://www.facebook.com/LaraBangla" target="_blank"><span class="pt-8 text-xl"><i class="fa-brands fa-facebook-f"></i></span></a>
                 </div>
               </div>
 
               <div class="h-10 w-10 rounded-full bg-sky-500 text-center text-gray-200 duration-300 hover:bg-sky-600">
                 <div class="mt-2">
-                  <a href="#"><span class="pt-8 text-xl"><i class="fa-brands fa-twitter"></i></span></a>
+                  <a href="https://twitter.com/LaraBangla" target="_blank"><span class="pt-8 text-xl"><i class="fa-brands fa-twitter"></i></span></a>
                 </div>
               </div>
 
@@ -601,7 +611,7 @@
 
               <div class="h-10 w-10 rounded-full bg-red-700 text-center text-white duration-300 hover:bg-red-800">
                 <div class="mt-1.5">
-                  <a href="#"><span class="pt-8 text-xl"><i class="fa-brands fa-youtube"></i></span></a>
+                  <a href="https://www.youtube.com/@Larabangla" target="_blank"><span class="pt-8 text-xl"><i class="fa-brands fa-youtube"></i></span></a>
                 </div>
               </div>
 
@@ -620,7 +630,9 @@
     <!-- footer bottom end-->
   </footer>
   <!-- footer end -->
+
   </div>
+
 
   <script src="{{ asset('js/prism.js') }}"></script>
   {{-- hotwire turbo start --}}
@@ -634,10 +646,14 @@
   </script>
 
   {{-- hotwire turbo ends --}}
+  @notifyJs
   {{-- jetstream modals --}}
   @stack('modals')
   @stack('scripts')
   @livewireScripts
+
+  @include('frontend.more.top-to-bottom')
+
 
 </body>
 

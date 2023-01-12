@@ -1,16 +1,23 @@
+@extends('frontend.header_footer')
+
+@section('title')
+লারা বাংলা - লগ ইন
+@endsection
+
+@section('content')
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Before continuing, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+        <div class="mb-4 text-sm text-gray-600 ">
+            {{ __('চালিয়ে যাওয়ার আগে, আমরা এইমাত্র আপনাকে ইমেল করেছি সেই লিঙ্কটিতে ক্লিক করে আপনি কি আপনার ইমেল ঠিকানা যাচাই করতে পারেন? আপনি যদি ইমেলটি না পেয়ে থাকেন তবে আমরা আনন্দের সাথে আপনাকে অন্যটি পাঠাব৷।') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
             <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided in your profile settings.') }}
+                {{ __('আপনার দেওয়া ইমেল ঠিকানায় একটি নতুন যাচাইকরণ লিঙ্ক পাঠানো হয়েছে৷') }}
             </div>
         @endif
 
@@ -19,8 +26,8 @@
                 @csrf
 
                 <div>
-                    <x-jet-button type="submit">
-                        {{ __('Resend Verification Email') }}
+                    <x-jet-button type="submit" class="bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 shadow-md shadow-gray-500/50 text-gray-100">
+                        {{ __('পুনরায় যাচাইকরণ ইমেল পাঠান') }}
                     </x-jet-button>
                 </div>
             </form>
@@ -30,16 +37,17 @@
                     href="{{ route('profile.show') }}"
                     class="underline text-sm text-gray-600 hover:text-gray-900"
                 >
-                    {{ __('Edit Profile') }}</a>
+                    {{ __('প্রফাইল সম্পাদনা করুন') }}</a>
 
                 <form method="POST" action="{{ route('logout') }}" class="inline">
                     @csrf
 
                     <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 ml-2">
-                        {{ __('Log Out') }}
+                        {{ __('লগ আউট') }}
                     </button>
                 </form>
             </div>
         </div>
     </x-jet-authentication-card>
 </x-guest-layout>
+@endsection

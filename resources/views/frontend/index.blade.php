@@ -62,7 +62,7 @@
           <label for="newsleter" class=" text-white block mb-3 md:text-left text-center">আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন</label>
           <div class="flex justify-center md:justify-start ">
             <div>
-              <input type="text" class=" lg:pr-32 md:pr-24 sm:pr-10 pr-0 rounded-l" id="newsleter" placeholder="ইমেল অ্যাড্রেস" style="padding-top: 12px; padding-bottom:12px;">
+              <input type="text" class=" lg:pr-32 md:pr-24 sm:pr-10 pr-0 rounded-l bg-slate-300 focus:border-transparent focus:right-0" id="newsleter" placeholder="ইমেল অ্যাড্রেস" style="padding-top: 12px; padding-bottom:12px;">
             </div>
             <div>
               <div class="bg-green-600 py-4 lg:px-20 md:px-16 sm:px-10 px-2 rounded-r hover:bg-green-700 ">
@@ -183,7 +183,7 @@ laravel <span class="token keyword">new</span> <span class="token class-name">ex
              <div class="mx-5 md:mx-0">
               <p class="  font-black text-xl sm:text-3xl text-green-500 ">ওয়েব ডেভেলপমেন্টে আগ্রহী?</p>  
               <p class=" text-gray-400 mt-4 leading-8">
-                আপনার ওয়েব ডেভেলপমেন্ট শিখার যাত্রার পথে আমরা আপনাকে এখানে এখানে পেয়ে আনন্দিত।
+                আপনার ওয়েব ডেভেলপমেন্ট শিখার যাত্রার পথে আমরা আপনাকে এখানে পেয়ে আনন্দিত।
                 আমাদের ওয়েবসাইট উচ্চ-মানের সংস্থান এবং টিউটোরিয়াল দিয়ে পরিপূর্ণ যা আপনাকে শুরু করতে এবং দক্ষ করতে সাহায্য করবে।
                 তো চলুন শুরু করা যাক!                
               </p>

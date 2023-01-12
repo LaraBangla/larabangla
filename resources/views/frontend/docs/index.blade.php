@@ -53,7 +53,7 @@
                     </div>
                   </div>
                 </div>
-                {{-- search body start --}}
+                {{-- mobile search body start --}}
                 <div class="fixed top-5 right-0 w-screen duration-200" x-show="mobile_search" @click.outside="mobile_search = false"
                      x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
                      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
@@ -71,7 +71,7 @@
                           <span class="text-lg text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
                         </div>
                         <div>
-                          <input class="bg-gray-900 text-gray-200 outline-none" type="text" placeholder="ডক অনুসন্ধান">
+                          <input class="bg-gray-900 text-gray-200  border-transparent focus:border-0 focus:ring-0" type="text" placeholder="ডক অনুসন্ধান">
                         </div>
                       </div>
                       {{-- search instraction --}}
@@ -87,19 +87,19 @@
                     </div>
                   </div>
                 </div>
-                {{-- search body end --}}
+                {{-- mobile search body end --}}
               </div>
               {{-- search end --}}
-              <div :class="mobile_search ? 'blur-sm' : ''">
-                {!! $data !!}
+              <div :class="mobile_search ? 'blur-sm' : ''" >
+                  {!! $data !!}
               </div>
             </div>
           </div>
-          <div class="col-span-12 mt-8 bg-slate-50 pt-1 md:col-span-3">
+          <div class="col-span-12 mt-8  pt-1 md:col-span-3">
             {{-- desktop version start --}}
-            <div class="-mt-1 w-full bg-slate-100 text-center hidden md:block ">
-              <label class="w-full bg-slate-100 text-center font-bold uppercase text-gray-600" for="version">Version</label>
-              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600" id="version" id="" name="version"  @change="window.location = $event.target.value">
+            <div class="-mt-1 w-full  text-center hidden md:block ">
+              <label class="w-full text-center font-bold uppercase text-gray-600" for="version">Version</label>
+              <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600 focus:border-gray-500 focus:ring-0" id="version" id="" name="version"  @change="window.location = $event.target.value">
                 @foreach ($technology->versions as $version)
                   @php
                    $get_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->whereVersion_id($version->id)->whereChapter_id($version->chapter->id)->whereStatus(1)->orderBy('id', 'asc')->select('id', 'slug')->first();

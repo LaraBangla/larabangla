@@ -18,10 +18,10 @@
         background-color: #14171d;
     }
     .docs blockquote {
-        background: rgb(220, 220, 220);
+        background: rgb(241, 240, 240);
         padding: 10px;
         margin: 20px 0;
-        box-shadow: -3px 6px 22px 1px rgb(150, 150, 150);
+        box-shadow: -3px 2px 5px 1px rgb(212, 211, 211);
         border-radius: 7px;
     }
     .docs blockquote p {
@@ -34,7 +34,7 @@
         border-radius: 4px;
     }
     .docs p {
-        line-height: 27px;
+        line-height: 31px;
     }
     .docs ul > li,
     .docs a {
@@ -119,5 +119,20 @@
 
     .content h1 {
         @apply text-xl font-bold text-gray-600 mb-5;
+    }
+
+    .toggle-checkbox:checked {
+        @apply: right-0 border-green-400;
+        right: 0;
+        border-color: #888686;
+        background-color: #888686;
+    }
+    .toggle-checkbox:checked:hover,
+    .toggle-checkbox:checked:focus {
+        background-color: #727171;
+    }
+    .toggle-checkbox:checked + .toggle-label {
+        @apply: bg-green-400;
+        background-color: #dbdbdb;
     }
 }
