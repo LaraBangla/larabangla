@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/larabang/lb/
+    - export DEPLOYPATH=/home/larabang/lb
     - /bin/cp * $DEPLOYPATH
