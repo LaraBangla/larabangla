@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/larabang/public_html/larabangla/public
+    - /bin/cp index.php $DEPLOYPATH
