@@ -1,6 +1,5 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On RewriteRule ^(.*)$ public/$1 [L]
-</IfModule>
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]
 
 # php -- BEGIN cPanel-generated handler, do not edit # Set the “alt-php81” package as the default “PHP” programming language.
 <IfModule mime_module>
