@@ -103,8 +103,8 @@
             open = false
         }" @endif>
     <div class="
-    
-   
+
+
     @if (Request::route()->getName() == '/')
     bg-gray-900
     border-b  border-slate-600
@@ -136,11 +136,11 @@
                href="{{ route('about.us') }}">সম্পর্কে</a></li>
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                href="{{ route('contact') }}">যোগাযোগ</a></li>
-         
+
           <li class="mx-1 hidden px-2 py-3 text-gray-600 duration-500 md:block" x-data="{ doc_search: false }">
             <a class="font-bold" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
       {{-- desktop search body start --}}
-    <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-20" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search" 
+    <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-20" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
       x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
       x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
       x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
@@ -176,7 +176,7 @@
  </div>
  </div>
  {{-- search body end --}}
-            
+
           </li>
           <li class="mx-1 hidden px-3 py-3 text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
             class="font-bold"><i class="fa-solid fa-user"></i></a>
@@ -189,7 +189,7 @@
               <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('register') }}"><span class="text-gray-500"><i
                 class="fa-solid fa-user-plus mr-2"></i></span>রেজিস্টার</a></li>
 
-                   
+
             @else
             <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
               class="fa-solid fa-user mr-2"></i></span>প্রফাইল</a></li>
@@ -205,8 +205,8 @@
               </form>
             </li>
             @endguest
-            
-             
+
+
            </ul>
          </div>
        </li>
@@ -230,14 +230,14 @@
                 <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('software.development') }}">
                   <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a></li>
                 </li>
-                  
+
                 @else
                 <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
                   class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
                 <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
                 <i class="fa-solid fa-gear"></i> </span>সেটিংস</a></li>
                 @endguest
-               
+
               </ul>
             </div>
           </li>
@@ -311,7 +311,7 @@
         @endif
 
         <div class="pl-4 pb-2 min-h-screen
-        
+
         @if (Request::route()->getName() == '/')
         bg-slate-800
         @endif
@@ -391,7 +391,7 @@
             {{ $slot }}
           </main>
           @endif
-         
+
           @yield('content')
         </section>
 
@@ -462,7 +462,7 @@
         <p>ডকস</p>
       @endif
       </a>
-    
+
       </li>
       <li class="px-4 py-4 font-bold text-gray-600">
         <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span>
@@ -470,7 +470,7 @@
           <p>বাড়ি</p>
            @endif
         </a>
-         
+
       </li>
       <!-- <li class="px-4 py-4 font-bold text-gray-600"></li> -->
       <li class="px-4 py-4 font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
@@ -478,7 +478,7 @@
         <p>ইউজার</p>
          @endif
       </a>
-        
+
       </li>
     </ul>
   </div>
@@ -490,7 +490,7 @@
   <!-- footer start -->
   <footer class="duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <!-- footer top and middle -->
-    <div class="bg_footer_2 pt-20 leading-7 
+    <div class="bg_footer_2 pt-20 leading-7
     @if (Request::route()->getName() != '/')
         mt-24
     @endif
@@ -503,7 +503,7 @@
             <div class="mt-3">
               <span class="text-sm sm:text-base"> <i class="fa-solid fa-check-to-slot"></i> বাংলা ভাষা</span>
               <span class="text-sm sm:text-base md:ml-3"><i class="fa-solid fa-check-to-slot"></i> ডকুমেন্টেশন</span>
-              <span class="text-sm sm:text-base md:ml-3"> <i class="fa-solid fa-check-to-slot"></i> রিসোর্স</span> 
+              <span class="text-sm sm:text-base md:ml-3"> <i class="fa-solid fa-check-to-slot"></i> রিসোর্স</span>
             </div>
           </div>
           <div>
@@ -553,7 +553,7 @@
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">আমাদের সম্পর্কে </span></h6>
             <p class="pt-3">
               বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী "লারা বাংলা"-এ স্বাগতম।
-               আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত । 
+               আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত ।
             </p>
           </div>
 
