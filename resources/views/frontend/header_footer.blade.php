@@ -534,6 +534,7 @@
         <div class="grid grid-cols-12 gap-4 py-5">
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
+            <span class=" text-amber-700">ওয়েবসাইট টি নির্মানাধীন রয়েছে</span>
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;বাড়ি</a></li>
               <li><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
