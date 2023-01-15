@@ -60,6 +60,16 @@
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-NEQ21J8TWK');
+  </script>
+
   @notifyCss
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
