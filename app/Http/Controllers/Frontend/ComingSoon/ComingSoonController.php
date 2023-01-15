@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class ComingSoonController extends Controller
 {
 
+    // if anyone click on /public url || that's useful for production
+    public function public()
+    {
+        abort(404);
+    }
+
     public function blog()
     {
         return view('frontend.more.coming-soon');
