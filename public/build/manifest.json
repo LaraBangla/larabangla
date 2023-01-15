@@ -4,12 +4,12 @@
     "src": "public/assets/icon/dropdown.png"
   },
   "resources/js/app.js": {
-    "file": "assets/app.69456af7.js",
+    "file": "assets/app.015a9166.js",
     "src": "resources/js/app.js",
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.c9cf5d95.css",
+    "file": "assets/app.72f81496.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }
