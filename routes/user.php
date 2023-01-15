@@ -36,6 +36,7 @@ Route::controller(ContactController::class)->group(function ()
 // coming soon pages
 Route::controller(ComingSoonController::class)->group(function ()
 {
+    Route::get('/public', 'public')->name('public');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/forum', 'forum')->name('forum');
     Route::get('/question', 'question')->name('question');
