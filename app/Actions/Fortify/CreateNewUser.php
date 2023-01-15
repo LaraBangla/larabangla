@@ -31,7 +31,7 @@ class CreateNewUser implements CreatesNewUsers
                 // 'mobile' => ['nullable', 'string', 'regex:/(01)[0-9]{9}/', 'size:11'],
                 'password' => $this->passwordRules(),
                 'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
-                'g-recaptcha-response' => ['required|captcha']
+                'g-recaptcha-response' => 'required | captcha'
             ],
             [
                 'name.required' => 'নাম ক্ষেত্রটি পূরণ করতে হবে।',
@@ -59,7 +59,7 @@ class CreateNewUser implements CreatesNewUsers
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'username' => $input['username'],
-                'mobile' => $input['mobile'],
+                // 'mobile' => $input['mobile'],
                 'password' => Hash::make($input['password']),
             ]), function (User $user)
             {
