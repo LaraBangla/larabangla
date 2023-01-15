@@ -2,6 +2,8 @@
 /public/hot
 /public/storage
 /storage/docs
+/storage/docs/*
+/storage/tech_images/*
 /storage/tech_images
 /storage/*.key
 /vendor
