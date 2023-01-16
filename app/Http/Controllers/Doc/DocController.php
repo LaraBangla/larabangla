@@ -35,7 +35,7 @@ class DocController extends Controller
 
                 if ((isset($version) && $version != null) && (isset($chapter) && $chapter != null) & (isset($lesson) && $lesson != null))
                 {
-                    return redirect()->route('docs', ['technology_slug' => $technology->slug, 'version_slug' => $version->slug, 'chapter_slug' => $chapter->slug, 'lesson_slug' => $lesson->slug]);
+                    return to_route('docs', ['technology_slug' => $technology->slug, 'version_slug' => $version->slug, 'chapter_slug' => $chapter->slug, 'lesson_slug' => $lesson->slug]);
                 }
                 else
                 {
