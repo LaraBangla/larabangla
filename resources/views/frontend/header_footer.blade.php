@@ -60,16 +60,6 @@
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-NEQ21J8TWK');
-  </script>
-
   @notifyCss
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
@@ -81,8 +71,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="{{ asset('css/prism.css') }}" rel="stylesheet" data-turbolinks-eval="false" data-turbo-eval="false">
   @livewireStyles
-
   @stack('style')
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-NEQ21J8TWK');
+    </script>
   <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')</title>
 </head>
 
