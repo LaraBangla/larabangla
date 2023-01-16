@@ -79,7 +79,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="{{ asset('css/prism.css') }}" rel="stylesheet" data-turbo-track="reload">
+  <link href="{{ asset('css/prism.css') }}" rel="stylesheet" data-turbo-preload>
   @livewireStyles
 
   @stack('style')
@@ -654,7 +654,7 @@
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js">
   </script>
 
-<script src="{{ asset('js/prism.js') }}" data-turbo-track="reload"></script>
+<script src="{{ asset('js/prism.js') }}" data-turbo-preload></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
