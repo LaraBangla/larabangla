@@ -79,7 +79,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="{{ asset('css/prism.css') }}" rel="stylesheet" data-turbolinks-eval="false" data-turbo-eval="false">
+  <link href="{{ asset('css/prism.css') }}" rel="stylesheet" >
   @livewireStyles
 
   @stack('style')
@@ -649,13 +649,12 @@
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo'
         </script>
   <script data-turbolinks-eval="false" data-turbo-eval="false">
-    Turbo.setProgressBarDelay(1000);
-    Prism.highlightAll();
+    Turbo.setProgressBarDelay(1000)
   </script>
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false">
   </script>
 
-<script src="{{ asset('js/prism.js') }}" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+<script src="{{ asset('js/prism.js') }}" ></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
