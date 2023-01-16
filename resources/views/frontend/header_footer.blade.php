@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @stack('meta')
 
   <meta name='keywords' content='@yield('keywords','লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,laravel,bangla documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
   <meta name='description' content='@yield('description','')'>
