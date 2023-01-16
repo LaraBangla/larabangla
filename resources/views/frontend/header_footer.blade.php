@@ -651,7 +651,7 @@
   <script>
     Turbo.setProgressBarDelay(1000)
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false">
+  <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js">
   </script>
 
 <script src="{{ asset('js/prism.js') }}" data-turbo-track="reload"></script>
