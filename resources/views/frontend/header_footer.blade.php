@@ -79,7 +79,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="{{ asset('css/prism.css') }}" rel="stylesheet" data-turbo-preload>
+  <link href="{{ asset('css/prism.css') }}" rel="stylesheet">
   @livewireStyles
 
   @stack('style')
@@ -635,7 +635,7 @@
     <!-- footer bottom -->
     <div class=" bg_footer_3 py-4 text-gray-400">
       <div class="container mx-auto text-center">
-        <p>কপিরাইট ২০২২ - {{ $present_year }} || <a href="#" >লারা <span class="text-lg">বাংলা</a></span></p>
+        <p>কপিরাইট ২০২২ - {{ $present_year }} || <a href="#">লারা <span class="text-lg">বাংলা</a></span></p>
       </div>
     </div>
     <!-- footer bottom end-->
@@ -644,6 +644,8 @@
 
   </div>
 
+
+  <script src="{{ asset('js/prism.js') }}"></script>
   {{-- hotwire turbo start --}}
   <script type="module">
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo'
@@ -654,7 +656,6 @@
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js">
   </script>
 
-<script src="{{ asset('js/prism.js') }}" data-turbo-preload></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
