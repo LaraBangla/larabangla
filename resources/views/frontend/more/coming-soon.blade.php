@@ -1,7 +1,7 @@
 @extends('frontend.header_footer')
 
 @section('title')
-লারা বাংলা - দ্রুতই আসছে
+লারা বাংলা - {{ $message }}
 @endsection
 
 @section('content')
