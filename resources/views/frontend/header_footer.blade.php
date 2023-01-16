@@ -644,8 +644,6 @@
 
   </div>
 
-
-  <script src="{{ asset('js/prism.js') }}"></script>
   {{-- hotwire turbo start --}}
   <script data-turbolinks-eval="false" data-turbo-eval="false" type="module">
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo'
@@ -656,6 +654,7 @@
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false">
   </script>
 
+<script src="{{ asset('js/prism.js') }}" ata-turbolinks-eval="false" data-turbo-eval="false"></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
