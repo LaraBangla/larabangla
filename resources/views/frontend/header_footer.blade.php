@@ -63,6 +63,9 @@
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
+  <!-- Alpine collapse Plugins -->
+  <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script src="//unpkg.com/alpinejs"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -75,9 +78,6 @@
   @vite('resources/css/app.css')
   @vite('resources/js/app.js')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
-  <!-- Alpine collapse Plugins -->
-  <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-  <script src="//unpkg.com/alpinejs"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
