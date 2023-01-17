@@ -11,9 +11,6 @@
 @section('image'){{ asset('storage/tech_images/'.$lesson->technology->image) }} @endsection
 @endif
 
-@push('meta')
-<meta name="turbo-visit-control" content="reload">
-@endpush
 
 @section('content')
   <section class="docs" x-data="{ mobile_search: false }">
