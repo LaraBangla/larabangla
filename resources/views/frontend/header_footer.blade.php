@@ -61,6 +61,11 @@
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
 
+
+<!-- Alpine Plugins -->
+<script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<!-- Alpine Core -->
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
   <script>
@@ -73,10 +78,8 @@
 
   @notifyCss
   @vite('resources/css/app.css')
+  @vite('resources/js/app.js')
   <script src="https://kit.fontawesome.com/45ee9bbd89.js" crossorigin="anonymous"></script>
-  <!-- Alpine collapse Plugins -->
-  <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-  <script src="//unpkg.com/alpinejs"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -652,7 +655,8 @@
             import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo'
         </script>
   <script>
-    Turbo.setProgressBarDelay(1000)
+    Turbo.setProgressBarDelay(1000);
+
   </script>
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js">
   </script>
