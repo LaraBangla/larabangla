@@ -8,8 +8,8 @@
   @stack('meta')
 
   <meta name='keywords' content='@yield('keywords','লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,laravel,bangla documentation,bengali documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
-  <meta name='description' content='@yield('description','')'>
-  <meta name='subject' content='@yield('title','টেকনোলজি ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='description' content='@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী "লারা বাংলা"-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত । ')'>
+  <meta name='subject' content='@yield('title','বাংলা ভাষায় টেকনোলজি ডকুমেন্টেশন ওয়েব সাইট')'>
   <meta name='copyright' content='LaraBangla'>
   <meta name='language' content='BD'>
   <meta name='topic' content='টেকনোলজি ডকুমেন্টেশন'>
