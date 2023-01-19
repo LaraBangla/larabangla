@@ -32,7 +32,7 @@
   <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
   <meta name='og:site_name' content='লারা বাংলা - LaraBangla'>
-  <meta name='og:description' content='@yield('description','')'>
+  <meta name='og:description' content='@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')'>
 
   <meta name='fb:page_id' content='100088381790920'>
   <meta name='application-name' content='LaraBangla'>
@@ -44,7 +44,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
   <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')">
-  <meta name="twitter:description" content="@yield('description','')">
+  <meta name="twitter:description" content="@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')">
   <meta name="twitter:image" content="@yield('image','www.larabangla.com/img/logo.png')'">
   <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')">
 
