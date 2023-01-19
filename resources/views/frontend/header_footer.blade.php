@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @stack('meta')
 
-  <meta name='keywords' content='@yield('keywords','লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,laravel,bangla documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
+  <meta name='keywords' content='@yield('keywords','লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,laravel,bangla documentation,bengali documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
   <meta name='description' content='@yield('description','')'>
   <meta name='subject' content='@yield('title','টেকনোলজি ডকুমেন্টেশন ওয়েব সাইট')'>
   <meta name='copyright' content='LaraBangla'>
@@ -23,11 +23,11 @@
   <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
   <meta name='coverage' content='Worldwide'>
   <meta name='distribution' content='Global'>
-  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')'>
   <meta name='target' content='all'>
   <meta name='HandheldFriendly' content='True'>
 
-  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')'>
   <meta name='og:type' content='Documentation,ডকুমেন্টেশন'>
   <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
@@ -43,10 +43,10 @@
   <meta name="google-analytics" content="@yield('description','') " />
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
-  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
+  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')">
   <meta name="twitter:description" content="@yield('description','')">
   <meta name="twitter:image" content="@yield('image','www.larabangla.com/img/logo.png')'">
-  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')">
+  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')">
 
   <meta itemprop="name" content="লারা বাংলা - LaraBangla">
   <meta itemprop="image" content="@yield('image','www.larabangla.com/img/logo.png')'">
@@ -87,7 +87,7 @@
   @livewireStyles
 
   @stack('style')
-  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন ডকুমেন্টেশন ওয়েব সাইট')</title>
+  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')</title>
 </head>
 
 <body class="bg-gray-50">
