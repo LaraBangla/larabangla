@@ -4,6 +4,7 @@
 
 ## **For upload to server**
 
+-   technology keyword update problem | live
 -   from login route, mobile nav not showing
 -   privacy policy content
 -   terms conditions content
@@ -41,6 +42,7 @@
 
 ## **After google ad request**
 
+-   add breadecrumb to doc page
 -   dark mode
 -   mobile toaster z-index bug
 -   email template content bengali

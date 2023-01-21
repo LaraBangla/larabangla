@@ -64,7 +64,7 @@ class LessonsController extends Controller
                     'doc_file' => ['required', new Markdown, 'max:10240'],
                     'keywords' => 'nullable|string|max:255',
                     'title' => 'required|string|max:255',
-                    'description' => 'nullable|string|max:150',
+                    'description' => 'nullable|string|max:200',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
@@ -256,7 +256,7 @@ class LessonsController extends Controller
                     'doc_file' => [new Markdown, 'max:10240'],
                     'keywords' => 'nullable|string|max:255',
                     'title' => 'required|string|max:255',
-                    'description' => 'nullable|string|max:150',
+                    'description' => 'nullable|string|max:200',
                 ],
                 [
                     'doc_file.max' => 'File should not be greater than 10 MB',
