@@ -209,6 +209,11 @@ class TechnologyController extends Controller
                 $data['slug'] = strtolower($request->slug);
             }
 
+            if ($request->keywords != $find->keywords)
+            {
+                $data['keywords'] = strtolower($request->keywords);
+            }
+
             // check current request folder name and old folder name same or not, if not, then keep that data into array
             $folderName = strtolower(Str::studly($request->path_folder_name));
             if ($find->lesson == null && $request->path_folder_name != null && $folderName != $find->path_folder_name)

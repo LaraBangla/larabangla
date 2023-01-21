@@ -1,6 +1,6 @@
 @extends('frontend.header_footer')
 
-@section('title'){{ $lesson->title }}@endsection
+@section('title'){{ $lesson->title }} - লারা বাংলা@endsection
 
 @section('description'){{ $lesson->description }}@endsection
 @section('pagename'){{ $lesson->technology->name.' '.$lesson->version->name.' Documentation' }}@endsection
