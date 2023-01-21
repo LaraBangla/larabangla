@@ -2,6 +2,7 @@
 
 @section('title'){{ $lesson->title }} - লারা বাংলা@endsection
 
+@section('keywords'){{ $lesson->keywords.','.$lesson->technology->keywords.','.$lesson->version->keywords.','.$lesson->chapter->keywords }}@endsection
 @section('description'){{ $lesson->description }}@endsection
 @section('pagename'){{ $lesson->technology->name.' '.$lesson->version->name.' Documentation' }}@endsection
 @section('category'){{ $lesson->technology->name }}@endsection
