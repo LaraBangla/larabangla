@@ -42,7 +42,7 @@
         <div class="flex">
             <div class=" w-96 md:w-60 h-screen bg-slate-200 border-r border-gray-300 duration-500" x-show="sidebar" x-transition>
                 <div class="text-center pt-6 pb-6 border-b border-gray-300">
-                    <a href="{{ route('admin.dashboard') }}" class=" text-gray-600 text-xl font-bold" target="_blank">Dashboard</a>
+                    <a href="{{ route('admin.dashboard') }}" class=" text-gray-600 text-xl font-bold">Dashboard</a>
                 </div>
 
                 <div>
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class=" hover:bg-gray-300 pl-2 rounded font-semibold"><a href="{{ route('/') }}" ><span><i class="fa-solid fa-globe"></i></span> Visite website</a></li>
+                            <li class=" hover:bg-gray-300 pl-2 rounded font-semibold"><a href="{{ route('/') }}" target="_blank" ><span><i class="fa-solid fa-globe"></i></span> Visite website</a></li>
                             <li class="mt-1" x-data="{open: false}" >
                                 <div class=" hover:bg-gray-300 pl-2 rounded"  @click="open = ! open">
                                     <a  class=" font-semibold"><span><i class="fa-regular fa-folder"></i></span> Tech Devision<span><i class="fa-solid fa-caret-down"></i></span></a>
