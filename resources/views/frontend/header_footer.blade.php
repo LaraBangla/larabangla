@@ -151,7 +151,7 @@
             <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block" x-data="{ doc_search: false }">
               <a class="font-bold" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
         {{-- desktop search body start --}}
-      <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-20" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
+      <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-30" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
         x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
         x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
