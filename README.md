@@ -4,12 +4,12 @@
 
 ## **For upload to server**
 
--   technology keyword update problem | live
--   from login route, mobile nav not showing
+-   technology keyword update problem | live ->done
+-   from login route, mobile nav not showing ->done
 -   privacy policy content
 -   terms conditions content
 -   search option disable for a short time
--   docs page left sidebar double logo bug
+-   docs page left sidebar double logo bug -> done
 -   docs top menu click to the right section : ?
 -   instagram account and link to social link
 -   actual floating button

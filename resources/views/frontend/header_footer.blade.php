@@ -331,27 +331,14 @@
         bg-slate-800
         @endif
         ">
-          <ul class="pt-6">
-
-            {{-- @if (Request::route()->getName() == '/' || Request::route()->getName() == 'profile.show' || Request::route()->getName() == 'login' || Request::route()->getName() == 'register')
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
-                       class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
-                       class="fa-solid fa-book-open-reader mr-4"></i></span>ডকুমেন্টেশন</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
-                       class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"><span class="text-xl text-gray-500"><i
-                       class="fa-solid fa-blog mr-4"></i></span>ব্লগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a  href="{{ route('about.us') }}"> <span class="text-xl text-gray-500"><i
-                       class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="{{ route('contact') }}"><span class="text-xl text-gray-500"><i
-                       class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-600"><a href="#"> <span class="text-xl text-gray-500"><i
-                       class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
-            @else
-              @include('frontend.more.doc_sidebar')
-            @endif --}}
-
+      <div x-data="{ doc_side_logo: true }"
+       {{-- if onload screen size is bigger than 767 then auto show doc_side_logo else hide doc_side_logo --}}
+      x-if="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+      if (width > 767) {
+        doc_side_logo = false
+      }"
+      >
+            <ul class="pt-6">
             @if (Request::route()->getName() == 'docs')
               @include('frontend.more.doc_sidebar')
             @else
@@ -374,24 +361,8 @@
             @endif
 
           </ul>
+      </div>
         </div>
-        {{-- <div class="pt-5 pl-5">
-                    <div class=" border-b pb-3">
-                        <span class=" font-semibold text-xl text-gray-600">Services</span>
-
-                    </div>
-                    <ul class="pt-4">
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa fa-home mr-4 "></i></span>Home</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a href="#"><span class=" text-xl text-gray-500"><i class="fa-solid fa-blog mr-4 "></i></span>Blog</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600"><a  href="{{ route('about.us') }}"><span class=" text-xl text-gray-500"><i class="fa-solid fa-users mr-4 "></i></span>Team</a></li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600">
-                            <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-info-circle mr-4 "></i></span>সম্পর্কে</a>
-                        </li>
-                        <li class="py-3 pl-3 font-semibold text-base text-gray-600">
-                            <a href="#"> <span class="text-xl text-gray-500"><i class="fa fa-sign-in mr-4 "></i></span>Login</a>
-                        </li>
-                    </ul>
-                </div> --}}
       </div>
       {{-- mobile menu end --}}
       <!-- body section -->

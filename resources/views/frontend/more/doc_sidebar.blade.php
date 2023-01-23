@@ -1,4 +1,17 @@
-<li class="pt-3 pl-1 text-base font-semibold text-gray-600 mb-3 border-b"><a href="{{ route('/') }}"><img class="" src="{{ asset('img/logo.png') }}" alt="LaraBangla Logo" width="45"><span class=" text-gray-500 text-sm">লারা বাংলা</span></a></li>
+<li 
+x-show="doc_side_logo"
+{{-- on window resize, if screen width is bigger than 767px then hide doc sidebar logo, else show doc sidebar logo --}} 
+@resize.window="resize_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+if (resize_width > 767) {
+  doc_side_logo = false
+  }
+  else{
+    doc_side_logo = true
+  }"
+
+  
+class="pt-3 pl-1 text-base font-semibold text-gray-600 mb-3 border-b"><a href="{{ route('/') }}"><img class="" src="{{ asset('img/logo.png') }}" alt="LaraBangla Logo" width="45"><span class=" text-gray-500 text-sm">লারা বাংলা</span></a></li>
+
 <li class="pt-3 pl-1 text-base font-semibold text-gray-600"><a href="{{ route('/') }}"><span class="text-xl text-gray-500"><i
           class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
 @foreach ($chapters as $chapter)
