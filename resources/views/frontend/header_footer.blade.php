@@ -395,43 +395,46 @@
           {{-- items --}}
           <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded " x-collapse @click.outside="expanded =false">
             <ul class="text-gray-600">
-              <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3"><a href="#">
-                  <div class="pl-3">
+              <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
+              <a href="#">
+                  <div class="pl-3 flex">
                     <span class="text-2xl"><i class="fa-solid fa-newspaper"></i></span>
-                    <span class="ml-2">News</span>
-                </a>
-          </div>
-          </li>
-          <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3"><a href="#">
-              <div class="pl-3">
-                <span class="text-2xl"><i class="fa-solid fa-blog"></i></span>
-                <span class="ml-2">Blog</span>
+                    <span class="ml-3">খবর</span>
+              </div>
             </a>
-        </div>
-        </li>
-        <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3"><a href="#">
-            <div class="pl-3">
-              <span class="text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
-              <span class="ml-2">Tutorials</span>
+          </li>
+          <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
+            <a href="#">
+              <div class="pl-3 flex">
+                    <span class="text-2xl"><i class="fa-solid fa-blog"></i></span>
+                    <span class="ml-3">ব্লগ</span>
+              </div>
           </a>
-      </div>
-      </li>
-      <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3"><a href="#">
-          <div class="pl-3">
-            <span class="text-2xl"><i class="fa-regular fa-handshake"></i></span>
-            <span class="ml-2">Services</span>
+        </li>
+        <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
+          <a href="{{ route('send.to.docs', 'laravel') }}">
+            <div class="pl-3 flex">
+              <span class="text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
+              <span class="ml-3">ডকস</span>
+          </div>
         </a>
-    </div>
+      </li>
+      <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
+        <a href="#">
+          <div class="pl-3 flex">
+            <span class="text-2xl"><i class="fa-regular fa-handshake"></i></span>
+            <span class="ml-2">সেবা সমূহ</span>
+        </div>
+      </a>
     </li>
     </ul>
   </div>
   {{-- items end floting button--}}
-  <div class="fixed bottom-28 right-3 z-10 -ml-9 h-20 w-20 rounded-full border border-gray-100 bg-gray-50 shadow-lg duration-700"
-       @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
-    <div class="mt-6 text-center text-2xl font-black text-gray-600">
-      <span class="text-center"><i class="fa-solid fa-plus"></i></span>
-    </div>
-  </div>
+   <button title="অন্যান্য" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
+    class="fixed z-10 bottom-28 right-3 bg-gray-50 w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
+  </button> 
+  {{-- floating action button --}}
+
 
   {{-- mobile bottom nav --}}
   <div class="fixed bottom-0 w-screen rounded-t-lg border-t border-gray-300 bg-slate-100 duration-300 md:hidden pt-1 z-10"
