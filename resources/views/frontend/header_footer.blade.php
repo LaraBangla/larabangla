@@ -434,29 +434,29 @@
   </div>
 
   {{-- mobile bottom nav --}}
-  <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden pt-1 z-10"
+  <div class="fixed bottom-0 w-screen rounded-t-lg border-t border-gray-300 bg-slate-100 duration-300 md:hidden pt-1 z-10"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
-    <ul class="flex justify-around text-center">
-      <li class="px-4 py-4 font-bold text-gray-600"><a href="#">
+    <ul class="flex justify-around text-center py-3">
+      <li class="px-4  font-bold text-gray-600"><a href="#">
         <span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span>
         @if (Request::route()->getName() == 'docs')
-        <p>ডকস</p>
+        <p class=" border-b-4 border-gray-400 rounded -ml-1"></p>
       @endif
       </a>
 
       </li>
-      <li class="px-4 py-4 font-bold text-gray-600">
+      <li class="px-4  font-bold text-gray-600 text-center">
         <a href="{{ route('/') }}"><span class="text-xl"><i class="fa fa-home mr-2"></i></span>
           @if (Request::route()->getName() == '/')
-          <p>বাড়ি</p>
+          <p class=" border-b-4 border-gray-400 rounded -ml-1"></p>
            @endif
         </a>
 
       </li>
-      <!-- <li class="px-4 py-4 font-bold text-gray-600"></li> -->
-      <li class="px-4 py-4 font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
+      <!-- <li class="px-4  font-bold text-gray-600"></li> -->
+      <li class="px-4  font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
         @if (Request::route()->getName() == 'profile')
-        <p>ইউজার</p>
+        <p class=" border-b-4 border-gray-400 rounded -ml-1"></p>
          @endif
       </a>
 

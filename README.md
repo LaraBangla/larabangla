@@ -6,10 +6,12 @@
 
 -   technology keyword update problem | live ->done
 -   from login route, mobile nav not showing ->done
+-   docs page left sidebar double logo bug -> done
+-   mobile nav z-index bug fix ->done
+-   mobile bottom nav menu height bug -> done
 -   privacy policy content
 -   terms conditions content
 -   search option disable for a short time
--   docs page left sidebar double logo bug -> done
 -   docs top menu click to the right section : ?
 -   instagram account and link to social link
 -   actual floating button
