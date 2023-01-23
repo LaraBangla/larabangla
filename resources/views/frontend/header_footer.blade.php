@@ -304,7 +304,7 @@
             h-screen
             @else
             rounded-r-md
-            bg-gray-100  md:border-r-2 md:border-r-gray-200 md:mt-1 @endif z-10 w-1/2 duration-700 md:w-2/12"
+            bg-gray-100  md:border-r-2 md:border-r-gray-200 md:mt-1 @endif z-20 w-1/2 duration-300 md:w-2/12"
            x-show="open" x-transition:enter="transition ml-2 duration-100" x-transition:enter-start="opacity-0 scale-50"
            x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" {{-- if the page is not docs page then hide mobile menu on click outside of mobile menu. --}}
@@ -433,6 +433,7 @@
     </div>
   </div>
 
+  {{-- mobile bottom nav --}}
   <div class="fixed bottom-0 w-screen rounded-lg border border-gray-300 bg-slate-100 duration-700 md:hidden pt-1 z-10"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <ul class="flex justify-around text-center">
@@ -462,6 +463,7 @@
       </li>
     </ul>
   </div>
+  {{-- mobile bottom nav end--}}
   </div>
 
   </div>
