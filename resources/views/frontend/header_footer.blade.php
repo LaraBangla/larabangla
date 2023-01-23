@@ -305,7 +305,7 @@
             @else
             rounded-r-md
             bg-gray-100  md:border-r-2 md:border-r-gray-200 md:mt-1 @endif z-10 w-1/2 duration-700 md:w-2/12"
-           x-show="open" x-transition:enter="transition ml-2 duration-300" x-transition:enter-start="opacity-0 scale-50"
+           x-show="open" x-transition:enter="transition ml-2 duration-100" x-transition:enter-start="opacity-0 scale-50"
            x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" {{-- if the page is not docs page then hide mobile menu on click outside of mobile menu. --}}
            @if (!Request::route()->getName() == 'docs') @click.outside="open=false"
@@ -331,13 +331,7 @@
         bg-slate-800
         @endif
         ">
-      <div x-data="{ doc_side_logo: true }"
-       {{-- if onload screen size is bigger than 767 then auto show doc_side_logo else hide doc_side_logo --}}
-      x-if="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-      if (width > 767) {
-        doc_side_logo = false
-      }"
-      >
+      <div>
             <ul class="pt-6">
             @if (Request::route()->getName() == 'docs')
               @include('frontend.more.doc_sidebar')
