@@ -23,11 +23,11 @@
   <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
   <meta name='coverage' content='Worldwide'>
   <meta name='distribution' content='Global'>
-  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')'>
   <meta name='target' content='all'>
   <meta name='HandheldFriendly' content='True'>
 
-  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')'>
   <meta name='og:type' content='Documentation,ডকুমেন্টেশন'>
   <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
@@ -43,10 +43,10 @@
   <meta name="google-analytics" content="@yield('description','') " />
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
-  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')">
+  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')">
   <meta name="twitter:description" content="@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')">
   <meta name="twitter:image" content="@yield('image','www.larabangla.com/img/logo.png')'">
-  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')">
+  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')">
 
   <meta itemprop="name" content="লারা বাংলা - LaraBangla">
   <meta itemprop="image" content="@yield('image','www.larabangla.com/img/logo.png')'">
@@ -88,7 +88,7 @@
   @livewireStyles
 
   @stack('style')
-  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন ওয়েব সাইট')</title>
+  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')</title>
 </head>
 
 <body class="bg-gray-50">
@@ -199,8 +199,6 @@
   
                 <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('register') }}"><span class="text-gray-500"><i
                   class="fa-solid fa-user-plus mr-2"></i></span>রেজিস্টার</a></li>
-  
-  
               @else
               <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
                 class="fa-solid fa-user mr-2"></i></span>প্রফাইল</a></li>
