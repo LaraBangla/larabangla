@@ -4,8 +4,38 @@
 @layer base {
     body {
         font-family: "Anek Bangla", sans-serif;
+        top: 0px !important;
     }
 
+    /* Google translate top banner hide */
+    #gt-el {
+        position: fixed;
+        right: 80px;
+        bottom: 10px;
+    }
+    .goog-te-gadget-simple {
+        padding: 7px;
+        border-radius: 7px !important;
+        border: 1px solid gray !important;
+    }
+    .goog-te-banner-frame.skiptranslate,
+    .goog-te-gadget-simple img {
+        display: none !important;
+    }
+
+    .goog-tooltip {
+        display: none !important;
+    }
+    .goog-tooltip:hover {
+        display: none !important;
+    }
+    .goog-text-highlight {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Google translate top banner hide end*/
     .bg_footer_1 {
         background-color: #2d2a2a;
     }
