@@ -612,7 +612,8 @@
     <!-- footer bottom end-->
   </footer>
   <!-- footer end -->
-
+  {{-- Translated --}}
+  <div id="gt-el" ></div>
   </div>
 
 
@@ -625,18 +626,16 @@
     Turbo.setProgressBarDelay(1000);
 
   </script>
-  <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js">
-  </script>
-
+  <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"></script>
+  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
   @stack('modals')
   @stack('scripts')
   @livewireScripts
-
+  @include('frontend.more.google-translate-js')
   @include('frontend.more.top-to-bottom')
-
 
 </body>
 

@@ -4,11 +4,6 @@
 
 ## **For upload to server**
 
--   technology keyword update problem | live ->done
--   from login route, mobile nav not showing ->done
--   docs page left sidebar double logo bug -> done
--   mobile nav z-index bug fix ->done
--   mobile bottom nav menu height bug -> done
 -   privacy policy content
 -   terms conditions content
 -   search option disable for a short time
@@ -21,6 +16,11 @@
 -   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
 
+-   mobile nav z-index bug fix ->done
+-   mobile bottom nav menu height bug -> done
+-   technology keyword update problem | live ->done
+-   from login route, mobile nav not showing ->done
+-   docs page left sidebar double logo bug -> done
 -   bottom to top button -> done
 -   toaster message not showing ->done
 -   forgot password,reset password and all page check and fix ->done
