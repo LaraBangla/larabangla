@@ -8,11 +8,23 @@
     }
 
     /* Google translate top banner hide */
-    #gt-el {
-        position: fixed;
-        right: 80px;
-        bottom: 10px;
+
+    @media only screen and (max-width: 767px) {
+        #gt-el {
+            position: fixed;
+            left: 10px;
+            bottom: 70px;
+        }
     }
+
+    @media only screen and (min-width: 768px) {
+        #gt-el {
+            position: fixed;
+            right: 80px;
+            bottom: 10px;
+        }
+    }
+
     .goog-te-gadget-simple {
         padding: 7px;
         border-radius: 7px !important;
