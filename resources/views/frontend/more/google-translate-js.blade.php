@@ -25,6 +25,7 @@
   };
 </script>
 
+@if (Request::route()->getName() != 'docs')
 <script>
   $(document).ready(function(){
     $('#gt-el').bind('DOMNodeInserted', function(event) {
@@ -32,8 +33,22 @@
       $('.goog-te-menu-frame.skiptranslate').load(function(){
         setTimeout(function(){
           $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('Translate');    
-        }, 200);
+        }, 100);
       });
     });
   });
-</script>
+</script> 
+@else
+<script>
+    $('#gt-el').bind('DOMNodeInserted', function(event) {
+      $('.goog-te-menu-value span:first').html('Translate');
+      $('.goog-te-menu-frame.skiptranslate').load(function(){
+        setTimeout(function(){
+          $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('Translate');    
+        }, 100);
+      });
+    });
+
+</script>  
+@endif
+
