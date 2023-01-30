@@ -59,7 +59,7 @@
   <meta name="browsermode" content="application">
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
-
+  <link rel="canonical" href="https://www.larabangla.com" />
 
   <!-- Alpine Plugins -->
   <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
@@ -633,9 +633,9 @@
   @stack('modals')
   @stack('scripts')
   @livewireScripts
-  @include('frontend.more.google-translate-js')
+  @include('frontend.more.schema-js')
   @include('frontend.more.top-to-bottom')
-
+  @include('frontend.more.google-translate-js')
 </body>
 
 </html>
