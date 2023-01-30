@@ -19,7 +19,7 @@
 
     // var toolBar = document.getElementsByClassName('goog-te-gadget-simple')[0];
     // if(toolBar !== undefined) {
-    //     toolBar.style.width  = '100%';
+    //     toolBar.style.width  = '100%'; 
     // }
 
   };
