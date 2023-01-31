@@ -41,6 +41,8 @@
 
   <meta name="google-analytics" content="@yield('description','') " />
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="twitter:card" content="sumary">
+  <meta name="twitter:site" content="@larabangla">
   <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
   <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')">
   <meta name="twitter:description" content="@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')">
