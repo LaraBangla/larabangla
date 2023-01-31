@@ -17,14 +17,12 @@
         "position": 3, 
         "name": "লারাভেল ডকুমেন্টেশন/টিউটোরিয়াল",
         "item": "https://www.larabangla.com/docs/laravel"  
-      },
-      ,{
+      },{
         "@type": "ListItem", 
         "position": 4, 
         "name": "স্প্লেড / লারাভেল স্প্লেড",
         "item": "https://www.larabangla.com/docs/splade"  
-      },
-      {
+      },{
         "@type": "ListItem", 
         "position": 5, 
         "name": "লগ ইন",
