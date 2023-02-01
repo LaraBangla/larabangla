@@ -23,7 +23,7 @@
               {{-- version start for mobile --}}
               <div class="mx-3 md:hidden">
                 <div class="w-full border-b bg-slate-50 text-left text-gray-600">
-                  <label class="w-full bg-slate-50 text-left text-sm uppercase" for="version">Version</label>
+                  <label class="w-full bg-slate-50 text-left text-sm uppercase" for="version">সংস্করণ</label>
                   <select class="select_icon w-full bg-slate-50 pb-1 text-left" id="version" id="" name="version" @change="window.location = $event.target.value">
                     @foreach ($technology->versions as $version)
                     @php
@@ -99,7 +99,7 @@
           <div class="col-span-12 mt-8  pt-1 md:col-span-3">
             {{-- desktop version start --}}
             <div class="-mt-1 w-full  text-center hidden md:block ">
-              <label class="w-full text-center font-bold uppercase text-gray-600" for="version">Version</label>
+              <label class="w-full text-center font-bold uppercase text-gray-600" for="version">সংস্করণ</label>
               <select class="select_icon w-full border-b bg-slate-100 pb-1 text-center text-gray-600 focus:border-gray-500 focus:ring-0" id="version" id="" name="version"  @change="window.location = $event.target.value">
                 @foreach ($technology->versions as $version)
                   @php
@@ -117,7 +117,6 @@
               </select>
             </div>
             {{-- desktop version end --}}
-           
           </div>
         </div>
       </div>

@@ -510,7 +510,7 @@
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;বাড়ি</a></li>
               <li><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
-              <li><a href="{{ route('splade') }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
+              <li><a href="{{ route('send.to.docs',['technology_slug'=>'splade']) }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;স্প্লেড</a></li>
               <li><a href="{{ route('livewire') }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লাইভ ওয়্যার</a></li>
             </ul>
           </div>
