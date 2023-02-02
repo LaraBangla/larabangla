@@ -4,11 +4,13 @@ namespace App\Http\Controllers\SocialLogin;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Mail\DefaultMail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller
@@ -27,13 +29,15 @@ class SocialLoginController extends Controller
 
         if ($findUser != null)
         {
+            // login if user is already exist
             Auth::login($findUser);
             return redirect()->route('/');
         }
         else
         {
+            // remove space for Name 
             $spaceRemoveName = strtolower(str_replace(' ', '', $authUser->name)); // remove string spaces
-
+            // generate username
             $username = null;
             $find_username = User::whereUsername($spaceRemoveName)->first();
             if ($find_username != null || !empty($find_username))
@@ -55,7 +59,9 @@ class SocialLoginController extends Controller
                 $username = $spaceRemoveName;
             }
 
-            $password = rand(111111, 999999) . Str::random(5);
+            // generate random string password
+            $password = Str::random(10);
+            // create new user
             $user = User::create([
                 'name'     => $authUser->name,
                 'email'    => $authUser->email,
@@ -65,10 +71,34 @@ class SocialLoginController extends Controller
                 'provider_id' => $authUser->id,
                 'provider_profile_pic' => $authUser->avatar,
                 'password' => Hash::make($password),
-                'email_verified_at' => Carbon::now()->toDateTimeString()
             ]);
 
+            // check email null or not | if email exist then do not do auto verify. else do auto verify
+            $isNullEmail = null;
+            if ($authUser->email == null)
+            {
+                $isNullEmail = now();
+            }
+            $user->forceFill([
+                'email_verified_at' => $isNullEmail
+            ])->save();
+
+            // login this user
             Auth::login($user);
+
+            // send mail with credentials if email exists
+            if ($authUser->email != null)
+            {
+                $type = "জরুরী";
+                $subject = "লগিন শংসাপত্র";
+                $body = "আপনার লগিন শংসাপত্র গুলো হলোঃ ইমেইলঃ " . $authUser->email . " পাসওয়ার্ডঃ " . $password . " অনুগ্রহ করে পরবর্তী লগ ইন এর সময় উক্ত শংসাপত্র গুলো ব্যাবহার করবেন।";
+                $link = null;
+                $button_title = null;
+                Mail::to($authUser->email)->send(new DefaultMail($type, $subject, $body, $link, $button_title));
+                $user->sendEmailVerificationNotification();
+            }
+
+
             return redirect()->route('/');
         }
     }

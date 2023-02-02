@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\Home\HomeController;
 use App\Http\Controllers\Frontend\Contact\ContactController;
 use App\Http\Controllers\Frontend\ComingSoon\ComingSoonController;
 use App\Http\Controllers\SocialLogin\SocialLoginController;
+use App\Mail\DefaultMail;
 
 Route::controller(HomeController::class)->group(function ()
 {
@@ -54,4 +55,14 @@ Route::controller(SocialLoginController::class)->group(function ()
 {
     Route::get('/auth/{provider}', 'redirect')->name('socialLogin.redirect');
     Route::get('auth/{provider}/callback', 'callback')->name('socialLogin.callback');
+});
+
+Route::get('mail', function ()
+{
+    $type = "জরুরী";
+    $subject = "লগিন শংসাপত্র";
+    $body = "আপনার লগিন শংসাপত্র গুলো হলোঃ ইমেইলঃ anowarhosensoft@gmail.com পাসওয়ার্ডঃ *ldsdjsljdlsd*";
+    $link = null;
+    $button_title = null;
+    return new DefaultMail($type, $subject, $body, $link, $button_title);
 });
