@@ -86,7 +86,7 @@
                 </label>
             </div>
 
-            <div class="mt-8 -ml-4 sm:ml-0">
+            <div class="mt-8 -ml-2 sm:ml-0">
                 <div>
                     {!! NoCaptcha::renderJs('bn', false, 'onloadCallback') !!}
                     {!! NoCaptcha::display() !!}

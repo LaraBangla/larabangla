@@ -17,6 +17,7 @@ return new class extends Migration
         {
             $table->string('provider')->nullable()->after('profile_photo_path');
             $table->string('provider_id')->nullable()->after('profile_photo_path');
+            $table->string('provider_profile_pic')->nullable()->after('profile_photo_path');
         });
     }
 
@@ -29,7 +30,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table)
         {
-            $table->dropColumn(['provider', 'provider_id']);
+            $table->dropColumn(['provider', 'provider_id', 'provider_profile_pic']);
         });
     }
 };

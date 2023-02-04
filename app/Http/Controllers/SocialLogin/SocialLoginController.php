@@ -25,6 +25,7 @@ class SocialLoginController extends Controller
     {
 
         $authUser = Socialite::driver($provider)->user();
+
         $findUser = User::where('email', $authUser->email)->orWhere('provider_id', $authUser->id)->first();
 
         if ($findUser != null)
@@ -37,16 +38,17 @@ class SocialLoginController extends Controller
         {
             // remove space for Name 
             $spaceRemoveName = strtolower(str_replace(' ', '', $authUser->name)); // remove string spaces
+            $gotName = preg_replace('/[^A-Za-z0-9\-]/', '', $spaceRemoveName); // Removes special chars.
             // generate username
             $username = null;
-            $find_username = User::whereUsername($spaceRemoveName)->first();
+            $find_username = User::whereUsername($gotName)->first();
             if ($find_username != null || !empty($find_username))
             {
                 while ($find_username != null || !empty($find_username))
                 {
                     $num = 1;
-                    $find_username = User::whereUsername($spaceRemoveName . $num)->first();
-                    $username = $spaceRemoveName . $num;
+                    $find_username = User::whereUsername($gotName . $num)->first();
+                    $username = $gotName . $num;
                     $num++;
                     if ($find_username == null || empty($find_username))
                     {
@@ -56,7 +58,7 @@ class SocialLoginController extends Controller
             }
             else
             {
-                $username = $spaceRemoveName;
+                $username = $gotName;
             }
 
             // generate random string password
@@ -94,12 +96,13 @@ class SocialLoginController extends Controller
                 $body = "আপনার লগিন শংসাপত্র গুলো হলোঃ ইমেইলঃ " . $authUser->email . " পাসওয়ার্ডঃ " . $password . " অনুগ্রহ করে পরবর্তী লগ ইন এর সময় উক্ত শংসাপত্র গুলো ব্যাবহার করবেন।";
                 $link = null;
                 $button_title = null;
+                // send mail with credentials
                 Mail::to($authUser->email)->send(new DefaultMail($type, $subject, $body, $link, $button_title));
+                // send user verification mail 
                 $user->sendEmailVerificationNotification();
             }
-
-
-            return redirect()->route('/');
+            // redirect to email verify page
+            return redirect()->route('verification.notice');
         }
     }
 }
