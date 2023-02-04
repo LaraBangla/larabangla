@@ -132,7 +132,7 @@
 
             <div class="flex items-center justify-end mt-4">
             </div>
-            <div class="mt-5 -ml-4 sm:ml-0">
+            <div class="mt-5 -ml-2 sm:ml-0">
                 <div>
                     {!! NoCaptcha::renderJs('bn', false, 'onloadCallback') !!}
                     {!! NoCaptcha::display() !!}
