@@ -67,6 +67,7 @@
   <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   <!-- Alpine Core -->
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
   <script>
@@ -144,6 +145,9 @@
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm
             @if (Request::route()->getName() == '/')
             bg-gray-800
+            hover:bg-gray-800
+            @else
+            hover:bg-gray-300
             @endif
              px-2  duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                    class="fa fa-home"></i> বাড়ি</a></li>
@@ -400,66 +404,69 @@
         {{-- right side fixed menu --}}
         <div class="fixed top-56 right-3 z-10 -ml-9 hidden duration-700 md:block">
           <ul>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.facebook.com/LaraBangla" target="_blank"><i
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="https://www.facebook.com/LaraBangla" target="_blank"><i
                    class="fa-brands fa-facebook-f"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://twitter.com/LaraBangla" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="https://twitter.com/LaraBangla" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#" target="_blank"><i
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="#" target="_blank"><i
                    class="fa-brands fa-instagram"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.youtube.com/@Larabangla" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="https://www.youtube.com/@Larabangla" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </li>
           </ul>
         </div>
         {{-- right side fixed menu end --}}
 
-        <!-- bottom bar  floating action button -->
-        <div x-data="{ expanded: false }">
-          {{-- items --}}
-          <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded " x-collapse @click.away="expanded =false">
-            <ul class="text-gray-600">
-              <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-              <a href="#">
+        <div>
+          <div x-data="{ expanded: false }">
+                <!-- bottom bar  floating action button -->
+                {{-- items --}}
+                <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded" x-collapse >
+                  <ul class="text-gray-600">
+                    <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} pt-3">
+                    <a href="#">
+                        <div class="pl-3 flex">
+                          <span class="text-2xl"><i class="fa-solid fa-newspaper"></i></span>
+                          <span class="ml-3">খবর</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} pt-3">
+                  <a href="#">
+                    <div class="pl-3 flex">
+                          <span class="text-2xl"><i class="fa-solid fa-blog"></i></span>
+                          <span class="ml-3">ব্লগ</span>
+                    </div>
+                </a>
+              </li>
+              <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} -50 pt-3">
+                <a href="{{ route('send.to.docs', 'laravel') }}">
                   <div class="pl-3 flex">
-                    <span class="text-2xl"><i class="fa-solid fa-newspaper"></i></span>
-                    <span class="ml-3">খবর</span>
+                    <span class="text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
+                    <span class="ml-3">ডকস</span>
+                </div>
+              </a>
+            </li>
+            <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} -50 pt-3">
+              <a href="#">
+                <div class="pl-3 flex">
+                  <span class="text-2xl"><i class="fa-regular fa-handshake"></i></span>
+                  <span class="ml-2">সেবা সমূহ</span>
               </div>
             </a>
           </li>
-          <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-            <a href="#">
-              <div class="pl-3 flex">
-                    <span class="text-2xl"><i class="fa-solid fa-blog"></i></span>
-                    <span class="ml-3">ব্লগ</span>
-              </div>
-          </a>
-        </li>
-        <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-          <a href="{{ route('send.to.docs', 'laravel') }}">
-            <div class="pl-3 flex">
-              <span class="text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
-              <span class="ml-3">ডকস</span>
-          </div>
-        </a>
-      </li>
-      <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-        <a href="#">
-          <div class="pl-3 flex">
-            <span class="text-2xl"><i class="fa-regular fa-handshake"></i></span>
-            <span class="ml-2">সেবা সমূহ</span>
+          </ul>
         </div>
-      </a>
-    </li>
-    </ul>
-  </div>
-  {{-- items end floting button--}}
-   <button title="অন্যান্য" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
-    class="fixed z-10 bottom-28 right-3 bg-gray-50 w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
-  </button> 
-  {{-- floating action button --}}
+          
+            {{-- items end floting button--}}
+          <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
+            class="fixed z-10 bottom-28 right-3 {{ Request::route()->getName() == '/'? ' bg-slate-800':' bg-gray-50' }} w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
+          </button> 
+          {{-- floating action button --}}
+        </div>
 
 
   {{-- mobile bottom nav --}}
-  <div class="fixed bottom-0 w-screen rounded-t-lg border-t border-gray-300 bg-slate-100 duration-300 md:hidden pt-1 z-10"
+  <div class="fixed bottom-0 w-screen rounded-t-lg border-t {{ Request::route()->getName() == '/'? ' border-gray-500 bg-slate-800':' border-gray-300 bg-slate-100' }} duration-300 md:hidden pt-1 z-10"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <ul class="flex justify-around text-center py-3">
       <li class="px-4  font-bold text-gray-600"><a href="#">
