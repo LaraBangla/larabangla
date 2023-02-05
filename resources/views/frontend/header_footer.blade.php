@@ -139,7 +139,7 @@
         </div>
         <div  class="grow"></div>
         <div >
-          <ul class="mr-4 flex justify-end py-4 " x-data="{ user: false }">
+          <ul class="mr-4 flex justify-end py-4 " >
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm bg-gray-300 px-2 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                    class="fa fa-home"></i> বাড়ি</a></li>
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2  text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5" @click="tutorial = ! tutorial"><a
@@ -149,18 +149,15 @@
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2  text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
                  href="{{ route('contact') }}">যোগাযোগ</a></li>
   
-            <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block" x-data="{ doc_search: false }">
-              <a class="font-bold" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
+            <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block cursor-pointer" >
+              <span class="font-bold p-1" id="DesktopSearch"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></span>
         {{-- desktop search body start --}}
-      <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-30" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
-        x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
-        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
-        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-   <div class="mt-10" @click.outside="doc_search = false">
-    <div class="md:mx-40 lg:mx-52 xl:mx-60 2xl:mx-72 bg-gray-900 pt-3">
+      <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-30" style=" background:rgba(5, 5, 5, 0.685); display:none" id="ShowDesktopSearch">
+   <div class="mt-10 " id="DesktopSearchWrapper" >
+    <div class="md:mx-40 lg:mx-52 xl:mx-60 2xl:mx-72 bg-gray-900 pt-3" >
       <div class="px-3">
         <div class="flex justify-end">
-          <div @click="doc_search = false">
+          <div id="CloseDesktopSearch" class="p-2">
             <div class="text-left text-gray-400"><span><i class="fa-solid fa-xmark"></i></span></div>
           </div>
         </div>
@@ -190,9 +187,9 @@
    {{-- search body end --}}
   
             </li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-3  text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-3  text-gray-600 duration-500 md:block cursor-pointer" x-data="{ userOpt: false }" @click="userOpt = ! userOpt"><a
               class="font-bold"><i class="fa-solid fa-user"></i></a>
-           <div class="absolute right-2 mt-2 rounded border bg-slate-50" x-show="user">
+           <div class="absolute right-2 mt-2 rounded border bg-slate-50"  @click.outside="userOpt=false" x-show="userOpt">
              <ul class="py-5">
               @guest
               <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('login') }}"><span class="text-gray-500"><i
@@ -220,12 +217,12 @@
              </ul>
            </div>
          </li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block" x-data="{ option: false }">
-              <a class="px-2 font-bold" @click="option = ! option" @click.outside="option=false"><span class="text-xl"><i
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block cursor-pointer" x-data="{ option: false }" @click="option = ! option">
+              <span class="px-2 py-1 font-bold"  ><span class="text-xl"><i
                      class="fa fa-ellipsis-v"></i></span>
-              </a>
+              </span>
               <!-- options -->
-              <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option">
+              <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option" @click.outside="option=false">
                 <ul class="py-5">
                   @guest
                   <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('online.course') }}">
@@ -616,8 +613,8 @@
   {{-- Translated --}}
   <div id="gt-el" ></div>
   </div>
-
-
+  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="{{ asset('js/CustomjQuery.js') }}"></script>
   <script src="{{ asset('js/prism.js') }}"></script>
   {{-- hotwire turbo start --}}
   <script type="module">
@@ -628,7 +625,6 @@
 
   </script>
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"></script>
-  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
