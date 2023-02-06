@@ -248,27 +248,27 @@
                      class="fa fa-ellipsis-v"></i></span>
               </span>
               <!-- options -->
-              <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option">
+              <div class="absolute right-2 mt-2 rounded border {{ Request::route()->getName() == '/'? ' bg-slate-800 border-gray-600':'bg-slate-50' }} z-20" x-show="option">
                 <ul class="py-5">
                   @guest
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('online.course') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('online.course') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;</span>অনলাইন কোর্স</a>
                   </li>
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('web.design.and.development') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('web.design.and.development') }}">
                     <span class="text-gray-500"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;</span>ওয়েব ডেভেলপমেন্ট</a>
                   </li>
                  
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('apps.development') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('apps.development') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;</span>অ্যাপস ডেভেলপমেন্ট</a>
                   </li>
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('software.development') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('software.development') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a>
                   </li>
   
                   @else
-                  <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
+                  <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
                     class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
-                  <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
+                  <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
                   <i class="fa-solid fa-gear"></i> </span>সেটিংস</a></li>
                   @endguest
   
