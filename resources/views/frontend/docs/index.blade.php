@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 {{-- mobile search body start --}}
-                <div class="fixed top-5 right-0 w-screen duration-200" x-show="mobile_search" @click.outside="mobile_search = false"
+                <div class="fixed top-5 right-0 w-screen duration-200" x-show="mobile_search" @click.away="mobile_search = false"
                      x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
                      x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
                      x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">

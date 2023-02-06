@@ -68,7 +68,7 @@ class SocialLoginController extends Controller
                 'name'     => $authUser->name,
                 'email'    => $authUser->email,
                 'phone'    => null,
-                'username'    => $username,
+                'username'    => ucfirst($username),
                 'provider' => $provider,
                 'provider_id' => $authUser->id,
                 'provider_profile_pic' => $authUser->avatar,
@@ -93,7 +93,7 @@ class SocialLoginController extends Controller
             {
                 $type = "জরুরী";
                 $subject = "লগিন শংসাপত্র";
-                $body = "আপনার লগিন শংসাপত্র গুলো হলোঃ ইমেইলঃ " . $authUser->email . " পাসওয়ার্ডঃ " . $password . " অনুগ্রহ করে পরবর্তী লগ ইন এর সময় উক্ত শংসাপত্র গুলো ব্যাবহার করবেন।";
+                $body = "আপনার https://www.larabangla.com -এর লগিন শংসাপত্র গুলো হলোঃ ইমেইলঃ " . $authUser->email . " পাসওয়ার্ডঃ " . $password . " অনুগ্রহ করে পরবর্তী লগ ইন এর সময় উক্ত শংসাপত্র গুলো ব্যাবহার করবেন অথবা পাসওয়ার্ডটি পরিবর্তন করে নিবেন।";
                 $link = null;
                 $button_title = null;
                 // send mail with credentials

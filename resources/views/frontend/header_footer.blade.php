@@ -62,11 +62,25 @@
   <meta name="nightmode" content="disable">
   <meta name="layoutmode" content="fitscreen">
   <link rel="canonical" href="https://www.larabangla.com" />
+<style>
+  .homeIndex{
+  
+    /* background: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='40' height='59.428' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='rgb(17, 24, 38, 1)'/><path d='M0 70.975V47.881m20-1.692L8.535 52.808v13.239L20 72.667l11.465-6.62V52.808zm0-32.95l11.465-6.62V-6.619L20-13.24 8.535-6.619V6.619L20 13.24m8.535 4.927v13.238L40 38.024l11.465-6.62V18.166L40 11.546zM20 36.333L0 47.88m0 0v23.094m0 0l20 11.548 20-11.548V47.88m0 0L20 36.333m0 0l20 11.549M0 11.547l-11.465 6.619v13.239L0 38.025l11.465-6.62v-13.24L0 11.548v-23.094l20-11.547 20 11.547v23.094M20 36.333V13.24'  stroke-linecap='square' stroke-width='0.4' stroke='hsla(203, 94%, 29%, 0.25)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,-0.856)' fill='url(%23a)'/></svg>");
+   */
+   /* background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='60' height='30' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='rgb(17, 24, 38, 1)'/><path d='M1-6.5v13h28v-13H1zm15 15v13h28v-13H16zm-15 15v13h28v-13H1z'  stroke-width='.4' stroke='none' fill='hsla(47, 46%, 11%, 0.19)'/><path d='M31-6.5v13h28v-13H31zm-45 15v13h28v-13h-28zm60 0v13h28v-13H46zm-15 15v13h28v-13H31z'  stroke-width='1' stroke='none' fill='hsla(33, 22%, 11%, 0.35)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")
+   */
+   /* background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='60' height='30' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(220, 38%, 11%, 1)'/><path d='M1-6.5v13h28v-13H1zm15 15v13h28v-13H16zm-15 15v13h28v-13H1z'  stroke-width='1' stroke='none' fill='hsla(47, 36%, 5%, 0.07)'/><path d='M31-6.5v13h28v-13H31zm-45 15v13h28v-13h-28zm60 0v13h28v-13H46zm-15 15v13h28v-13H31z'  stroke-width='1' stroke='none' fill='hsla(33, 22%, 8%, 0.11)'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")
+  */
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='29' height='50.115' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(220, 38%, 11%, 1)'/><path d='M14.498 16.858L0 8.488.002-8.257l14.5-8.374L29-8.26l-.002 16.745zm0 50.06L0 58.548l.002-16.745 14.5-8.373L29 41.8l-.002 16.744zM28.996 41.8l-14.498-8.37.002-16.744L29 8.312l14.498 8.37-.002 16.745zm-29 0l-14.498-8.37.002-16.744L0 8.312l14.498 8.37-.002 16.745z'  stroke-width='0.5' stroke='hsla(209, 59%, 59%, 0.07)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>")
+  }
 
+
+</style>
   <!-- Alpine Plugins -->
   <script src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   <!-- Alpine Core -->
   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
   <script>
@@ -139,24 +153,43 @@
         </div>
         <div  class="grow"></div>
         <div >
-          <ul class="mr-4 flex justify-end py-4 " x-data="{ user: false }">
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm bg-gray-300 px-2 text-gray-600 duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
+          <ul class="mr-4 flex justify-end py-4 {{ Request::route()->getName() == '/'? ' text-gray-500':' text-gray-600' }}
+        " x-data="{ user: false }">
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm
+            @if (Request::route()->getName() == '/')
+            bg-gray-800
+            hover:bg-gray-800
+            @else
+            hover:bg-gray-300
+            @endif
+             px-2  duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                    class="fa fa-home"></i> বাড়ি</a></li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2  text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5" @click="tutorial = ! tutorial"><a
-                 class="font-bold" href="#">ডকুমেন্টেশন <i class="fa-solid fa-caret-down"></i></a></li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2  text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2 
+            {{ Request::route()->getName() == 'docs'? 'bg-gray-300':'' }} 
+            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }} 
+             duration-500 md:block lg:px-5 cursor-pointer" @click="tutorial = ! tutorial"><span
+                 class="font-bold" >ডকুমেন্টেশন <i class="fa-solid fa-caret-down"></i></span></li>
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2 
+            {{ Request::route()->getName() == 'about.us'? 'bg-gray-300':'' }} 
+            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }} 
+
+             duration-500  md:block lg:px-5"><a class="font-bold"
                  href="{{ route('about.us') }}">সম্পর্কে</a></li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2  text-gray-600 duration-500 hover:bg-gray-300 md:block lg:px-5"><a class="font-bold"
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2
+            {{ Request::route()->getName() == 'contact'? 'bg-gray-300':'' }} 
+            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }} 
+
+             duration-500  md:block lg:px-5"><a class="font-bold"
                  href="{{ route('contact') }}">যোগাযোগ</a></li>
   
-            <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block" x-data="{ doc_search: false }">
-              <a class="font-bold" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></a>
+            <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm duration-500 md:block cursor-pointer" x-data="{ doc_search: false }">
+              <span class="font-bold p-1" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></span>
         {{-- desktop search body start --}}
       <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-30" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
         x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
         x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-   <div class="mt-10" @click.outside="doc_search = false">
+   <div class="mt-10" @click.away="doc_search = false">
     <div class="md:mx-40 lg:mx-52 xl:mx-60 2xl:mx-72 bg-gray-900 pt-3">
       <div class="px-3">
         <div class="flex justify-end">
@@ -190,15 +223,18 @@
    {{-- search body end --}}
   
             </li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-3  text-gray-600 duration-500 md:block" @click="user = ! user" @click.outside="user=false"><a
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-3 duration-500 md:block cursor-pointer" @click="user = ! user" @click.away="user=false"><a
               class="font-bold"><i class="fa-solid fa-user"></i></a>
-           <div class="absolute right-2 mt-2 rounded border bg-slate-50" x-show="user">
+           <div class="absolute right-2 mt-2 rounded border
+            {{ Request::route()->getName() == '/'? 'bg-slate-800 border-gray-600':'bg-slate-50' }} " x-show="user">
              <ul class="py-5">
               @guest
-              <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('login') }}"><span class="text-gray-500"><i
+              <li class="rounded-sm py-2 px-5 font-semibold
+              {{ Request::route()->getName() == '/'? 'hover:bg-slate-900':'hover:bg-slate-100' }}
+              "><a href="{{ route('login') }}"><span class="text-gray-500"><i
                 class="fa fa-sign-in mr-2"></i></span>লগিন</a></li>
   
-                <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('register') }}"><span class="text-gray-500"><i
+                <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? 'hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('register') }}"><span class="text-gray-500"><i
                   class="fa-solid fa-user-plus mr-2"></i></span>রেজিস্টার</a></li>
               @else
               <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
@@ -220,32 +256,32 @@
              </ul>
            </div>
          </li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm text-gray-600 duration-500 md:block" x-data="{ option: false }">
-              <a class="px-2 font-bold" @click="option = ! option" @click.outside="option=false"><span class="text-xl"><i
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm duration-500 md:block cursor-pointer" x-data="{ option: false }">
+              <span class="px-2 font-bold pt-2" @click="option = ! option" @click.away="option=false"><span class="text-xl"><i
                      class="fa fa-ellipsis-v"></i></span>
-              </a>
+              </span>
               <!-- options -->
-              <div class="absolute right-2 mt-2 rounded border bg-slate-50 z-20" x-show="option">
+              <div class="absolute right-2 mt-2 rounded border {{ Request::route()->getName() == '/'? ' bg-slate-800 border-gray-600':'bg-slate-50' }} z-20" x-show="option">
                 <ul class="py-5">
                   @guest
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('online.course') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('online.course') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;</span>অনলাইন কোর্স</a>
                   </li>
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('web.design.and.development') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('web.design.and.development') }}">
                     <span class="text-gray-500"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;</span>ওয়েব ডেভেলপমেন্ট</a>
                   </li>
                  
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('apps.development') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('apps.development') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;</span>অ্যাপস ডেভেলপমেন্ট</a>
                   </li>
-                  <li class="rounded-sm py-2 px-5 font-baseline hover:bg-slate-100"><a href="{{ route('software.development') }}">
+                  <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('software.development') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a>
                   </li>
   
                   @else
-                  <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
+                  <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
                     class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
-                  <li class="rounded-sm py-2 px-5 font-semibold hover:bg-slate-100"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
+                  <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
                   <i class="fa-solid fa-gear"></i> </span>সেটিংস</a></li>
                   @endguest
   
@@ -258,13 +294,17 @@
           </div>
         </ul>
         {{-- tutorial menu start --}}
-        <div class="absolute z-30 w-screen bg-slate-100 shadow-xl mt-16" x-show="tutorial" @click.outside="tutorial=false">
+        <div class="absolute z-30 w-screen
+        {{ Request::route()->getName() == '/'? 'bg-slate-800':'bg-slate-100' }} 
+        
+         shadow-xl mt-16" x-show="tutorial" @click.away="tutorial=false">
           <div class="container mx-auto">
             <div class="grid grid-cols-12 gap-6 py-5">
 
               @foreach ($boot_tech_division as $division)
                 <div class="col-span-3">
-                  <h6 class="border-b border-gray-500 pb-1 text-xl font-bold text-gray-700">{{ $division->name }}</h6>
+                  <h6 class="border-b border-gray-500 pb-1 text-xl font-bold
+                  {{ Request::route()->getName() == '/'? 'text-gray-400':'text-gray-700' }}">{{ $division->name }}</h6>
                   <div class="pt-3 leading-9">
                     <ul>
                       @foreach ($division->technologies as $technology)
@@ -272,7 +312,9 @@
                             $find_lesson = App\Models\Frontend\Technology\Lesson::whereTechnology_id($technology->id)->select('id','slug')->first();
                         @endphp
                         @isset($find_lesson)
-                        <li class="duration-300 hover:rounded-sm hover:bg-gray-200 hover:pl-3 hover:shadow-md"><a
+                        <li class="duration-300
+                        {{ Request::route()->getName() == '/'? ' hover:bg-slate-700 text-gray-400':' hover:bg-gray-200' }}
+                        hover:rounded-sm  hover:pl-3 hover:shadow-md"><a
                             href="{{ route('send.to.docs', ['technology_slug' => $technology->slug]) }}">{{ $technology->name }}</a>
                        </li>
                        @endisset
@@ -305,20 +347,26 @@
            x-show="open" x-transition:enter="transition ml-2 duration-100" x-transition:enter-start="opacity-0 scale-50"
            x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" {{-- if the page is not docs page then hide mobile menu on click outside of mobile menu. --}}
-           @if (!Request::route()->getName() == 'docs') @click.outside="open=false"
+           @if (!Request::route()->getName() == 'docs') @click.away="open=false"
                 @else
-                    {{-- if it is docs page then, if the page size is less than 767 then hide mobile menu on click outside of mobile menu --}}
-                    @click.outside="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    {{-- if it is docs page then, if the page size is less than 767 then hide mobile menu on page load --}}
+                    x-if="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                     if (width < 767) {
                     open = false
-                    }" @endif>
+                    }"
+                    {{-- if it is docs page then, if the page size is less than 767 then hide mobile menu on click outside of mobile menu --}}
+                    @click.away="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    if (width < 767) {
+                    open = false
+                    }"
+                     @endif>
         @if (!Request::route()->getName() == 'docs')
           <div class="border-b p-5 text-center text-gray-600">
-            <a class="font-bold" href="#">
+            <div class="font-bold">
               <!-- <img class="mx-auto block pt-5" src="src/img/logo.png" alt="" width="70"> -->
               <span class=""><span class="text-2xl">লারা</span>&nbsp;&nbsp;<span class="text-3xl">বাংলা</span></span>
               <p class="pr-4 text-right text-xs font-normal">এবার শিখা হোক বাংলায়</p>
-            </a>
+            </div>
           </div>
         @endif
 
@@ -375,66 +423,69 @@
         {{-- right side fixed menu --}}
         <div class="fixed top-56 right-3 z-10 -ml-9 hidden duration-700 md:block">
           <ul>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.facebook.com/LaraBangla" target="_blank"><i
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="https://www.facebook.com/LaraBangla" target="_blank"><i
                    class="fa-brands fa-facebook-f"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://twitter.com/LaraBangla" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="https://twitter.com/LaraBangla" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="#" target="_blank"><i
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="#" target="_blank"><i
                    class="fa-brands fa-instagram"></i></a></li>
-            <li class="mt-2 h-10 w-10 border border-gray-100 bg-white pt-2 text-center"><a href="https://www.youtube.com/@Larabangla" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <li class="mt-2 h-10 w-10 border {{ Request::route()->getName() == '/'? 'bg-slate-900 border-gray-700 text-gray-400':'bg-white border-gray-100' }} pt-2 text-center"><a href="https://www.youtube.com/@Larabangla" target="_blank"><i class="fa-brands fa-youtube"></i></a>
             </li>
           </ul>
         </div>
         {{-- right side fixed menu end --}}
 
-        <!-- bottom bar  floating action button -->
-        <div x-data="{ expanded: false }">
-          {{-- items --}}
-          <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded " x-collapse @click.outside="expanded =false">
-            <ul class="text-gray-600">
-              <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-              <a href="#">
+        <div>
+          <div x-data="{ expanded: false }">
+                <!-- bottom bar  floating action button -->
+                {{-- items --}}
+                <div class="fixed bottom-52 right-3 z-10 -ml-9" x-show="expanded" x-collapse >
+                  <ul class="text-gray-600">
+                    <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} pt-3">
+                    <a href="#">
+                        <div class="pl-3 flex">
+                          <span class="text-2xl"><i class="fa-solid fa-newspaper"></i></span>
+                          <span class="ml-3">খবর</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} pt-3">
+                  <a href="#">
+                    <div class="pl-3 flex">
+                          <span class="text-2xl"><i class="fa-solid fa-blog"></i></span>
+                          <span class="ml-3">ব্লগ</span>
+                    </div>
+                </a>
+              </li>
+              <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} -50 pt-3">
+                <a href="{{ route('send.to.docs', 'laravel') }}">
                   <div class="pl-3 flex">
-                    <span class="text-2xl"><i class="fa-solid fa-newspaper"></i></span>
-                    <span class="ml-3">খবর</span>
+                    <span class="text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
+                    <span class="ml-3">ডকস</span>
+                </div>
+              </a>
+            </li>
+            <li class="mt-3 h-14 w-32 rounded-t-lg border {{ Request::route()->getName() == '/'? 'border-gray-500 bg-slate-800 text-gray-500':'border-gray-200 bg-gray-50' }} -50 pt-3">
+              <a href="#">
+                <div class="pl-3 flex">
+                  <span class="text-2xl"><i class="fa-regular fa-handshake"></i></span>
+                  <span class="ml-2">সেবা সমূহ</span>
               </div>
             </a>
           </li>
-          <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-            <a href="#">
-              <div class="pl-3 flex">
-                    <span class="text-2xl"><i class="fa-solid fa-blog"></i></span>
-                    <span class="ml-3">ব্লগ</span>
-              </div>
-          </a>
-        </li>
-        <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-          <a href="{{ route('send.to.docs', 'laravel') }}">
-            <div class="pl-3 flex">
-              <span class="text-2xl"><i class="fa-solid fa-chalkboard-user"></i></span>
-              <span class="ml-3">ডকস</span>
-          </div>
-        </a>
-      </li>
-      <li class="mt-3 h-14 w-32 rounded-t-lg border border-gray-200 bg-gray-50 pt-3">
-        <a href="#">
-          <div class="pl-3 flex">
-            <span class="text-2xl"><i class="fa-regular fa-handshake"></i></span>
-            <span class="ml-2">সেবা সমূহ</span>
+          </ul>
         </div>
-      </a>
-    </li>
-    </ul>
-  </div>
-  {{-- items end floting button--}}
-   <button title="অন্যান্য" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
-    class="fixed z-10 bottom-28 right-3 bg-gray-50 w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
-  </button> 
-  {{-- floating action button --}}
+          
+            {{-- items end floting button--}}
+          <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
+            class="fixed z-10 bottom-28 right-3 {{ Request::route()->getName() == '/'? ' bg-slate-800':' bg-gray-50' }} w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
+          </button> 
+          {{-- floating action button --}}
+        </div>
 
 
   {{-- mobile bottom nav --}}
-  <div class="fixed bottom-0 w-screen rounded-t-lg border-t border-gray-300 bg-slate-100 duration-300 md:hidden pt-1 z-10"
+  <div class="fixed bottom-0 w-screen rounded-t-lg border-t {{ Request::route()->getName() == '/'? ' border-gray-500 bg-slate-800':' border-gray-300 bg-slate-100' }} duration-300 md:hidden pt-1 z-10"
        @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
     <ul class="flex justify-around text-center py-3">
       <li class="px-4  font-bold text-gray-600"><a href="#">
@@ -629,6 +680,12 @@
   </script>
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"></script>
   <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  @if (Request::route()->getName() == '/')
+  {{-- typed js --}}
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  @endif
+  <script src="{{ asset('js/CustomjQuery.js') }}"></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}

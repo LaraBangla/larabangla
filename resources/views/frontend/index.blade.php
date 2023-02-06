@@ -2,7 +2,7 @@
     'slot' => null,
 ])
 @section('content')
-  <div class="bg-gray-900">
+  <div class="homeWrapper">
     <div>
       <div>
         <div class="pt-20 duration-700 lg:pt-32" :class="open ? 'blur-sm' : ''">
@@ -11,7 +11,7 @@
                   class="bg-gradient-to-r from-red-500 to-green-400 bg-clip-text text-5xl text-transparent md:text-7xl lg:text-8xl">বাংলা</span></h1>
           <h2 class="pb-10 pt-6 text-center font-black text-4xl sm:text-4xl md:text-6xl lg:text-7xl"> 
             <span class="bg-gradient-to-r from-blue-500  via-red-400 to-green-500 bg-clip-text  text-transparent">এবার শিখা হোক বাংলায়</span> </h2>
-          <h3 class="px-5 text-center text-md md:text-xl font-semibold text-green-500">ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট</h3>
+          <h3 class="px-5 text-center text-md md:text-xl font-semibold text-green-500">ফ্রি অনলাইন বাংলা <span id="LaraBanglaType"></span> </h3>
           <div class="mt-14 flex justify-center">
             <div class="m-2"><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="btn-lg rounded-full text-white  bg-green-600  hover:bg-green-700  hover:ring-amber-400 " href="#">লারাভেল ডক</a>
             </div>
@@ -51,37 +51,28 @@
 
     {{-- <div class="bg-gradient-to-b from-white to-gray-900 h-52"></div> --}}
    
-    <section class="pb-12  bg-gray-900 mt-28 container mx-auto " :class="open ? 'blur-sm' : ''" >
-
-      
-     {{-- subcription --}}
-    <div class=" md:pl-44 mb-32 md:-ml-10">
-     <div class="lg:flex justify-center ">
-      <div class="mx-2 sm:mx-0" >
-        <form action="#" class="mx-auto">
-          <label for="newsleter" class=" text-white block mb-3 md:text-left text-center">আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন</label>
-          <div class="flex justify-center md:justify-start ">
-            <div>
-              <input type="text" class=" lg:pr-32 md:pr-24 sm:pr-10 pr-0 rounded-l bg-slate-300 focus:border-transparent focus:right-0" id="newsleter" placeholder="ইমেল অ্যাড্রেস" style="padding-top: 12px; padding-bottom:12px;">
+    <section class=" mt-10 container mx-auto " :class="open ? 'blur-sm' : ''" >
+      <div class="grid grid-cols-12 p-3  sm:mx-28 md:mx-32 lg:mx-72 xl:mx-96 mb-24">
+        <div class="col-span-12 mt-3 ">
+          <form>   
+            <label for="subscribe" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    {{-- <svg aria-hidden="true" class="w-5 h-5 text-gray-500 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                --}}
+               <span class="w-5 h-5 text-gray-500 animate-bounce"><i class="fa-regular fa-bell"></i></span>
+                  </div>
+                <input type="email" id="subscribe" class="block w-full p-4 pl-10 text-sm text-gray-400 border border-gray-700 rounded-lg bg-slate-900  focus:border-1 focus:ring-0 focus:border-gray-700 " placeholder="আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন" required>
+                <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-green-700 focus:outline-none focus:ring-0 font-medium rounded-lg text-sm px-4 py-2 ">সাবস্ক্রাইব</button>
             </div>
-            <div>
-              <div class="bg-green-600 py-4 lg:px-20 md:px-16 sm:px-10 px-2 rounded-r hover:bg-green-700 ">
-                <button type="submit" class=" text-md font-bold text-white">সাবস্ক্রাইব</button>
-              </div>
-            </div>
-          </div>
         </form>
       </div>
-      {{-- create account  --}}
-      <div class=" xl:ml-20  md:ml-16 text-center">
-        <div class=" block mt-12 pt-1 ">
-          <div class=" ">
-            <a href="{{ route('register') }}" class=" bg-transparent font-medium border-2 border-green-600 px-14 sm:px-32  xl:px-32 lg:px-10 md:-ml-40 lg:ml-0  rounded text-white hover:bg-green-700  " style="padding-top: 12px; padding-bottom:12px;">একাউন্ট তৈরি করুন</a>
-          </div>
-        </div>
+
       </div>
-     </div>
-      </div>
+
+
+
+
  {{-- /subcription --}}
       <div>
           <div class="md:flex block md:justify-around 2xl:-ml-5 xl:-ml-10 lg:-ml-16 mx-10 md:mx-0">

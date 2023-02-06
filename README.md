@@ -15,6 +15,9 @@
 -   mobile navigation bottom link
 -   homepage 'code picture' change
 -   desktop version section background remove and make pure white : ??
+-   social auto generate username First Letter uppercase ->done
+-   send website also with credentials after auto register from social account ->done
+-   social login ->done
 
 -   mobile nav z-index bug fix ->done
 -   mobile bottom nav menu height bug -> done
