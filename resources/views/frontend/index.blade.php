@@ -2,7 +2,7 @@
     'slot' => null,
 ])
 @section('content')
-  <div class="bg-gray-900">
+  <div class="homeWrapper">
     <div>
       <div>
         <div class="pt-20 duration-700 lg:pt-32" :class="open ? 'blur-sm' : ''">
@@ -51,7 +51,7 @@
 
     {{-- <div class="bg-gradient-to-b from-white to-gray-900 h-52"></div> --}}
    
-    <section class=" mt-10 bg-gray-900 container mx-auto " :class="open ? 'blur-sm' : ''" >
+    <section class=" mt-10 container mx-auto " :class="open ? 'blur-sm' : ''" >
       <div class="grid grid-cols-12 p-3  sm:mx-28 md:mx-32 lg:mx-72 xl:mx-96 mb-24">
         <div class="col-span-12 mt-3 ">
           <form>   
