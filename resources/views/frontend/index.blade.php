@@ -11,7 +11,7 @@
                   class="bg-gradient-to-r from-red-500 to-green-400 bg-clip-text text-5xl text-transparent md:text-7xl lg:text-8xl">বাংলা</span></h1>
           <h2 class="pb-10 pt-6 text-center font-black text-4xl sm:text-4xl md:text-6xl lg:text-7xl"> 
             <span class="bg-gradient-to-r from-blue-500  via-red-400 to-green-500 bg-clip-text  text-transparent">এবার শিখা হোক বাংলায়</span> </h2>
-          <h3 class="px-5 text-center text-md md:text-xl font-semibold text-green-500">ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট</h3>
+          <h3 class="px-5 text-center text-md md:text-xl font-semibold text-green-500">ফ্রি অনলাইন বাংলা <span id="LaraBanglaType"></span> </h3>
           <div class="mt-14 flex justify-center">
             <div class="m-2"><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="btn-lg rounded-full text-white  bg-green-600  hover:bg-green-700  hover:ring-amber-400 " href="#">লারাভেল ডক</a>
             </div>
@@ -55,14 +55,14 @@
       <div class="grid grid-cols-12 p-3  sm:mx-28 md:mx-32 lg:mx-72 xl:mx-96 mb-24">
         <div class="col-span-12 mt-3 ">
           <form>   
-            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
+            <label for="subscribe" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Search</label>
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                     {{-- <svg aria-hidden="true" class="w-5 h-5 text-gray-500 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 --}}
                <span class="w-5 h-5 text-gray-500 animate-bounce"><i class="fa-regular fa-bell"></i></span>
                   </div>
-                <input type="email" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-400 border border-gray-700 rounded-lg bg-slate-900  focus:border-1 focus:ring-0 focus:border-gray-700 " placeholder="আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন" required>
+                <input type="email" id="subscribe" class="block w-full p-4 pl-10 text-sm text-gray-400 border border-gray-700 rounded-lg bg-slate-900  focus:border-1 focus:ring-0 focus:border-gray-700 " placeholder="আপডেট নিউজ ই-মেইলে পেতে সাবস্ক্রাইব করুন" required>
                 <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-green-700 focus:outline-none focus:ring-0 font-medium rounded-lg text-sm px-4 py-2 ">সাবস্ক্রাইব</button>
             </div>
         </form>

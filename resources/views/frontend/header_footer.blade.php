@@ -667,6 +667,12 @@
   </script>
   <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"></script>
   <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  @if (Request::route()->getName() == '/')
+  {{-- typed js --}}
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  @endif
+  <script src="{{ asset('js/CustomjQuery.js') }}"></script>
   {{-- hotwire turbo ends --}}
   @notifyJs
   {{-- jetstream modals --}}
