@@ -336,11 +336,17 @@
            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90" {{-- if the page is not docs page then hide mobile menu on click outside of mobile menu. --}}
            @if (!Request::route()->getName() == 'docs') @click.away="open=false"
                 @else
+                    {{-- if it is docs page then, if the page size is less than 767 then hide mobile menu on page load --}}
+                    x-if="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                    if (width < 767) {
+                    open = false
+                    }"
                     {{-- if it is docs page then, if the page size is less than 767 then hide mobile menu on click outside of mobile menu --}}
                     @click.away="width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                     if (width < 767) {
                     open = false
-                    }" @endif>
+                    }"
+                     @endif>
         @if (!Request::route()->getName() == 'docs')
           <div class="border-b p-5 text-center text-gray-600">
             <div class="font-bold">
