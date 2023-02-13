@@ -14,7 +14,8 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
 {
     if (Jetstream::hasTermsAndPrivacyPolicyFeature())
     {
-        Route::get('/terms-of-service', [TermsOfServiceController::class, 'show'])->name('terms.show');
+        Route::get('/terms-of-service', [TermsOfServiceController::class, 'Redirectshow'])->name('terms.show.redirect');
+        Route::get('/terms-of-services', [TermsOfServiceController::class, 'show'])->name('terms.show');
         Route::get('/privacy-policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
     }
 

@@ -188,4 +188,7 @@
         @apply: bg-green-400;
         background-color: #dbdbdb;
     }
+    h2{
+        @apply text-lg font-bold text-gray-600
+    }
 }
