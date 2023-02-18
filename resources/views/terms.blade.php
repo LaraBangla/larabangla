@@ -1,9 +1,6 @@
-
-
-
 @extends('frontend.header_footer')
 @section('title')
-লারা বাংলা - পরিষেবার শর্তাবলী
+পরিষেবার শর্তাবলী - লারা বাংলা
 @endsection
 @section('content')
 <section>
@@ -17,5 +14,4 @@
        </div>
     </div>
 </section>
-
 @endsection
