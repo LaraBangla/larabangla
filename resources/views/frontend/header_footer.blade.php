@@ -69,6 +69,9 @@
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEQ21J8TWK"></script>
+  {{-- Adsense --}}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6643057769918459"
+     crossorigin="anonymous"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -130,7 +133,7 @@
      shadow-md" x-data="{ tutorial: false }">
 
       <div class="flex py-1">
-     
+
         <div>
           <a class="pl-5 text-2xl font-bold text-gray-600 " href="{{ route('/') }}">
             {{-- লারা <span class="text-3xl">বাংলা</span> --}}
@@ -150,24 +153,24 @@
             @endif
              px-2  duration-500 md:block lg:px-5"><a class="font-bold" href="{{ route('/') }}"><i
                    class="fa fa-home"></i> বাড়ি</a></li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2 
-            {{ Request::route()->getName() == 'docs'? 'bg-gray-300':'' }} 
-            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }} 
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2
+            {{ Request::route()->getName() == 'docs'? 'bg-gray-300':'' }}
+            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }}
              duration-500 md:block lg:px-5 cursor-pointer" @click="tutorial = ! tutorial"><span
                  class="font-bold" >ডকুমেন্টেশন <i class="fa-solid fa-caret-down"></i></span></li>
-            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2 
-            {{ Request::route()->getName() == 'about.us'? 'bg-gray-300':'' }} 
-            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }} 
+            <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2
+            {{ Request::route()->getName() == 'about.us'? 'bg-gray-300':'' }}
+            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }}
 
              duration-500  md:block lg:px-5"><a class="font-bold"
                  href="{{ route('about.us') }}">সম্পর্কে</a></li>
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2
-            {{ Request::route()->getName() == 'contact'? 'bg-gray-300':'' }} 
-            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }} 
+            {{ Request::route()->getName() == 'contact'? 'bg-gray-300':'' }}
+            {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }}
 
              duration-500  md:block lg:px-5"><a class="font-bold"
                  href="{{ route('contact') }}">যোগাযোগ</a></li>
-  
+
             <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm duration-500 md:block cursor-pointer" x-data="{ doc_search: false }">
               <span class="font-bold p-1" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></span>
         {{-- desktop search body start --}}
@@ -207,7 +210,7 @@
    </div>
    </div>
    {{-- search body end --}}
-  
+
             </li>
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-3 duration-500 md:block cursor-pointer" @click="user = ! user" @click.away="user=false"><a
               class="font-bold"><i class="fa-solid fa-user"></i></a>
@@ -219,7 +222,7 @@
               {{ Request::route()->getName() == '/'? 'hover:bg-slate-900':'hover:bg-slate-100' }}
               "><a href="{{ route('login') }}"><span class="text-gray-500"><i
                 class="fa fa-sign-in mr-2"></i></span>লগিন</a></li>
-  
+
                 <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? 'hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('register') }}"><span class="text-gray-500"><i
                   class="fa-solid fa-user-plus mr-2"></i></span>রেজিস্টার</a></li>
               @else
@@ -229,7 +232,7 @@
                    <!-- Authentication -->
                    <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-  
+
                     <a href="{{ route('logout') }}"
                              @click.prevent="$root.submit();">
                              <span class="text-gray-500"><i class="fa fa-sign-in mr-2"></i> লগ আউট</span>
@@ -237,8 +240,8 @@
                 </form>
               </li>
               @endguest
-  
-  
+
+
              </ul>
            </div>
          </li>
@@ -256,21 +259,21 @@
                   <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('web.design.and.development') }}">
                     <span class="text-gray-500"><i class="fa-brands fa-dev"></i>&nbsp;&nbsp;</span>ওয়েব ডেভেলপমেন্ট</a>
                   </li>
-                 
+
                   <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('apps.development') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-mobile"></i>&nbsp;&nbsp;</span>অ্যাপস ডেভেলপমেন্ট</a>
                   </li>
                   <li class="rounded-sm py-2 px-5 font-baseline {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('software.development') }}">
                     <span class="text-gray-500"><i class="fa-solid fa-desktop"></i>&nbsp;&nbsp;</span>সফটওয়্যার ডেভেলপমেন্ট</a>
                   </li>
-  
+
                   @else
                   <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('profile.show') }}"><span class="text-gray-500"><i
                     class="fa fa-sign-in mr-2"></i></span>একাউন্ট</a></li>
                   <li class="rounded-sm py-2 px-5 font-semibold {{ Request::route()->getName() == '/'? ' hover:bg-slate-900':'hover:bg-slate-100' }}"><a href="{{ route('profile.show') }}"><span class="text-gray-500">
                   <i class="fa-solid fa-gear"></i> </span>সেটিংস</a></li>
                   @endguest
-  
+
                 </ul>
         </div>
             </div>
@@ -281,8 +284,8 @@
         </ul>
         {{-- tutorial menu start --}}
         <div class="absolute z-30 w-screen
-        {{ Request::route()->getName() == '/'? 'bg-slate-800':'bg-slate-100' }} 
-        
+        {{ Request::route()->getName() == '/'? 'bg-slate-800':'bg-slate-100' }}
+
          shadow-xl mt-16" x-show="tutorial" @click.away="tutorial=false">
           <div class="container mx-auto">
             <div class="grid grid-cols-12 gap-6 py-5">
@@ -461,11 +464,11 @@
           </li>
           </ul>
         </div>
-          
+
             {{-- items end floting button--}}
           <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
             class="fixed z-10 bottom-28 right-3 {{ Request::route()->getName() == '/'? ' bg-slate-800':' bg-gray-50' }} w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
-          </button> 
+          </button>
           {{-- floating action button --}}
         </div>
 
