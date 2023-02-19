@@ -34,7 +34,6 @@ Route::controller(ComingSoonController::class)->group(function ()
     Route::get('/question', 'question')->name('question');
     Route::get('/help', 'help')->name('help');
     Route::get('/sitemap', 'sitemap')->name('sitemap');
-    Route::get('/splade', 'splade')->name('splade');
     Route::get('/livewire', 'livewire')->name('livewire');
     Route::get('/community', 'community')->name('community');
     Route::get('/online-course', 'onlineCourse')->name('online.course');
