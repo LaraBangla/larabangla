@@ -39,10 +39,6 @@ class ComingSoonController extends Controller
         return view('frontend.more.coming-soon', ['message' => 'সাইট ম্যাপ']);
     }
 
-    public function splade()
-    {
-        return view('frontend.more.coming-soon', ['message' => 'স্প্লেড']);
-    }
 
     public function livewire()
     {
