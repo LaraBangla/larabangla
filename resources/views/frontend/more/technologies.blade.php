@@ -38,7 +38,7 @@ mt-32  md:py-5
                             @else
                             text-gray-500
                             @endif
-                            ">লারাভেল</p>
+                            ">{{$tech->name}}</p>
                           </div>
                     </div>
                      </a>
