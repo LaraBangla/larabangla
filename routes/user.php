@@ -6,23 +6,16 @@ use App\Http\Controllers\Frontend\Home\HomeController;
 use App\Http\Controllers\Frontend\Contact\ContactController;
 use App\Http\Controllers\Frontend\ComingSoon\ComingSoonController;
 use App\Http\Controllers\SocialLogin\SocialLoginController;
-use App\Mail\DefaultMail;
 
 Route::controller(HomeController::class)->group(function ()
 {
     Route::get('/', 'index')->name('/');
     Route::get('/about', 'about_us')->name('about.us');
     Route::get('/about-us', 'about')->name('about');
+    Route::get('/tutorials', 'tutorials')->name('tutorials');
 });
 
 
-Route::controller(DocController::class)->group(function ()
-{
-    Route::get('/docs/{technology_slug}', 'sendToDocs')->name('send.to.docs');
-    Route::get('/docs/{technology_slug}/{version_slug}', 'sendToDocsVersion')->name('send.to.docs.version');
-
-    Route::get('/docs/{technology_slug}/{version_slug}/{chapter_slug}/{lesson_slug}', 'index')->name('docs');
-});
 
 
 Route::controller(ContactController::class)->group(function ()
@@ -57,12 +50,11 @@ Route::controller(SocialLoginController::class)->group(function ()
     Route::get('auth/{provider}/callback', 'callback')->name('socialLogin.callback');
 });
 
-Route::get('mail', function ()
+// those route should always be at bottom || tutorials routes
+Route::controller(DocController::class)->group(function ()
 {
-    $type = "জরুরী";
-    $subject = "লগিন শংসাপত্র";
-    $body = "আপনার লগিন শংসাপত্র গুলো হলোঃ ইমেইলঃ anowarhosensoft@gmail.com পাসওয়ার্ডঃ *ldsdjsljdlsd*";
-    $link = null;
-    $button_title = null;
-    return new DefaultMail($type, $subject, $body, $link, $button_title);
+    Route::get('/{technology_slug}', 'sendToDocs')->name('send.to.docs');
+    Route::get('/{technology_slug}/{version_slug}', 'sendToDocsVersion')->name('send.to.docs.version');
+    Route::get('/{technology_slug}/{version_slug}/{chapter_slug}/{lesson_slug}', 'index')->name('docs');
 });
+

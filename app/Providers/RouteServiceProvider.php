@@ -45,15 +45,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/jetstream.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/user.php'));
+                ->group(base_path('routes/admin.php'));
 
             Route::middleware('web')
-                ->group(base_path('routes/admin.php'));
+                ->group(base_path('routes/user.php'));
         });
     }
 
 
-    // added for remove /index.php url || that code added manually 
+    // added for remove /index.php url || that code added manually
     protected function removeIndexPHPFromURL()
     {
         if (Str::contains(request()->getRequestUri(), '/index.php/'))
@@ -76,6 +76,7 @@ class RouteServiceProvider extends ServiceProvider
                 exit;
             }
         }
+
     }
 
     /**
