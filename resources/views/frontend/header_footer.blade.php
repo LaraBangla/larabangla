@@ -535,7 +535,7 @@
               @guest
               <a href="{{ route('register') }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
               @else
-              <a href="{{ route('tutorials']) }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">টিউটোরিয়াল &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              <a href="{{ route('tutorials') }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">টিউটোরিয়াল &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
               @endguest
               <a href="{{ route('contact') }}" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -569,7 +569,7 @@
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
             <ul class="pt-2">
               <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
-              <li><a href="{{ route('tutorials']) }}"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
+              <li><a href="{{ route('tutorials') }}"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
               <li><a href="{{ route('community') }}"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
               <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
             </ul>
