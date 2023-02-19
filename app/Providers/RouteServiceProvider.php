@@ -53,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
 
-    // added for remove /index.php url || that code added manually 
+    // added for remove /index.php url || that code added manually
     protected function removeIndexPHPFromURL()
     {
         if (Str::contains(request()->getRequestUri(), '/index.php/'))
@@ -76,6 +76,7 @@ class RouteServiceProvider extends ServiceProvider
                 exit;
             }
         }
+
     }
 
     /**
