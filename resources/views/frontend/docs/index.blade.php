@@ -44,7 +44,7 @@
               {{-- version end for mobile --}}
               {{-- search --}}
               <div class="mb-6 md:hidden">
-                <div class="mx-3 mt-2 rounded-md" @click="mobile_search =! mobile_search">
+                {{-- <div class="mx-3 mt-2 rounded-md" @click="mobile_search =! mobile_search">
                   <div class="flex rounded-md bg-gray-100 py-3 px-3">
                     <div>
                       <span class="pr-4 text-xl font-thin text-gray-500"><i class="fa-solid fa-magnifying-glass"></i></span>
@@ -53,7 +53,7 @@
                       <span class="text-lg text-gray-500">অনুসন্ধান</span>
                     </div>
                   </div>
-                </div>
+                </div> --}}
                 {{-- mobile search body start --}}
                 <div class="fixed top-5 right-0 w-screen duration-200" x-show="mobile_search" @click.away="mobile_search = false"
                      x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"

@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @stack('meta')
 
-  <meta name='keywords' content='@yield('keywords','লারা বাংলা,লারাভেল,বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্টেশন, লারাভেল বাংলা ডকুমেন্ট,লারাভেল ডকুমেন্টেশন, লারাভেল ডকুমেন্ট,ডকুমেন্টেশন,ডকুমেন্ট,ডকুমেনশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,larabangla,laravel,bangla documentation,bengali documentation,bangla document,laravel documentation,laravel document,documentation,document,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,website')'>
-  <meta name='description' content='@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')'>
-  <meta name='subject' content='@yield('title','বাংলা ভাষায় টেকনোলজি ডকুমেন্টেশন ওয়েব সাইট')'>
+  <meta name='keywords' content='@yield('keywords','লারা বাংলা,বাংলা টিউটোরিয়াল,বাংলা টিউটোরিয়াল,বাংলা ডকুমেন্টেশন,ডকুমেন্টেশন,এইচটিএমএল,সিএসএস,জেএস,বুটস্ট্যাপ,টেলউইন্ড সিএসএস,মেটেরিয়াল ডিজাইন,মেটেরেলাইজড ডিজাইন,মেটেরেলাইজড সিএসএস,ওয়েব সাইট,larabangla,bangla tutorial,bengali tutorial,bangla documentation,bengali documentation,html,css,js,bootstrap,meterial design,meterilize design,meterilize css,tailwind css,laravel,website')'>
+  <meta name='description' content='@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় টিউটোরিয়াল প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')'>
+  <meta name='subject' content='@yield('title','বাংলা ভাষায় টেকনোলজি টিউটোরিয়াল ওয়েব সাইট')'>
   <meta name='copyright' content='LaraBangla'>
   <meta name='language' content='BD'>
-  <meta name='topic' content='টেকনোলজি ডকুমেন্টেশন'>
+  <meta name='topic' content='টেকনোলজি টিউটোরিয়াল'>
   <meta name='summary' content='@yield('description','')'>
   <meta name='author' content='LaraBangla, info@larabangla.com'>
   <meta name='designer' content='লারা বাংলা - LaraBangla'>
@@ -19,19 +19,19 @@
   <meta name='url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='identifier-URL' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='pagename' content='@yield('pagename','বাড়ি পেজ,Home Page')'>
-  <meta name='category' content='@yield('category','টেকনোলজি ডকুমেন্টেশন')'>
+  <meta name='category' content='@yield('category','টেকনোলজি টিউটোরিয়াল')'>
   <meta name='coverage' content='Worldwide'>
   <meta name='distribution' content='Global'>
-  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')'>
+  <meta name='subtitle' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা টিউটোরিয়াল ওয়েব সাইট')'>
   <meta name='target' content='all'>
   <meta name='HandheldFriendly' content='True'>
 
-  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')'>
-  <meta name='og:type' content='Documentation,ডকুমেন্টেশন'>
+  <meta name='og:title' content='@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা টিউটোরিয়াল ওয়েব সাইট')'>
+  <meta name='og:type' content='Tutorial,বাংলা টিউটোরিয়াল'>
   <meta name='og:url' content='@yield('that_url','https://www.larabangla.com')'>
   <meta name='og:image' content='@yield('image','www.larabangla.com/img/logo.png')'>
   <meta name='og:site_name' content='লারা বাংলা - LaraBangla'>
-  <meta name='og:description' content='@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')'>
+  <meta name='og:description' content='@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় টিউটোরিয়াল প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')'>
 
   <meta name='fb:page_id' content='100088381790920'>
   <meta name='application-name' content='LaraBangla'>
@@ -44,10 +44,10 @@
   <meta name="twitter:card" content="sumary">
   <meta name="twitter:site" content="@larabangla">
   <meta name="twitter:url" content="@yield('that_url','https://www.larabangla.com')'">
-  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')">
-  <meta name="twitter:description" content="@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')">
+  <meta name="twitter:title" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা টিউটোরিয়াল ওয়েব সাইট')">
+  <meta name="twitter:description" content="@yield('description','বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় টিউটোরিয়াল প্রদানকারী লারা বাংলা-এ স্বাগতম। আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত।')">
   <meta name="twitter:image" content="@yield('image','www.larabangla.com/img/logo.png')'">
-  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')">
+  <meta name="twitter:image:alt" content="@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা টিউটোরিয়াল ওয়েব সাইট')">
 
   <meta itemprop="name" content="লারা বাংলা - LaraBangla">
   <meta itemprop="image" content="@yield('image','www.larabangla.com/img/logo.png')'">
@@ -94,7 +94,7 @@
   @livewireStyles
 
   @stack('style')
-  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা ডকুমেন্টেশন এবং টিউটোরিয়াল ওয়েব সাইট')</title>
+  <title>@yield('title','লারা বাংলা - ফ্রি অনলাইন বাংলা টিউটোরিয়াল ওয়েব সাইট')</title>
 </head>
 
 <body class="bg-gray-50">
@@ -159,7 +159,7 @@
             {{ Request::route()->getName() == 'docs'? 'bg-gray-300':'' }}
             {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }}
              duration-500 md:block lg:px-5 cursor-pointer" @click="tutorial = ! tutorial"><span
-                 class="font-bold" >ডকুমেন্টেশন <i class="fa-solid fa-caret-down"></i></span></li>
+                 class="font-bold" >টিউটোরিয়াল <i class="fa-solid fa-caret-down"></i></span></li>
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-2
             {{ Request::route()->getName() == 'about.us'? 'bg-gray-300':'' }}
             {{ Request::route()->getName() == '/'? 'hover:bg-gray-800':'hover:bg-gray-300' }}
@@ -173,10 +173,11 @@
              duration-500  md:block lg:px-5"><a class="font-bold"
                  href="{{ route('contact') }}">যোগাযোগ</a></li>
 
-            <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm duration-500 md:block cursor-pointer" x-data="{ doc_search: false }">
-              <span class="font-bold p-1" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></span>
+
+            {{-- <li class="mx-1 px-2 hidden pb-1 pt-2 rounded-sm duration-500 md:block cursor-pointer" x-data="{ doc_search: false }">
+              <span class="font-bold p-1" @click="doc_search = ! doc_search"><span class="text-xl"><i class="fa-solid fa-magnifying-glass"></i></span></span> --}}
         {{-- desktop search body start --}}
-      <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-30" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
+      {{-- <div class="fixed top-0  right-0 h-screen w-screen duration-200 z-30" style=" background:rgba(5, 5, 5, 0.685);" x-show="doc_search"
         x-transition:enter="transition ml-2 duration-200" x-transition:enter-start="opacity-0 scale-50"
         x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-100"
         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
@@ -187,33 +188,32 @@
           <div @click="doc_search = false">
             <div class="text-left text-gray-400"><span><i class="fa-solid fa-xmark"></i></span></div>
           </div>
-        </div>
+        </div> --}}
         {{-- search input --}}
-        <div class="flex border-b border-gray-500 pb-1">
+        {{-- <div class="flex border-b border-gray-500 pb-1">
           <div class="mr-3">
             <span class="text-lg text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
           </div>
           <div class=" w-full">
             <input class="bg-gray-900 w-full text-gray-200  border-transparent focus:border-0 focus:ring-0" type="text" placeholder="ডক অনুসন্ধান">
           </div>
-        </div>
+        </div> --}}
         {{-- desktop search instraction --}}
-        <div class="px-5 pt-6 pb-10">
+        {{-- <div class="px-5 pt-6 pb-10">
           <p class="text-sm text-gray-400">
-            ডকুমেন্টেশনে ফলাফল খুঁজে পেতে একটি অনুসন্ধান শব্দ লিখুন।
-          </p>
-        </div>
+            ফলাফল খুঁজে পেতে একটি অনুসন্ধান শব্দ লিখুন। --}}
+          {{-- </p>
+        </div> --}}
         {{-- search footer --}}
-        <div class="border-t border-black pb-2 pt-1 text-right">
+        {{-- <div class="border-t border-black pb-2 pt-1 text-right">
           <span class="text-sm text-gray-400"><span>লারা</span><span class="text-base"> বাংলা</span></span>
         </div>
       </div>
     </div>
    </div>
-   </div>
+   </div> --}}
    {{-- search body end --}}
-
-            </li>
+    {{-- </li> --}}
             <li class="mx-1 hidden pb-1 pt-2 rounded-sm px-3 duration-500 md:block cursor-pointer" @click="user = ! user" @click.away="user=false"><a
               class="font-bold"><i class="fa-solid fa-user"></i></a>
            <div class="absolute right-2 mt-2 rounded border
@@ -356,7 +356,7 @@
             <div class="font-bold">
               <!-- <img class="mx-auto block pt-5" src="src/img/logo.png" alt="" width="70"> -->
               <span class=""><span class="text-2xl">লারা</span>&nbsp;&nbsp;<span class="text-3xl">বাংলা</span></span>
-              <p class="pr-4 text-right text-xs font-normal">এবার শিখা হোক বাংলায়</p>
+              <p class="pr-4 text-right text-xs font-normal">এবার বাংলায় শিখা হোক</p>
             </div>
           </div>
         @endif
@@ -377,7 +377,7 @@
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
                 class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
-                        class="fa-solid fa-book-open-reader mr-4"></i></span>ডকুমেন্টেশন</a></li>
+                        class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
@@ -468,9 +468,9 @@
         </div>
 
             {{-- items end floting button--}}
-          <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
+          {{-- <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
             class="fixed z-10 bottom-28 right-3 {{ Request::route()->getName() == '/'? ' bg-slate-800':' bg-gray-50' }} w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
-          </button>
+          </button> --}}
           {{-- floating action button --}}
         </div>
 
@@ -526,7 +526,7 @@
             <p class=" text-base sm:text-xl font-medium">আজকেই শুরু করা যাক</p>
             <div class="mt-3">
               <span class="text-sm sm:text-base"> <i class="fa-solid fa-check-to-slot"></i> বাংলা ভাষা</span>
-              <span class="text-sm sm:text-base md:ml-3"><i class="fa-solid fa-check-to-slot"></i> ডকুমেন্টেশন</span>
+              <span class="text-sm sm:text-base md:ml-3"><i class="fa-solid fa-check-to-slot"></i> টিউটোরিয়াল</span>
               <span class="text-sm sm:text-base md:ml-3"> <i class="fa-solid fa-check-to-slot"></i> রিসোর্স</span>
             </div>
           </div>
@@ -535,7 +535,7 @@
               @guest
               <a href="{{ route('register') }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ফ্রি রেজিস্টার &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
               @else
-              <a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">ডকুমেন্টেশন &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+              <a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="py-1 sm:py-3 px-1 sm:px-4 md:mr-2 bg-gray-800 sm:bg-slate-700 hover:bg-slate-800 rounded-sm sm:rounded-full">টিউটোরিয়াল &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
               @endguest
               <a href="{{ route('contact') }}" class="py-1 sm:py-3 px-2 sm:px-5 bg-gray-800 sm:bg-slate-700 rounded-sm hover:bg-slate-800 sm:rounded-full  sm:mt-0">যোগাযোগ &nbsp;&nbsp;<i class="fa-solid fa-arrow-right"></i></a>
             </div>
@@ -548,7 +548,7 @@
         <div class="grid grid-cols-12 gap-4 py-5">
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700"><span class="text-2xl font-semibold">লারা </span><span class="text-3xl font-bold">বাংলা</span></h6>
-            <span class=" text-amber-700">ওয়েবসাইট টি নির্মানাধীন রয়েছে</span>
+            {{-- <span class=" text-amber-700">ওয়েবসাইট টি নির্মানাধীন রয়েছে</span> --}}
             <ul class="pt-2">
               <li><a href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;বাড়ি</a></li>
               <li><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;লারাভেল</a></li>
@@ -569,7 +569,7 @@
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">গুরুত্বপূর্ণ লিংকস </span></h6>
             <ul class="pt-2">
               <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;একাউন্ট</a></li>
-              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;ডকুমেন্টেশন</a></li>
+              <li><a href="#"><i class="fa-solid fa-chalkboard-user"></i>&nbsp;&nbsp;টিউটোরিয়াল</a></li>
               <li><a href="{{ route('community') }}"><i class="fa fa-group"></i>&nbsp;&nbsp;কমিউনিটি</a></li>
               <li><a href="{{ route('profile.show') }}"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;সেটিংস</a></li>
             </ul>
@@ -577,7 +577,7 @@
           <div class="col-span-12 md:col-span-3">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">আমাদের সম্পর্কে </span></h6>
             <p class="pt-3">
-              বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় ডকুমেন্টেশন প্রদানকারী "লারা বাংলা"-এ স্বাগতম।
+              বাংলা ভাষায় প্রযুক্তিগত ডকুমেন্টেশনের একটি শীর্ষস্থানীয় টিউটোরিয়াল প্রদানকারী "লারা বাংলা"-এ স্বাগতম।
                আমাদের অভিজ্ঞ প্রযুক্তিগত লেখক এবং সম্পাদকদের দলটি ব্যবহারকারীদের মাতৃভাষা বাংলায় সর্বাধুনিক প্রযুক্তিগুলি বুঝতে এবং ব্যবহার করতে সহায়তা করার জন্য নিবেদিত ।
             </p>
           </div>
@@ -594,11 +594,9 @@
           <div class="col-span-12 md:col-span-3 md:pt-8">
             <h6 class="border-b border-gray-700 pb-1"><span class="text-2xl">আইনি </span></h6>
             <ul class="pt-2">
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;গোপনীয়তা নীতি</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;শর্তাবলী</a></li>
-              <li><a href="#"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;ব্যবহারের শর্তাবলী</a></li>
-              <li><a href="#"><i class="fa-solid fa-copyright"></i>&nbsp;&nbsp;কপিরাইট</a></li>
-
+              <li><a href="{{route('policy.show')}}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;গোপনীয়তা নীতি</a></li>
+              <li><a href="{{route('terms.show')}}"><i class="fa-regular fa-snowflake"></i>&nbsp;&nbsp;পরিষেবার শর্তাবলী</a></li>
+              {{-- <li><a href="#"><i class="fa-solid fa-copyright"></i>&nbsp;&nbsp;কপিরাইট</a></li> --}}
             </ul>
           </div>
 
