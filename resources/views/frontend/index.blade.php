@@ -26,30 +26,8 @@
     </div>
 
     <!-- home content section -->
-    {{-- <section class="mt-20 mb-20 duration-700 md:mb-0 md:px-10 lg:px-6" :class="open ? 'blur-sm' : ''">
-      <div class="grid grid-cols-12 gap-3 p-3 md:gap-10">
 
-        @for ($i = 1; $i <= 8; $i++)
-          <div class="col-span-6 mt-3 md:col-span-6 md:mt-0 lg:col-span-3">
-            <a href="#">
-              <div class="block bg-gray-300 shadow-xl duration-300 hover:shadow-2xl md:flex md:border-l-8 md:border-stone-500">
-                <div class="h-32 md:h-40">
-                  <img class="h-32 w-full pr-0 md:h-40 md:pr-5" src="{{ asset('assets/img/laravel.png') }}" alt="Technology">
-
-                </div>
-                <div class="pt-4">
-                  <h5 class="pl-2 text-2xl font-black md:pl-0">লারাভেল</h5>
-                  <div class="text-md mt-2 pb-3 pl-2 font-medium md:mt-4 md:pb-0 md:pl-0 md:text-2xl md:font-medium">
-                    <p>লারাভেল পিএইচপি ফ্রেমওয়ার্ক</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        @endfor
-
-      </div>
-    </section> --}}
+    {{-- @include('frontend.more.technologies') --}}
 
     {{-- <div class="bg-gradient-to-b from-white to-gray-900 h-52"></div> --}}
 

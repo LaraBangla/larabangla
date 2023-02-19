@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Frontend\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 class HomeController extends Controller
@@ -32,5 +31,10 @@ class HomeController extends Controller
     public function about()
     {
         return to_route('about.us');
+    }
+
+    public function tutorials()
+    {
+        return view('frontend.tutorials.tutorials');
     }
 }

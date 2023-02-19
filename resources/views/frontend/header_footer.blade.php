@@ -376,7 +376,7 @@
               <li class="pt-3 pl-1 text-base font-semibold text-gray-400 mb-3 border-b border-b-slate-600"><a href="{{ route('/') }}"><img class="" src="{{ asset('img/logo.png') }}" alt="LaraBangla Logo" width="45"><span class=" text-gray-500 text-sm">লারা বাংলা</span></a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('/') }}"><span class="text-xl"><i
                 class="fa fa-home mr-4"></i></span>বাড়ি</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
+              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('tutorials') }}"><span class="text-xl"><i
                         class="fa-solid fa-book-open-reader mr-4"></i></span>টিউটোরিয়াল</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="#"><span class="text-xl"><i
                         class="fa-solid fa-fan mr-4"></i></span>সার্ভিস</a></li>

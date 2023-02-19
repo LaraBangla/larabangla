@@ -12,6 +12,7 @@ Route::controller(HomeController::class)->group(function ()
     Route::get('/', 'index')->name('/');
     Route::get('/about', 'about_us')->name('about.us');
     Route::get('/about-us', 'about')->name('about');
+    Route::get('/tutorials', 'tutorials')->name('tutorials');
 });
 
 
