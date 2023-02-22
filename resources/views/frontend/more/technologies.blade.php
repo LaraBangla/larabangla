@@ -48,20 +48,3 @@ mt-32  md:py-5
         </div>
       </div>
 </div>
-
-
-{{-- @if (Request::route()->getName() == '/')
-mt-32  md:py-5
-@endif
-">
-    <div>
-        <div class="text-center pt-0 md:pt-10 pb-8 md:pb-20 ">
-            <span class=" text-2xl font-bold border-b-2
-
-            @if (Request::route()->getName() == '/')
-            text-green-600 border-b border-green-400
-            @else
-            text-gray-600 border-b border-gray-400
-           @endif
-            ">টিউটোরিয়াল  সমূহ</span>
-        </div> --}}
