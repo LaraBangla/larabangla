@@ -4,21 +4,22 @@
 
 ## **For upload to server**
 
--   privacy policy content
--   terms conditions content
--   search option disable for a short time
--   docs top menu click to the right section : ?
+
+-   homepage 'code picture' change 
 -   instagram account and link to social link
 -   actual floating button
 -   homepage navigation active color, homepage sidebar social link color
--   logo height decrease
--   mobile navigation bottom link
--   homepage 'code picture' change
--   desktop version section background remove and make pure white : ??
+
+-   mobile navigation bottom link -> done
+-   privacy policy content -> done
+-   terms conditions content -> done
+-   search option disable for a short time -> done
+-   docs top menu click to the right section -> done
+-   logo height decrease -> done
+-   desktop version section background remove and make pure white -> done
 -   social auto generate username First Letter uppercase ->done
 -   send website also with credentials after auto register from social account ->done
 -   social login ->done
-
 -   mobile nav z-index bug fix ->done
 -   mobile bottom nav menu height bug -> done
 -   technology keyword update problem | live ->done

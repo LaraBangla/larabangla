@@ -5,7 +5,7 @@
   <div class="homeWrapper">
     <div>
       <div>
-        <div class="pt-20 duration-700 lg:pt-32" :class="open ? 'blur-sm' : ''">
+        <div class="pt-20 duration-700 lg:pt-32">
           <h1 class="text-center text-4xl font-black md:text-6xl lg:text-7xl"><span
                   class="bg-gradient-to-r from-blue-500 to-amber-400 bg-clip-text text-transparent">লারা</span> <span
                   class="bg-gradient-to-r from-red-500 to-green-400 bg-clip-text text-5xl text-transparent md:text-7xl lg:text-8xl">বাংলা</span></h1>
@@ -15,10 +15,12 @@
              {{-- <span id="LaraBanglaType"></span> --}}
              </h3>
           <div class="mt-14 flex justify-center">
-            <div class="m-2"><a href="{{ route('send.to.docs',['technology_slug'=>'laravel']) }}" class="btn-lg rounded-full text-white  bg-green-600  hover:bg-green-700  hover:ring-amber-400 " href="#">লারাভেল ডক</a>
+            <div class="m-2"><a href="{{route('tutorials')}}" class="btn-lg rounded-full text-white  bg-green-600  hover:bg-green-700  hover:ring-amber-400 ">টিউটোরিয়াল</a>
             </div>
-            <div class="m-2"><a class="btn-lg rounded-full bg-green-600 px-14 sm:px-16 text-white hover:bg-green-700 hover:ring-amber-400 "
-                 href="#">ব্লগ</a></div>
+            <div class="m-2">
+                <a class="btn-lg rounded-full bg-green-600 px-14 sm:px-16 text-white hover:bg-green-700 hover:ring-amber-400 "
+                href="{{route('blog')}}">ব্লগ</a>
+            </div>
 
           </div>
         </div>
@@ -31,7 +33,7 @@
 
     {{-- <div class="bg-gradient-to-b from-white to-gray-900 h-52"></div> --}}
 
-    <section class=" mt-10 container mx-auto " :class="open ? 'blur-sm' : ''" >
+    <section class=" mt-10 container mx-auto " >
         {{-- newsletter --}}
       {{-- <div class="grid grid-cols-12 p-3  sm:mx-28 md:mx-32 lg:mx-72 xl:mx-96 mb-24 mt-14 md:mt-24">
         <div class="col-span-12 mt-3 ">

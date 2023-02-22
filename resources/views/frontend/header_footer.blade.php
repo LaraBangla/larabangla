@@ -234,7 +234,6 @@
                    <!-- Authentication -->
                    <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-
                     <a href="{{ route('logout') }}"
                              @click.prevent="$root.submit();">
                              <span class="text-gray-500"><i class="fa fa-sign-in mr-2"></i> লগ আউট</span>
@@ -242,8 +241,6 @@
                 </form>
               </li>
               @endguest
-
-
              </ul>
            </div>
          </li>
@@ -386,8 +383,18 @@
                         class="fa fa-info-circle mr-4"></i></span>সম্পর্কে</a></li>
               <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('contact') }}"><span class="text-x"><i
                         class="fa-solid fa-address-book mr-4"></i></span>যোগাযোগ</a></li>
-              <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('login') }}"> <span class="text-xl"><i
-                        class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
+                @guest
+                <li class="py-3 pl-3 text-base font-semibold text-gray-400"><a href="{{ route('login') }}"> <span class="text-xl"><i
+                    class="fa fa-sign-in mr-4"></i></span>লগিন</a></li>
+                @else
+                <li class="py-3 pl-3 text-base font-semibold text-gray-400">
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+                        <a href="{{ route('logout') }}" @click.prevent="$root.submit();"> <span class="text-xl"><i
+                        class="fa fa-sign-in mr-4"></i></span>লগ আউট</a>
+                </form>
+                </li>
+                @endguest
             @endif
 
           </ul>
@@ -468,7 +475,7 @@
         </div>
 
             {{-- items end floting button--}}
-          {{-- <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif
+          {{-- <button title="অন্যান্য" @click.outside="expanded =false" @click="expanded  = !expanded"
             class="fixed z-10 bottom-28 right-3 {{ Request::route()->getName() == '/'? ' bg-slate-800':' bg-gray-50' }} w-16 md:w-20 h-16 md:h-20 rounded-full drop-shadow-md flex  justify-center items-center text-gray-500 text-xl hover:drop-shadow-2xl  transition ease-in duration-200 focus:outline-none"> <span class="text-center"><i class="fa-solid fa-plus "></i></span>
           </button> --}}
           {{-- floating action button --}}
@@ -476,10 +483,9 @@
 
 
   {{-- mobile bottom nav --}}
-  <div class="fixed bottom-0 w-screen rounded-t-lg border-t {{ Request::route()->getName() == '/'? ' border-gray-500 bg-slate-800':' border-gray-300 bg-slate-100' }} duration-300 md:hidden pt-1 z-10"
-       @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
+  <div class="fixed bottom-0 w-screen rounded-t-lg border-t {{ Request::route()->getName() == '/'? ' border-gray-500 bg-slate-800':' border-gray-300 bg-slate-100' }} duration-300 md:hidden pt-1 z-10">
     <ul class="flex justify-around text-center py-3">
-      <li class="px-4  font-bold text-gray-600"><a href="#">
+      <li class="px-4  font-bold text-gray-600"><a href="{{route('tutorials')}}">
         <span class="text-xl"><i class="fa-solid fa-book mr-2"></i></span>
         @if (Request::route()->getName() == 'docs')
         <p class=" border-b-4 border-gray-400 rounded -ml-1"></p>
@@ -496,7 +502,13 @@
 
       </li>
       <!-- <li class="px-4  font-bold text-gray-600"></li> -->
-      <li class="px-4  font-bold text-gray-600 "><a href="#"><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
+      <li class="px-4  font-bold text-gray-600 "><a
+        @guest
+            href="{{ route('login') }}"
+        @else
+            href="{{ route('profile.show') }}"
+        @endguest
+        ><span class="text-xl"><i class="fa-solid fa-user mr-2"></i></span>
         @if (Request::route()->getName() == 'profile')
         <p class=" border-b-4 border-gray-400 rounded -ml-1"></p>
          @endif
@@ -512,7 +524,7 @@
   </div>
 
   <!-- footer start -->
-  <footer class="duration-700" @if (!Request::route()->getName() == 'docs') :class="open ? 'blur-sm' : ''" @endif>
+  <footer class="duration-700">
     <!-- footer top and middle -->
     <div class="bg_footer_2 pt-20 leading-7
     @if (Request::route()->getName() != '/')
