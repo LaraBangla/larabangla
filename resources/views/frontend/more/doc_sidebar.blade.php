@@ -8,7 +8,7 @@ if (width > 767) {
 >
   <div class="pt-3 pl-1 text-base font-semibold text-gray-600 mb-3 border-b"
   x-show="doc_side_logo"
-{{-- on window resize, if screen width is bigger than 767px then hide doc sidebar logo, else show doc sidebar logo --}} 
+{{-- on window resize, if screen width is bigger than 767px then hide doc sidebar logo, else show doc sidebar logo --}}
 @resize.window="resize_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 if (resize_width > 767) {
   doc_side_logo = false

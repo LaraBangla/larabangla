@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Admin\Chapters;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Crypt;
 use App\Models\Frontend\Technology\Chapter;
-use App\Models\Frontend\Technology\Lesson;
 use App\Models\Frontend\Technology\Version;
 
 class ChapterController extends Controller
@@ -75,23 +73,23 @@ class ChapterController extends Controller
             else
             {
                 // if not available then
-                $slug_with_tech_name = $req_slug . '-' . strtolower($version->technology->name);
+                $slug_with_tech_slug = $req_slug . '-' . strtolower($version->technology->slug);
                 // check into database that, is req_slug available?
-                $check_slug = Chapter::withTrashed()->where('slug', $slug_with_tech_name)->first();
+                $check_slug = Chapter::withTrashed()->where('slug', $slug_with_tech_slug)->first();
                 if (!isset($check_slug) && $check_slug == null)
                 {
-                    $slug = $slug_with_tech_name;
+                    $slug = $slug_with_tech_slug;
                 }
                 else
                 {
 
                     // if not available then make slug with req_slug-technology name and version name
-                    $slug_with_version_name = $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name);
+                    $slug_with_version_slug = $req_slug . '-' . strtolower($version->technology->slug) . '-' . strtolower($version->slug);
                     // check into database that, is slug available?
-                    $check_slug = Chapter::withTrashed()->where('slug', $slug_with_version_name)->first();
+                    $check_slug = Chapter::withTrashed()->where('slug', $slug_with_version_slug)->first();
                     if (!isset($check_slug) && $check_slug == null)
                     {
-                        $slug = $slug_with_version_name;
+                        $slug = $slug_with_version_slug;
                     }
                     else
                     {
@@ -99,7 +97,7 @@ class ChapterController extends Controller
                         $number = 1;
                         while (!empty($check_slug))
                         {
-                            $generate_slug =  $req_slug . '-' . strtolower($version->technology->name) . '-' . strtolower($version->name) . '-' . $number;
+                            $generate_slug =  $req_slug . '-' . strtolower($version->technology->slug) . '-' . strtolower($version->slug) . '-' . $number;
                             $check_slug = Chapter::withTrashed()->where('slug', $generate_slug)->first();
                             $number++;
                         }
@@ -222,16 +220,16 @@ class ChapterController extends Controller
                 }
                 else
                 {
-                    $is_already_slug = Str::of($find->slug)->endsWith(strtolower($find->technology->name));
+                    $is_already_slug = Str::of($find->slug)->endsWith(strtolower($find->technology->slug));
                     if ($is_already_slug != true)
                     {
                         // if not available then
-                        $slug_with_tech_name = $slug . '-' . strtolower($find->technology->name);
+                        $slug_with_tech_slug = $slug . '-' . strtolower($find->technology->slug);
                         // check into database that, is slug available?
-                        $check_slug = Chapter::withTrashed()->where('id', '!=', $find->id)->where('slug', $slug_with_tech_name)->first();
+                        $check_slug = Chapter::withTrashed()->where('id', '!=', $find->id)->where('slug', $slug_with_tech_slug)->first();
                         if (!isset($check_slug) && $check_slug == null)
                         {
-                            $slug = $slug_with_tech_name;
+                            $slug = $slug_with_tech_slug;
                         }
                         else
                         {
